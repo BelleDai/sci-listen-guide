@@ -8,6 +8,44 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
+    /* Adventure Kids Theme */
+    --background: 222 40% 8%;
+    --foreground: 45 90% 96%;
+
+    --card: 222 35% 14%;
+    --card-foreground: 45 90% 96%;
+
+    --popover: 222 35% 14%;
+    --popover-foreground: 45 90% 96%;
+
+    --primary: 25 100% 58%;          /* vibrant orange */
+    --primary-foreground: 222 50% 10%;
+
+    --secondary: 48 100% 58%;        /* bright yellow */
+    --secondary-foreground: 222 50% 10%;
+
+    --accent: 174 90% 55%;           /* neon cyan */
+    --accent-foreground: 222 50% 10%;
+
+    --muted: 222 25% 22%;
+    --muted-foreground: 220 15% 75%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 222 30% 25%;
+    --input: 222 30% 22%;
+    --ring: 25 100% 58%;
+
+    --radius: 1.25rem;
+
+    --shadow-glow: 0 10px 40px -10px hsl(25 100% 58% / 0.5);
+    --shadow-card: 0 8px 30px -8px hsl(222 80% 4% / 0.6);
+    --gradient-primary: linear-gradient(135deg, hsl(25 100% 58%), hsl(48 100% 58%));
+    --gradient-accent: linear-gradient(135deg, hsl(174 90% 55%), hsl(195 90% 60%));
+  }
+
+  ._unused_old {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
