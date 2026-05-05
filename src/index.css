@@ -8,6 +8,44 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
+    /* Adventure Kids Theme */
+    --background: 222 40% 8%;
+    --foreground: 45 90% 96%;
+
+    --card: 222 35% 14%;
+    --card-foreground: 45 90% 96%;
+
+    --popover: 222 35% 14%;
+    --popover-foreground: 45 90% 96%;
+
+    --primary: 25 100% 58%;          /* vibrant orange */
+    --primary-foreground: 222 50% 10%;
+
+    --secondary: 48 100% 58%;        /* bright yellow */
+    --secondary-foreground: 222 50% 10%;
+
+    --accent: 174 90% 55%;           /* neon cyan */
+    --accent-foreground: 222 50% 10%;
+
+    --muted: 222 25% 22%;
+    --muted-foreground: 220 15% 75%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 222 30% 25%;
+    --input: 222 30% 22%;
+    --ring: 25 100% 58%;
+
+    --radius: 1.25rem;
+
+    --shadow-glow: 0 10px 40px -10px hsl(25 100% 58% / 0.5);
+    --shadow-card: 0 8px 30px -8px hsl(222 80% 4% / 0.6);
+    --gradient-primary: linear-gradient(135deg, hsl(25 100% 58%), hsl(48 100% 58%));
+    --gradient-accent: linear-gradient(135deg, hsl(174 90% 55%), hsl(195 90% 60%));
+  }
+
+  ._unused_old {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
@@ -99,7 +137,28 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground;
+  html, body, #root {
+    min-height: 100%;
   }
+  body {
+    @apply text-foreground;
+    font-family: 'Nunito', 'Quicksand', 'PingFang TC', 'Microsoft JhengHei', system-ui, -apple-system, sans-serif;
+    background: radial-gradient(circle at top, #1d2740, #0b101c 60%);
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  .text-stroke-dark {
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  }
+  .glass-card {
+    background: linear-gradient(135deg, hsl(222 35% 18% / 0.85), hsl(222 35% 12% / 0.85));
+    backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--border));
+  }
+  .markdown-body p { @apply mb-3 leading-relaxed; }
+  .markdown-body ol { @apply list-decimal pl-6 space-y-2; }
+  .markdown-body ul { @apply list-disc pl-6 space-y-2; }
+  .markdown-body strong { @apply text-secondary; }
 }
