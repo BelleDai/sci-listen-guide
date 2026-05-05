@@ -137,7 +137,28 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground;
+  html, body, #root {
+    min-height: 100%;
   }
+  body {
+    @apply text-foreground;
+    font-family: 'Nunito', 'Quicksand', 'PingFang TC', 'Microsoft JhengHei', system-ui, -apple-system, sans-serif;
+    background: radial-gradient(circle at top, #1d2740, #0b101c 60%);
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  .text-stroke-dark {
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  }
+  .glass-card {
+    background: linear-gradient(135deg, hsl(222 35% 18% / 0.85), hsl(222 35% 12% / 0.85));
+    backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--border));
+  }
+  .markdown-body p { @apply mb-3 leading-relaxed; }
+  .markdown-body ol { @apply list-decimal pl-6 space-y-2; }
+  .markdown-body ul { @apply list-disc pl-6 space-y-2; }
+  .markdown-body strong { @apply text-secondary; }
 }
