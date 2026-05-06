@@ -8,27 +8,27 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Adventure Kids Theme */
+    /* Playful Kids Palette */
     --background: 222 40% 8%;
-    --foreground: 45 90% 96%;
+    --foreground: 0 0% 100%;            /* white body text */
 
-    --card: 222 35% 14%;
-    --card-foreground: 45 90% 96%;
+    --card: 248 21% 24%;                /* #34314c deep purple */
+    --card-foreground: 0 0% 100%;
 
-    --popover: 222 35% 14%;
-    --popover-foreground: 45 90% 96%;
+    --popover: 248 21% 24%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 25 100% 58%;          /* vibrant orange */
-    --primary-foreground: 222 50% 10%;
+    --primary: 1 100% 73%;              /* #ff7473 coral pink */
+    --primary-foreground: 248 21% 18%;
 
-    --secondary: 48 100% 58%;        /* bright yellow */
-    --secondary-foreground: 222 50% 10%;
+    --secondary: 42 100% 66%;           /* #ffc952 warm yellow */
+    --secondary-foreground: 248 21% 18%;
 
-    --accent: 174 90% 55%;           /* neon cyan */
-    --accent-foreground: 222 50% 10%;
+    --accent: 198 71% 58%;              /* #47b8e0 sky blue */
+    --accent-foreground: 248 21% 18%;
 
-    --muted: 222 25% 22%;
-    --muted-foreground: 220 15% 75%;
+    --muted: 248 18% 30%;
+    --muted-foreground: 220 15% 82%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
@@ -39,10 +39,10 @@ All colors MUST be HSL.
 
     --radius: 1.25rem;
 
-    --shadow-glow: 0 10px 40px -10px hsl(25 100% 58% / 0.5);
+    --shadow-glow: 0 10px 40px -10px hsl(1 100% 73% / 0.55);
     --shadow-card: 0 8px 30px -8px hsl(222 80% 4% / 0.6);
-    --gradient-primary: linear-gradient(135deg, hsl(25 100% 58%), hsl(48 100% 58%));
-    --gradient-accent: linear-gradient(135deg, hsl(174 90% 55%), hsl(195 90% 60%));
+    --gradient-primary: linear-gradient(135deg, hsl(1 100% 73%), hsl(42 100% 66%));
+    --gradient-accent: linear-gradient(135deg, hsl(198 71% 58%), hsl(174 70% 55%));
   }
 
   ._unused_old {
@@ -153,10 +153,11 @@ All colors MUST be HSL.
     text-shadow: 0 2px 8px rgba(0,0,0,0.5);
   }
   .glass-card {
-    background: linear-gradient(135deg, hsl(222 35% 18% / 0.85), hsl(222 35% 12% / 0.85));
+    background: linear-gradient(135deg, hsl(248 21% 28% / 0.9), hsl(248 21% 18% / 0.9));
     backdrop-filter: blur(10px);
     border: 1px solid hsl(var(--border));
   }
+  .markdown-body { @apply text-base sm:text-lg; }
   .markdown-body p { @apply mb-3 leading-relaxed; }
   .markdown-body ol { @apply list-decimal pl-6 space-y-2; }
   .markdown-body ul { @apply list-disc pl-6 space-y-2; }
