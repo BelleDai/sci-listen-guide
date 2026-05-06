@@ -206,6 +206,7 @@ const Index = () => {
           <Collapsible
             label="親子洞見參考"
             speakingActive={speakingId === "fam-ans"}
+            onStop={stop}
             onToggle={(o) => {
               if (o) speak(family.reference_answer, "fam-ans");
               else stop();
