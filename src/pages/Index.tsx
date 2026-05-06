@@ -137,7 +137,7 @@ const Index = () => {
             </div>
           </Collapsible>
 
-          <NextButton label="我學會了！" onClick={() => goNext(3)} />
+          <NextButton label="我學會了！" onClick={() => goNext(3)} done={step >= 3} />
         </SectionShell>
 
         {/* Section 3 - Key Takeaways */}
