@@ -1,21 +1,33 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, ReactNode } from "react";
 import { ChevronDown } from "lucide-react";
+import SpeakingIndicator from "./SpeakingIndicator";
 
 interface Props {
   label: string;
   children: ReactNode;
+  onToggle?: (open: boolean) => void;
+  speakingActive?: boolean;
 }
 
-const Collapsible = ({ label, children }: Props) => {
+const Collapsible = ({ label, children, onToggle, speakingActive }: Props) => {
   const [open, setOpen] = useState(false);
   return (
     <div className="rounded-2xl overflow-hidden border border-accent/40 bg-card/70">
       <button
-        onClick={() => setOpen((o) => !o)}
+        onClick={() => {
+          setOpen((o) => {
+            const next = !o;
+            onToggle?.(next);
+            return next;
+          });
+        }}
         className="w-full flex items-center justify-between px-5 py-4 font-bold text-accent hover:bg-accent/10 transition-colors"
       >
-        <span>🔍 {label}</span>
+        <span className="flex items-center gap-2">
+          🔍 {label}
+          <SpeakingIndicator active={!!speakingActive} />
+        </span>
         <motion.span animate={{ rotate: open ? 180 : 0 }}>
           <ChevronDown className="w-5 h-5" />
         </motion.span>
