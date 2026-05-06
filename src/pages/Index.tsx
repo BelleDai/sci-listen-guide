@@ -179,7 +179,7 @@ const Index = () => {
             })}
           </div>
 
-          <NextButton label="探索下一步！" onClick={() => goNext(4)} />
+          <NextButton label="探索下一步！" onClick={() => goNext(4)} done={step >= 4} />
         </SectionShell>
 
         {/* Section 4 - Family Discussion */}
