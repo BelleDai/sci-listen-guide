@@ -100,7 +100,7 @@ const Index = () => {
               </div>
             </div>
 
-            <NextButton label="探索下一步！" onClick={() => goNext(2)} />
+            <NextButton label="探索下一步！" onClick={() => goNext(2)} done={step >= 2} />
           </div>
         </SectionShell>
 
