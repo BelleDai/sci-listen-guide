@@ -11,7 +11,7 @@ interface Props {
 
 const GlossaryCard = ({ term, explanation }: Props) => {
   const [open, setOpen] = useState(false);
-  const { speak, speakingId } = useTTS();
+  const { speak, stop, speakingId } = useTTS();
   const id = `glossary-${term}`;
   const isSpeaking = speakingId === id;
 
@@ -19,8 +19,12 @@ const GlossaryCard = ({ term, explanation }: Props) => {
     <motion.button
       layout
       onClick={() => {
-        setOpen((o) => !o);
-        speak(`${term}。${explanation}`, id);
+        setOpen((o) => {
+          const next = !o;
+          if (next) speak(`${term}。${explanation}`, id);
+          else stop();
+          return next;
+        });
       }}
       whileTap={{ scale: 0.97 }}
       className={`text-left w-full glass-card rounded-2xl p-4 sm:p-5 transition-all ${

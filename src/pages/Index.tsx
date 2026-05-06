@@ -100,7 +100,7 @@ const Index = () => {
               </div>
             </div>
 
-            <NextButton label="探索下一步！" onClick={() => goNext(2)} />
+            <NextButton label="探索下一步！" onClick={() => goNext(2)} done={step >= 2} />
           </div>
         </SectionShell>
 
@@ -127,6 +127,7 @@ const Index = () => {
           <Collapsible
             label="看看博士怎麼說"
             speakingActive={speakingId === "audio-ans"}
+            onStop={stop}
             onToggle={(o) => {
               if (o) speak(audio.reference_answer, "audio-ans");
               else stop();
@@ -137,7 +138,7 @@ const Index = () => {
             </div>
           </Collapsible>
 
-          <NextButton label="我學會了！" onClick={() => goNext(3)} />
+          <NextButton label="我學會了！" onClick={() => goNext(3)} done={step >= 3} />
         </SectionShell>
 
         {/* Section 3 - Key Takeaways */}
@@ -179,7 +180,7 @@ const Index = () => {
             })}
           </div>
 
-          <NextButton label="探索下一步！" onClick={() => goNext(4)} />
+          <NextButton label="探索下一步！" onClick={() => goNext(4)} done={step >= 4} />
         </SectionShell>
 
         {/* Section 4 - Family Discussion */}
@@ -205,6 +206,7 @@ const Index = () => {
           <Collapsible
             label="親子洞見參考"
             speakingActive={speakingId === "fam-ans"}
+            onStop={stop}
             onToggle={(o) => {
               if (o) speak(family.reference_answer, "fam-ans");
               else stop();
