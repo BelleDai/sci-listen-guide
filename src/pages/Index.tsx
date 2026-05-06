@@ -127,6 +127,7 @@ const Index = () => {
           <Collapsible
             label="看看博士怎麼說"
             speakingActive={speakingId === "audio-ans"}
+            onStop={stop}
             onToggle={(o) => {
               if (o) speak(audio.reference_answer, "audio-ans");
               else stop();
