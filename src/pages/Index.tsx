@@ -1,14 +1,17 @@
 import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import ReactMarkdown from "react-markdown";
-import { Play, Pause, BookOpen, Brain, Lightbulb, Users, Volume2 } from "lucide-react";
+import { Play, Pause, BookOpen, Brain, Lightbulb, Users, Volume2, Sparkles } from "lucide-react";
 import { episodeData } from "@/data/episode";
 import SectionShell from "@/components/episode/SectionShell";
 import NextButton from "@/components/episode/NextButton";
 import GlossaryCard from "@/components/episode/GlossaryCard";
 import Collapsible from "@/components/episode/Collapsible";
 import Header from "@/components/episode/Header";
+import Footer from "@/components/episode/Footer";
 import SpeakingIndicator from "@/components/episode/SpeakingIndicator";
+import AnswerList from "@/components/episode/AnswerList";
+import EndingCeremony from "@/components/episode/EndingCeremony";
 import { useTTS } from "@/hooks/useTTS";
 
 const TOTAL = 4;
