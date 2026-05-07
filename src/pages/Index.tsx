@@ -1,14 +1,17 @@
 import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import ReactMarkdown from "react-markdown";
-import { Play, Pause, BookOpen, Brain, Lightbulb, Users, Volume2 } from "lucide-react";
+
+import { Play, Pause, BookOpen, Brain, Lightbulb, Users, Volume2, Sparkles } from "lucide-react";
 import { episodeData } from "@/data/episode";
 import SectionShell from "@/components/episode/SectionShell";
 import NextButton from "@/components/episode/NextButton";
 import GlossaryCard from "@/components/episode/GlossaryCard";
 import Collapsible from "@/components/episode/Collapsible";
 import Header from "@/components/episode/Header";
+import Footer from "@/components/episode/Footer";
 import SpeakingIndicator from "@/components/episode/SpeakingIndicator";
+import AnswerList from "@/components/episode/AnswerList";
+import EndingCeremony from "@/components/episode/EndingCeremony";
 import { useTTS } from "@/hooks/useTTS";
 
 const TOTAL = 4;
@@ -16,6 +19,7 @@ const TOTAL = 4;
 const Index = () => {
   const [step, setStep] = useState(1);
   const [playing, setPlaying] = useState(false);
+  const [celebrate, setCelebrate] = useState(false);
   const { speak, stop, speakingId } = useTTS();
 
   const refs = [
@@ -124,18 +128,8 @@ const Index = () => {
             <p className="leading-relaxed text-base sm:text-lg text-white">{audio.description}</p>
           </button>
 
-          <Collapsible
-            label="看看博士怎麼說"
-            speakingActive={speakingId === "audio-ans"}
-            onStop={stop}
-            onToggle={(o) => {
-              if (o) speak(audio.reference_answer, "audio-ans");
-              else stop();
-            }}
-          >
-            <div className="markdown-body text-white/95">
-              <ReactMarkdown>{audio.reference_answer}</ReactMarkdown>
-            </div>
+          <Collapsible label="聽聽科學隊長怎麼說">
+            <AnswerList idPrefix="audio-ans" text={audio.reference_answer} />
           </Collapsible>
 
           <NextButton label="我學會了！" onClick={() => goNext(3)} done={step >= 3} />
@@ -203,26 +197,30 @@ const Index = () => {
             <p className="leading-relaxed text-base sm:text-lg text-white">{family.description}</p>
           </button>
 
-          <Collapsible
-            label="親子洞見參考"
-            speakingActive={speakingId === "fam-ans"}
-            onStop={stop}
-            onToggle={(o) => {
-              if (o) speak(family.reference_answer, "fam-ans");
-              else stop();
-            }}
-          >
-            <div className="markdown-body text-white/95">
-              <ReactMarkdown>{family.reference_answer}</ReactMarkdown>
-            </div>
+          <Collapsible label="聽聽科學隊長怎麼說">
+            <AnswerList idPrefix="fam-ans" text={family.reference_answer} />
           </Collapsible>
 
-          <div className="text-center mt-12 pb-8">
-            <div className="text-5xl mb-3">🦅✨</div>
-            <p className="text-secondary font-extrabold text-lg">恭喜你完成今天的科普探險！</p>
-            <p className="text-muted-foreground text-sm mt-1">明天再一起認識新的動物吧！</p>
+          <div className="flex justify-center mt-10">
+            <motion.button
+              onClick={() => setCelebrate(true)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center gap-2 px-7 py-4 rounded-full font-extrabold text-base sm:text-lg text-primary-foreground shadow-[var(--shadow-glow)] bg-[image:var(--gradient-primary)]"
+            >
+              <Sparkles className="w-5 h-5" />
+              我是小小科學家，任務達成！
+            </motion.button>
+          </div>
+
+          <div className="text-center mt-10 pb-2">
+            <p className="text-secondary font-extrabold text-lg">保持好奇心，繼續探索世界！</p>
+            <p className="text-muted-foreground text-sm mt-1">下一次，我們又會發現什麼新奇的科學呢？</p>
           </div>
         </SectionShell>
+
+        {step >= 4 && <Footer />}
+        <EndingCeremony open={celebrate} onClose={() => setCelebrate(false)} />
       </main>
     </>
   );
