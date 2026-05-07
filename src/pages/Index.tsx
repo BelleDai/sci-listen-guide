@@ -19,6 +19,7 @@ const TOTAL = 4;
 const Index = () => {
   const [step, setStep] = useState(1);
   const [playing, setPlaying] = useState(false);
+  const [celebrate, setCelebrate] = useState(false);
   const { speak, stop, speakingId } = useTTS();
 
   const refs = [
