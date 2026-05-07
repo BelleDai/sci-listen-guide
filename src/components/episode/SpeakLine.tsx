@@ -1,36 +1,53 @@
-import { Volume2, Square } from "lucide-react";
+import { ReactNode } from "react";
+import { Volume2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTTS } from "@/hooks/useTTS";
+import SpeakingIndicator from "./SpeakingIndicator";
+import { cn } from "@/lib/utils";
 
 interface Props {
   id: string;
   text: string;
+  children?: ReactNode;
+  className?: string;
+  contentClassName?: string;
 }
 
-const SpeakLine = ({ id, text }: Props) => {
-  const { speak, stop, speakingId } = useTTS();
+const SpeakLine = ({ id, text, children, className, contentClassName }: Props) => {
+  const { speak, speakingId } = useTTS();
   const active = speakingId === id;
+  const toggleSpeak = () => speak(text, id);
+
   return (
-    <span className="inline-flex items-center gap-1 ml-1 align-middle">
-      <button
-        onClick={() => speak(text, id)}
-        aria-label="朗讀這一句"
-        className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-accent/20 text-accent hover:bg-accent/40 transition-colors"
+    <motion.div
+      role="button"
+      tabIndex={0}
+      onClick={toggleSpeak}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          toggleSpeak();
+        }
+      }}
+      whileTap={{ scale: 0.985 }}
+      className={cn(
+        "relative cursor-pointer transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent",
+        active && "ring-2 ring-primary/70 shadow-[0_0_0_4px_hsl(var(--primary)/0.18)]",
+        className,
+      )}
+      aria-label={active ? "停止朗讀這一段" : "朗讀這一段"}
+    >
+      <span
+        className={cn(
+          "pointer-events-none absolute right-3 top-3 z-10 inline-flex items-center gap-1 rounded-full bg-background/50 px-2 py-1 text-accent backdrop-blur-sm",
+          active && "text-primary",
+        )}
       >
         <Volume2 className="w-4 h-4" />
-      </button>
-      {active && (
-        <motion.button
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          onClick={stop}
-          aria-label="停止朗讀"
-          className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-primary text-white shadow-[0_0_0_3px_hsl(var(--primary)/0.3)]"
-        >
-          <Square className="w-3 h-3" fill="currentColor" />
-        </motion.button>
-      )}
-    </span>
+        <SpeakingIndicator active={active} />
+      </span>
+      <div className={cn("pr-11", contentClassName)}>{children ?? text}</div>
+    </motion.div>
   );
 };
 
