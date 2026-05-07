@@ -1,7 +1,8 @@
 import { useRef, useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import confetti from "canvas-confetti";
 
-import { Play, Pause, BookOpen, Brain, Lightbulb, Users, Volume2, Sparkles } from "lucide-react";
+import { Play, Pause, BookOpen, Brain, Lightbulb, Users, Volume2, Sparkles, Square } from "lucide-react";
 import { episodeData } from "@/data/episode";
 import SectionShell from "@/components/episode/SectionShell";
 import NextButton from "@/components/episode/NextButton";
@@ -11,16 +12,59 @@ import Header from "@/components/episode/Header";
 import Footer from "@/components/episode/Footer";
 import SpeakingIndicator from "@/components/episode/SpeakingIndicator";
 import AnswerList from "@/components/episode/AnswerList";
-import EndingCeremony from "@/components/episode/EndingCeremony";
 import { useTTS } from "@/hooks/useTTS";
 
 const TOTAL = 4;
 
+const fireConfetti = () => {
+  const colors = ["#ff7473", "#ffc952", "#47b8e0", "#ffffff"];
+  const end = Date.now() + 1500;
+  (function frame() {
+    confetti({ particleCount: 6, angle: 60, spread: 70, origin: { x: 0, y: 0.7 }, colors });
+    confetti({ particleCount: 6, angle: 120, spread: 70, origin: { x: 1, y: 0.7 }, colors });
+    if (Date.now() < end) requestAnimationFrame(frame);
+  })();
+  confetti({ particleCount: 120, spread: 100, origin: { y: 0.4 }, colors });
+};
+
+const SpeakerBtn = ({ id, text }: { id: string; text: string }) => {
+  const { speak, stop, speakingId } = useTTS();
+  const active = speakingId === id;
+  return (
+    <span className="inline-flex items-center gap-1 align-middle">
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          speak(text, id);
+        }}
+        aria-label="朗讀"
+        className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-accent/20 text-accent hover:bg-accent/40 transition-colors"
+      >
+        <Volume2 className="w-4 h-4" />
+      </button>
+      {active && (
+        <motion.button
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          onClick={(e) => {
+            e.stopPropagation();
+            stop();
+          }}
+          aria-label="停止"
+          className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-primary text-white shadow-[0_0_0_3px_hsl(var(--primary)/0.3)]"
+        >
+          <Square className="w-3 h-3" fill="currentColor" />
+        </motion.button>
+      )}
+    </span>
+  );
+};
+
 const Index = () => {
   const [step, setStep] = useState(1);
   const [playing, setPlaying] = useState(false);
-  const [celebrate, setCelebrate] = useState(false);
-  const { speak, stop, speakingId } = useTTS();
+  const [celebrated, setCelebrated] = useState(false);
+  const { speak, speakingId, stop } = useTTS();
 
   const refs = [
     useRef<HTMLElement>(null),
@@ -44,6 +88,14 @@ const Index = () => {
     document.title = `${episodeData.Title} ｜ 科學好好聽`;
     return () => stop();
   }, [stop]);
+
+  const onCelebrate = () => {
+    setCelebrated(true);
+    fireConfetti();
+    setTimeout(() => {
+      window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    }, 200);
+  };
 
   const audio = episodeData.AudioQuestion[0];
   const family = episodeData.FamilyDiscussion;
@@ -94,8 +146,9 @@ const Index = () => {
                 <BookOpen className="w-6 h-6" />
                 聽故事時有不懂的詞嗎？
               </h3>
-              <p className="text-muted-foreground text-sm mb-4 flex items-center gap-1">
-                點一下卡片，會自動唸給你聽 <Volume2 className="w-4 h-4" /> 👇
+              <p className="text-white/90 text-sm sm:text-base mb-4 rounded-xl bg-accent/10 border border-accent/30 px-4 py-3 flex items-center gap-2">
+                <Volume2 className="w-4 h-4 text-accent flex-shrink-0" />
+                想聽哪裡點哪裡！只要看到小喇叭 🔊，就唸給你聽喔！
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {episodeData.Glossary.map((g) => (
@@ -116,17 +169,16 @@ const Index = () => {
           title="聽完故事，換你動動腦！"
           emoji="🧠"
         >
-          <button
-            onClick={() => speak(`${audio.topic}。${audio.description}`, "audio-q")}
-            className="text-left w-full glass-card rounded-3xl p-5 sm:p-7 mb-5 hover:border-primary transition-colors"
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary font-bold text-sm mb-3">
-              <Brain className="w-4 h-4" />
-              {audio.topic}
-              <SpeakingIndicator active={speakingId === "audio-q"} />
+          <div className="glass-card rounded-3xl p-5 sm:p-7 mb-5">
+            <div className="flex items-center gap-2 flex-wrap mb-3">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary font-bold text-sm">
+                <Brain className="w-4 h-4" />
+                {audio.topic}
+              </span>
+              <SpeakerBtn id="audio-q" text={`${audio.topic}。${audio.description}`} />
             </div>
             <p className="leading-relaxed text-base sm:text-lg text-white">{audio.description}</p>
-          </button>
+          </div>
 
           <Collapsible label="聽聽科學隊長怎麼說">
             <AnswerList idPrefix="audio-ans" text={audio.reference_answer} />
@@ -148,15 +200,13 @@ const Index = () => {
               const id = `take-${i}`;
               const active = speakingId === id;
               return (
-                <motion.button
+                <motion.div
                   key={i}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  whileTap={{ scale: 0.98 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  onClick={() => speak(k.content, id)}
-                  className="text-left w-full glass-card rounded-2xl p-5 flex gap-4 items-start hover:border-secondary transition-colors"
+                  className="glass-card rounded-2xl p-5 flex gap-4 items-start"
                   style={{
                     boxShadow: `0 6px 0 -2px hsl(var(--primary) / 0.4), var(--shadow-card)`,
                   }}
@@ -168,8 +218,11 @@ const Index = () => {
                       <SpeakingIndicator active={active} />
                     </div>
                     <p className="leading-relaxed text-base sm:text-lg text-white">{k.content}</p>
+                    <div className="mt-2">
+                      <SpeakerBtn id={id} text={k.content} />
+                    </div>
                   </div>
-                </motion.button>
+                </motion.div>
               );
             })}
           </div>
@@ -185,17 +238,16 @@ const Index = () => {
           title="最後，跟爸爸媽媽一起動動腦吧！"
           emoji="👨‍👩‍👧"
         >
-          <button
-            onClick={() => speak(`${family.topic}。${family.description}`, "fam-q")}
-            className="text-left w-full glass-card rounded-3xl p-5 sm:p-7 mb-5 border-secondary/40 hover:border-primary transition-colors"
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 text-accent font-bold text-sm mb-3">
-              <Users className="w-4 h-4" />
-              親子討論：{family.topic}
-              <SpeakingIndicator active={speakingId === "fam-q"} />
+          <div className="glass-card rounded-3xl p-5 sm:p-7 mb-5 border-secondary/40">
+            <div className="flex items-center gap-2 flex-wrap mb-3">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 text-accent font-bold text-sm">
+                <Users className="w-4 h-4" />
+                親子討論：{family.topic}
+              </span>
+              <SpeakerBtn id="fam-q" text={`${family.topic}。${family.description}`} />
             </div>
             <p className="leading-relaxed text-base sm:text-lg text-white">{family.description}</p>
-          </button>
+          </div>
 
           <Collapsible label="聽聽科學隊長怎麼說">
             <AnswerList idPrefix="fam-ans" text={family.reference_answer} />
@@ -203,24 +255,44 @@ const Index = () => {
 
           <div className="flex justify-center mt-10">
             <motion.button
-              onClick={() => setCelebrate(true)}
+              onClick={onCelebrate}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 px-7 py-4 rounded-full font-extrabold text-base sm:text-lg text-primary-foreground shadow-[var(--shadow-glow)] bg-[image:var(--gradient-primary)]"
+              disabled={celebrated}
+              className="inline-flex items-center gap-2 px-7 py-4 rounded-full font-extrabold text-base sm:text-lg text-primary-foreground shadow-[var(--shadow-glow)] bg-[image:var(--gradient-primary)] disabled:opacity-90"
             >
               <Sparkles className="w-5 h-5" />
               我是小小科學家，任務達成！
             </motion.button>
           </div>
 
-          <div className="text-center mt-10 pb-2">
-            <p className="text-secondary font-extrabold text-lg">保持好奇心，繼續探索世界！</p>
-            <p className="text-muted-foreground text-sm mt-1">下一次，我們又會發現什麼新奇的科學呢？</p>
-          </div>
+          <AnimatePresence>
+            {celebrated && (
+              <motion.div
+                initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ type: "spring", stiffness: 220, damping: 18 }}
+                className="mt-8 rounded-3xl px-6 py-8 text-center text-white bg-[image:var(--gradient-primary)] shadow-[var(--shadow-glow)]"
+              >
+                <motion.div
+                  animate={{ rotate: [0, -10, 10, -6, 6, 0] }}
+                  transition={{ duration: 1.2, repeat: Infinity, repeatDelay: 0.6 }}
+                  className="text-5xl mb-2"
+                >
+                  🎉
+                </motion.div>
+                <h3 className="text-2xl font-black mb-1 flex items-center justify-center gap-2">
+                  <Sparkles className="w-6 h-6" />
+                  恭喜你完成今天的科普探險！
+                </h3>
+                <p className="text-white/90">你已經是一位小小科學家了！</p>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </SectionShell>
 
         {step >= 4 && <Footer />}
-        <EndingCeremony open={celebrate} onClose={() => setCelebrate(false)} />
       </main>
     </>
   );
