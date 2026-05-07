@@ -197,26 +197,30 @@ const Index = () => {
             <p className="leading-relaxed text-base sm:text-lg text-white">{family.description}</p>
           </button>
 
-          <Collapsible
-            label="親子洞見參考"
-            speakingActive={speakingId === "fam-ans"}
-            onStop={stop}
-            onToggle={(o) => {
-              if (o) speak(family.reference_answer, "fam-ans");
-              else stop();
-            }}
-          >
-            <div className="markdown-body text-white/95">
-              <ReactMarkdown>{family.reference_answer}</ReactMarkdown>
-            </div>
+          <Collapsible label="聽聽科學隊長怎麼說">
+            <AnswerList idPrefix="fam-ans" text={family.reference_answer} />
           </Collapsible>
 
-          <div className="text-center mt-12 pb-8">
-            <div className="text-5xl mb-3">🦅✨</div>
-            <p className="text-secondary font-extrabold text-lg">恭喜你完成今天的科普探險！</p>
-            <p className="text-muted-foreground text-sm mt-1">明天再一起認識新的動物吧！</p>
+          <div className="flex justify-center mt-10">
+            <motion.button
+              onClick={() => setCelebrate(true)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center gap-2 px-7 py-4 rounded-full font-extrabold text-base sm:text-lg text-primary-foreground shadow-[var(--shadow-glow)] bg-[image:var(--gradient-primary)]"
+            >
+              <Sparkles className="w-5 h-5" />
+              我是小小科學家，任務達成！
+            </motion.button>
+          </div>
+
+          <div className="text-center mt-10 pb-2">
+            <p className="text-secondary font-extrabold text-lg">保持好奇心，繼續探索世界！</p>
+            <p className="text-muted-foreground text-sm mt-1">下一次，我們又會發現什麼新奇的科學呢？</p>
           </div>
         </SectionShell>
+
+        {step >= 4 && <Footer />}
+        <EndingCeremony open={celebrate} onClose={() => setCelebrate(false)} />
       </main>
     </>
   );
