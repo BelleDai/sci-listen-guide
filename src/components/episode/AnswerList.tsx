@@ -15,15 +15,16 @@ const AnswerList = ({ idPrefix, text }: Props) => {
         const id = `${idPrefix}-${i}`;
         const clean = stripMarkdown(b);
         return (
-          <div
+          <SpeakLine
             key={i}
-            className="rounded-xl bg-card/50 border border-accent/20 px-4 py-3 text-base sm:text-lg leading-relaxed"
+            id={id}
+            text={clean}
+            className="rounded-xl bg-card/50 border border-accent/20 px-4 py-3 text-base sm:text-lg leading-relaxed hover:border-accent/50 hover:bg-card/70"
           >
-            <div className="markdown-body inline">
+            <div className="markdown-body">
               <ReactMarkdown>{b}</ReactMarkdown>
             </div>
-            <SpeakLine id={id} text={clean} />
-          </div>
+          </SpeakLine>
         );
       })}
     </div>

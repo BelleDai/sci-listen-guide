@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import confetti from "canvas-confetti";
 
-import { Play, Pause, BookOpen, Brain, Lightbulb, Users, Volume2, Sparkles, Square } from "lucide-react";
+import { Play, Pause, BookOpen, Brain, Lightbulb, Users, Volume2, Sparkles } from "lucide-react";
 import { episodeData } from "@/data/episode";
 import SectionShell from "@/components/episode/SectionShell";
 import NextButton from "@/components/episode/NextButton";
@@ -12,6 +12,7 @@ import Header from "@/components/episode/Header";
 import Footer from "@/components/episode/Footer";
 import SpeakingIndicator from "@/components/episode/SpeakingIndicator";
 import AnswerList from "@/components/episode/AnswerList";
+import SpeakLine from "@/components/episode/SpeakLine";
 import { useTTS } from "@/hooks/useTTS";
 
 const TOTAL = 4;
@@ -27,44 +28,11 @@ const fireConfetti = () => {
   confetti({ particleCount: 120, spread: 100, origin: { y: 0.4 }, colors });
 };
 
-const SpeakerBtn = ({ id, text }: { id: string; text: string }) => {
-  const { speak, stop, speakingId } = useTTS();
-  const active = speakingId === id;
-  return (
-    <span className="inline-flex items-center gap-1 align-middle">
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          speak(text, id);
-        }}
-        aria-label="朗讀"
-        className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-accent/20 text-accent hover:bg-accent/40 transition-colors"
-      >
-        <Volume2 className="w-4 h-4" />
-      </button>
-      {active && (
-        <motion.button
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          onClick={(e) => {
-            e.stopPropagation();
-            stop();
-          }}
-          aria-label="停止"
-          className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-primary text-white shadow-[0_0_0_3px_hsl(var(--primary)/0.3)]"
-        >
-          <Square className="w-3 h-3" fill="currentColor" />
-        </motion.button>
-      )}
-    </span>
-  );
-};
-
 const Index = () => {
   const [step, setStep] = useState(1);
   const [playing, setPlaying] = useState(false);
   const [celebrated, setCelebrated] = useState(false);
-  const { speak, speakingId, stop } = useTTS();
+  const { speakingId, stop } = useTTS();
 
   const refs = [
     useRef<HTMLElement>(null),
@@ -169,16 +137,19 @@ const Index = () => {
           title="聽完故事，換你動動腦！"
           emoji="🧠"
         >
-          <div className="glass-card rounded-3xl p-5 sm:p-7 mb-5">
+          <SpeakLine
+            id="audio-q"
+            text={`${audio.topic}。${audio.description}`}
+            className="glass-card rounded-3xl p-5 sm:p-7 mb-5 hover:border-accent/50"
+          >
             <div className="flex items-center gap-2 flex-wrap mb-3">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary font-bold text-sm">
                 <Brain className="w-4 h-4" />
                 {audio.topic}
               </span>
-              <SpeakerBtn id="audio-q" text={`${audio.topic}。${audio.description}`} />
             </div>
             <p className="leading-relaxed text-base sm:text-lg text-white">{audio.description}</p>
-          </div>
+          </SpeakLine>
 
           <Collapsible label="聽聽科學隊長怎麼說">
             <AnswerList idPrefix="audio-ans" text={audio.reference_answer} />
@@ -217,10 +188,13 @@ const Index = () => {
                       <Lightbulb className="w-3 h-3" /> 重點 {i + 1}
                       <SpeakingIndicator active={active} />
                     </div>
-                    <p className="leading-relaxed text-base sm:text-lg text-white">{k.content}</p>
-                    <div className="mt-2">
-                      <SpeakerBtn id={id} text={k.content} />
-                    </div>
+                    <SpeakLine
+                      id={id}
+                      text={k.content}
+                      className="rounded-xl p-3 -ml-3 hover:bg-accent/10"
+                    >
+                      <p className="leading-relaxed text-base sm:text-lg text-white">{k.content}</p>
+                    </SpeakLine>
                   </div>
                 </motion.div>
               );
@@ -238,16 +212,19 @@ const Index = () => {
           title="最後，跟爸爸媽媽一起動動腦吧！"
           emoji="👨‍👩‍👧"
         >
-          <div className="glass-card rounded-3xl p-5 sm:p-7 mb-5 border-secondary/40">
+          <SpeakLine
+            id="fam-q"
+            text={`${family.topic}。${family.description}`}
+            className="glass-card rounded-3xl p-5 sm:p-7 mb-5 border-secondary/40 hover:border-accent/50"
+          >
             <div className="flex items-center gap-2 flex-wrap mb-3">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 text-accent font-bold text-sm">
                 <Users className="w-4 h-4" />
                 親子討論：{family.topic}
               </span>
-              <SpeakerBtn id="fam-q" text={`${family.topic}。${family.description}`} />
             </div>
             <p className="leading-relaxed text-base sm:text-lg text-white">{family.description}</p>
-          </div>
+          </SpeakLine>
 
           <Collapsible label="聽聽科學隊長怎麼說">
             <AnswerList idPrefix="fam-ans" text={family.reference_answer} />
