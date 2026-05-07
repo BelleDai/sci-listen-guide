@@ -32,7 +32,7 @@ const Index = () => {
   const [step, setStep] = useState(1);
   const [playing, setPlaying] = useState(false);
   const [celebrated, setCelebrated] = useState(false);
-  const { speak, speakingId, stop } = useTTS();
+  const { speakingId, stop } = useTTS();
 
   const refs = [
     useRef<HTMLElement>(null),
