@@ -128,18 +128,8 @@ const Index = () => {
             <p className="leading-relaxed text-base sm:text-lg text-white">{audio.description}</p>
           </button>
 
-          <Collapsible
-            label="看看博士怎麼說"
-            speakingActive={speakingId === "audio-ans"}
-            onStop={stop}
-            onToggle={(o) => {
-              if (o) speak(audio.reference_answer, "audio-ans");
-              else stop();
-            }}
-          >
-            <div className="markdown-body text-white/95">
-              <ReactMarkdown>{audio.reference_answer}</ReactMarkdown>
-            </div>
+          <Collapsible label="聽聽科學隊長怎麼說">
+            <AnswerList idPrefix="audio-ans" text={audio.reference_answer} />
           </Collapsible>
 
           <NextButton label="我學會了！" onClick={() => goNext(3)} done={step >= 3} />
