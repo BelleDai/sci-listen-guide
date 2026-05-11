@@ -244,16 +244,16 @@ const Index = () => {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ type: "spring", stiffness: 220, damping: 18 }}
-                  className="w-full rounded-3xl px-6 py-8 text-center shadow-[var(--shadow-card)] border-4 border-secondary/60"
-                  style={{ backgroundColor: "#47b8e0", color: "#34314c" }}
+                  className="w-full rounded-3xl px-6 py-8 text-center shadow-[var(--shadow-card)] border-4 border-primary/50"
+                  style={{ backgroundColor: "#ffc952", color: "#34314c" }}
                 >
                   <motion.div
                     animate={{ rotate: [0, -12, 12, -8, 8, 0], scale: [1, 1.1, 1] }}
                     transition={{ duration: 1.4, repeat: Infinity, repeatDelay: 0.4 }}
                     className="inline-flex items-center justify-center w-20 h-20 rounded-full mb-3 shadow-lg"
-                    style={{ backgroundColor: "#ffc952" }}
+                    style={{ backgroundColor: "#34314c" }}
                   >
-                    <Award className="w-12 h-12" style={{ color: "#34314c" }} strokeWidth={2.5} />
+                    <Award className="w-12 h-12" style={{ color: "#ffc952" }} strokeWidth={2.5} />
                   </motion.div>
                   <h3 className="text-2xl sm:text-3xl font-black mb-2" style={{ color: "#34314c" }}>
                     🎉 恭喜你完成今天的科普探險！
