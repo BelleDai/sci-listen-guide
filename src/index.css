@@ -24,7 +24,7 @@ All colors MUST be HSL.
     --secondary: 42 100% 66%;           /* #ffc952 warm yellow */
     --secondary-foreground: 248 21% 18%;
 
-    --accent: 198 71% 58%;              /* #47b8e0 sky blue */
+    --accent: 195 100% 80%;             /* #97e5ff bright sky blue */
     --accent-foreground: 248 21% 18%;
 
     --muted: 248 18% 30%;
