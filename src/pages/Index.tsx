@@ -220,43 +220,51 @@ const Index = () => {
             <AnswerList idPrefix="fam-ans" text={family.reference_answer} />
           </Collapsible>
 
-          <div className="flex justify-center mt-10">
-            <motion.button
-              onClick={onCelebrate}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              disabled={celebrated}
-              className="inline-flex items-center gap-2 px-7 py-4 rounded-full font-extrabold text-base sm:text-lg text-primary-foreground shadow-[var(--shadow-glow)] bg-[image:var(--gradient-primary)] disabled:opacity-90"
-            >
-              <Sparkles className="w-5 h-5" />
-              我是小小科學家，任務達成！
-            </motion.button>
-          </div>
-
-          <AnimatePresence>
-            {celebrated && (
-              <motion.div
-                initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ type: "spring", stiffness: 220, damping: 18 }}
-                className="mt-8 rounded-3xl px-6 py-8 text-center text-white bg-[image:var(--gradient-primary)] shadow-[var(--shadow-glow)]"
-              >
-                <motion.div
-                  animate={{ rotate: [0, -10, 10, -6, 6, 0] }}
-                  transition={{ duration: 1.2, repeat: Infinity, repeatDelay: 0.6 }}
-                  className="text-5xl mb-2"
+          <div className="mt-10 min-h-[80px] flex justify-center">
+            <AnimatePresence mode="wait">
+              {!celebrated ? (
+                <motion.button
+                  key="cta"
+                  onClick={onCelebrate}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.6 }}
+                  transition={{ type: "spring", stiffness: 260, damping: 18 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center gap-2 px-7 py-4 rounded-full font-extrabold text-base sm:text-lg text-primary-foreground shadow-[var(--shadow-glow)] bg-[image:var(--gradient-primary)]"
                 >
-                  🎉
+                  <Sparkles className="w-5 h-5" />
+                  我是小小科學家，任務達成！
+                </motion.button>
+              ) : (
+                <motion.div
+                  key="celebrate"
+                  initial={{ opacity: 0, y: 30, scale: 0.85 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ type: "spring", stiffness: 220, damping: 18 }}
+                  className="w-full rounded-3xl px-6 py-8 text-center shadow-[var(--shadow-card)] border-4 border-secondary/60"
+                  style={{ backgroundColor: "#47b8e0", color: "#34314c" }}
+                >
+                  <motion.div
+                    animate={{ rotate: [0, -12, 12, -8, 8, 0], scale: [1, 1.1, 1] }}
+                    transition={{ duration: 1.4, repeat: Infinity, repeatDelay: 0.4 }}
+                    className="inline-flex items-center justify-center w-20 h-20 rounded-full mb-3 shadow-lg"
+                    style={{ backgroundColor: "#ffc952" }}
+                  >
+                    <Award className="w-12 h-12" style={{ color: "#34314c" }} strokeWidth={2.5} />
+                  </motion.div>
+                  <h3 className="text-2xl sm:text-3xl font-black mb-2" style={{ color: "#34314c" }}>
+                    🎉 恭喜你完成今天的科普探險！
+                  </h3>
+                  <p className="text-base sm:text-lg font-bold" style={{ color: "#34314c" }}>
+                    你已經是一位小小科學家了！繼續保持好奇心吧！
+                  </p>
                 </motion.div>
-                <h3 className="text-2xl font-black mb-1 flex items-center justify-center gap-2">
-                  <Sparkles className="w-6 h-6" />
-                  恭喜你完成今天的科普探險！
-                </h3>
-                <p className="text-white/90">你已經是一位小小科學家了！</p>
-              </motion.div>
-            )}
-          </AnimatePresence>
+              )}
+            </AnimatePresence>
+          </div>
         </SectionShell>
 
         {step >= 4 && <Footer />}
