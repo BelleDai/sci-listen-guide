@@ -39,12 +39,6 @@ const GlossaryCard = ({ term, explanation }: Props) => {
           <Volume2 className="w-4 h-4" />
           <SpeakingIndicator active={isSpeaking} />
         </span>
-        <motion.span
-          animate={{ rotate: open ? 180 : 0 }}
-          className="text-white/60 text-xs"
-        >
-          ▼
-        </motion.span>
       </button>
       <AnimatePresence initial={false}>
         {open && (
