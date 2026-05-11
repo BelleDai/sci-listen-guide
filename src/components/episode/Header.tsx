@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
-import { Home, Search } from "lucide-react";
-import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Search, X } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
 import { toast } from "@/components/ui/sonner";
 
 interface Props {
@@ -11,6 +11,12 @@ interface Props {
 
 const Header = ({ step, total, onJump }: Props) => {
   const [q, setQ] = useState("");
+  const [searchOpen, setSearchOpen] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (searchOpen) inputRef.current?.focus();
+  }, [searchOpen]);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,6 +25,8 @@ const Header = ({ step, total, onJump }: Props) => {
     toast(`正在搜尋「${term}」的科普主題…`, {
       description: "更多精彩主題即將上線，敬請期待！",
     });
+    setQ("");
+    setSearchOpen(false);
   };
 
   const goHome = () => {
@@ -29,17 +37,71 @@ const Header = ({ step, total, onJump }: Props) => {
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-card/70 border-b border-border/60">
       <div className="max-w-3xl mx-auto px-4 py-3 flex items-center gap-3">
-        <img
-          src="https://files.soundon.fm/1758618850575-3b62b9ae-8417-4916-a6dc-b25e0b872fba.jpeg"
-          alt="科學好好聽"
-          className="w-10 h-10 rounded-md object-cover flex-shrink-0"
-        />
-        <div className="hidden sm:flex items-baseline gap-2 flex-shrink-0">
-          <p className="font-extrabold text-white leading-tight text-base sm:text-lg">科學好好聽</p>
-          <p className="font-extrabold text-accent leading-tight text-base sm:text-lg">科普伴讀</p>
+        {/* Left: Brand = home */}
+        <button
+          onClick={goHome}
+          aria-label="回首頁"
+          className="flex items-center gap-2 flex-shrink-0 hover:scale-[1.02] transition-transform"
+        >
+          <img
+            src="https://files.soundon.fm/1758618850575-3b62b9ae-8417-4916-a6dc-b25e0b872fba.jpeg"
+            alt="科學好好聽"
+            className="w-9 h-9 rounded-md object-cover"
+          />
+          <span className="hidden sm:flex items-baseline gap-1.5">
+            <span className="font-extrabold text-white text-base leading-none">科學好好聽</span>
+            <span className="font-extrabold text-accent text-base leading-none">科普伴讀</span>
+          </span>
+        </button>
+
+        {/* Middle: Expandable search */}
+        <div className="flex-1 flex justify-center">
+          <form onSubmit={handleSearch} className="relative flex items-center">
+            <motion.div
+              animate={{ width: searchOpen ? 240 : 40 }}
+              transition={{ type: "spring", stiffness: 260, damping: 24 }}
+              className="relative h-10 rounded-full bg-card/80 border-2 border-accent/50 overflow-hidden flex items-center"
+            >
+              <button
+                type="button"
+                onClick={() => setSearchOpen((v) => !v)}
+                aria-label={searchOpen ? "收合搜尋" : "展開搜尋"}
+                className="absolute left-0 top-0 w-10 h-10 flex items-center justify-center text-accent hover:text-white transition-colors z-10"
+              >
+                <Search className="w-4 h-4" />
+              </button>
+              <AnimatePresence>
+                {searchOpen && (
+                  <motion.input
+                    ref={inputRef}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.15, delay: 0.1 }}
+                    value={q}
+                    onChange={(e) => setQ(e.target.value)}
+                    onBlur={() => !q && setSearchOpen(false)}
+                    placeholder="想聽什麼主題呢？"
+                    className="absolute left-10 right-8 top-0 h-10 bg-transparent text-white placeholder:text-white/50 text-sm focus:outline-none"
+                  />
+                )}
+              </AnimatePresence>
+              {searchOpen && q && (
+                <button
+                  type="button"
+                  onClick={() => setQ("")}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 text-white/60 hover:text-white"
+                  aria-label="清除"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              )}
+            </motion.div>
+          </form>
         </div>
 
-        <nav aria-label="進度" className="flex items-center gap-1.5 ml-auto sm:ml-0">
+        {/* Right: Stepper */}
+        <nav aria-label="進度" className="flex items-center gap-1.5 flex-shrink-0">
           {Array.from({ length: total }, (_, i) => i + 1).map((n) => {
             const reached = n <= step;
             const current = n === step;
@@ -63,25 +125,6 @@ const Header = ({ step, total, onJump }: Props) => {
             );
           })}
         </nav>
-      </div>
-      <div className="max-w-3xl mx-auto px-4 pb-3 flex items-center gap-2">
-        <button
-          onClick={goHome}
-          aria-label="回首頁"
-          className="flex-shrink-0 inline-flex items-center gap-1 px-3 py-2 rounded-full bg-secondary text-secondary-foreground font-bold text-sm hover:scale-105 transition-transform"
-        >
-          <Home className="w-4 h-4" />
-          <span className="hidden sm:inline">回首頁</span>
-        </button>
-        <form onSubmit={handleSearch} className="flex-1 relative">
-          <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-accent pointer-events-none" />
-          <input
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
-            placeholder="想聽什麼主題呢？（宇宙、海洋、昆蟲…）"
-            className="w-full pl-9 pr-4 py-2 rounded-full bg-card/80 border-2 border-accent/50 text-white placeholder:text-white/50 text-sm focus:outline-none focus:border-accent focus:shadow-[0_0_0_3px_hsl(var(--accent)/0.25)] transition-all"
-          />
-        </form>
       </div>
     </header>
   );
