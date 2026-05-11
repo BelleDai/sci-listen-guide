@@ -31,7 +31,6 @@ const fireConfetti = () => {
 
 const Index = () => {
   const [step, setStep] = useState(1);
-  const [playing, setPlaying] = useState(false);
   const [celebrated, setCelebrated] = useState(false);
   const { speakingId, stop } = useTTS();
 
