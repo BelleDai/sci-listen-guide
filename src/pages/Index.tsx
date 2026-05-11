@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import confetti from "canvas-confetti";
 
-import { Play, Pause, BookOpen, Brain, Lightbulb, Users, Volume2, Sparkles } from "lucide-react";
+import { BookOpen, Brain, Lightbulb, Users, Volume2, Sparkles, Award } from "lucide-react";
 import { episodeData } from "@/data/episode";
 import SectionShell from "@/components/episode/SectionShell";
 import NextButton from "@/components/episode/NextButton";
@@ -13,6 +13,7 @@ import Footer from "@/components/episode/Footer";
 import SpeakingIndicator from "@/components/episode/SpeakingIndicator";
 import AnswerList from "@/components/episode/AnswerList";
 import SpeakLine from "@/components/episode/SpeakLine";
+import PlayerLaunch from "@/components/episode/PlayerLaunch";
 import { useTTS } from "@/hooks/useTTS";
 
 const TOTAL = 4;
