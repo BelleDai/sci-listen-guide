@@ -89,7 +89,7 @@ const Index = () => {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.1 }}
-              className="relative rounded-3xl overflow-hidden shadow-[var(--shadow-card)] border-4 border-secondary/40 mb-6"
+              className="relative rounded-3xl overflow-hidden shadow-[var(--shadow-card)] border-4 border-secondary/40 mb-2"
             >
               <img
                 src={episodeData.Cover}
@@ -97,18 +97,8 @@ const Index = () => {
                 className="w-full aspect-square object-cover"
                 loading="eager"
               />
-              <button
-                onClick={() => setPlaying((p) => !p)}
-                aria-label={playing ? "暫停" : "播放"}
-                className="absolute inset-0 m-auto w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[image:var(--gradient-primary)] flex items-center justify-center shadow-[var(--shadow-glow)] hover:scale-110 transition-transform"
-              >
-                {playing ? (
-                  <Pause className="w-10 h-10 text-white" fill="currentColor" />
-                ) : (
-                  <Play className="w-10 h-10 text-white ml-1" fill="currentColor" />
-                )}
-              </button>
             </motion.div>
+            <PlayerLaunch />
 
             <div className="text-left mt-10">
               <h3 className="flex items-center gap-2 text-xl font-extrabold text-accent mb-2">
