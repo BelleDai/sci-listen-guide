@@ -111,31 +111,32 @@ const Header = ({ step = 1, total = 4, onJump, showStepper = true }: Props) => {
             </motion.div>
           </form>
 
-          {/* Stepper */}
-          <nav aria-label="進度" className="flex items-center gap-1.5">
-            {Array.from({ length: total }, (_, i) => i + 1).map((n) => {
-              const reached = n <= step;
-              const current = n === step;
-              return (
-                <button
-                  key={n}
-                  onClick={() => reached && onJump(n)}
-                  aria-label={`第 ${n} 步`}
-                  aria-current={current ? "step" : undefined}
-                  disabled={!reached}
-                >
-                  <motion.span
-                    animate={{ scale: current ? 1.25 : 1 }}
-                    className={`block w-3 h-3 rounded-full transition-colors ${
-                      reached
-                        ? "bg-secondary shadow-[0_0_0_3px_hsl(var(--secondary)/0.25)]"
-                        : "bg-accent/70"
-                    }`}
-                  />
-                </button>
-              );
-            })}
-          </nav>
+          {showStepper && (
+            <nav aria-label="進度" className="flex items-center gap-1.5">
+              {Array.from({ length: total }, (_, i) => i + 1).map((n) => {
+                const reached = n <= step;
+                const current = n === step;
+                return (
+                  <button
+                    key={n}
+                    onClick={() => reached && onJump?.(n)}
+                    aria-label={`第 ${n} 步`}
+                    aria-current={current ? "step" : undefined}
+                    disabled={!reached}
+                  >
+                    <motion.span
+                      animate={{ scale: current ? 1.25 : 1 }}
+                      className={`block w-3 h-3 rounded-full transition-colors ${
+                        reached
+                          ? "bg-secondary shadow-[0_0_0_3px_hsl(var(--secondary)/0.25)]"
+                          : "bg-accent/70"
+                      }`}
+                    />
+                  </button>
+                );
+              })}
+            </nav>
+          )}
         </div>
       </div>
     </header>
