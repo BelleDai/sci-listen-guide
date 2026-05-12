@@ -74,16 +74,12 @@ async function syncEpisode() {
         const raw = JSON.parse(fs.readFileSync(p, "utf-8"));
         let value = getCaseInsensitiveKey(raw, item.key);
 
-        // Normalize Glossary: 'definition' -> 'explanation'
+        // Normalize Glossary: 'word' -> 'term', 'definition' -> 'explanation'
         if (item.key === "Glossary" && Array.isArray(value)) {
-          value = value.map((g: any) => {
-            const normalized = {
-              ...g,
-              explanation: g.explanation ?? g.definition ?? "",
-            };
-            delete normalized.definition;
-            return normalized;
-          });
+          value = value.map((g: any) => ({
+            term: g.term ?? g.word ?? "",
+            explanation: g.explanation ?? g.definition ?? "",
+          }));
         }
 
         data[item.key] = value;
@@ -139,16 +135,12 @@ async function syncEpisode() {
         const raw = doc.data as any;
         let value = getCaseInsensitiveKey(raw, jsonMapping[file.name!]);
 
-        // Normalize Glossary: 'definition' -> 'explanation'
+        // Normalize Glossary: 'word' -> 'term', 'definition' -> 'explanation'
         if (jsonMapping[file.name!] === "Glossary" && Array.isArray(value)) {
-          value = value.map((g: any) => {
-            const normalized = {
-              ...g,
-              explanation: g.explanation ?? g.definition ?? "",
-            };
-            delete normalized.definition;
-            return normalized;
-          });
+          value = value.map((g: any) => ({
+            term: g.term ?? g.word ?? "",
+            explanation: g.explanation ?? g.definition ?? "",
+          }));
         }
         data[jsonMapping[file.name!]] = value;
       }
