@@ -5,9 +5,10 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "@/components/ui/sonner";
 
 interface Props {
-  step: number;
-  total: number;
-  onJump: (n: number) => void;
+  step?: number;
+  total?: number;
+  onJump?: (n: number) => void;
+  showStepper?: boolean;
 }
 
 const Header = ({ step, total, onJump }: Props) => {
