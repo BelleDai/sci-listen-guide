@@ -2,10 +2,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Headphones, ChevronDown } from "lucide-react";
 
-const APPLE = "https://podcasts.apple.com/tw/podcast/id1812447277";
-const SPOTIFY = "https://open.spotify.com/show/1eyISRdcgDTwZqIqrP1qKv";
+interface Props {
+  applePodcast?: string;
+  spotify?: string;
+}
 
-const PlayerLaunch = () => {
+const PlayerLaunch = ({ applePodcast, spotify }: Props) => {
   const [open, setOpen] = useState(false);
   return (
     <div className="flex flex-col items-center gap-3 mt-5">
@@ -32,36 +34,40 @@ const PlayerLaunch = () => {
             transition={{ type: "spring", stiffness: 280, damping: 20 }}
             className="flex flex-wrap items-center justify-center gap-3"
           >
-            <motion.a
-              href={APPLE}
-              target="_blank"
-              rel="noreferrer"
-              initial={{ scale: 0, x: 20 }}
-              animate={{ scale: 1, x: 0 }}
-              exit={{ scale: 0 }}
-              transition={{ type: "spring", stiffness: 320, damping: 16, delay: 0.05 }}
-              whileHover={{ scale: 1.06 }}
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold text-white shadow-lg"
-              style={{ background: "linear-gradient(135deg,#a855f7,#6d28d9)" }}
-            >
-              <span className="text-xl"></span>
-              Apple Podcast
-            </motion.a>
-            <motion.a
-              href={SPOTIFY}
-              target="_blank"
-              rel="noreferrer"
-              initial={{ scale: 0, x: -20 }}
-              animate={{ scale: 1, x: 0 }}
-              exit={{ scale: 0 }}
-              transition={{ type: "spring", stiffness: 320, damping: 16, delay: 0.1 }}
-              whileHover={{ scale: 1.06 }}
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold text-white shadow-lg"
-              style={{ background: "linear-gradient(135deg,#1ed760,#0a8a3a)" }}
-            >
-              <span className="text-xl">🎧</span>
-              Spotify
-            </motion.a>
+            {applePodcast && (
+              <motion.a
+                href={applePodcast}
+                target="_blank"
+                rel="noreferrer"
+                initial={{ scale: 0, x: 20 }}
+                animate={{ scale: 1, x: 0 }}
+                exit={{ scale: 0 }}
+                transition={{ type: "spring", stiffness: 320, damping: 16, delay: 0.05 }}
+                whileHover={{ scale: 1.06 }}
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold text-white shadow-lg"
+                style={{ background: "linear-gradient(135deg,#a855f7,#6d28d9)" }}
+              >
+                <span className="text-xl"></span>
+                Apple Podcast
+              </motion.a>
+            )}
+            {spotify && (
+              <motion.a
+                href={spotify}
+                target="_blank"
+                rel="noreferrer"
+                initial={{ scale: 0, x: -20 }}
+                animate={{ scale: 1, x: 0 }}
+                exit={{ scale: 0 }}
+                transition={{ type: "spring", stiffness: 320, damping: 16, delay: 0.1 }}
+                whileHover={{ scale: 1.06 }}
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold text-white shadow-lg"
+                style={{ background: "linear-gradient(135deg,#1ed760,#0a8a3a)" }}
+              >
+                <span className="text-xl">🎧</span>
+                Spotify
+              </motion.a>
+            )}
           </motion.div>
         )}
       </AnimatePresence>

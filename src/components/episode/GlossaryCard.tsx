@@ -15,11 +15,9 @@ const GlossaryCard = ({ term, explanation }: Props) => {
   const id = `glossary-${term}`;
   const isSpeaking = speakingId === id;
   const toggleOpen = () => {
-    setOpen((o) => {
-      const next = !o;
-      if (next) speak(`${term}。${explanation}`, id);
-      return next;
-    });
+    const next = !open;
+    setOpen(next);
+    if (next) speak(`${term}。${explanation}`, id);
   };
 
   return (

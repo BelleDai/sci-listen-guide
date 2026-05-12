@@ -32,7 +32,8 @@ const fireConfetti = () => {
 
 export interface GlossaryItem {
   term: string;
-  explanation: string;
+  explanation?: string;
+  definition?: string; // some files use 'definition' instead of 'explanation'
 }
 
 export interface AudioQuestion {
@@ -59,7 +60,9 @@ export interface EpisodeData {
   Cover: string;
   AudioQuestion: AudioQuestion[];
   KeyTakeaway: KeyTakeaway[];
-  FamilyDiscussion: FamilyDiscussion;
+  FamilyDiscussion: FamilyDiscussion[];
+  Spotify?: string;
+  ApplePodcast?: string;
   Glossary: GlossaryItem[];
   [key: string]: unknown;
 }
@@ -105,7 +108,11 @@ const EpisodeView = ({ episodeData }: EpisodeViewProps) => {
   };
 
   const audio = episodeData.AudioQuestion[0];
-  const family = episodeData.FamilyDiscussion;
+  // FamilyDiscussion is an array — pick a random one each visit
+  const familyList = Array.isArray(episodeData.FamilyDiscussion)
+    ? episodeData.FamilyDiscussion
+    : [episodeData.FamilyDiscussion];
+  const family = familyList[Math.floor(Math.random() * familyList.length)];
 
   return (
     <>
@@ -136,7 +143,7 @@ const EpisodeView = ({ episodeData }: EpisodeViewProps) => {
                 loading="eager"
               />
             </motion.div>
-            <PlayerLaunch />
+            <PlayerLaunch applePodcast={episodeData.ApplePodcast} spotify={episodeData.Spotify} />
 
             <div className="text-left mt-10">
               <h3 className="flex items-center gap-2 text-xl font-extrabold text-accent mb-2">
@@ -149,7 +156,7 @@ const EpisodeView = ({ episodeData }: EpisodeViewProps) => {
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {episodeData.Glossary.map((g) => (
-                  <GlossaryCard key={g.term} term={g.term} explanation={g.explanation} />
+                  <GlossaryCard key={g.term} term={g.term} explanation={g.explanation ?? g.definition ?? ""} />
                 ))}
               </div>
             </div>
