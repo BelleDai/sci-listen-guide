@@ -69,9 +69,10 @@ export interface EpisodeData {
 
 interface EpisodeViewProps {
   episodeData: EpisodeData;
+  searchIndex?: { id: string; title: string }[];
 }
 
-const EpisodeView = ({ episodeData }: EpisodeViewProps) => {
+const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
   const [step, setStep] = useState(1);
   const [celebrated, setCelebrated] = useState(false);
   const { speakingId, stop } = useTTS();
@@ -97,7 +98,7 @@ const EpisodeView = ({ episodeData }: EpisodeViewProps) => {
   useEffect(() => {
     document.title = `${episodeData.Title} ｜ 科學好好聽`;
     return () => stop();
-  }, [stop]);
+  }, [stop, episodeData.Title]);
 
   const onCelebrate = () => {
     setCelebrated(true);
@@ -116,7 +117,7 @@ const EpisodeView = ({ episodeData }: EpisodeViewProps) => {
 
   return (
     <>
-      <Header step={step} total={TOTAL} onJump={jumpTo} />
+      <Header step={step} total={TOTAL} onJump={jumpTo} episodes={searchIndex} />
       <main className="text-foreground">
         {/* Section 1 - Hero */}
         <SectionShell id="s1" show ref={refs[0]}>

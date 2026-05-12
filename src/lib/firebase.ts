@@ -17,7 +17,6 @@ const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 // Force long-polling and disable fetch streams to prevent GRPC connection errors in Node.js/Server components
 const db = initializeFirestore(app, {
   experimentalForceLongPolling: true,
-  useFetchStreams: false, 
 });
 
 export { app, db };

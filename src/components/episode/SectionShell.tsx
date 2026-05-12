@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { ReactNode, forwardRef } from "react";
 
@@ -7,9 +9,10 @@ interface Props {
   emoji?: string;
   children: ReactNode;
   show: boolean;
+  className?: string;
 }
 
-const SectionShell = forwardRef<HTMLElement, Props>(({ id, title, emoji, children, show }, ref) => {
+const SectionShell = forwardRef<HTMLElement, Props>(({ id, title, emoji, children, show, className = "" }, ref) => {
   if (!show) {
     // Take no space when not yet revealed
     return <section ref={ref} id={id} aria-hidden className="h-0 overflow-hidden" />;
@@ -18,7 +21,7 @@ const SectionShell = forwardRef<HTMLElement, Props>(({ id, title, emoji, childre
     <section
       ref={ref}
       id={id}
-      className="w-full flex items-start justify-center px-4 pt-8 pb-16 sm:pt-12 sm:pb-20"
+      className={`w-full flex items-start justify-center px-4 pt-8 pb-16 sm:pt-12 sm:pb-20 ${className}`}
     >
       <motion.div
         initial={{ opacity: 0, y: 50 }}
