@@ -32,8 +32,8 @@ const Header = ({ step, total, onJump }: Props) => {
   };
 
   const goHome = () => {
+    navigate("/");
     window.scrollTo({ top: 0, behavior: "smooth" });
-    onJump(1);
   };
 
   return (
