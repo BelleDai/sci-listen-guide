@@ -11,7 +11,7 @@ interface Props {
   showStepper?: boolean;
 }
 
-const Header = ({ step, total, onJump }: Props) => {
+const Header = ({ step = 1, total = 4, onJump, showStepper = true }: Props) => {
   const [q, setQ] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
