@@ -14,6 +14,7 @@ const Header = ({ step, total, onJump }: Props) => {
   const [q, setQ] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (searchOpen) inputRef.current?.focus();
