@@ -1,10 +1,6 @@
-import { getAllPublishedEpisodes } from "@/lib/episodes";
+import { getAllPublishedEpisodes, parseFirestoreFields, PROJECT_ID, FIRESTORE_URL } from "@/lib/episodes";
 import EpisodeView, { EpisodeData } from "@/components/episode/EpisodeView";
-import Header from "@/components/episode/Header";
 import { notFound } from "next/navigation";
-
-const PROJECT_ID = process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID;
-const FIRESTORE_URL = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents:runQuery`;
 
 // Dynamic static generation
 export async function generateStaticParams() {
@@ -59,7 +55,6 @@ async function getEpisodeData(id: string): Promise<EpisodeData | null> {
   const doc = data.find((d: any) => d.document);
   if (!doc) return null;
 
-  const { parseFirestoreFields } = await import("@/lib/episodes");
   const docName: string = doc.document.name;
   const docId = docName.split("/").pop()!;
   const fields = parseFirestoreFields(doc.document.fields || {});

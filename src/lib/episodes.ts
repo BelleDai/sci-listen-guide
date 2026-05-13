@@ -1,8 +1,8 @@
 import { EpisodeData } from "@/components/episode/EpisodeView";
 import "server-only";
 
-const PROJECT_ID = process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID;
-const FIRESTORE_URL = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents:runQuery`;
+export const PROJECT_ID = process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID;
+export const FIRESTORE_URL = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents:runQuery`;
 
 // Parse Firestore REST API value format into plain JS values
 export function parseFirestoreValue(value: any): any {
