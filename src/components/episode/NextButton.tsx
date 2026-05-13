@@ -14,7 +14,7 @@ const NextButton = ({ label, onClick, done }: Props) => (
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       disabled={done}
-      className="group inline-flex items-center gap-2 px-7 py-4 rounded-full font-extrabold text-base sm:text-lg text-primary-foreground shadow-[var(--shadow-glow)] bg-[image:var(--gradient-primary)] disabled:opacity-90"
+      className="group inline-flex items-center gap-2 px-7 py-4 rounded-full font-extrabold text-base sm:text-lg text-primary-foreground shadow-[var(--shadow-glow)] bg-secondary bg-[image:var(--gradient-primary)] disabled:opacity-90"
     >
       {done ? "已完成" : label}
       <span className="relative w-5 h-5 inline-block">

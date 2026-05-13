@@ -279,7 +279,7 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
                   transition={{ type: "spring", stiffness: 260, damping: 18 }}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center gap-2 px-7 py-4 rounded-full font-extrabold text-base sm:text-lg text-primary-foreground shadow-[var(--shadow-glow)] bg-[image:var(--gradient-primary)]"
+                  className="inline-flex items-center gap-2 px-7 py-4 rounded-full font-extrabold text-base sm:text-lg text-primary-foreground shadow-[var(--shadow-glow)] bg-secondary bg-[image:var(--gradient-primary)]"
                 >
                   <Sparkles className="w-5 h-5" />
                   我是小小科學家，任務達成！

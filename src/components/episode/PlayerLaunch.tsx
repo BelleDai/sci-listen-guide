@@ -20,7 +20,7 @@ const PlayerLaunch = ({ applePodcast, spotify }: Props) => {
         aria-expanded={open}
         disabled={!hasLinks}
         className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-extrabold text-base sm:text-lg shadow-[var(--shadow-glow)] transition-colors ${hasLinks
-          ? "text-primary-foreground bg-[image:var(--gradient-primary)] cursor-pointer"
+          ? "text-primary-foreground bg-secondary bg-[image:var(--gradient-primary)] cursor-pointer"
           : "text-white/40 bg-white/10 cursor-not-allowed shadow-none"
           }`}
       >

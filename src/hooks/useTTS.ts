@@ -39,33 +39,51 @@ export const useTTS = () => {
   }, []);
 
   const speak = useCallback((text: string, id: string) => {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-    const synth = window.speechSynthesis;
-    const clean = stripMarkdown(text);
-    if (!clean) return;
-
-    // toggle off if same
-    if (activeId === id) {
-      synth.cancel();
-      setActive(null);
+    if (typeof window === "undefined") return;
+    if (!("speechSynthesis" in window) || !window.SpeechSynthesisUtterance) {
+      alert("您目前的瀏覽器不支援語音朗讀功能，建議您改用系統預設瀏覽器（如 Safari 或 Chrome）開啟此網頁。");
       return;
     }
-    synth.cancel();
-    const u = new SpeechSynthesisUtterance(clean);
-    u.lang = "zh-TW";
-    u.rate = 0.9;
-    u.pitch = 1.1;
-    const voices = synth.getVoices();
-    const zh = voices.find((v) => /zh|cmn|Chinese/i.test(v.lang) || /Chinese|中文/i.test(v.name));
-    if (zh) u.voice = zh;
-    u.onend = () => {
+
+    try {
+      const synth = window.speechSynthesis;
+      const clean = stripMarkdown(text);
+      if (!clean) return;
+
+      // toggle off if same
+      if (activeId === id) {
+        synth.cancel();
+        setActive(null);
+        return;
+      }
+      synth.cancel();
+      const u = new SpeechSynthesisUtterance(clean);
+      u.lang = "zh-TW";
+      u.rate = 0.9;
+      u.pitch = 1.1;
+      const voices = synth.getVoices();
+      const zh = voices.find((v) => /zh|cmn|Chinese/i.test(v.lang) || /Chinese|中文/i.test(v.name));
+      if (zh) u.voice = zh;
+      
+      u.onend = () => {
+        if (activeId === id) setActive(null);
+      };
+      
+      u.onerror = (e) => {
+        if (activeId === id) setActive(null);
+        if (e.error !== "interrupted" && e.error !== "canceled") {
+          console.error("TTS Error:", e);
+          alert("語音播放失敗。可能是目前的 App 內建瀏覽器限制了此功能，建議您點擊右上角「使用預設瀏覽器」開啟此網頁！");
+        }
+      };
+      
+      setActive(id);
+      synth.speak(u);
+    } catch (e) {
+      console.error("TTS try-catch error:", e);
       if (activeId === id) setActive(null);
-    };
-    u.onerror = () => {
-      if (activeId === id) setActive(null);
-    };
-    setActive(id);
-    synth.speak(u);
+      alert("語音播放發生錯誤，建議您改用系統預設瀏覽器開啟！");
+    }
   }, []);
 
   const stop = useCallback(() => {

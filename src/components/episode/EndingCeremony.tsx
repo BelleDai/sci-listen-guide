@@ -77,7 +77,7 @@ const EndingCeremony = ({ open, onClose }: Props) => {
             exit={{ scale: 0.6, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 18 }}
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-md rounded-3xl px-8 py-10 text-center text-white bg-[image:var(--gradient-primary)] shadow-[var(--shadow-glow)]"
+            className="relative w-full max-w-md rounded-3xl px-8 py-10 text-center text-white bg-secondary bg-[image:var(--gradient-primary)] shadow-[var(--shadow-glow)]"
           >
             <button
               aria-label="關閉"
