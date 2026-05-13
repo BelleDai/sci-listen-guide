@@ -61,9 +61,9 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
             alt="科學好好聽"
             className="w-9 h-9 rounded-md object-cover"
           />
-          <span className="hidden sm:flex items-baseline gap-1.5">
+          <span className="flex items-baseline gap-1.5">
             <span className="font-extrabold text-white text-base leading-none">科學好好聽</span>
-            <span className="font-extrabold text-accent text-base leading-none">科普伴讀</span>
+            {hasStepper && (<span className="hidden sm:inline font-extrabold text-accent text-base leading-none">科普伴讀</span>)}
           </span>
         </button>
 
@@ -78,8 +78,8 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
                 }}
                 transition={{ type: "spring", stiffness: 280, damping: 26 }}
                 className={`relative h-9 flex items-center overflow-visible ${searchOpen
-                    ? "rounded-2xl bg-card border border-accent/60 shadow-[0_0_12px_-2px_hsl(var(--accent)/0.4)]"
-                    : ""
+                  ? "rounded-2xl bg-card border border-accent/60 shadow-[0_0_12px_-2px_hsl(var(--accent)/0.4)]"
+                  : ""
                   }`}
               >
                 <div className="flex-1 flex items-center h-full px-2 w-full overflow-hidden">
@@ -165,8 +165,8 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
                     <motion.span
                       animate={{ scale: current ? 1.25 : 1 }}
                       className={`block w-3 h-3 rounded-full transition-colors ${reached
-                          ? "bg-secondary shadow-[0_0_0_3px_hsl(var(--secondary)/0.25)]"
-                          : "bg-accent/70"
+                        ? "bg-secondary shadow-[0_0_0_3px_hsl(var(--secondary)/0.25)]"
+                        : "bg-accent/70"
                         }`}
                     />
                   </button>

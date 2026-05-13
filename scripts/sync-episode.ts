@@ -34,11 +34,37 @@ function getCaseInsensitiveKey(obj: any, targetKey: string) {
   return foundKey ? obj[foundKey] : null;
 }
 
+// Normalize a Glossary array: 'word' -> 'term', 'definition' -> 'explanation'
+function normalizeGlossary(value: any[]): any[] {
+  return value.map((g: any) => ({
+    term: g.term ?? g.word ?? "",
+    explanation: g.explanation ?? g.definition ?? "",
+  }));
+}
+
 async function syncEpisode() {
   const source = readlineSync.question("Enter Folder ID (Drive) or Local Path: ");
   const episodeId = readlineSync.question("Enter Episode ID (e.g., 216): ");
-  const spotifyLink = readlineSync.question("Enter Spotify Link (optional): ");
-  const applePodcastLink = readlineSync.question("Enter Apple Podcast Link (optional): ");
+
+  // Fetch existing Firestore doc so links can be re-used with Enter
+  const existingDoc = await db.collection("episodes").doc(episodeId).get();
+  const existing = existingDoc.exists ? (existingDoc.data() as any) : {};
+
+  const existingSpotify = existing.Spotify || "";
+  const existingApple = existing.ApplePodcast || "";
+
+  const spotifyPrompt = existingSpotify
+    ? `Enter Spotify Link [Enter to keep: ${existingSpotify.slice(0, 50)}...]: `
+    : "Enter Spotify Link (optional): ";
+  const applePrompt = existingApple
+    ? `Enter Apple Podcast Link [Enter to keep: ${existingApple.slice(0, 50)}...]: `
+    : "Enter Apple Podcast Link (optional): ";
+
+  const spotifyInput = readlineSync.question(spotifyPrompt);
+  const appleInput = readlineSync.question(applePrompt);
+
+  const spotifyLink = spotifyInput || existingSpotify;
+  const applePodcastLink = appleInput || existingApple;
 
   let data: any = {
     id: episodeId,
@@ -53,7 +79,7 @@ async function syncEpisode() {
 
   if (isLocal) {
     console.log("Reading from local directory...");
-    
+
     const mdPath = path.join(source, "metadata.md");
     if (fs.existsSync(mdPath)) {
       const content = fs.readFileSync(mdPath, "utf-8");
@@ -66,6 +92,7 @@ async function syncEpisode() {
       { file: "family_discussion.json", key: "FamilyDiscussion" },
       { file: "audio_question.json", key: "AudioQuestion" },
       { file: "key_takeaways.json", key: "KeyTakeaway" },
+      { file: "tags.json", key: "Tags" },
     ];
 
     for (const item of jsonFiles) {
@@ -74,12 +101,8 @@ async function syncEpisode() {
         const raw = JSON.parse(fs.readFileSync(p, "utf-8"));
         let value = getCaseInsensitiveKey(raw, item.key);
 
-        // Normalize Glossary: 'word' -> 'term', 'definition' -> 'explanation'
         if (item.key === "Glossary" && Array.isArray(value)) {
-          value = value.map((g: any) => ({
-            term: g.term ?? g.word ?? "",
-            explanation: g.explanation ?? g.definition ?? "",
-          }));
+          value = normalizeGlossary(value);
         }
 
         data[item.key] = value;
@@ -114,7 +137,7 @@ async function syncEpisode() {
     });
 
     const files = res.data.files || [];
-    
+
     for (const file of files) {
       if (file.name === "metadata.md") {
         const doc = await drive.files.get({ fileId: file.id!, alt: "media" });
@@ -128,6 +151,7 @@ async function syncEpisode() {
         "family_discussion.json": "FamilyDiscussion",
         "audio_question.json": "AudioQuestion",
         "key_takeaways.json": "KeyTakeaway",
+        "tags.json": "Tags",
       };
 
       if (jsonMapping[file.name!]) {
@@ -135,12 +159,8 @@ async function syncEpisode() {
         const raw = doc.data as any;
         let value = getCaseInsensitiveKey(raw, jsonMapping[file.name!]);
 
-        // Normalize Glossary: 'word' -> 'term', 'definition' -> 'explanation'
         if (jsonMapping[file.name!] === "Glossary" && Array.isArray(value)) {
-          value = value.map((g: any) => ({
-            term: g.term ?? g.word ?? "",
-            explanation: g.explanation ?? g.definition ?? "",
-          }));
+          value = normalizeGlossary(value);
         }
         data[jsonMapping[file.name!]] = value;
       }
@@ -169,8 +189,8 @@ async function syncEpisode() {
   }
 
   console.log("Uploading to Firestore...");
-  await db.collection("episodes").doc(episodeId).set(data);
-  console.log(`Successfully synced Episode ${episodeId}!`);
+  await db.collection("episodes").doc(episodeId).set(data, { merge: true });
+  console.log(`✅ Successfully synced Episode ${episodeId}!`);
 }
 
 syncEpisode().catch((err) => {

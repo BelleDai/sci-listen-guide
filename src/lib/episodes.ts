@@ -89,6 +89,7 @@ export async function getLatestPublishedEpisode(): Promise<EpisodeData | null> {
           value: { stringValue: "published" },
         },
       },
+      orderBy: [{ field: { fieldPath: "__name__" }, direction: "DESCENDING" }],
       limit: 1,
     },
   };
