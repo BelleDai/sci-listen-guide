@@ -113,7 +113,8 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
   const familyList = Array.isArray(episodeData.FamilyDiscussion)
     ? episodeData.FamilyDiscussion
     : [episodeData.FamilyDiscussion];
-  const family = familyList[Math.floor(Math.random() * familyList.length)];
+  const [familyIndex] = useState(() => Math.floor(Math.random() * familyList.length));
+  const family = familyList[familyIndex] || familyList[0];
 
   return (
     <>
@@ -223,7 +224,6 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
                   <div className="pt-1 flex-1">
                     <div className="text-xs font-bold text-accent mb-1 flex items-center gap-1">
                       <Lightbulb className="w-3 h-3" /> 重點 {i + 1}
-                      <SpeakingIndicator active={active} />
                     </div>
                     <SpeakLine
                       id={id}
@@ -251,7 +251,7 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
         >
           <SpeakLine
             id="fam-q"
-            text={`${family.topic}。${family.description}`}
+            text={`${family.description}`}
             className="glass-card rounded-3xl p-5 sm:p-7 mb-5 border-secondary/40 hover:border-accent/50"
           >
             <div className="flex items-center gap-2 flex-wrap mb-3">
@@ -294,20 +294,36 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
                   className="w-full rounded-3xl px-6 py-8 text-center shadow-[var(--shadow-card)] border-4 border-primary/50"
                   style={{ backgroundColor: "#ffc952", color: "#34314c" }}
                 >
-                  <motion.div
-                    animate={{ rotate: [0, -12, 12, -8, 8, 0], scale: [1, 1.1, 1] }}
-                    transition={{ duration: 1.4, repeat: Infinity, repeatDelay: 0.4 }}
+                  <div
                     className="inline-flex items-center justify-center w-20 h-20 rounded-full mb-3 shadow-lg"
                     style={{ backgroundColor: "#34314c" }}
                   >
                     <Award className="w-12 h-12" style={{ color: "#ffc952" }} strokeWidth={2.5} />
-                  </motion.div>
+                  </div>
                   <h3 className="text-2xl sm:text-3xl font-black mb-2" style={{ color: "#34314c" }}>
                     🎉 恭喜你完成今天的科普探險！
                   </h3>
-                  <p className="text-base sm:text-lg font-bold" style={{ color: "#34314c" }}>
+                  <p className="text-base sm:text-lg font-bold mb-6" style={{ color: "#34314c" }}>
                     你已經是一位小小科學家了！繼續保持好奇心吧！
                   </p>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => {
+                      const headerSearchBtn = document.querySelector('header button[aria-label="展開搜尋"]');
+                      if (headerSearchBtn) {
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                        setTimeout(() => (headerSearchBtn as HTMLButtonElement).click(), 150);
+                      } else {
+                        window.location.href = "/";
+                      }
+                    }}
+                    className="inline-flex items-center gap-2 px-8 py-3 rounded-full font-extrabold text-base sm:text-lg shadow-lg"
+                    style={{ backgroundColor: "#34314c", color: "#ffc952" }}
+                  >
+                    <Sparkles className="w-5 h-5" />
+                    探索其他主題
+                  </motion.button>
                 </motion.div>
               )}
             </AnimatePresence>

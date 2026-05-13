@@ -1,5 +1,4 @@
 import * as admin from "firebase-admin";
-import { google } from "googleapis";
 import fs from "fs";
 import path from "path";
 import readlineSync from "readline-sync";
@@ -43,7 +42,7 @@ function normalizeGlossary(value: any[]): any[] {
 }
 
 async function syncEpisode() {
-  const source = readlineSync.question("Enter Folder ID (Drive) or Local Path: ");
+  const source = readlineSync.question("Enter Local Path: ");
   const episodeId = readlineSync.question("Enter Episode ID (e.g., 216): ");
 
   // Fetch existing Firestore doc so links can be re-used with Enter
@@ -73,14 +72,17 @@ async function syncEpisode() {
     ApplePodcast: applePodcastLink,
   };
 
-  const isLocal = fs.existsSync(source);
+  if (!fs.existsSync(source)) {
+    console.error("❌ Error: Local path does not exist.");
+    process.exit(1);
+  }
+
   const publicDir = path.join(process.cwd(), "public", "episodes", episodeId);
   if (!fs.existsSync(publicDir)) fs.mkdirSync(publicDir, { recursive: true });
 
-  if (isLocal) {
-    console.log("Reading from local directory...");
+  console.log("Reading from local directory...");
 
-    const mdPath = path.join(source, "metadata.md");
+  const mdPath = path.join(source, "metadata.md");
     if (fs.existsSync(mdPath)) {
       const content = fs.readFileSync(mdPath, "utf-8");
       const titleMatch = content.match(/## Title\s*\n\s*(.+)/);
@@ -124,69 +126,7 @@ async function syncEpisode() {
       data.ThreeDCaption = fs.readFileSync(captionPath, "utf-8").trim();
     }
 
-  } else {
-    console.log("Fetching from Google Drive using Application Default Credentials...");
-    const auth = new google.auth.GoogleAuth({
-      scopes: ["https://www.googleapis.com/auth/drive.readonly"],
-    });
-    const drive = google.drive({ version: "v3", auth });
 
-    const res = await drive.files.list({
-      q: `'${source}' in parents`,
-      fields: "files(id, name)",
-    });
-
-    const files = res.data.files || [];
-
-    for (const file of files) {
-      if (file.name === "metadata.md") {
-        const doc = await drive.files.get({ fileId: file.id!, alt: "media" });
-        const content = doc.data as string;
-        const titleMatch = content.match(/## Title\s*\n\s*(.+)/);
-        if (titleMatch) data.Title = titleMatch[1].trim();
-      }
-
-      const jsonMapping: Record<string, string> = {
-        "glossary.json": "Glossary",
-        "family_discussion.json": "FamilyDiscussion",
-        "audio_question.json": "AudioQuestion",
-        "key_takeaways.json": "KeyTakeaway",
-        "tags.json": "Tags",
-      };
-
-      if (jsonMapping[file.name!]) {
-        const doc = await drive.files.get({ fileId: file.id!, alt: "media" });
-        const raw = doc.data as any;
-        let value = getCaseInsensitiveKey(raw, jsonMapping[file.name!]);
-
-        if (jsonMapping[file.name!] === "Glossary" && Array.isArray(value)) {
-          value = normalizeGlossary(value);
-        }
-        data[jsonMapping[file.name!]] = value;
-      }
-
-      if (file.name === "profile.jpg") {
-        const dest = fs.createWriteStream(path.join(publicDir, "profile.jpg"));
-        const doc = await drive.files.get({ fileId: file.id!, alt: "media" }, { responseType: "stream" });
-        doc.data.pipe(dest);
-        data.Cover = `/episodes/${episodeId}/profile.jpg`;
-      }
-
-      if (file.name === "3d.jpg") {
-        const dest = fs.createWriteStream(path.join(publicDir, "3d.jpg"));
-        const doc = await drive.files.get({ fileId: file.id!, alt: "media" }, { responseType: "stream" });
-        doc.data.pipe(dest);
-        data.ThreeDImage = `/episodes/${episodeId}/3d.jpg`;
-      }
-
-      if (file.name === "3d_caption.txt") {
-        const doc = await drive.files.get({ fileId: file.id!, alt: "media" });
-        data.ThreeDCaption = (doc.data as string).trim();
-      }
-    }
-    // Give some time for streams to finish
-    await new Promise(resolve => setTimeout(resolve, 2000));
-  }
 
   console.log("Uploading to Firestore...");
   await db.collection("episodes").doc(episodeId).set(data, { merge: true });

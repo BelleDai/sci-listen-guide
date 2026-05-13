@@ -32,7 +32,7 @@ export default async function Home() {
       <main className="text-foreground min-h-screen">
 
         {/* ── Hero ── */}
-        <section className="max-w-3xl mx-auto px-4 pt-10 pb-12 text-center">
+        <section className="max-w-2xl mx-auto px-4 pt-10 pb-12 text-center">
           <h1 className="text-4xl sm:text-6xl font-black text-white leading-tight mb-4 text-stroke-dark animate-in fade-in slide-in-from-top-4 duration-500">
             聽科學，<span className="text-secondary">探索世界！</span>
           </h1>
@@ -47,36 +47,50 @@ export default async function Home() {
         </section>
 
         {/* ── 主題星球探索 ── */}
-        <section className="max-w-3xl mx-auto px-4 pb-12">
-          <h2 className="text-xl sm:text-2xl font-extrabold text-white mb-4 flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-secondary" />
-            主題星球探索
-          </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
-            {planets.map((p, i) => (
-              <div
-                key={p.name}
-                style={{ animationDelay: `${i * 0.3}s` }}
-                className={`
-                  block rounded-3xl p-4 sm:p-5
-                  bg-gradient-to-br ${p.color}
-                  shadow-[var(--shadow-card)] border border-white/20
-                  text-left cursor-default select-none
-                  hover:scale-[1.03] hover:-rotate-[0.5deg] transition-transform duration-200
-                `}
-              >
-                <div className="text-4xl sm:text-5xl mb-2 drop-shadow-lg">{p.emoji}</div>
-                <div className="font-black text-white text-base sm:text-lg leading-tight">{p.name}</div>
-                <div className="text-white/90 text-xs sm:text-sm mt-1">{p.desc}</div>
-              </div>
-            ))}
+        <section id="topic-planets" className="pb-0 scroll-mt-20">
+          <div className="max-w-2xl mx-auto px-4 mb-5">
+            <h2 className="text-xl sm:text-2xl font-extrabold text-white mb-2 flex items-center gap-2">
+              <Sparkles className="w-5 h-5 text-secondary" />
+              微觀世界到浩瀚星空
+            </h2>
+            <p className="text-white/80 text-sm leading-relaxed">
+              每一集都是一場<span className="text-accent font-bold">知識的深度旅行</span>
+            </p>
           </div>
-          <p className="text-center text-white/40 text-xs mt-4">🚧 依 Tags 篩選功能即將上線</p>
+
+          {/* Full-width static hero image */}
+          <div className="max-w-2xl mx-auto px-4 mb-5">
+            <img
+              src="/hero-collage.png"
+              alt="科學百科主題拼貼：火山、地球、顯微鏡、海洋生物、昆蟲、太空"
+              className="w-full h-auto block"
+            />
+          </div>
+
+          {/* Infinite auto-scrolling marquee of topic cards */}
+          {/* <div
+            className="group relative w-full overflow-hidden mt-[-24px] sm:mt-[-40px] py-4"
+            aria-label="主題卡片輪播"
+          >
+            <div className="flex gap-4 w-max animate-marquee group-hover:[animation-play-state:paused] px-4">
+              {[...planets, ...planets].map((p, i) => (
+                <div
+                  key={`${p.name}-${i}`}
+                  className={`flex-shrink-0 w-44 sm:w-52 rounded-2xl p-4 backdrop-blur-md border border-white/25 shadow-[var(--shadow-card)] hover:scale-[1.04] transition-transform bg-gradient-to-br ${p.color}`}
+                >
+                  <div className="text-4xl mb-2 drop-shadow-lg">{p.emoji}</div>
+                  <div className="font-black text-white text-base leading-tight">{p.name}</div>
+                  <div className="text-white/90 text-xs mt-1">{p.desc}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <p className="text-center text-white/40 text-xs mt-4">🚧 依 Tags 篩選功能即將上線</p> */}
         </section>
 
         {/* ── Today's episode shortcut ── */}
         {latestEpisode && (
-          <section className="max-w-3xl mx-auto px-4 pb-12">
+          <section className="max-w-2xl mx-auto px-4 pb-12">
             <Link
               href={`/guide/${latestEpisode.id}`}
               className="block rounded-3xl overflow-hidden glass-card border-2 border-secondary/40 hover:border-accent/70 transition-colors group"
@@ -102,7 +116,7 @@ export default async function Home() {
         )}
 
         {/* ── Listen Platforms ── */}
-        <section id="listen-platforms" className="max-w-3xl mx-auto px-4 pb-12 scroll-mt-20">
+        <section id="listen-platforms" className="max-w-2xl mx-auto px-4 pb-12 scroll-mt-20">
           <h2 className="text-xl sm:text-2xl font-extrabold text-white mb-1 flex items-center gap-2">
             <Headphones className="w-5 h-5 text-accent" />
             在你喜歡的平台收聽
@@ -173,7 +187,7 @@ export default async function Home() {
         </section>
 
         {/* ── Brand Story / VIP ── */}
-        <section className="max-w-3xl mx-auto px-4 pb-16">
+        <section className="max-w-2xl mx-auto px-4 pb-12">
           <div
             className="rounded-3xl p-6 sm:p-8 backdrop-blur-xl border border-white/10 shadow-[var(--shadow-card)] relative overflow-hidden"
             style={{ backgroundColor: "rgba(52, 49, 76, 0.82)" }}

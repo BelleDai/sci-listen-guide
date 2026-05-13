@@ -11,13 +11,17 @@ interface Props {
 
 const GlossaryCard = ({ term, explanation }: Props) => {
   const [open, setOpen] = useState(false);
-  const { speak, speakingId } = useTTS();
+  const { speak, stop, speakingId } = useTTS();
   const id = `glossary-${term}`;
   const isSpeaking = speakingId === id;
   const toggleOpen = () => {
     const next = !open;
     setOpen(next);
-    if (next) speak(`${term}。${explanation}`, id);
+    if (next) {
+      speak(`${term}。${explanation}`, id);
+    } else {
+      if (isSpeaking) stop();
+    }
   };
 
   return (

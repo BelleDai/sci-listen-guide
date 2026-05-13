@@ -8,25 +8,45 @@ interface Props {
 }
 
 const AnswerList = ({ idPrefix, text }: Props) => {
-  const blocks = text.split(/\n\s*\n/).map((b) => b.trim()).filter(Boolean);
   return (
-    <div className="space-y-3 text-white/95">
-      {blocks.map((b, i) => {
-        const id = `${idPrefix}-${i}`;
-        const clean = stripMarkdown(b);
-        return (
-          <SpeakLine
-            key={i}
-            id={id}
-            text={clean}
-            className="rounded-xl bg-card/50 border border-accent/20 px-4 py-3 text-base sm:text-lg leading-relaxed hover:border-accent/50 hover:bg-card/70"
-          >
-            <div className="markdown-body">
-              <ReactMarkdown>{b}</ReactMarkdown>
-            </div>
-          </SpeakLine>
-        );
-      })}
+    <div className="text-white/95 markdown-body">
+      <ReactMarkdown
+        components={{
+          li: ({ node, children, ...props }) => {
+            let textContent = "";
+            const extractText = (nodes: any) => {
+              if (typeof nodes === "string") textContent += nodes;
+              else if (Array.isArray(nodes)) nodes.forEach(extractText);
+              else if (nodes && nodes.props && nodes.props.children) extractText(nodes.props.children);
+            };
+            extractText(children);
+
+            const clean = stripMarkdown(textContent).trim();
+            if (!clean) return <li {...props}>{children}</li>;
+
+            let hash = 0;
+            for (let i = 0; i < clean.length; i++) {
+              hash = (hash << 5) - hash + clean.charCodeAt(i);
+              hash |= 0;
+            }
+            const id = `${idPrefix}-li-${Math.abs(hash)}`;
+
+            return (
+              <li {...props} className="my-2">
+                <SpeakLine
+                  id={id}
+                  text={clean}
+                  className="rounded-xl bg-card/50 border border-accent/20 px-4 py-3 text-base sm:text-lg leading-relaxed hover:border-accent/50 hover:bg-card/70"
+                >
+                  {children}
+                </SpeakLine>
+              </li>
+            );
+          }
+        }}
+      >
+        {text}
+      </ReactMarkdown>
     </div>
   );
 };

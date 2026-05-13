@@ -74,46 +74,40 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
             <Command className="bg-transparent overflow-visible static flex flex-row items-center justify-end" shouldFilter={true}>
               <motion.div
                 animate={{
-                  width: searchOpen ? (typeof window !== "undefined" && window.innerWidth < 640 ? 180 : 260) : 36,
+                  width: searchOpen ? (typeof window !== "undefined" && window.innerWidth < 640 ? 180 : 240) : 36,
                 }}
                 transition={{ type: "spring", stiffness: 280, damping: 26 }}
-                className={`relative h-9 flex items-center overflow-visible ${searchOpen
-                  ? "rounded-2xl bg-card border border-accent/60 shadow-[0_0_12px_-2px_hsl(var(--accent)/0.4)]"
-                  : ""
-                  }`}
+                className={`relative h-9 flex items-center overflow-visible bg-white/10 hover:bg-accent/40 backdrop-blur-md rounded-full shadow-sm transition-colors ${
+                  searchOpen ? "px-3" : ""
+                }`}
               >
-                <div className="flex-1 flex items-center h-full px-2 w-full overflow-hidden">
-                  <AnimatePresence>
-                    {searchOpen && (
-                      <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.15, delay: 0.08 }}
-                        className="flex-1 h-full flex items-center min-w-0"
-                      >
-                        <CommandInput
-                          placeholder="想聽什麼主題呢？"
-                          className="h-full border-0 focus:ring-0 bg-transparent text-white placeholder:text-white/50 text-sm w-full px-2 py-0 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50"
-                        // Hide the default search icon that cmdk input might have, we use our own on the right
-                        />
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
+                <AnimatePresence>
+                  {searchOpen && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.15, delay: 0.08 }}
+                      className="flex-1 h-full flex items-center min-w-0 pr-2"
+                    >
+                      <CommandInput
+                        placeholder="想聽什麼主題呢？"
+                        className="h-full border-0 focus:ring-0 bg-transparent text-white placeholder:text-white/55 text-sm w-full px-2 py-0 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50"
+                      // Hide the default search icon that cmdk input might have, we use our own on the right
+                      />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
 
                 <button
                   type="button"
                   onClick={() => setSearchOpen((v) => !v)}
                   aria-label={searchOpen ? "收合搜尋" : "展開搜尋"}
-                  className={`flex-shrink-0 flex items-center justify-center w-9 h-9 rounded-full transition-colors ${searchOpen ? "text-white/80 hover:text-white" : "text-accent hover:text-white"
-                    }`}
+                  className={`flex-shrink-0 inline-flex items-center justify-center text-accent hover:text-white transition-colors ${
+                    searchOpen ? "w-6 h-6" : "w-9 h-9"
+                  }`}
                 >
-                  {searchOpen ? (
-                    <X className="w-4 h-4" />
-                  ) : (
-                    <Search className="w-[18px] h-[18px]" strokeWidth={2.25} />
-                  )}
+                  <Search className="w-[18px] h-[18px]" strokeWidth={2.25} />
                 </button>
               </motion.div>
 

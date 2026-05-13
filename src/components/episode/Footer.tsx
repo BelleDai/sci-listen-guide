@@ -41,7 +41,7 @@ const links = [
 
 const Footer = () => (
   <footer className="w-full mt-10 px-4 pb-10">
-    <div className="max-w-3xl mx-auto rounded-3xl bg-card/70 border border-white/10 backdrop-blur-md px-6 py-7 text-center text-white">
+    <div className="max-w-2xl mx-auto rounded-3xl bg-card/70 border border-white/10 backdrop-blur-md px-6 py-7 text-center text-white">
       <p className="text-base sm:text-lg font-bold leading-relaxed">
         下一次，我們又會發現什麼新奇的科學呢？
       </p>

@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { Headphones, ChevronDown } from "lucide-react";
+import { Headphones, ChevronRight, Lock } from "lucide-react";
 
 interface Props {
   applePodcast?: string;
@@ -9,30 +9,38 @@ interface Props {
 
 const PlayerLaunch = ({ applePodcast, spotify }: Props) => {
   const [open, setOpen] = useState(false);
+  const hasLinks = Boolean(applePodcast || spotify);
+
   return (
-    <div className="flex flex-col items-center gap-3 mt-5">
+    <div className="flex flex-row items-center justify-center gap-3 mt-5 flex-wrap">
       <motion.button
-        onClick={() => setOpen((o) => !o)}
-        whileHover={{ scale: 1.04 }}
-        whileTap={{ scale: 0.96 }}
+        onClick={() => hasLinks && setOpen((o) => !o)}
+        whileHover={hasLinks ? { scale: 1.04 } : {}}
+        whileTap={hasLinks ? { scale: 0.96 } : {}}
         aria-expanded={open}
-        className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-extrabold text-base sm:text-lg text-primary-foreground shadow-[var(--shadow-glow)] bg-[image:var(--gradient-primary)]"
+        disabled={!hasLinks}
+        className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-extrabold text-base sm:text-lg shadow-[var(--shadow-glow)] transition-colors ${hasLinks
+          ? "text-primary-foreground bg-[image:var(--gradient-primary)] cursor-pointer"
+          : "text-white/40 bg-white/10 cursor-not-allowed shadow-none"
+          }`}
       >
-        <Headphones className="w-5 h-5" />
-        收聽本集故事
-        <motion.span animate={{ rotate: open ? 180 : 0 }}>
-          <ChevronDown className="w-4 h-4" />
-        </motion.span>
+        {hasLinks ? <Headphones className="w-5 h-5" /> : <Lock className="w-5 h-5" />}
+        {hasLinks ? "收聽故事" : "即將上架"}
+        {hasLinks && (
+          <motion.span animate={{ rotate: open ? 180 : 0 }}>
+            <ChevronRight className="w-4 h-4" />
+          </motion.span>
+        )}
       </motion.button>
 
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
+            initial={{ opacity: 0, x: -10, width: 0 }}
+            animate={{ opacity: 1, x: 0, width: "auto" }}
+            exit={{ opacity: 0, x: -10, width: 0 }}
             transition={{ type: "spring", stiffness: 280, damping: 20 }}
-            className="flex flex-wrap items-center justify-center gap-3"
+            className="flex flex-row items-center gap-2 overflow-hidden"
           >
             {applePodcast && (
               <motion.a
@@ -44,10 +52,9 @@ const PlayerLaunch = ({ applePodcast, spotify }: Props) => {
                 exit={{ scale: 0 }}
                 transition={{ type: "spring", stiffness: 320, damping: 16, delay: 0.05 }}
                 whileHover={{ scale: 1.06 }}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold text-white shadow-lg"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold text-white shadow-lg whitespace-nowrap flex-shrink-0"
                 style={{ background: "linear-gradient(135deg,#a855f7,#6d28d9)" }}
               >
-                <span className="text-xl"></span>
                 Apple Podcast
               </motion.a>
             )}
@@ -61,10 +68,9 @@ const PlayerLaunch = ({ applePodcast, spotify }: Props) => {
                 exit={{ scale: 0 }}
                 transition={{ type: "spring", stiffness: 320, damping: 16, delay: 0.1 }}
                 whileHover={{ scale: 1.06 }}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold text-white shadow-lg"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold text-white shadow-lg whitespace-nowrap flex-shrink-0"
                 style={{ background: "linear-gradient(135deg,#1ed760,#0a8a3a)" }}
               >
-                <span className="text-xl">🎧</span>
                 Spotify
               </motion.a>
             )}
