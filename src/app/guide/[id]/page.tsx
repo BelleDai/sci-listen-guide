@@ -1,6 +1,7 @@
 import { getAllPublishedEpisodes, parseFirestoreFields, PROJECT_ID, FIRESTORE_URL } from "@/lib/episodes";
 import EpisodeView, { EpisodeData } from "@/components/episode/EpisodeView";
 import { notFound } from "next/navigation";
+import { Metadata } from "next";
 
 // Dynamic static generation
 export async function generateStaticParams() {
@@ -60,6 +61,47 @@ async function getEpisodeData(id: string): Promise<EpisodeData | null> {
   const fields = parseFirestoreFields(doc.document.fields || {});
 
   return { id: docId, ...fields } as EpisodeData;
+}
+
+export async function generateMetadata(
+  props: { params: Promise<{ id: string }> }
+): Promise<Metadata> {
+  const params = await props.params;
+  const episodeData = await getEpisodeData(params.id);
+
+  if (!episodeData) {
+    return {
+      title: "找不到集數 | 科學好好聽",
+    };
+  }
+
+  // Use KeyTakeaway for description, joining them together
+  const rawDescription = episodeData.KeyTakeaway?.map((k) => k.content).join(" ") || "科學好好聽，科普伴讀。";
+  const plainTextDescription = rawDescription.replace(/[#*`_~>\[\]]/g, "").trim();
+  const description = plainTextDescription.length > 150 
+    ? plainTextDescription.slice(0, 150) + "..." 
+    : plainTextDescription;
+
+  const keywords = episodeData.Tags || [];
+
+  return {
+    title: `${episodeData.Title} | 科學好好聽`,
+    description,
+    keywords,
+    openGraph: {
+      title: `${episodeData.Title} | 科學好好聽`,
+      description,
+      images: [episodeData.Cover],
+      type: "article",
+      tags: keywords,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${episodeData.Title} | 科學好好聽`,
+      description,
+      images: [episodeData.Cover],
+    },
+  };
 }
 
 export default async function EpisodePage(props: { params: Promise<{ id: string }> }) {

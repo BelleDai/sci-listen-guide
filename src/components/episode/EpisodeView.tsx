@@ -4,18 +4,18 @@ import { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import confetti from "canvas-confetti";
 
-import { BookOpen, Brain, Lightbulb, Users, Volume2, Sparkles, Award } from "lucide-react";
+import { BookOpen, Brain, Lightbulb, Users, Volume2, Sparkles, Award, Headphones } from "lucide-react";
 import SectionShell from "@/components/episode/SectionShell";
 import NextButton from "@/components/episode/NextButton";
 import GlossaryCard from "@/components/episode/GlossaryCard";
 import Collapsible from "@/components/episode/Collapsible";
 import Header from "@/components/episode/Header";
 import Footer from "@/components/episode/Footer";
-import SpeakingIndicator from "@/components/episode/SpeakingIndicator";
 import AnswerList from "@/components/episode/AnswerList";
 import SpeakLine from "@/components/episode/SpeakLine";
 import PlayerLaunch from "@/components/episode/PlayerLaunch";
 import { useTTS } from "@/hooks/useTTS";
+import { trackEpisodeStep, trackEpisodeCompleted, trackAnswerOpened } from "@/lib/analytics";
 
 const TOTAL = 4;
 
@@ -64,6 +64,7 @@ export interface EpisodeData {
   Spotify?: string;
   ApplePodcast?: string;
   Glossary: GlossaryItem[];
+  Tags: string[];
   [key: string]: unknown;
 }
 
@@ -75,6 +76,7 @@ interface EpisodeViewProps {
 const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
   const [step, setStep] = useState(1);
   const [celebrated, setCelebrated] = useState(false);
+  const [isFamilyAnswerOpened, setIsFamilyAnswerOpened] = useState(false);
   const { speakingId, stop } = useTTS();
 
   const refs = [
@@ -100,9 +102,17 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
     return () => stop();
   }, [stop, episodeData.Title]);
 
+  // 追蹤連續連各階段進入
+  useEffect(() => {
+    if (step > 1) {
+      trackEpisodeStep(step, episodeData.id ?? "", episodeData.Title);
+    }
+  }, [step, episodeData.id, episodeData.Title]);
+
   const onCelebrate = () => {
     setCelebrated(true);
     fireConfetti();
+    trackEpisodeCompleted(episodeData.id ?? "", episodeData.Title);
     setTimeout(() => {
       window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
     }, 200);
@@ -128,7 +138,12 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
               animate={{ opacity: 1, y: 0 }}
               className="text-3xl sm:text-4xl font-black text-white leading-snug mb-6 text-stroke-dark"
             >
-              <span className="block text-secondary text-base sm:text-lg mb-2">🎧 今日科普探險</span>
+              <div className="block text-secondary text-sm mb-2">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary/15 font-bold">
+                  <Headphones className="w-4 h-4" />
+                  今日科普探險
+                </span>
+              </div>
               {episodeData.Title}
             </motion.h1>
 
@@ -189,7 +204,12 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
             <p className="leading-relaxed text-base sm:text-lg text-white">{audio.description}</p>
           </SpeakLine>
 
-          <Collapsible label="聽聽科學隊長怎麼說">
+          <Collapsible
+            label="聽聽科學隊長怎麼說"
+            onToggle={(open) => {
+              if (open) trackAnswerOpened("audio_question", episodeData.id ?? "");
+            }}
+          >
             <AnswerList idPrefix="audio-ans" text={audio.reference_answer} />
           </Collapsible>
 
@@ -263,7 +283,15 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
             <p className="leading-relaxed text-base sm:text-lg text-white">{family.description}</p>
           </SpeakLine>
 
-          <Collapsible label="聽聽科學隊長怎麼說">
+          <Collapsible
+            label="聽聽科學隊長怎麼說"
+            onToggle={(open) => {
+              if (open) {
+                setIsFamilyAnswerOpened(true);
+                trackAnswerOpened("family_discussion", episodeData.id ?? "");
+              }
+            }}
+          >
             <AnswerList idPrefix="fam-ans" text={family.reference_answer} />
           </Collapsible>
 
@@ -274,9 +302,11 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
                   key="cta"
                   onClick={onCelebrate}
                   initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.6 }}
-                  transition={{ type: "spring", stiffness: 260, damping: 18 }}
+                  animate={isFamilyAnswerOpened
+                    ? { opacity: 1, scale: 1, y: [0, -6, 0, -4, 0], transition: { duration: 1.2, repeat: Infinity, repeatDelay: 1.5 } }
+                    : { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 260, damping: 18 } }
+                  }
+                  exit={{ opacity: 0, scale: 0.6, transition: { duration: 0.2 } }}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="inline-flex items-center gap-2 px-7 py-4 rounded-full font-extrabold text-base sm:text-lg text-primary-foreground shadow-[var(--shadow-glow)] bg-secondary bg-[image:var(--gradient-primary)]"

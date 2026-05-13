@@ -2,7 +2,7 @@ import Link from "next/link";
 import Header from "@/components/episode/Header";
 import Footer from "@/components/episode/Footer";
 import { getAllPublishedEpisodes, getLatestPublishedEpisode } from "@/lib/episodes";
-import { BookOpen, Crown, GraduationCap, Headphones, ShieldCheck, Sparkles, Globe } from "lucide-react";
+import { Crown, GraduationCap, Headphones, ShieldCheck, Sparkles } from "lucide-react";
 import ClientHeroButton from "@/components/episode/ClientHeroButton";
 import FloatingDecor from "@/components/home/FloatingDecor";
 

@@ -1,3 +1,5 @@
+"use client";
+
 const links = [
   {
     label: "Facebook",
@@ -56,6 +58,13 @@ const Footer = () => (
             aria-label={label}
             title={label}
             className="inline-flex flex-col items-center gap-1.5 group"
+            onClick={() => {
+              if (!href.startsWith("mailto")) {
+                import("@/lib/analytics").then(({ trackOutboundClick }) =>
+                  trackOutboundClick(label.toLowerCase().replace(/\s+/g, "_"), "footer")
+                );
+              }
+            }}
           >
             <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/10 hover:bg-accent/40 transition-colors group-hover:-translate-y-1 group-hover:scale-110 transition-transform">
               {svg}

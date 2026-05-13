@@ -17,11 +17,9 @@ const Collapsible = ({ label, children, onToggle, speakingActive, onStop }: Prop
     <div className="rounded-2xl overflow-hidden border border-accent/40 bg-card/70">
       <button
         onClick={() => {
-          setOpen((o) => {
-            const next = !o;
-            onToggle?.(next);
-            return next;
-          });
+          const next = !open;
+          setOpen(next);
+          onToggle?.(next);
         }}
         className="w-full flex items-center justify-between px-5 py-4 font-bold text-accent hover:bg-accent/10 transition-colors"
       >

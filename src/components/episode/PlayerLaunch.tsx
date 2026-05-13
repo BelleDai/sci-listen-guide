@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Headphones, ChevronRight, Lock } from "lucide-react";
+import { trackOutboundClick } from "@/lib/analytics";
 
 interface Props {
   applePodcast?: string;
@@ -47,6 +48,7 @@ const PlayerLaunch = ({ applePodcast, spotify }: Props) => {
                 href={applePodcast}
                 target="_blank"
                 rel="noreferrer"
+                onClick={() => trackOutboundClick("apple_podcasts", "player_launch")}
                 initial={{ scale: 0, x: 20 }}
                 animate={{ scale: 1, x: 0 }}
                 exit={{ scale: 0 }}
@@ -55,7 +57,7 @@ const PlayerLaunch = ({ applePodcast, spotify }: Props) => {
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold text-white shadow-lg whitespace-nowrap flex-shrink-0"
                 style={{ background: "linear-gradient(135deg,#a855f7,#6d28d9)" }}
               >
-                Apple Podcasts
+                Apple Podcast
               </motion.a>
             )}
             {spotify && (
@@ -63,6 +65,7 @@ const PlayerLaunch = ({ applePodcast, spotify }: Props) => {
                 href={spotify}
                 target="_blank"
                 rel="noreferrer"
+                onClick={() => trackOutboundClick("spotify", "player_launch")}
                 initial={{ scale: 0, x: -20 }}
                 animate={{ scale: 1, x: 0 }}
                 exit={{ scale: 0 }}
