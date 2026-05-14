@@ -1,19 +1,21 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { Headphones, ChevronRight, Lock } from "lucide-react";
+import { Podcast, ChevronRight, Lock } from "lucide-react";
 import { trackOutboundClick } from "@/lib/analytics";
 
 interface Props {
   applePodcast?: string;
   spotify?: string;
+  className?: string;
+  buttonClassName?: string;
 }
 
-const PlayerLaunch = ({ applePodcast, spotify }: Props) => {
+const PlayerLaunch = ({ applePodcast, spotify, className, buttonClassName }: Props) => {
   const [open, setOpen] = useState(false);
   const hasLinks = Boolean(applePodcast || spotify);
 
   return (
-    <div className="flex flex-row items-center justify-center gap-3 mt-5 flex-wrap">
+    <div className={className || "flex flex-row items-center justify-center gap-3 mt-5 flex-wrap"}>
       <motion.button
         onClick={() => hasLinks && setOpen((o) => !o)}
         whileHover={hasLinks ? { scale: 1.04 } : {}}
@@ -21,11 +23,11 @@ const PlayerLaunch = ({ applePodcast, spotify }: Props) => {
         aria-expanded={open}
         disabled={!hasLinks}
         className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-extrabold text-base sm:text-lg shadow-[var(--shadow-glow)] transition-colors ${hasLinks
-          ? "text-primary-foreground bg-secondary bg-[image:var(--gradient-primary)] cursor-pointer"
+          ? buttonClassName || "text-primary-foreground bg-secondary bg-[image:var(--gradient-primary)] cursor-pointer"
           : "text-white/40 bg-white/10 cursor-not-allowed shadow-none"
           }`}
       >
-        {hasLinks ? <Headphones className="w-5 h-5" /> : <Lock className="w-5 h-5" />}
+        {hasLinks ? <Podcast className="w-5 h-5" /> : <Lock className="w-5 h-5" />}
         {hasLinks ? "收聽故事" : "即將上架"}
         {hasLinks && (
           <motion.span animate={{ rotate: open ? 180 : 0 }}>

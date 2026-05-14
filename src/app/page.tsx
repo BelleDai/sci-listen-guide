@@ -36,7 +36,7 @@ export default async function Home() {
         <div className="py-8 sm:py-10 flex flex-col gap-8 sm:gap-10">
           {/* ── Hero ── */}
           <section className="max-w-2xl mx-auto px-4 text-center">
-            <h1 className="text-4xl sm:text-6xl font-black text-white leading-tight mb-4 text-stroke-dark animate-in fade-in slide-in-from-top-4 duration-500">
+            <h1 className="text-4xl sm:text-5xl font-black text-white leading-tight mb-4 text-stroke-dark animate-in fade-in slide-in-from-top-4 duration-500">
               聽科學，<span className="text-secondary">探索世界！</span>
             </h1>
             <p className="text-white/90 mb-7 text-base sm:text-lg leading-relaxed animate-in fade-in duration-700 delay-150">

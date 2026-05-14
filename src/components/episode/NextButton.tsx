@@ -5,10 +5,11 @@ interface Props {
   label: string;
   onClick: () => void;
   done?: boolean;
+  className?: string;
 }
 
-const NextButton = ({ label, onClick, done }: Props) => (
-  <div className="flex justify-center mt-8">
+const NextButton = ({ label, onClick, done, className }: Props) => (
+  <div className={className || "flex justify-center mt-8"}>
     <motion.button
       onClick={onClick}
       whileHover={{ scale: 1.05 }}

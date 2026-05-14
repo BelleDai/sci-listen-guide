@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import confetti from "canvas-confetti";
 
-import { BookOpen, Brain, Lightbulb, Users, Volume2, Sparkles, Award, Headphones } from "lucide-react";
+import { BookOpen, Brain, Lightbulb, Users, CircleStar, Sparkles, Award } from "lucide-react";
 import SectionShell from "@/components/episode/SectionShell";
 import NextButton from "@/components/episode/NextButton";
 import GlossaryCard from "@/components/episode/GlossaryCard";
@@ -14,6 +14,7 @@ import Footer from "@/components/episode/Footer";
 import AnswerList from "@/components/episode/AnswerList";
 import SpeakLine from "@/components/episode/SpeakLine";
 import PlayerLaunch from "@/components/episode/PlayerLaunch";
+import SpeedDial from "@/components/episode/SpeedDial";
 import { useTTS } from "@/hooks/useTTS";
 import { trackEpisodeStep, trackEpisodeCompleted, trackAnswerOpened } from "@/lib/analytics";
 
@@ -77,6 +78,9 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
   const [step, setStep] = useState(1);
   const [celebrated, setCelebrated] = useState(false);
   const [isFamilyAnswerOpened, setIsFamilyAnswerOpened] = useState(false);
+  const [isAudioAnswerOpened, setIsAudioAnswerOpened] = useState(false);
+  const [isPodcastSource, setIsPodcastSource] = useState<boolean | null>(null);
+  const [mounted, setMounted] = useState(false);
   const { speakingId, stop } = useTTS();
 
   const refs = [
@@ -85,6 +89,22 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
     useRef<HTMLElement>(null),
     useRef<HTMLElement>(null),
   ];
+
+  const playerLaunchRef = useRef<HTMLDivElement>(null);
+  const [isPlayerLaunchVisible, setIsPlayerLaunchVisible] = useState(true);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsPlayerLaunchVisible(entry.isIntersecting);
+      },
+      { rootMargin: "0px" }
+    );
+    if (playerLaunchRef.current) {
+      observer.observe(playerLaunchRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
 
   const goNext = (next: number) => {
     setStep((s) => Math.max(s, next));
@@ -101,6 +121,15 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
     document.title = `${episodeData.Title} ｜ 科學好好聽`;
     return () => stop();
   }, [stop, episodeData.Title]);
+
+  useEffect(() => {
+    setMounted(true);
+    const isPodcast = new URLSearchParams(window.location.search).get("source") === "podcast";
+    setIsPodcastSource(isPodcast);
+    if (!isPodcast) {
+      setStep((s) => Math.max(s, 2));
+    }
+  }, []);
 
   // 追蹤連續連各階段進入
   useEffect(() => {
@@ -132,98 +161,80 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
       <main className="text-foreground">
         {/* Section 1 - Hero */}
         <SectionShell id="s1" show ref={refs[0]}>
-          <div className="text-center">
-            <motion.h1
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-3xl sm:text-4xl font-black text-white leading-snug mb-6 text-stroke-dark"
-            >
-              <div className="block text-secondary text-sm mb-2">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary/15 font-bold">
-                  <Headphones className="w-4 h-4" />
-                  今日科普探險
-                </span>
-              </div>
-              {episodeData.Title}
-            </motion.h1>
-
+          <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-start text-center md:text-left">
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.1 }}
-              className="relative rounded-3xl overflow-hidden shadow-[var(--shadow-card)] border-4 border-secondary/40 mb-2"
+              className="w-full md:w-[40%] flex-shrink-0"
             >
-              <img
-                src={episodeData.Cover}
-                alt={`${episodeData.Title} 封面`}
-                className="w-full aspect-square object-cover"
-                loading="eager"
-              />
+              <div className="relative rounded-3xl overflow-hidden shadow-[var(--shadow-card)] border-4 border-secondary/40">
+                <img
+                  src={episodeData.Cover}
+                  alt={`${episodeData.Title} 封面`}
+                  className="w-full h-auto max-h-[40vh] md:max-h-none aspect-square object-cover"
+                  loading="eager"
+                />
+              </div>
             </motion.div>
-            <PlayerLaunch applePodcast={episodeData.ApplePodcast} spotify={episodeData.Spotify} />
 
-            <div className="text-left mt-10">
-              <h3 className="flex items-center gap-2 text-xl font-extrabold text-accent mb-2">
-                <BookOpen className="w-6 h-6" />
-                聽故事時有不懂的詞嗎？
-              </h3>
-              <p className="text-white/90 text-sm sm:text-base mb-4 rounded-xl bg-accent/10 border border-accent/30 px-4 py-3 flex items-center gap-2">
-                <Volume2 className="w-4 h-4 text-accent flex-shrink-0" />
-                想聽哪裡點哪裡！只要看到小喇叭 🔊，就唸給你聽喔！
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {episodeData.Glossary.map((g) => (
-                  <GlossaryCard key={g.term} term={g.term} explanation={g.explanation ?? g.definition ?? ""} />
-                ))}
+            <div className="w-full md:w-[60%] flex flex-col justify-center">
+              <motion.h1
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-3xl sm:text-4xl font-black text-white leading-snug mb-6 text-stroke-dark"
+              >
+                <div className="block text-secondary text-sm mb-3">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary/15 font-bold">
+                    <CircleStar className="w-4 h-4 md:w-5 md:h-5" />
+                    今日科普探險
+                  </span>
+                </div>
+                {episodeData.Title}
+              </motion.h1>
+
+              <div ref={playerLaunchRef}>
+                <PlayerLaunch className="flex flex-row items-center justify-center md:justify-start gap-3 flex-wrap" applePodcast={episodeData.ApplePodcast} spotify={episodeData.Spotify} />
               </div>
             </div>
-
-            <NextButton label="探索下一步！" onClick={() => goNext(2)} done={step >= 2} />
           </div>
+
+          <div className="text-left mt-8 md:mt-10">
+            <h3 className="flex items-center gap-2 text-xl font-bold text-accent mb-2">
+              <BookOpen className="w-6 h-6" />
+              聽故事時有不懂的詞嗎？
+            </h3>
+            {/* <p className="text-white/90 text-sm sm:text-base mb-4 rounded-xl bg-accent/10 border border-accent/30 px-4 py-3 flex items-center gap-2">
+              <Volume2 className="w-4 h-4 text-accent flex-shrink-0" />
+              想聽哪裡點哪裡！只要看到小喇叭 🔊，就唸給你聽喔！
+            </p> */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {episodeData.Glossary.map((g) => (
+                <GlossaryCard key={g.term} term={g.term} explanation={g.explanation ?? g.definition ?? ""} />
+              ))}
+            </div>
+          </div>
+
+          {isPodcastSource !== false && (
+            <div className="mt-8 flex justify-center">
+              <NextButton className="flex" label="探索下一步！" onClick={() => goNext(2)} done={step >= 2} />
+            </div>
+          )}
         </SectionShell>
 
-        {/* Section 2 - Brain Challenge */}
+        {/* Section 2 - Key Takeaways */}
         <SectionShell
           id="s2"
           show={step >= 2}
           ref={refs[1]}
-          title="聽完故事，換你動動腦！"
-          emoji="🧠"
+          title={isPodcastSource === false ? "聽完故事，孩子將得到的科學錦囊" : "這集最重要的三件事，你記住了嗎？"}
+          emoji={isPodcastSource === false ? "🚀" : "💡"}
         >
-          <SpeakLine
-            id="audio-q"
-            text={`${audio.topic}。${audio.description}`}
-            className="glass-card rounded-3xl p-5 sm:p-7 mb-5 hover:border-accent/50"
-          >
-            <div className="flex items-center gap-2 flex-wrap mb-3">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary font-bold text-sm">
-                <Brain className="w-4 h-4" />
-                {audio.topic}
-              </span>
-            </div>
-            <p className="leading-relaxed text-base sm:text-lg text-white">{audio.description}</p>
-          </SpeakLine>
-
-          <Collapsible
-            label="聽聽科學隊長怎麼說"
-            onToggle={(open) => {
-              if (open) trackAnswerOpened("audio_question", episodeData.id ?? "");
-            }}
-          >
-            <AnswerList idPrefix="audio-ans" text={audio.reference_answer} />
-          </Collapsible>
-
-          <NextButton label="我學會了！" onClick={() => goNext(3)} done={step >= 3} />
-        </SectionShell>
-
-        {/* Section 3 - Key Takeaways */}
-        <SectionShell
-          id="s3"
-          show={step >= 3}
-          ref={refs[2]}
-          title="這集最重要的三件事，你記住了嗎？"
-          emoji="💡"
-        >
+          {/* <p className="text-white/80 text-sm sm:text-base font-medium mb-6 text-center">
+            {isPodcastSource === false
+              ? "想知道這些知識背後的神奇故事嗎？點擊上方播放鍵，跟著科學隊長出發吧！"
+              : "複習完重點，下方還有好玩的動動腦挑戰等著你喔！"}
+          </p> */}
           <div className="space-y-4">
             {episodeData.KeyTakeaway.map((k, i) => {
               const id = `take-${i}`;
@@ -258,7 +269,48 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
             })}
           </div>
 
-          <NextButton label="探索下一步！" onClick={() => goNext(4)} done={step >= 4} />
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
+            <NextButton className="flex" label="故事聽完了，來玩動動腦！" onClick={() => goNext(3)} done={step >= 3} />
+          </div>
+        </SectionShell>
+
+        {/* Section 3 - Brain Challenge */}
+        <SectionShell
+          id="s3"
+          show={step >= 3}
+          ref={refs[2]}
+          title="聽完故事，換你動動腦！"
+          emoji="🧠"
+        >
+          <SpeakLine
+            id="audio-q"
+            text={`${audio.description}`}
+            className="glass-card rounded-3xl p-5 sm:p-7 mb-5 hover:border-accent/50"
+          >
+            <div className="flex items-center gap-2 flex-wrap mb-3">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary font-bold text-sm">
+                <Brain className="w-4 h-4" />
+                {audio.topic}
+              </span>
+            </div>
+            <p className="leading-relaxed text-base sm:text-lg text-white">{audio.description}</p>
+          </SpeakLine>
+
+          <Collapsible
+            label="聽聽科學隊長怎麼說"
+            onToggle={(open) => {
+              if (open) {
+                setIsAudioAnswerOpened(true);
+                trackAnswerOpened("audio_question", episodeData.id ?? "");
+              }
+            }}
+          >
+            <AnswerList idPrefix="audio-ans" text={audio.reference_answer} />
+          </Collapsible>
+
+          {isAudioAnswerOpened && (
+            <NextButton label="我學會了！" onClick={() => goNext(4)} done={step >= 4} />
+          )}
         </SectionShell>
 
         {/* Section 4 - Family Discussion */}
@@ -297,43 +349,43 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
 
           <div className="mt-10 min-h-[80px] flex justify-center">
             <AnimatePresence mode="wait">
-              {!celebrated ? (
+              {!celebrated && isFamilyAnswerOpened && (
                 <motion.button
                   key="cta"
                   onClick={onCelebrate}
                   initial={{ opacity: 0, scale: 0.9 }}
-                  animate={isFamilyAnswerOpened
-                    ? { opacity: 1, scale: 1, y: [0, -6, 0, -4, 0], transition: { duration: 1.2, repeat: Infinity, repeatDelay: 1.5 } }
-                    : { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 260, damping: 18 } }
-                  }
+                  animate={{ opacity: 1, scale: 1, transition: { type: "spring", stiffness: 260, damping: 18 } }}
                   exit={{ opacity: 0, scale: 0.6, transition: { duration: 0.2 } }}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center gap-2 px-7 py-4 rounded-full font-extrabold text-base sm:text-lg text-primary-foreground shadow-[var(--shadow-glow)] bg-secondary bg-[image:var(--gradient-primary)]"
+                  className="inline-flex items-center gap-2 px-7 py-4 rounded-full font-bold text-base sm:text-lg text-primary-foreground shadow-[var(--shadow-glow)] bg-secondary bg-[image:var(--gradient-primary)]"
                 >
                   <Sparkles className="w-5 h-5" />
-                  我是小小科學家，任務達成！
+                  我是小小探險家，達成任務!
                 </motion.button>
-              ) : (
+              )}
+              {celebrated && (
                 <motion.div
                   key="celebrate"
                   initial={{ opacity: 0, y: 30, scale: 0.85 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ type: "spring", stiffness: 220, damping: 18 }}
-                  className="w-full rounded-3xl px-6 py-8 text-center shadow-[var(--shadow-card)] border-4 border-primary/50"
-                  style={{ backgroundColor: "#ffc952", color: "#34314c" }}
+                  className="w-full rounded-3xl px-6 py-10 text-center shadow-[0_0_40px_rgba(255,201,82,0.25)] border-[1px]"
+                  style={{ backgroundColor: "#34314c", borderColor: "#ffc952" }}
                 >
                   <div
-                    className="inline-flex items-center justify-center w-20 h-20 rounded-full mb-3 shadow-lg"
-                    style={{ backgroundColor: "#34314c" }}
+                    className="inline-flex items-center justify-center w-24 h-24 rounded-full mb-6 shadow-xl relative"
+                    style={{ backgroundColor: "#ffc952" }}
                   >
-                    <Award className="w-12 h-12" style={{ color: "#ffc952" }} strokeWidth={2.5} />
+                    <Award className="w-12 h-12" style={{ color: "#34314c" }} strokeWidth={2.5} />
+                    <Sparkles className="absolute -top-2 -right-2 w-6 h-6 text-[#ff7473]" />
+                    <Sparkles className="absolute -bottom-2 -left-2 w-5 h-5 text-[#97e5ff]" />
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-black mb-2" style={{ color: "#34314c" }}>
-                    🎉 恭喜你完成今天的科普探險！
+                  <h3 className="text-2xl sm:text-3xl font-black mb-4" style={{ color: "#ffc952" }}>
+                    🎉 恭喜你完成探險！
                   </h3>
-                  <p className="text-base sm:text-lg font-bold mb-6" style={{ color: "#34314c" }}>
+                  <p className="text-base sm:text-lg font-bold mb-8 text-white">
                     你已經是一位小小科學家了！繼續保持好奇心吧！
                   </p>
                   <motion.button
@@ -348,8 +400,7 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
                         window.location.href = "/";
                       }
                     }}
-                    className="inline-flex items-center gap-2 px-8 py-3 rounded-full font-extrabold text-base sm:text-lg shadow-lg"
-                    style={{ backgroundColor: "#34314c", color: "#ffc952" }}
+                    className="inline-flex items-center gap-2 px-7 py-4 rounded-full font-bold text-base sm:text-lg text-primary-foreground shadow-[var(--shadow-glow)] bg-secondary bg-[image:var(--gradient-primary)]"
                   >
                     <Sparkles className="w-5 h-5" />
                     探索其他主題
@@ -362,6 +413,7 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
 
         {step >= 4 && <Footer />}
       </main>
+      <SpeedDial show={mounted && !isPlayerLaunchVisible} applePodcast={episodeData.ApplePodcast} spotify={episodeData.Spotify} />
     </>
   );
 };
