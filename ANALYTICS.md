@@ -31,20 +31,22 @@
 
 | 事件名稱 | 觸發時機 | 重要參數 |
 |---|---|---|
+| `episode_landed` | 使用者剛進入單集頁面時自動觸發 | `episode_id`, `episode_title`, `source` ("podcast" 或 "search_or_other") |
 | `episode_step_reached` | 使用者按下「下一步」進入各章節 | `step_number` (2~4), `episode_id`, `episode_title` |
 | `episode_completed` | 使用者點擊「我是小小科學家，任務達成！」 | `episode_id`, `episode_title` |
 
 **漏斗對應關係**：
 
 ```
-s1 (Hero + Glossary)  →  step_number: 2  →  s2 (動動腦)
-s2 (動動腦)           →  step_number: 3  →  s3 (重點整理)
-s3 (重點整理)         →  step_number: 4  →  s4 (親子討論)
+s1 (Hero + Glossary)  →  step_number: 2  →  s2 (重點整理)
+s2 (重點整理)         →  step_number: 3  →  s3 (動動腦)
+s3 (動動腦)           →  step_number: 4  →  s4 (親子討論)
 s4 完成               →  episode_completed
 ```
 
 **分析應用**：
-- 若 `step_number: 2` 的人數遠少於頁面瀏覽者 → 使用者在 s1 就離開了
+- 透過 `episode_landed` 的 `source` 參數可以精準算出「Podcast 聽眾導流」vs「SEO/搜尋新客」的比例。
+- 註：若以搜尋進入（無 `?source=podcast`），使用者會自動跳至 `step_number: 2`（看見重點整理）。
 - 若 `step_number: 4` 的人多，但 `episode_completed` 很少 → 親子討論後沒按任務達成
 
 ---
@@ -68,6 +70,8 @@ s4 完成               →  episode_completed
 |---|---|---|---|
 | `outbound_click` | 點擊 Apple Podcast 按鈕 | `apple_podcasts` | `player_launch` |
 | `outbound_click` | 點擊 Spotify 按鈕 | `spotify` | `player_launch` |
+| `outbound_click` | 點擊 Apple 浮動按鈕 | `apple_podcasts` | `speed_dial` |
+| `outbound_click` | 點擊 Spotify 浮動按鈕 | `spotify` | `speed_dial` |
 | `outbound_click` | 點擊 Apple Podcasts 連結 | `apple_podcasts` | `footer` |
 | `outbound_click` | 點擊 Facebook 連結 | `facebook` | `footer` |
 | `outbound_click` | 點擊其他 Footer 連結 | `科學好好聽.app` 等 | `footer` |
@@ -142,9 +146,10 @@ s4 完成               →  episode_completed
 |---|---|
 | Step 1：進入首頁 | 事件：`page_view`，參數：`page_location` 包含 `/` |
 | Step 2：進入單集頁 | 事件：`page_view`，參數：`page_location` 包含 `/guide/` |
-| Step 3：進入動動腦 | 事件：`episode_step_reached`，`step_number` = 2 |
-| Step 4：進入親子討論 | 事件：`episode_step_reached`，`step_number` = 4 |
-| Step 5：完成任務 | 事件：`episode_completed` |
+| Step 3：進入重點整理 | 事件：`episode_step_reached`，`step_number` = 2 |
+| Step 4：進入動動腦 | 事件：`episode_step_reached`，`step_number` = 3 |
+| Step 5：進入親子討論 | 事件：`episode_step_reached`，`step_number` = 4 |
+| Step 6：完成任務 | 事件：`episode_completed` |
 
 3. 點擊「套用」後，漏斗圖表會顯示每一步的轉換率與流失人數。
 

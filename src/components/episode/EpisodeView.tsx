@@ -16,7 +16,7 @@ import SpeakLine from "@/components/episode/SpeakLine";
 import PlayerLaunch from "@/components/episode/PlayerLaunch";
 import SpeedDial from "@/components/episode/SpeedDial";
 import { useTTS } from "@/hooks/useTTS";
-import { trackEpisodeStep, trackEpisodeCompleted, trackAnswerOpened } from "@/lib/analytics";
+import { trackEpisodeStep, trackEpisodeCompleted, trackAnswerOpened, trackEpisodeLanded } from "@/lib/analytics";
 
 const TOTAL = 4;
 
@@ -126,10 +126,13 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
     setMounted(true);
     const isPodcast = new URLSearchParams(window.location.search).get("source") === "podcast";
     setIsPodcastSource(isPodcast);
+    
+    trackEpisodeLanded(episodeData.id ?? "", episodeData.Title, isPodcast ? "podcast" : "search_or_other");
+
     if (!isPodcast) {
       setStep((s) => Math.max(s, 2));
     }
-  }, []);
+  }, [episodeData.id, episodeData.Title]);
 
   // 追蹤連續連各階段進入
   useEffect(() => {
