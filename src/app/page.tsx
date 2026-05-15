@@ -2,21 +2,21 @@ import Link from "next/link";
 import Header from "@/components/episode/Header";
 import Footer from "@/components/episode/Footer";
 import { getAllPublishedEpisodes, getLatestPublishedEpisode } from "@/lib/episodes";
-import { Crown, GraduationCap, Headphones, ShieldCheck, Sparkles } from "lucide-react";
+import { ThumbsUp, GraduationCap, Headphones, ShieldCheck, Sparkles } from "lucide-react";
 import ClientHeroButton from "@/components/episode/ClientHeroButton";
 import FloatingDecor from "@/components/home/FloatingDecor";
 
 // ---------------------------------------------------------------------------
 // Planet data – cards are visual-only for now (tags search coming soon)
 // ---------------------------------------------------------------------------
-const planets = [
-  { name: "動物世界", emoji: "🦅", desc: "猛禽、雨林、神奇生物", color: "from-[#ff7473] to-[#ffc952]" },
-  { name: "宇宙星河", emoji: "🪐", desc: "黑洞、星系、太空船", color: "from-[#97e5ff] to-[#34314c]" },
-  { name: "海洋探險", emoji: "🐙", desc: "深海、洋流、神秘生物", color: "from-[#47b8e0] to-[#97e5ff]" },
-  { name: "昆蟲奇兵", emoji: "🐝", desc: "蜜蜂、螢火蟲、變態", color: "from-[#ffc952] to-[#34314c]" },
-  { name: "數位魔法師", emoji: "💻", desc: "電腦、AI、程式邏輯", color: "from-[#7224d8] to-[#97e5ff]" },
-  { name: "地球科學", emoji: "🌋", desc: "火山、地震、氣候", color: "from-[#ffc952] to-[#ff7473]" },
-];
+// const planets = [
+//   { name: "動物世界", emoji: "🦅", desc: "猛禽、雨林、神奇生物", color: "from-[#ff7473] to-[#ffc952]" },
+//   { name: "宇宙星河", emoji: "🪐", desc: "黑洞、星系、太空船", color: "from-[#97e5ff] to-[#34314c]" },
+//   { name: "海洋探險", emoji: "🐙", desc: "深海、洋流、神秘生物", color: "from-[#47b8e0] to-[#97e5ff]" },
+//   { name: "昆蟲奇兵", emoji: "🐝", desc: "蜜蜂、螢火蟲、變態", color: "from-[#ffc952] to-[#34314c]" },
+//   { name: "數位魔法師", emoji: "💻", desc: "電腦、AI、程式邏輯", color: "from-[#7224d8] to-[#97e5ff]" },
+//   { name: "地球科學", emoji: "🌋", desc: "火山、地震、氣候", color: "from-[#ffc952] to-[#ff7473]" },
+// ];
 
 export default async function Home() {
   const [episodes, latestEpisode] = await Promise.all([
@@ -40,7 +40,8 @@ export default async function Home() {
               聽科學，<span className="text-secondary">探索世界！</span>
             </h1>
             <p className="text-white/90 mb-7 text-base sm:text-lg leading-relaxed animate-in fade-in duration-700 delay-150">
-              在每一集故事中解開大自然的奧秘，<br className="sm:hidden" />
+              200+ 集精彩科普故事，搭配 50+ 集精選<span className="font-bold">『伴讀單元』</span>
+              <br />
               給孩子最棒的<span className="text-accent font-bold">科學啟蒙</span>！
             </p>
 
@@ -56,7 +57,7 @@ export default async function Home() {
                 <Sparkles className="w-5 h-5 text-secondary" />
                 微觀世界到浩瀚星空
               </h2>
-              <p className="text-white/80 text-sm leading-relaxed">
+              <p className="text-white/90 text-base leading-relaxed">
                 每一集都是一場<span className="text-accent font-bold">知識的深度旅行</span>
               </p>
             </div>
@@ -108,9 +109,9 @@ export default async function Home() {
           <section id="listen-platforms" className="max-w-2xl w-full mx-auto px-4 scroll-mt-20">
             <h2 className="text-xl sm:text-2xl font-extrabold text-white mb-1 flex items-center gap-2">
               <Headphones className="w-5 h-5 text-accent" />
-              在你喜歡的平台收聽
+              全系列 200+ 集故事聽翻天
             </h2>
-            <p className="text-white/70 text-sm mb-4">隨時隨地，跟著科學隊長一起聽！</p>
+            <p className="text-white/90 text-base mb-5">隨時隨地，跟著科學隊長一起<span className="text-accent font-bold">探索世界</span>！</p>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {/* Apple Podcasts */}
@@ -211,7 +212,7 @@ export default async function Home() {
 
               <div className="h-px w-full bg-border/30 my-5 relative z-10" />
 
-              <div className="space-y-3 text-white/80 text-sm sm:text-base leading-relaxed relative z-10">
+              <div className="space-y-3 text-white/90 text-sm sm:text-base leading-relaxed relative z-10">
                 <p>創立這個頻道的起點，其實是一個爸爸的小小煩惱：家裡有個熱愛科學、卻總是靜不下來看書的兒子。👦🧪</p>
                 <p>我想給他最棒的科學啟蒙，但市面上的有聲教材，不是良莠不齊，就是充滿了不習慣的口音。身為忙碌的工程師，我採用 AI 技術來解決錄製的時間壓力，但最在乎的始終是「內容的品質」。</p>
                 <p className="font-bold text-white">謝謝所有喜歡這裡的大小朋友，讓我們繼續一起聽科學、探索世界！</p>
@@ -219,11 +220,14 @@ export default async function Home() {
 
               <div className="mt-6 relative z-10">
                 <a
-                  href="#listen-platforms"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-primary font-extrabold text-base text-white shadow-[var(--shadow-glow)] hover:scale-[1.03] transition-transform"
+                  href="https://www.facebook.com/profile.php?id=61577975781160"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full font-bold text-base text-white shadow-[var(--shadow-glow)] hover:scale-[1.03] transition-transform"
+                  style={{ backgroundColor: "#1877F2" }}
                 >
-                  <Crown className="w-5 h-5" />
-                  成為 VIP，支持在地高品質科學教育
+                  <ThumbsUp className="w-5 h-5" />
+                  前往 Facebook 粉絲頁按讚
                 </a>
               </div>
             </div>

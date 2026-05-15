@@ -21,7 +21,7 @@ const Collapsible = ({ label, children, onToggle, speakingActive, onStop }: Prop
           setOpen(next);
           onToggle?.(next);
         }}
-        className="w-full flex items-center justify-between px-5 py-4 font-bold text-accent hover:bg-accent/10 transition-colors"
+        className="w-full flex items-center justify-between px-5 py-4 font-bold text-accent text-base sm:text-lg hover:bg-accent/10 transition-colors"
       >
         <span className="flex items-center gap-2">
           🔍 {label}

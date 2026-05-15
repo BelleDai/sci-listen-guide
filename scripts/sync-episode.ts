@@ -56,8 +56,8 @@ async function syncEpisode() {
     ? `Enter Spotify Link [Enter to keep: ${existingSpotify.slice(0, 50)}...]: `
     : "Enter Spotify Link (optional): ";
   const applePrompt = existingApple
-    ? `Enter Apple Podcast Link [Enter to keep: ${existingApple.slice(0, 50)}...]: `
-    : "Enter Apple Podcast Link (optional): ";
+    ? `Enter Apple Podcasts Link [Enter to keep: ${existingApple.slice(0, 50)}...]: `
+    : "Enter Apple Podcasts Link (optional): ";
 
   const spotifyInput = readlineSync.question(spotifyPrompt);
   const appleInput = readlineSync.question(applePrompt);
@@ -83,48 +83,48 @@ async function syncEpisode() {
   console.log("Reading from local directory...");
 
   const mdPath = path.join(source, "metadata.md");
-    if (fs.existsSync(mdPath)) {
-      const content = fs.readFileSync(mdPath, "utf-8");
-      const titleMatch = content.match(/## Title\s*\n\s*(.+)/);
-      if (titleMatch) data.Title = titleMatch[1].trim();
-    }
+  if (fs.existsSync(mdPath)) {
+    const content = fs.readFileSync(mdPath, "utf-8");
+    const titleMatch = content.match(/## Title\s*\n\s*(.+)/);
+    if (titleMatch) data.Title = titleMatch[1].trim();
+  }
 
-    const jsonFiles = [
-      { file: "glossary.json", key: "Glossary" },
-      { file: "family_discussion.json", key: "FamilyDiscussion" },
-      { file: "audio_question.json", key: "AudioQuestion" },
-      { file: "key_takeaways.json", key: "KeyTakeaway" },
-      { file: "tags.json", key: "Tags" },
-    ];
+  const jsonFiles = [
+    { file: "glossary.json", key: "Glossary" },
+    { file: "family_discussion.json", key: "FamilyDiscussion" },
+    { file: "audio_question.json", key: "AudioQuestion" },
+    { file: "key_takeaways.json", key: "KeyTakeaway" },
+    { file: "tags.json", key: "Tags" },
+  ];
 
-    for (const item of jsonFiles) {
-      const p = path.join(source, item.file);
-      if (fs.existsSync(p)) {
-        const raw = JSON.parse(fs.readFileSync(p, "utf-8"));
-        let value = getCaseInsensitiveKey(raw, item.key);
+  for (const item of jsonFiles) {
+    const p = path.join(source, item.file);
+    if (fs.existsSync(p)) {
+      const raw = JSON.parse(fs.readFileSync(p, "utf-8"));
+      let value = getCaseInsensitiveKey(raw, item.key);
 
-        if (item.key === "Glossary" && Array.isArray(value)) {
-          value = normalizeGlossary(value);
-        }
-
-        data[item.key] = value;
+      if (item.key === "Glossary" && Array.isArray(value)) {
+        value = normalizeGlossary(value);
       }
-    }
 
-    if (fs.existsSync(path.join(source, "profile.jpg"))) {
-      fs.copyFileSync(path.join(source, "profile.jpg"), path.join(publicDir, "profile.jpg"));
-      data.Cover = `/episodes/${episodeId}/profile.jpg`;
+      data[item.key] = value;
     }
+  }
 
-    if (fs.existsSync(path.join(source, "3d.jpg"))) {
-      fs.copyFileSync(path.join(source, "3d.jpg"), path.join(publicDir, "3d.jpg"));
-      data.ThreeDImage = `/episodes/${episodeId}/3d.jpg`;
-    }
+  if (fs.existsSync(path.join(source, "profile.jpg"))) {
+    fs.copyFileSync(path.join(source, "profile.jpg"), path.join(publicDir, "profile.jpg"));
+    data.Cover = `/episodes/${episodeId}/profile.jpg`;
+  }
 
-    const captionPath = path.join(source, "3d_caption.txt");
-    if (fs.existsSync(captionPath)) {
-      data.ThreeDCaption = fs.readFileSync(captionPath, "utf-8").trim();
-    }
+  if (fs.existsSync(path.join(source, "3d.jpg"))) {
+    fs.copyFileSync(path.join(source, "3d.jpg"), path.join(publicDir, "3d.jpg"));
+    data.ThreeDImage = `/episodes/${episodeId}/3d.jpg`;
+  }
+
+  const captionPath = path.join(source, "3d_caption.txt");
+  if (fs.existsSync(captionPath)) {
+    data.ThreeDCaption = fs.readFileSync(captionPath, "utf-8").trim();
+  }
 
 
 

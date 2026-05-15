@@ -77,9 +77,8 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
                   width: searchOpen ? (typeof window !== "undefined" && window.innerWidth < 640 ? 180 : 240) : 36,
                 }}
                 transition={{ type: "spring", stiffness: 280, damping: 26 }}
-                className={`relative h-9 flex items-center overflow-visible bg-white/10 hover:bg-accent/40 backdrop-blur-md rounded-full shadow-sm transition-colors ${
-                  searchOpen ? "px-3" : ""
-                }`}
+                className={`relative h-9 flex items-center overflow-visible bg-white/10 hover:bg-accent/40 backdrop-blur-md rounded-full shadow-sm transition-colors ${searchOpen ? "px-3" : ""
+                  }`}
               >
                 <AnimatePresence>
                   {searchOpen && (
@@ -91,7 +90,7 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
                       className="flex-1 h-full flex items-center min-w-0 pr-2"
                     >
                       <CommandInput
-                        placeholder="想聽什麼主題呢？"
+                        placeholder="搜尋 50+ 集伴讀單元..."
                         className="h-full border-0 focus:ring-0 bg-transparent text-white placeholder:text-white/55 text-sm w-full px-2 py-0 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50"
                       // Hide the default search icon that cmdk input might have, we use our own on the right
                       />
@@ -103,9 +102,8 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
                   type="button"
                   onClick={() => setSearchOpen((v) => !v)}
                   aria-label={searchOpen ? "收合搜尋" : "展開搜尋"}
-                  className={`flex-shrink-0 inline-flex items-center justify-center text-accent hover:text-white transition-colors ${
-                    searchOpen ? "w-6 h-6" : "w-9 h-9"
-                  }`}
+                  className={`flex-shrink-0 inline-flex items-center justify-center text-accent hover:text-white transition-colors ${searchOpen ? "w-6 h-6" : "w-9 h-9"
+                    }`}
                 >
                   <Search className="w-[18px] h-[18px]" strokeWidth={2.25} />
                 </button>
@@ -121,7 +119,21 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
                     className="absolute top-[52px] right-4 sm:right-auto w-[calc(100vw-32px)] sm:w-[320px] bg-card/95 backdrop-blur-md border border-accent/30 rounded-xl shadow-2xl overflow-hidden z-50"
                   >
                     <CommandList className="max-h-[60vh] sm:max-h-[400px] overflow-y-auto custom-scrollbar">
-                      <CommandEmpty className="py-6 text-center text-sm text-white/60">找不到相關主題 😢</CommandEmpty>
+                      <CommandEmpty>
+                        <div className="py-5 px-4 text-center">
+                          <p className="text-base font-bold text-white mb-2">科學隊長還在實驗室趕工中！🧪</p>
+                          <p className="text-sm text-white/90 leading-relaxed mb-4">這集故事目前還沒有製作『伴讀單元』。科學隊長正親自為 200 多集故事嚴謹把關，先去聽聽精彩的故事原音吧！</p>
+                          <a
+                            href="https://podcasts.apple.com/tw/podcast/id1812447277"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold text-white hover:scale-[1.03] transition-transform"
+                            style={{ backgroundColor: "#7224d8" }}
+                          >
+                            前往 Apple Podcasts 收聽故事 🎧
+                          </a>
+                        </div>
+                      </CommandEmpty>
                       <CommandGroup heading="節目列表" className="text-white/80 [&_[cmdk-group-heading]]:text-accent">
                         {episodes.map((ep) => (
                           <CommandItem

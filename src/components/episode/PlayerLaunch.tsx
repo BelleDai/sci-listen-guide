@@ -59,7 +59,7 @@ const PlayerLaunch = ({ applePodcast, spotify, className, buttonClassName }: Pro
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold text-white shadow-lg whitespace-nowrap flex-shrink-0"
                 style={{ background: "linear-gradient(135deg,#a855f7,#6d28d9)" }}
               >
-                Apple Podcast
+                Apple Podcasts
               </motion.a>
             )}
             {spotify && (

@@ -68,7 +68,7 @@ s4 完成               →  episode_completed
 
 | 事件名稱 | 觸發時機 | 參數 `platform` | 參數 `source` |
 |---|---|---|---|
-| `outbound_click` | 點擊 Apple Podcast 按鈕 | `apple_podcasts` | `player_launch` |
+| `outbound_click` | 點擊 Apple Podcasts 按鈕 | `apple_podcasts` | `player_launch` |
 | `outbound_click` | 點擊 Spotify 按鈕 | `spotify` | `player_launch` |
 | `outbound_click` | 點擊 Apple 浮動按鈕 | `apple_podcasts` | `speed_dial` |
 | `outbound_click` | 點擊 Spotify 浮動按鈕 | `spotify` | `speed_dial` |
