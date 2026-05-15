@@ -11,12 +11,19 @@ interface Props {
   children?: ReactNode;
   className?: string;
   contentClassName?: string;
+  episodeId?: string;
+  contentType?: string;
 }
 
-const SpeakLine = ({ id, text, children, className, contentClassName }: Props) => {
+const SpeakLine = ({ id, text, children, className, contentClassName, episodeId, contentType }: Props) => {
   const { speak, speakingId } = useTTS();
   const active = speakingId === id;
-  const toggleSpeak = () => speak(text, id);
+  const toggleSpeak = () => {
+    if (!active && episodeId && contentType) {
+      import("@/lib/analytics").then(({ trackTTSPlay }) => trackTTSPlay(contentType, episodeId));
+    }
+    speak(text, id);
+  };
 
   return (
     <motion.div

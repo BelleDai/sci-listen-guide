@@ -7,9 +7,10 @@ import SpeakingIndicator from "./SpeakingIndicator";
 interface Props {
   term: string;
   explanation: string;
+  episodeId?: string;
 }
 
-const GlossaryCard = ({ term, explanation }: Props) => {
+const GlossaryCard = ({ term, explanation, episodeId }: Props) => {
   const [open, setOpen] = useState(false);
   const { speak, stop, speakingId } = useTTS();
   const id = `glossary-${term}`;
@@ -18,6 +19,9 @@ const GlossaryCard = ({ term, explanation }: Props) => {
     const next = !open;
     setOpen(next);
     if (next) {
+      if (episodeId) {
+        import("@/lib/analytics").then(({ trackTTSPlay }) => trackTTSPlay("glossary", episodeId));
+      }
       speak(`${term}。${explanation}`, id);
     } else {
       if (isSpeaking) stop();

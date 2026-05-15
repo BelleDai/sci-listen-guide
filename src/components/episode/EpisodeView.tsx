@@ -213,7 +213,7 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
             </p> */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {episodeData.Glossary.map((g) => (
-                <GlossaryCard key={g.term} term={g.term} explanation={g.explanation ?? g.definition ?? ""} />
+                <GlossaryCard key={g.term} term={g.term} explanation={g.explanation ?? g.definition ?? ""} episodeId={episodeData.id} />
               ))}
             </div>
           </div>
@@ -263,6 +263,8 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
                       id={id}
                       text={k.content}
                       className="rounded-xl p-3 -ml-3 hover:bg-accent/10"
+                      episodeId={episodeData.id}
+                      contentType="takeaway"
                     >
                       <p className="leading-relaxed text-base sm:text-lg text-white">{k.content}</p>
                     </SpeakLine>
@@ -289,6 +291,8 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
             id="audio-q"
             text={`${audio.description}`}
             className="glass-card rounded-3xl p-5 sm:p-7 mb-5 hover:border-accent/50"
+            episodeId={episodeData.id}
+            contentType="audio_question_desc"
           >
             <div className="flex items-center gap-2 flex-wrap mb-3">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary font-bold text-sm">
@@ -308,7 +312,7 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
               }
             }}
           >
-            <AnswerList idPrefix="audio-ans" text={audio.reference_answer} />
+            <AnswerList idPrefix="audio-ans" text={audio.reference_answer} episodeId={episodeData.id} contentType="audio_question_ans" />
           </Collapsible>
 
           {isAudioAnswerOpened && (
@@ -328,6 +332,8 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
             id="fam-q"
             text={`${family.description}`}
             className="glass-card rounded-3xl p-5 sm:p-7 mb-5 border-secondary/40 hover:border-accent/50"
+            episodeId={episodeData.id}
+            contentType="family_discussion_desc"
           >
             <div className="flex items-center gap-2 flex-wrap mb-3">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 text-accent font-bold text-sm">
@@ -347,7 +353,7 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
               }
             }}
           >
-            <AnswerList idPrefix="fam-ans" text={family.reference_answer} />
+            <AnswerList idPrefix="fam-ans" text={family.reference_answer} episodeId={episodeData.id} contentType="family_discussion_ans" />
           </Collapsible>
 
           <div className="mt-10 min-h-[80px] flex justify-center">

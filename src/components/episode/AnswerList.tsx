@@ -5,9 +5,11 @@ import { stripMarkdown } from "@/hooks/useTTS";
 interface Props {
   idPrefix: string;
   text: string;
+  episodeId?: string;
+  contentType?: string;
 }
 
-const AnswerList = ({ idPrefix, text }: Props) => {
+const AnswerList = ({ idPrefix, text, episodeId, contentType }: Props) => {
   return (
     <div className="text-white/95 markdown-body">
       <ReactMarkdown
@@ -37,6 +39,8 @@ const AnswerList = ({ idPrefix, text }: Props) => {
                   id={id}
                   text={clean}
                   className="rounded-xl bg-card/50 border border-accent/20 px-4 py-3 text-base sm:text-lg leading-relaxed hover:border-accent/50 hover:bg-card/70"
+                  episodeId={episodeId}
+                  contentType={contentType}
                 >
                   {children}
                 </SpeakLine>

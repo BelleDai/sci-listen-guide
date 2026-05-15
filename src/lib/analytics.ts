@@ -29,7 +29,7 @@ export const trackEpisodeLanded = (episodeId: string, episodeTitle: string, sour
   trackEvent("episode_landed", {
     episode_id: episodeId,
     episode_title: episodeTitle,
-    source, // e.g. "podcast" | "search_or_other"
+    entry_source: source, // e.g. "podcast" | "search_or_other"
   });
 
 /** Called whenever the user clicks "下一步" and reaches a new Section */
@@ -57,14 +57,13 @@ export const trackAnswerOpened = (sectionId: string, episodeId: string) =>
 /** Called when user clicks a platform link (Apple, Spotify, YouTube, KKBOX) */
 export const trackOutboundClick = (platform: string, source: string) =>
   trackEvent("outbound_click", {
-    platform,
-    source, // e.g. "player_launch" | "home" | "footer"
+    outbound_platform: platform,
+    outbound_source: source, // e.g. "player_launch" | "home" | "footer"
   });
 
-/** Called when TTS is triggered on a Glossary card */
-export const trackGlossarySpeak = (term: string, episodeId: string) =>
+/** Called when TTS is triggered anywhere (e.g. SpeakLine) */
+export const trackTTSPlay = (contentType: string, episodeId: string) =>
   trackEvent("tts_play", {
-    content_type: "glossary",
-    term,
+    content_type: contentType,
     episode_id: episodeId,
   });

@@ -31,7 +31,7 @@
 
 | 事件名稱 | 觸發時機 | 重要參數 |
 |---|---|---|
-| `episode_landed` | 使用者剛進入單集頁面時自動觸發 | `episode_id`, `episode_title`, `source` ("podcast" 或 "search_or_other") |
+| `episode_landed` | 使用者剛進入單集頁面時自動觸發 | `episode_id`, `episode_title`, `entry_source` ("podcast" 或 "search_or_other") |
 | `episode_step_reached` | 使用者按下「下一步」進入各章節 | `step_number` (2~4), `episode_id`, `episode_title` |
 | `episode_completed` | 使用者點擊「我是小小科學家，任務達成！」 | `episode_id`, `episode_title` |
 
@@ -45,7 +45,7 @@ s4 完成               →  episode_completed
 ```
 
 **分析應用**：
-- 透過 `episode_landed` 的 `source` 參數可以精準算出「Podcast 聽眾導流」vs「SEO/搜尋新客」的比例。
+- 透過 `episode_landed` 的 `entry_source` 參數可以精準算出「Podcast 聽眾導流」vs「SEO/搜尋新客」的比例。
 - 註：若以搜尋進入（無 `?source=podcast`），使用者會自動跳至 `step_number: 2`（看見重點整理）。
 - 若 `step_number: 4` 的人多，但 `episode_completed` 很少 → 親子討論後沒按任務達成
 
@@ -64,10 +64,31 @@ s4 完成               →  episode_completed
 
 ---
 
+### 🔊 語音朗讀互動
+
+| 事件名稱 | 觸發時機 | 重要參數 |
+|---|---|---|
+| `tts_play` | 點擊任何有「小喇叭」的文字段落或名詞解釋 | `content_type`, `episode_id` |
+
+**參數 `content_type` 可能的值**：
+- `takeaway`：重點回顧區塊
+- `audio_question_desc`：動動腦挑戰的問題描述
+- `audio_question_ans`：動動腦挑戰的參考解答
+- `family_discussion_desc`：親子討論的問題描述
+- `family_discussion_ans`：親子討論的參考解答
+- `glossary`：名詞解釋卡片
+
+**分析應用**：
+- 了解使用者最常聽哪些類型的語音內容。
+- 如果解答類的點擊特別高，表示小朋友需要語音輔助來理解較長的內容。
+
+---
+
 ### 🎧 外部平台導流（訂閱意圖）
 
-| 事件名稱 | 觸發時機 | 參數 `platform` | 參數 `source` |
+| 事件名稱 | 觸發時機 | 參數 `outbound_platform` | 參數 `outbound_source` |
 |---|---|---|---|
+| `outbound_click` | 點擊首頁平台區塊 | `apple_podcasts` / `spotify` 等 | `home` |
 | `outbound_click` | 點擊 Apple Podcasts 按鈕 | `apple_podcasts` | `player_launch` |
 | `outbound_click` | 點擊 Spotify 按鈕 | `spotify` | `player_launch` |
 | `outbound_click` | 點擊 Apple 浮動按鈕 | `apple_podcasts` | `speed_dial` |
@@ -85,7 +106,6 @@ s4 完成               →  episode_completed
 | 行為 | 建議方式 |
 |---|---|
 | 首頁「最新精選」點擊哪一集 | 在 `<Link href="/guide/[id]">` 加 `onClick → trackEvent("home_episode_click", {episode_id})` |
-| 語音朗讀（SpeakLine / Glossary）哪些詞被點最多 | `analytics.ts` 已有 `trackGlossarySpeak()` 待埋入 `GlossaryCard.tsx` |
 | 搜尋行為：用戶搜尋了什麼關鍵字 | 在 `Header.tsx` 搜尋送出時加 `trackEvent("search", {search_term})` |
 
 ---
@@ -160,7 +180,7 @@ s4 完成               →  episode_completed
 **路徑**：`探索 → 自由格式探索`
 
 設定方式：
-1. 維度：`事件名稱`、`自訂參數 → platform`、`自訂參數 → source`
+1. 維度：`事件名稱`、`自訂參數 → outbound_platform`、`自訂參數 → outbound_source`
 2. 指標：`事件計數`
 3. 篩選器：事件名稱 = `outbound_click`
 
@@ -191,8 +211,12 @@ GA4 預設不會在報告中顯示你的自訂參數（如 `episode_id`、`platf
 | Episode ID | 事件 | `episode_id` |
 | Episode Title | 事件 | `episode_title` |
 | Step Number | 事件 | `step_number` |
-| Platform | 事件 | `platform` |
-| Source | 事件 | `source` |
+| Outbound Platform | 事件 | `outbound_platform` |
+| Outbound Source | 事件 | `outbound_source` |
+| Entry Source | 事件 | `entry_source` |
 | Section ID | 事件 | `section_id` |
+| Content Type | 事件 | `content_type` |
+
+> 💡 **重要提醒**：請勿使用 `platform` 或 `source` 作為事件參數名稱，因為它們是 GA4 的系統保留字，會導致數據變成 `(not set)`。
 
 > 💡 設定完成後，這些維度就能在「探索」報告中自由使用，做出你想要的任何組合分析！
