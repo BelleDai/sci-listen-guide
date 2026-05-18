@@ -33,6 +33,7 @@ export function parseFirestoreFields(fields: Record<string, any>): Record<string
 export type SearchIndexItem = {
   id: string;
   title: string;
+  tags?: string[];
 };
 
 /**

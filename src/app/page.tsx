@@ -24,7 +24,7 @@ export default async function Home() {
     getAllPublishedEpisodes(),
     getLatestPublishedEpisode(),
   ]);
-  const searchIndex = episodes.map((ep) => ({ id: ep.id, title: ep.Title }));
+  const searchIndex = episodes.map((ep) => ({ id: ep.id, title: ep.Title, tags: ep.Tags || [] }));
 
   return (
     <>

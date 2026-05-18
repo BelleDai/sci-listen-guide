@@ -138,7 +138,7 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
                         {episodes.map((ep) => (
                           <CommandItem
                             key={ep.id}
-                            value={ep.title}
+                            value={`${ep.title} ${ep.tags?.join(' ') || ''}`}
                             onSelect={() => handleSelect(ep.id)}
                             className="cursor-pointer aria-selected:bg-accent/20 aria-selected:text-white text-white/90 my-1 py-2.5 px-3 flex items-start gap-3 rounded-lg"
                           >
