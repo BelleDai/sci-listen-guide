@@ -117,6 +117,32 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
     refs[n - 1].current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
+  const speakingIdRef = useRef(speakingId);
+  speakingIdRef.current = speakingId;
+
+  // 用 hash 簡單攔截 back 鍵來停止 TTS
+  useEffect(() => {
+    if (speakingId) {
+      if (window.location.hash !== "#speaking") {
+        window.history.pushState(null, "", window.location.pathname + window.location.search + "#speaking");
+      }
+    } else {
+      if (window.location.hash === "#speaking") {
+        window.history.back();
+      }
+    }
+  }, [speakingId]);
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      if (window.location.hash !== "#speaking" && speakingIdRef.current) {
+        stop();
+      }
+    };
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, [stop]);
+
   useEffect(() => {
     document.title = `${episodeData.Title} ｜ 科學好好聽`;
     return () => stop();
