@@ -7,7 +7,9 @@
     "build": "node -e \"require('fs').rmSync('.next/cache/fetch-cache',{recursive:true,force:true})\" && next build",
     "start": "next start",
     "lint": "eslint",
-    "sync": "tsx scripts/sync-episode.ts"
+    "sync": "tsx scripts/sync-episode.ts",
+    "deploy:staging": "npm run build && npx firebase-tools hosting:channel:deploy staging",
+    "deploy:prod": "npx firebase-tools deploy --only hosting"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

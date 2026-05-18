@@ -152,7 +152,7 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
     setMounted(true);
     const isPodcast = new URLSearchParams(window.location.search).get("source") === "podcast";
     setIsPodcastSource(isPodcast);
-    
+
     trackEpisodeLanded(episodeData.id ?? "", episodeData.Title, isPodcast ? "podcast" : "search_or_other");
 
     if (!isPodcast) {
@@ -256,7 +256,7 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
           id="s2"
           show={step >= 2}
           ref={refs[1]}
-          title={isPodcastSource === false ? "聽完故事，孩子將得到的科學錦囊" : "這集最重要的三件事，你記住了嗎？"}
+          title={isPodcastSource === false ? "聽完故事，孩子將得到的知識" : "這集最重要的三件事，你記住了嗎？"}
           emoji={isPodcastSource === false ? "🚀" : "💡"}
         >
           {/* <p className="text-white/80 text-sm sm:text-base font-medium mb-6 text-center">

@@ -130,7 +130,7 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
                             className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold text-white hover:scale-[1.03] transition-transform"
                             style={{ backgroundColor: "#7224d8" }}
                           >
-                            前往 Apple Podcasts 收聽故事 🎧
+                            前往 Apple Podcasts 收聽故事
                           </a>
                         </div>
                       </CommandEmpty>

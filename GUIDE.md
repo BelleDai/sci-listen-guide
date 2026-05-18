@@ -38,14 +38,14 @@ npm run sync
 ---
 
 ## 🏗 步驟 2：建置與發佈 (Deploy)
-資料同步後，執行以下指令將網站更新到網路上：
+資料同步後，建議先發佈到「測試環境 (Staging)」確認無誤後，再上線：
 
 ```bash
-# 1. 產生新的網頁檔案
-npm run build
+# 1. 部署到測試環境 (將會產生一組臨時預覽網址供您檢查)
+npm run deploy:staging
 
-# 2. 上傳到 Firebase 空間
-firebase deploy --only hosting
+# 2. 點開終端機產生的網址，確認一切沒問題後，發佈到正式環境 (Production)
+npm run deploy:prod
 ```
 
 ---
