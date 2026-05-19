@@ -150,10 +150,12 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
 
   useEffect(() => {
     setMounted(true);
-    const isPodcast = new URLSearchParams(window.location.search).get("source") === "podcast";
+    const params = new URLSearchParams(window.location.search);
+    const source = params.get("source") ?? undefined;
+    const isPodcast = source === "podcast";
     setIsPodcastSource(isPodcast);
 
-    trackEpisodeLanded(episodeData.id ?? "", episodeData.Title, isPodcast ? "podcast" : "search_or_other");
+    trackEpisodeLanded(episodeData.id ?? "", episodeData.Title, source);
 
     if (!isPodcast) {
       setStep((s) => Math.max(s, 2));

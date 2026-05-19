@@ -25,11 +25,11 @@ export const trackEvent = (
 // ── Convenience wrappers ───────────────────────────────────────────
 
 /** Called when user lands on the Episode page */
-export const trackEpisodeLanded = (episodeId: string, episodeTitle: string, source: string) =>
+export const trackEpisodeLanded = (episodeId: string, episodeTitle: string, source?: string) =>
   trackEvent("episode_landed", {
     episode_id: episodeId,
     episode_title: episodeTitle,
-    entry_source: source, // e.g. "podcast" | "search_or_other"
+    entry_source: source || "search", // e.g. "podcast" | "fb" | "search" (default)
   });
 
 /** Called whenever the user clicks "下一步" and reaches a new Section */
