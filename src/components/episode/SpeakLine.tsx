@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { Volume2 } from "lucide-react";
 import { motion } from "framer-motion";
-import { useTTS } from "@/hooks/useTTS";
+import { useTTS, isTTSSupported } from "@/hooks/useTTS";
 import SpeakingIndicator from "./SpeakingIndicator";
 import { cn } from "@/lib/utils";
 
@@ -17,6 +17,15 @@ interface Props {
 
 const SpeakLine = ({ id, text, children, className, contentClassName, episodeId, contentType }: Props) => {
   const { speak, speakingId } = useTTS();
+
+  if (!isTTSSupported) {
+    return (
+      <div className={className}>
+        <div className={contentClassName}>{children ?? text}</div>
+      </div>
+    );
+  }
+
   const active = speakingId === id;
   const toggleSpeak = () => {
     if (!active && episodeId && contentType) {

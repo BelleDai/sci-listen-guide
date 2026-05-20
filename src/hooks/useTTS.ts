@@ -27,7 +27,10 @@ const setActive = (id: string | null) => {
   listeners.forEach((l) => l(id));
 };
 
-let hasAlertedTTS = false;
+export const isTTSSupported =
+  typeof window !== "undefined" &&
+  "speechSynthesis" in window &&
+  !!window.SpeechSynthesisUtterance;
 
 export const useTTS = () => {
   const [speakingId, setSpeakingId] = useState<string | null>(activeId);
@@ -41,14 +44,7 @@ export const useTTS = () => {
   }, []);
 
   const speak = useCallback((text: string, id: string) => {
-    if (typeof window === "undefined") return;
-    if (!("speechSynthesis" in window) || !window.SpeechSynthesisUtterance) {
-      if (!hasAlertedTTS) {
-        alert("您目前的瀏覽器不支援語音朗讀功能，建議您改用系統預設瀏覽器（如 Safari 或 Chrome）開啟此網頁。");
-        hasAlertedTTS = true;
-      }
-      return;
-    }
+    if (!isTTSSupported) return;
 
     try {
       const synth = window.speechSynthesis;
@@ -78,10 +74,6 @@ export const useTTS = () => {
         if (activeId === id) setActive(null);
         if (e.error !== "interrupted" && e.error !== "canceled") {
           console.error("TTS Error:", e);
-          if (!hasAlertedTTS) {
-            alert("語音播放失敗。可能是目前的 App 內建瀏覽器限制了此功能，建議您點擊右上角「使用預設瀏覽器」開啟此網頁！");
-            hasAlertedTTS = true;
-          }
         }
       };
       
@@ -90,10 +82,6 @@ export const useTTS = () => {
     } catch (e) {
       console.error("TTS try-catch error:", e);
       if (activeId === id) setActive(null);
-      if (!hasAlertedTTS) {
-        alert("語音播放發生錯誤，建議您改用系統預設瀏覽器開啟！");
-        hasAlertedTTS = true;
-      }
     }
   }, []);
 
