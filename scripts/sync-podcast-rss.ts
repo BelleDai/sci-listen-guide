@@ -207,14 +207,22 @@ async function scrapeLinks(items: RssItem[]): Promise<void> {
       toScrape = toScrape.slice(0, MAX_SCRAPE_PER_RUN);
     }
   } else {
-    // 正常模式：查詢 Firestore
-    const snapshot = await db
-      .collection(COLLECTION)
-      .where("scraped", "!=", true)
-      .get();
+    // 正常模式：從 Firestore 讀取所有已儲存的集數，找出缺乏連結的集數
+    console.log("🔍 Fetching all stored episodes from Firestore to check link status...");
+    const snapshot = await db.collection(COLLECTION).get();
+    const storedMap = new Map<string, admin.firestore.DocumentData>();
+    snapshot.docs.forEach((doc) => storedMap.set(doc.id, doc.data()));
 
-    const unscrapedGuids = new Set(snapshot.docs.map((d) => d.id));
-    toScrape = items.filter((item) => unscrapedGuids.has(item.guid));
+    toScrape = items.filter((item) => {
+      const stored = storedMap.get(item.guid);
+      // 如果 Firestore 沒有這筆資料，或者缺少 spotifyLink，或者缺少 applePodcastLink，就需要爬取！
+      return !stored || !stored.spotifyLink || !stored.applePodcastLink;
+    });
+
+    if (toScrape.length > MAX_SCRAPE_PER_RUN) {
+      console.log(`ℹ️ Found ${toScrape.length} unscraped or link-missing episodes in Firestore. Limiting this run to ${MAX_SCRAPE_PER_RUN} episodes.`);
+      toScrape = toScrape.slice(0, MAX_SCRAPE_PER_RUN);
+    }
   }
 
   if (toScrape.length === 0) {
