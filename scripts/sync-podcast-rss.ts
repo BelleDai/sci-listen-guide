@@ -215,8 +215,14 @@ async function scrapeLinks(items: RssItem[]): Promise<void> {
 
     toScrape = items.filter((item) => {
       const stored = storedMap.get(item.guid);
-      // 如果 Firestore 沒有這筆資料，或者缺少 spotifyLink，或者缺少 applePodcastLink，就需要爬取！
-      return !stored || !stored.spotifyLink || !stored.applePodcastLink;
+      if (!stored) return true;
+
+      // 檢查是否具有正確格式的單集連結（而不是廣義的節目首頁連結）
+      const hasValidSpotify = stored.spotifyLink && stored.spotifyLink.startsWith("https://open.spotify.com/episode/");
+      const hasValidApple = stored.applePodcastLink && stored.applePodcastLink.includes("podcasts.apple.com/podcast/id1812447277");
+
+      // 如果任一連結無效或缺失，就主動重新進行爬取與修正！
+      return !hasValidSpotify || !hasValidApple;
     });
 
     if (toScrape.length > MAX_SCRAPE_PER_RUN) {
@@ -262,10 +268,10 @@ async function scrapeLinks(items: RssItem[]): Promise<void> {
 
           console.log(`📊 [Scraper] Found ${allLinks.length} total anchor links on page.`);
 
-          // 過濾並尋找 Spotify 連結
-          const spotifyLinks = allLinks.filter((l) => l.href.includes("open.spotify.com"));
-          // 過濾並尋找 Apple 連結
-          const appleLinks = allLinks.filter((l) => l.href.includes("podcasts.apple.com"));
+          // 過濾並尋找 Spotify 連結：必須為單集連結
+          const spotifyLinks = allLinks.filter((l) => l.href.includes("open.spotify.com/episode/"));
+          // 過濾並尋找 Apple 連結：必須為特定節目的單集連結
+          const appleLinks = allLinks.filter((l) => l.href.includes("podcasts.apple.com/podcast/id1812447277"));
 
           console.log(`🎵 [Scraper] Spotify candidates:`, spotifyLinks.map(l => l.href));
           console.log(`🍎 [Scraper] Apple candidates:`, appleLinks.map(l => l.href));

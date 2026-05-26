@@ -71,8 +71,15 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
     episodes.map((e) => e.firstoryGuid).filter(Boolean)
   );
 
-  // 過濾掉已有伴讀單元的 podcast，僅顯示「純 podcast」
-  const podcastOnly = podcastList.filter((p) => !episodeGuids.has(p.id));
+  // 過濾掉已有伴讀單元的 podcast，且必須具備正確格式的 Spotify 與 Apple Podcast 連結的，才顯示在全部集數中
+  const podcastOnly = podcastList.filter((p) => {
+    if (episodeGuids.has(p.id)) return false;
+
+    const hasValidSpotify = p.spotifyLink && p.spotifyLink.startsWith("https://open.spotify.com/episode/");
+    const hasValidApple = p.applePodcastLink && p.applePodcastLink.includes("podcasts.apple.com/podcast/id1812447277");
+
+    return hasValidSpotify && hasValidApple;
+  });
 
   // 計算與切片顯示集數
   const hasMoreEpisodes = episodes.length > 15;
