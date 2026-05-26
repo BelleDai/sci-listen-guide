@@ -44,7 +44,7 @@ const PAGE_TIMEOUT_MS = 20_000;
 // 並行爬取數量
 const SCRAPE_CONCURRENCY = 2;
 // 每次本地偵錯最多爬取的集數（避免爬太久，可自行調整）
-const MAX_SCRAPE_PER_RUN = 100;
+const MAX_SCRAPE_PER_RUN = 20;
 
 if (admin.apps.length === 0) {
   admin.initializeApp({
