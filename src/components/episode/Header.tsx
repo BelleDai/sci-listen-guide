@@ -148,7 +148,7 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
                       <CommandInput
                         value={searchQuery}
                         onValueChange={setSearchQuery}
-                        placeholder="搜尋全部集數..."
+                        placeholder="搜尋全部故事..."
                         className="h-full border-0 focus:ring-0 bg-transparent text-white placeholder:text-white/55 text-sm w-full px-2 py-0 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50"
                       />
                     </motion.div>
@@ -200,9 +200,9 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
                               key={ep.id}
                               value={`${ep.title} ${ep.tags?.join(' ') || ''}`}
                               onSelect={() => handleSelect(ep.id)}
-                              className="cursor-pointer aria-selected:bg-accent/20 aria-selected:text-white text-white/90 my-1 py-2.5 px-3 flex items-start gap-3 rounded-lg"
+                              className="group cursor-pointer aria-selected:bg-accent/20 aria-selected:text-white text-white/90 my-1 py-2.5 px-3 flex items-start gap-3 rounded-lg"
                             >
-                              <BookOpen className="w-4 h-4 mt-0.5 flex-shrink-0 text-accent/70" />
+                              <BookOpen className="w-4 h-4 mt-0.5 flex-shrink-0 text-accent/70 group-aria-[selected=true]:text-primary-foreground transition-colors" />
                               <span className="line-clamp-2 leading-tight">{ep.title}</span>
                             </CommandItem>
                           ))}
@@ -220,22 +220,22 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
 
                       {/* Group 2：純 Podcast 集數（沒有伴讀，顯示收聽按鈕） */}
                       {displayedPodcastOnly.length > 0 && (
-                        <CommandGroup heading="📻 全部集數（無伴讀）" className="text-white/80 [&_[cmdk-group-heading]]:text-accent [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-bold [&_[cmdk-group-heading]]:px-3 [&_[cmdk-group-heading]]:py-2">
+                        <CommandGroup heading="📻 全部故事（無伴讀）" className="text-white/80 [&_[cmdk-group-heading]]:text-accent [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-bold [&_[cmdk-group-heading]]:px-3 [&_[cmdk-group-heading]]:py-2">
                           {displayedPodcastOnly.map((ep) => (
                             <CommandItem
                               key={ep.id}
                               value={ep.title}
                               // 純 podcast 不跳頁，onSelect 用來展開/收合按鈕
                               onSelect={() => {/* 不做任何事，讓按鈕自己處理 */ }}
-                              className="aria-selected:bg-white/5 text-white/70 my-0.5 py-2 px-3 flex flex-col items-start gap-1 rounded-lg cursor-default"
+                              className="group aria-selected:bg-white/5 text-white/70 my-0.5 py-2 px-3 flex flex-col items-start gap-1 rounded-lg cursor-default"
                             >
                               <div className="flex items-start gap-3 w-full">
-                                <Radio className="w-4 h-4 mt-0.5 flex-shrink-0 text-white/40" />
+                                <Radio className="w-4 h-4 mt-0.5 flex-shrink-0 text-white/40 group-aria-[selected=true]:text-primary-foreground transition-colors" />
                                 <span className="line-clamp-2 leading-tight text-sm flex-1">{ep.title}</span>
                               </div>
                               <div className="pl-7">
                                 <PlayerLaunch
-                                  inline
+                                  size="xs"
                                   spotify={ep.spotifyLink}
                                   applePodcast={ep.applePodcastLink}
                                   firstoryLink={ep.firstoryLink}
@@ -245,11 +245,11 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
                           ))}
                           {hasMorePodcastOnly && !showAllPodcastOnly && searchQuery === "" && (
                             <CommandItem
-                              value="顯示更多全部集數 show more podcast only button"
+                              value="顯示全部故事 show more podcast only button"
                               onSelect={() => setShowAllPodcastOnly(true)}
                               className="cursor-pointer text-center text-accent/70 hover:text-accent font-medium py-2 px-3 border border-dashed border-accent/20 rounded-lg justify-center flex items-center aria-selected:bg-white/5 my-0.5 text-xs"
                             >
-                              顯示更多全部集數 ({podcastOnly.length - 15} 集)...
+                              顯示全部 ({podcastOnly.length - 15} 集)...
                             </CommandItem>
                           )}
                         </CommandGroup>
@@ -258,7 +258,7 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
                       {/* Loading 狀態 */}
                       {podcastLoading && (
                         <div className="px-3 py-2 text-xs text-white/40 text-center">
-                          載入全部集數中...
+                          載入故事中...
                         </div>
                       )}
                     </CommandList>

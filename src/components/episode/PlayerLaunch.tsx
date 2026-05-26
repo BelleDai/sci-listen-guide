@@ -3,96 +3,84 @@ import { useState } from "react";
 import { Podcast, ChevronRight, Lock, Radio } from "lucide-react";
 import { trackOutboundClick } from "@/lib/analytics";
 
+// ─── 內聯品牌圖標 (防止外部檔案遺失) ──────────────────────────────────────────────
+
+const AppleIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.641-.026 2.669-1.48 3.666-2.934 1.154-1.686 1.63-3.324 1.654-3.411-.035-.018-3.197-1.226-3.223-4.872-.023-3.051 2.493-4.512 2.607-4.58-1.424-2.083-3.633-2.365-4.417-2.42-1.802-.178-3.626 1.153-4.562 1.153zm-.304-6.315c.844-.993 1.41-2.378 1.258-3.778-1.218.048-2.656.79-3.528 1.808-.78.892-1.442 2.308-1.262 3.678 1.36.096 2.688-.714 3.532-1.708z" />
+  </svg>
+);
+
+const SpotifyIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.563.387-.857.207-2.377-1.454-5.37-1.783-8.894-.982-.336.076-.67-.135-.746-.472-.076-.336.135-.67.472-.746 3.854-.878 7.15-.505 9.818 1.13.295.18.387.563.207.857zm1.226-2.724c-.226.367-.707.487-1.074.26-2.72-1.672-6.87-2.157-10.078-1.182-.413.125-.85-.107-.975-.52-.125-.413.107-.85.52-.975 3.678-1.117 8.243-.57 11.346 1.336.367.227.487.708.26 1.074zm.106-2.833C14.385 8.8 8.594 8.6 5.253 9.615c-.523.158-1.077-.143-1.235-.666-.158-.523.143-1.077.666-1.235C8.22 6.643 14.625 6.87 18.775 9.336c.477.283.633.9.35 1.377-.283.477-.9.633-1.377.35z" />
+  </svg>
+);
+
 interface Props {
   applePodcast?: string;
   spotify?: string;
   firstoryLink?: string;
   className?: string;
   buttonClassName?: string;
-  /** 緊湊行內模式：直接顯示按鈕列，不需要 toggle 展開動畫（用於搜尋下拉列表） */
-  inline?: boolean;
+  size?: "xs" | "default";
 }
 
-const PlayerLaunch = ({ applePodcast, spotify, firstoryLink, className, buttonClassName, inline = false }: Props) => {
+const sizeConfigs = {
+  xs: {
+    btnClass: "px-3.5 py-1.5 text-xs gap-1.5",
+    linkClass: "px-3 py-1.5 text-xs gap-1.5",
+    iconSize: "w-3.5 h-3.5",
+  },
+  default: {
+    btnClass: "px-6 py-3 text-base sm:text-lg gap-2",
+    linkClass: "px-5 py-3 text-sm sm:text-base gap-2",
+    iconSize: "w-5 h-5",
+  },
+};
+
+const PlayerLaunch = ({
+  applePodcast,
+  spotify,
+  firstoryLink,
+  className,
+  buttonClassName,
+  size = "default",
+}: Props) => {
   const [open, setOpen] = useState(false);
   const hasLinks = Boolean(applePodcast || spotify || firstoryLink);
+  const config = sizeConfigs[size] || sizeConfigs.default;
 
-  // ─── Inline 模式：直接顯示緊湊按鈕列 ────────────────────────────────────────
-  if (inline) {
-    if (!hasLinks) return null;
-    return (
-      <div className="flex items-center gap-1.5 flex-wrap mt-1">
-        {spotify && (
-          <a
-            href={spotify}
-            target="_blank"
-            rel="noreferrer"
-            onClick={(e) => { e.stopPropagation(); trackOutboundClick("spotify", "search_inline"); }}
-            className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold text-white"
-            style={{ background: "linear-gradient(135deg,#1ed760,#0a8a3a)" }}
-          >
-            Spotify
-          </a>
-        )}
-        {applePodcast && (
-          <a
-            href={applePodcast}
-            target="_blank"
-            rel="noreferrer"
-            onClick={(e) => { e.stopPropagation(); trackOutboundClick("apple_podcasts", "search_inline"); }}
-            className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold text-white"
-            style={{ background: "linear-gradient(135deg,#a855f7,#6d28d9)" }}
-          >
-            Apple
-          </a>
-        )}
-        {!spotify && !applePodcast && firstoryLink && (
-          <a
-            href={firstoryLink}
-            target="_blank"
-            rel="noreferrer"
-            onClick={(e) => { e.stopPropagation(); trackOutboundClick("firstory", "search_inline"); }}
-            className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold text-white"
-            style={{ background: "linear-gradient(135deg,#f97316,#dc2626)" }}
-          >
-            收聽
-          </a>
-        )}
-      </div>
-    );
-  }
-
-  // ─── 標準模式：toggle 展開動畫 ────────────────────────────────────────────────
   return (
-    <div className={className || "flex flex-row items-center justify-center gap-3 mt-5 flex-wrap"}>
-      <motion.button
-        onClick={() => hasLinks && setOpen((o) => !o)}
-        whileHover={hasLinks ? { scale: 1.04 } : {}}
-        whileTap={hasLinks ? { scale: 0.96 } : {}}
-        aria-expanded={open}
-        disabled={!hasLinks}
-        className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-extrabold text-base sm:text-lg shadow-[var(--shadow-glow)] transition-colors ${hasLinks
-          ? buttonClassName || "text-primary-foreground bg-secondary bg-[image:var(--gradient-primary)] cursor-pointer"
-          : "text-white/40 bg-white/10 cursor-not-allowed shadow-none"
-          }`}
-      >
-        {hasLinks ? <Podcast className="w-5 h-5" /> : <Lock className="w-5 h-5" />}
-        {hasLinks ? "收聽故事" : "即將上架"}
-        {hasLinks && (
-          <motion.span animate={{ rotate: open ? 180 : 0 }}>
-            <ChevronRight className="w-4 h-4" />
-          </motion.span>
-        )}
-      </motion.button>
-
-      <AnimatePresence>
-        {open && (
+    <div className={className || "flex flex-row items-center justify-center gap-3 mt-1 flex-wrap"}>
+      <AnimatePresence mode="wait">
+        {!open ? (
+          <motion.button
+            key="listen-trigger"
+            onClick={() => hasLinks && setOpen(true)}
+            initial={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ duration: 0.2 }}
+            whileHover={hasLinks ? { scale: 1.04 } : {}}
+            whileTap={hasLinks ? { scale: 0.96 } : {}}
+            aria-expanded={open}
+            disabled={!hasLinks}
+            className={`inline-flex items-center rounded-full font-extrabold shadow-[var(--shadow-glow)] transition-colors ${config.btnClass} ${hasLinks
+              ? buttonClassName || "text-primary-foreground bg-secondary bg-[image:var(--gradient-primary)] cursor-pointer"
+              : "text-white/40 bg-white/10 cursor-not-allowed shadow-none"
+              }`}
+          >
+            {hasLinks ? <Podcast className={config.iconSize} /> : <Lock className={config.iconSize} />}
+            {hasLinks ? "收聽故事" : "即將上架"}
+          </motion.button>
+        ) : (
           <motion.div
-            initial={{ opacity: 0, x: -10, width: 0 }}
-            animate={{ opacity: 1, x: 0, width: "auto" }}
-            exit={{ opacity: 0, x: -10, width: 0 }}
-            transition={{ type: "spring", stiffness: 280, damping: 20 }}
-            className="flex flex-row items-center gap-2 overflow-hidden"
+            key="streaming-links"
+            initial={{ opacity: 0, scale: 0.9, y: 5 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 5 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="flex flex-row items-center justify-center gap-2.5 flex-wrap"
           >
             {applePodcast && (
               <motion.a
@@ -100,15 +88,12 @@ const PlayerLaunch = ({ applePodcast, spotify, firstoryLink, className, buttonCl
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => trackOutboundClick("apple_podcasts", "player_launch")}
-                initial={{ scale: 0, x: 20 }}
-                animate={{ scale: 1, x: 0 }}
-                exit={{ scale: 0 }}
-                transition={{ type: "spring", stiffness: 320, damping: 16, delay: 0.05 }}
                 whileHover={{ scale: 1.06 }}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold text-white shadow-lg whitespace-nowrap flex-shrink-0"
+                className={`inline-flex items-center rounded-full font-bold text-white shadow-lg whitespace-nowrap flex-shrink-0 hover:scale-[1.03] transition-transform ${config.linkClass}`}
                 style={{ background: "linear-gradient(135deg,#a855f7,#6d28d9)" }}
               >
-                Apple Podcasts
+                <AppleIcon className={`${config.iconSize} flex-shrink-0 text-white`} />
+                <span>Podcasts</span>
               </motion.a>
             )}
             {spotify && (
@@ -117,15 +102,12 @@ const PlayerLaunch = ({ applePodcast, spotify, firstoryLink, className, buttonCl
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => trackOutboundClick("spotify", "player_launch")}
-                initial={{ scale: 0, x: -20 }}
-                animate={{ scale: 1, x: 0 }}
-                exit={{ scale: 0 }}
-                transition={{ type: "spring", stiffness: 320, damping: 16, delay: 0.1 }}
                 whileHover={{ scale: 1.06 }}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold text-white shadow-lg whitespace-nowrap flex-shrink-0"
+                className={`inline-flex items-center rounded-full font-bold text-white shadow-lg whitespace-nowrap flex-shrink-0 hover:scale-[1.03] transition-transform ${config.linkClass}`}
                 style={{ background: "linear-gradient(135deg,#1ed760,#0a8a3a)" }}
               >
-                Spotify
+                <SpotifyIcon className={`${config.iconSize} flex-shrink-0 text-white`} />
+                <span>Spotify</span>
               </motion.a>
             )}
             {!applePodcast && !spotify && firstoryLink && (
@@ -134,16 +116,12 @@ const PlayerLaunch = ({ applePodcast, spotify, firstoryLink, className, buttonCl
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => trackOutboundClick("firstory", "player_launch")}
-                initial={{ scale: 0, x: -20 }}
-                animate={{ scale: 1, x: 0 }}
-                exit={{ scale: 0 }}
-                transition={{ type: "spring", stiffness: 320, damping: 16, delay: 0.1 }}
                 whileHover={{ scale: 1.06 }}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold text-white shadow-lg whitespace-nowrap flex-shrink-0"
+                className={`inline-flex items-center rounded-full font-bold text-white shadow-lg whitespace-nowrap flex-shrink-0 hover:scale-[1.03] transition-transform ${config.linkClass}`}
                 style={{ background: "linear-gradient(135deg,#f97316,#dc2626)" }}
               >
-                <Radio className="w-4 h-4" />
-                前往收聽
+                <Radio className={size === "xs" ? "w-3.5 h-3.5" : "w-4 h-4"} />
+                <span>前往收聽</span>
               </motion.a>
             )}
           </motion.div>

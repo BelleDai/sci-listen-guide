@@ -20,16 +20,6 @@ const links = [
     ),
   },
   {
-    label: "科學好好聽.app",
-    href: "https://科學好好聽.app",
-    svg: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-white">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-      </svg>
-    ),
-  },
-  {
     label: "建議回饋",
     href: "mailto:taro.tw+kidsci@gmail.com",
     svg: (

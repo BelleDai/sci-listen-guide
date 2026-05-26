@@ -213,7 +213,7 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
               <motion.h1
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-3xl sm:text-4xl font-black text-white leading-snug mb-6 text-stroke-dark"
+                className="text-3xl font-black text-white leading-snug mb-6 text-stroke-dark"
               >
                 <div className="block text-secondary text-sm mb-3">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary/15 font-bold">
