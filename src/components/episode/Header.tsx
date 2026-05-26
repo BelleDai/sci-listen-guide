@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, Headphones, Radio } from "lucide-react";
+import { Search, Headphones, Radio, BookOpen } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { SearchIndexItem } from "@/lib/episodes";
@@ -21,6 +21,9 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
   const [mounted, setMounted] = useState(false);
   const [podcastList, setPodcastList] = useState<PodcastListItem[]>([]);
   const [podcastLoading, setPodcastLoading] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [showAllEpisodes, setShowAllEpisodes] = useState(false);
+  const [showAllPodcastOnly, setShowAllPodcastOnly] = useState(false);
   const router = useRouter();
 
   // Used for tracking if we clicked inside the search dropdown
@@ -40,6 +43,15 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // 當搜尋面板收合時，自動重設為只顯示 15 筆與清空關鍵字
+  useEffect(() => {
+    if (!searchOpen) {
+      setSearchQuery("");
+      setShowAllEpisodes(false);
+      setShowAllPodcastOnly(false);
+    }
+  }, [searchOpen]);
+
   // 搜尋列第一次展開時，才 fetch podcast-list.json（CDN 快取，不計 Firestore 費用）
   useEffect(() => {
     if (searchOpen && podcastList.length === 0 && !podcastLoading) {
@@ -49,7 +61,7 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
         .then((data) => {
           if (data?.episodes) setPodcastList(data.episodes);
         })
-        .catch(() => {/* 靜默失敗，僅顯示伴讀集數 */})
+        .catch(() => {/* 靜默失敗，僅顯示伴讀集數 */ })
         .finally(() => setPodcastLoading(false));
     }
   }, [searchOpen, podcastList.length, podcastLoading]);
@@ -61,6 +73,17 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
 
   // 過濾掉已有伴讀單元的 podcast，僅顯示「純 podcast」
   const podcastOnly = podcastList.filter((p) => !episodeGuids.has(p.id));
+
+  // 計算與切片顯示集數
+  const hasMoreEpisodes = episodes.length > 15;
+  const displayedEpisodes = (searchQuery !== "" || showAllEpisodes)
+    ? episodes
+    : episodes.slice(0, 15);
+
+  const hasMorePodcastOnly = podcastOnly.length > 15;
+  const displayedPodcastOnly = (searchQuery !== "" || showAllPodcastOnly)
+    ? podcastOnly
+    : podcastOnly.slice(0, 15);
 
   const goHome = () => {
     router.push('/');
@@ -116,6 +139,8 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
                       className="flex-1 h-full flex items-center min-w-0 pr-2"
                     >
                       <CommandInput
+                        value={searchQuery}
+                        onValueChange={setSearchQuery}
                         placeholder="搜尋全部集數..."
                         className="h-full border-0 focus:ring-0 bg-transparent text-white placeholder:text-white/55 text-sm w-full px-2 py-0 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50"
                       />
@@ -161,31 +186,40 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
                       </CommandEmpty>
 
                       {/* Group 1：有伴讀單元的集數（點擊可進入伴讀頁） */}
-                      {episodes.length > 0 && (
-                        <CommandGroup heading="🎧 科普伴讀單元" className="text-white/80 [&_[cmdk-group-heading]]:text-accent [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-bold [&_[cmdk-group-heading]]:px-3 [&_[cmdk-group-heading]]:py-2">
-                          {episodes.map((ep) => (
+                      {displayedEpisodes.length > 0 && (
+                        <CommandGroup heading="📖 科普伴讀" className="text-white/80 [&_[cmdk-group-heading]]:text-accent [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-bold [&_[cmdk-group-heading]]:px-3 [&_[cmdk-group-heading]]:py-2">
+                          {displayedEpisodes.map((ep) => (
                             <CommandItem
                               key={ep.id}
                               value={`${ep.title} ${ep.tags?.join(' ') || ''}`}
                               onSelect={() => handleSelect(ep.id)}
                               className="cursor-pointer aria-selected:bg-accent/20 aria-selected:text-white text-white/90 my-1 py-2.5 px-3 flex items-start gap-3 rounded-lg"
                             >
-                              <Headphones className="w-4 h-4 mt-0.5 flex-shrink-0 text-accent/70" />
+                              <BookOpen className="w-4 h-4 mt-0.5 flex-shrink-0 text-accent/70" />
                               <span className="line-clamp-2 leading-tight">{ep.title}</span>
                             </CommandItem>
                           ))}
+                          {hasMoreEpisodes && !showAllEpisodes && searchQuery === "" && (
+                            <CommandItem
+                              value="顯示更多科普伴讀 show more episodes button"
+                              onSelect={() => setShowAllEpisodes(true)}
+                              className="cursor-pointer text-center text-accent/70 hover:text-accent font-medium py-2 px-3 border border-dashed border-accent/20 rounded-lg justify-center flex items-center aria-selected:bg-white/5 my-0.5 text-xs"
+                            >
+                              顯示更多科普伴讀 ({episodes.length - 15} 集)...
+                            </CommandItem>
+                          )}
                         </CommandGroup>
                       )}
 
                       {/* Group 2：純 Podcast 集數（沒有伴讀，顯示收聽按鈕） */}
-                      {podcastOnly.length > 0 && (
-                        <CommandGroup heading="📻 全部集數（尚無伴讀）" className="text-white/80 [&_[cmdk-group-heading]]:text-white/50 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-bold [&_[cmdk-group-heading]]:px-3 [&_[cmdk-group-heading]]:py-2">
-                          {podcastOnly.map((ep) => (
+                      {displayedPodcastOnly.length > 0 && (
+                        <CommandGroup heading="📻 全部集數（無伴讀）" className="text-white/80 [&_[cmdk-group-heading]]:text-accent [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-bold [&_[cmdk-group-heading]]:px-3 [&_[cmdk-group-heading]]:py-2">
+                          {displayedPodcastOnly.map((ep) => (
                             <CommandItem
                               key={ep.id}
                               value={ep.title}
                               // 純 podcast 不跳頁，onSelect 用來展開/收合按鈕
-                              onSelect={() => {/* 不做任何事，讓按鈕自己處理 */}}
+                              onSelect={() => {/* 不做任何事，讓按鈕自己處理 */ }}
                               className="aria-selected:bg-white/5 text-white/70 my-0.5 py-2 px-3 flex flex-col items-start gap-1 rounded-lg cursor-default"
                             >
                               <div className="flex items-start gap-3 w-full">
@@ -202,6 +236,15 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
                               </div>
                             </CommandItem>
                           ))}
+                          {hasMorePodcastOnly && !showAllPodcastOnly && searchQuery === "" && (
+                            <CommandItem
+                              value="顯示更多全部集數 show more podcast only button"
+                              onSelect={() => setShowAllPodcastOnly(true)}
+                              className="cursor-pointer text-center text-accent/70 hover:text-accent font-medium py-2 px-3 border border-dashed border-accent/20 rounded-lg justify-center flex items-center aria-selected:bg-white/5 my-0.5 text-xs"
+                            >
+                              顯示更多全部集數 ({podcastOnly.length - 15} 集)...
+                            </CommandItem>
+                          )}
                         </CommandGroup>
                       )}
 
