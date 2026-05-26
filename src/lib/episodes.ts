@@ -34,6 +34,14 @@ export type SearchIndexItem = {
   id: string;
   title: string;
   tags?: string[];
+  // 以下為新增：用於識別「純 podcast」條目（沒有伴讀單元）
+  isPodcastOnly?: boolean;
+  spotifyLink?: string;
+  applePodcastLink?: string;
+  firstoryLink?: string;
+  pubDate?: string;
+  // 伴讀 episodes 對應的 Firstory GUID（用於去重）
+  firstoryGuid?: string;
 };
 
 /**

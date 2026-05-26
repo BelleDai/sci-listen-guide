@@ -41,6 +41,63 @@ function normalizeGlossary(value: any[]): any[] {
   }));
 }
 
+/**
+ * 簡單的 title 正規化：
+ * 移除常見前綴（〈公開｜、〈會員｜）、集數編號（EP.xx）、以及中文括號，
+ * 只留下核心關鍵詞，方便模糊比對。
+ */
+function normalizeTitle(title: string): string {
+  return title
+    .replace(/[〈〉「」【】《》]/g, "")
+    .replace(/公開｜|會員｜/g, "")
+    .replace(/EP\.\d+/g, "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
+}
+
+/**
+ * 計算兩個字串的相似度（0~1）。
+ * 使用最長公共子字串長度 / 較長字串長度作為指標，
+ * 不依賴外部套件，對中文標題效果足夠好。
+ */
+function similarity(a: string, b: string): number {
+  if (!a || !b) return 0;
+  // 找所有共用的 bigram（連續2字）
+  const bigrams = (s: string) => {
+    const set: Set<string> = new Set();
+    for (let i = 0; i < s.length - 1; i++) set.add(s.slice(i, i + 2));
+    return set;
+  };
+  const ba = bigrams(a);
+  const bb = bigrams(b);
+  let common = 0;
+  ba.forEach((bi) => { if (bb.has(bi)) common++; });
+  return (2 * common) / (ba.size + bb.size || 1);
+}
+
+/**
+ * 在 podcastEpisodes 中模糊搜尋最相似的集數。
+ * 回傳前 3 名候選（相似度 > 0.3）。
+ */
+async function findMatchingPodcast(title: string) {
+  const snapshot = await db.collection("podcastEpisodes").get();
+  if (snapshot.empty) return [];
+
+  const normalized = normalizeTitle(title);
+  const scored = snapshot.docs
+    .map((doc) => {
+      const data = doc.data();
+      const score = similarity(normalized, normalizeTitle(data.title ?? ""));
+      return { guid: doc.id, score, data };
+    })
+    .filter((r) => r.score > 0.3)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 3);
+
+  return scored;
+}
+
 async function syncEpisode() {
   const source = readlineSync.question("Enter Local Path: ");
   const episodeId = readlineSync.question("Enter Episode ID (e.g., 216): ");
@@ -49,27 +106,9 @@ async function syncEpisode() {
   const existingDoc = await db.collection("episodes").doc(episodeId).get();
   const existing = existingDoc.exists ? (existingDoc.data() as any) : {};
 
-  const existingSpotify = existing.Spotify || "";
-  const existingApple = existing.ApplePodcast || "";
-
-  const spotifyPrompt = existingSpotify
-    ? `Enter Spotify Link [Enter to keep: ${existingSpotify.slice(0, 50)}...]: `
-    : "Enter Spotify Link (optional): ";
-  const applePrompt = existingApple
-    ? `Enter Apple Podcasts Link [Enter to keep: ${existingApple.slice(0, 50)}...]: `
-    : "Enter Apple Podcasts Link (optional): ";
-
-  const spotifyInput = readlineSync.question(spotifyPrompt);
-  const appleInput = readlineSync.question(applePrompt);
-
-  const spotifyLink = spotifyInput || existingSpotify;
-  const applePodcastLink = appleInput || existingApple;
-
   let data: any = {
     id: episodeId,
     status: "published",
-    Spotify: spotifyLink,
-    ApplePodcast: applePodcastLink,
   };
 
   if (!fs.existsSync(source)) {
@@ -82,13 +121,110 @@ async function syncEpisode() {
 
   console.log("Reading from local directory...");
 
+  // ── 讀取 metadata.md 取得 title ──────────────────────────────────────────────
+  let titleFromMeta = "";
   const mdPath = path.join(source, "metadata.md");
   if (fs.existsSync(mdPath)) {
     const content = fs.readFileSync(mdPath, "utf-8");
     const titleMatch = content.match(/## Title\s*\n\s*(.+)/);
-    if (titleMatch) data.Title = titleMatch[1].trim();
+    if (titleMatch) titleFromMeta = titleMatch[1].trim();
   }
 
+  // ── 模糊比對 podcastEpisodes ──────────────────────────────────────────────────
+  const existingGuid = existing.firstoryGuid || "";
+  let chosenGuid = existingGuid;
+  let podcastData: any = null;
+
+  let searchTitle = titleFromMeta || existing.Title || "";
+  
+  while (true) {
+    if (!searchTitle) {
+      searchTitle = readlineSync.question("\n請輸入關鍵字搜尋 Podcast 集數 (或按 Enter 略過): ");
+      if (!searchTitle) break;
+    }
+
+    console.log(`\n🔍 Searching podcastEpisodes for: "${searchTitle.slice(0, 60)}"`);
+    const candidates = await findMatchingPodcast(searchTitle);
+
+    if (candidates.length > 0) {
+      console.log("\n📋 找到相似的 Podcast 集數：");
+      candidates.forEach((c, i) => {
+        console.log(`  ${i + 1}. [${Math.round(c.score * 100)}%] ${c.data.title?.slice(0, 70)}`);
+        if (c.data.spotifyLink) console.log(`     Spotify: ${c.data.spotifyLink.slice(0, 60)}`);
+        if (c.data.applePodcastLink) console.log(`     Apple:   ${c.data.applePodcastLink.slice(0, 60)}`);
+      });
+
+      const confirmPrompt = existingGuid
+        ? `\n選擇 (1-${candidates.length})，輸入 '/' 重新搜尋，或按 'n' 保持原連結 [原連結: ${existingGuid.slice(0, 20)}...]: `
+        : `\n選擇 (1-${candidates.length})，輸入 '/' 重新搜尋，或按 'n' 略過 [預設: 1]: `;
+      
+      const confirm = readlineSync.question(confirmPrompt).toLowerCase().trim();
+
+      if (confirm === 'n') {
+        break;
+      } else if (confirm.startsWith('/')) {
+        searchTitle = confirm.slice(1).trim();
+        continue;
+      } else {
+        let choiceIndex = -1;
+        if (!confirm && !existingGuid) {
+          choiceIndex = 0; // 預設選擇第 1 個
+        } else if (!confirm && existingGuid) {
+          break; // 保持原有的
+        } else {
+          choiceIndex = parseInt(confirm) - 1;
+        }
+
+        if (!isNaN(choiceIndex) && choiceIndex >= 0 && choiceIndex < candidates.length) {
+          const selected = candidates[choiceIndex];
+          chosenGuid = selected.guid;
+          podcastData = selected.data;
+          console.log(`✅ 已連結到：${selected.data.title?.slice(0, 60)}`);
+          break;
+        } else {
+          console.log("❌ 無效的選擇，請輸入數字 (1, 2, 3)、'/' 重新搜尋，或 'n' 略過。");
+          searchTitle = ""; // 強制下一輪手動輸入
+        }
+      }
+    } else {
+      console.log("   （未找到相似集數）");
+      searchTitle = readlineSync.question("\n請輸入其他關鍵字重新搜尋 (或按 Enter 略過): ");
+      if (!searchTitle) break;
+    }
+  }
+
+  // ── Title：從 podcast 預填或從 metadata 讀取 ─────────────────────────────────
+  const existingTitle = existing.Title || "";
+  const suggestedTitle = podcastData?.title || titleFromMeta || existingTitle;
+  const titlePrompt = existingTitle
+    ? `Enter Title [Enter to keep: ${existingTitle.slice(0, 50)}]: `
+    : suggestedTitle
+      ? `Enter Title [Enter to use: ${suggestedTitle.slice(0, 50)}]: `
+      : "Enter Title: ";
+  const titleInput = readlineSync.question(titlePrompt);
+  data.Title = titleInput || existingTitle || suggestedTitle;
+
+  // ── Spotify / Apple：從 podcast 自動填入，可手動覆蓋 ─────────────────────────
+  const existingSpotify = existing.Spotify || "";
+  const suggestedSpotify = podcastData?.spotifyLink || existingSpotify;
+  const spotifyPrompt = suggestedSpotify
+    ? `Enter Spotify Link [Enter to use: ${suggestedSpotify.slice(0, 50)}...]: `
+    : "Enter Spotify Link (optional): ";
+  const spotifyInput = readlineSync.question(spotifyPrompt);
+  data.Spotify = spotifyInput || suggestedSpotify;
+
+  const existingApple = existing.ApplePodcast || "";
+  const suggestedApple = podcastData?.applePodcastLink || existingApple;
+  const applePrompt = suggestedApple
+    ? `Enter Apple Podcasts Link [Enter to use: ${suggestedApple.slice(0, 50)}...]: `
+    : "Enter Apple Podcasts Link (optional): ";
+  const appleInput = readlineSync.question(applePrompt);
+  data.ApplePodcast = appleInput || suggestedApple;
+
+  // 寫入 firstoryGuid
+  if (chosenGuid) data.firstoryGuid = chosenGuid;
+
+  // ── 讀取 JSON 資料 ─────────────────────────────────────────────────────────────
   const jsonFiles = [
     { file: "glossary.json", key: "Glossary" },
     { file: "family_discussion.json", key: "FamilyDiscussion" },
@@ -126,9 +262,7 @@ async function syncEpisode() {
     data.ThreeDCaption = fs.readFileSync(captionPath, "utf-8").trim();
   }
 
-
-
-  console.log("Uploading to Firestore...");
+  console.log("\nUploading to Firestore...");
   await db.collection("episodes").doc(episodeId).set(data, { merge: true });
   console.log(`✅ Successfully synced Episode ${episodeId}!`);
 }

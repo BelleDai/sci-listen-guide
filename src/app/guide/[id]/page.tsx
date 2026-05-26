@@ -114,7 +114,7 @@ export default async function EpisodePage(props: { params: Promise<{ id: string 
 
   // Fetch all episodes for the search bar
   const allEpisodes = await getAllPublishedEpisodes();
-  const searchIndex = allEpisodes.map((ep) => ({ id: ep.id, title: ep.Title, tags: ep.Tags || [] }));
+  const searchIndex = allEpisodes.map((ep) => ({ id: ep.id, title: ep.Title, tags: ep.Tags || [], firstoryGuid: (ep as any).firstoryGuid || undefined }));
 
   // Note: The Header with Stepper is embedded inside EpisodeView. 
   // We need to pass the search index to EpisodeView so it can pass it to Header.

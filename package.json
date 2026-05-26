@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "sync": "tsx scripts/sync-episode.ts",
+    "sync-rss": "tsx scripts/sync-podcast-rss.ts",
     "deploy:staging": "npm run build && npx firebase-tools hosting:channel:deploy staging",
     "deploy:prod": "npx firebase-tools deploy --only hosting"
   },
@@ -47,6 +48,7 @@
     "cmdk": "^1.1.1",
     "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.6.0",
+    "fast-xml-parser": "^5.8.0",
     "firebase": "^12.13.0",
     "firebase-admin": "^13.9.0",
     "framer-motion": "^12.38.0",
@@ -77,6 +79,7 @@
     "autoprefixer": "^10.5.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
+    "playwright": "^1.60.0",
     "postcss": "^8.5.14",
     "tailwindcss": "^3.4.19",
     "tsx": "^4.21.0",
