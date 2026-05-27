@@ -139,7 +139,8 @@ async function syncEpisode() {
   
   while (true) {
     if (!searchTitle) {
-      searchTitle = readlineSync.question("\n請輸入關鍵字搜尋 Podcast 集數 (或按 Enter 略過): ");
+      console.log("");
+      searchTitle = readlineSync.question("請輸入關鍵字搜尋 Podcast 集數 (或按 Enter 略過): ");
       if (!searchTitle) break;
     }
 
@@ -188,7 +189,8 @@ async function syncEpisode() {
       }
     } else {
       console.log("   （未找到相似集數）");
-      searchTitle = readlineSync.question("\n請輸入其他關鍵字重新搜尋 (或按 Enter 略過): ");
+      console.log("");
+      searchTitle = readlineSync.question("請輸入其他關鍵字重新搜尋 (或按 Enter 略過): ");
       if (!searchTitle) break;
     }
   }
