@@ -568,6 +568,36 @@ function loadLocalCache(): void {
 // ─── 主程式 ────────────────────────────────────────────────────────────────────
 
 async function main() {
+  // ─── 特殊模式：僅重新從 Firestore 生成 podcast-list.json（跳過所有爬取）
+  if (process.env.GENERATE_JSON_ONLY === "true") {
+    console.log("📄 GENERATE_JSON_ONLY mode: Reading Firestore to regenerate podcast-list.json...");
+    // 需要有集數清單才能呼叫 generateJson，從 RSS 快速取得順序
+    const rssItems = await fetchRssItems();
+    const webItems = await fetchFirstoryWebItems();
+    const itemMap = new Map<string, RssItem>();
+    for (const item of webItems) itemMap.set(item.guid, item);
+    for (const item of rssItems) itemMap.set(item.guid, item);
+    const mergedItems = Array.from(itemMap.values()).sort((a, b) =>
+      new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime()
+    );
+    function normTitleForDup(str: string) {
+      return str.toLowerCase().replace(/[〈〉「」【】《》|｜\s\-—.,!?!?？：:()（）]/g, "").trim();
+    }
+    const titleMap2 = new Map<string, RssItem>();
+    for (const item of mergedItems) {
+      const k = normTitleForDup(item.title);
+      if (!k) continue;
+      const ex = titleMap2.get(k);
+      if (!ex || new Date(item.pubDate) > new Date(ex.pubDate)) titleMap2.set(k, item);
+    }
+    const finalItems = Array.from(titleMap2.values()).sort((a, b) =>
+      new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime()
+    );
+    await generateJson(finalItems);
+    console.log("\n🎉 JSON regenerated from Firestore!");
+    return;
+  }
+
   console.log("🚀 Starting podcast RSS sync...\n");
 
   if (DRY_RUN_LOCAL_ONLY) {

@@ -1,6 +1,33 @@
 import { chromium } from "playwright";
 import fs from "fs";
 import path from "path";
+import * as admin from "firebase-admin";
+
+// ─── Firebase 初始化 ─────────────────────────────────────────────────────────
+const envPath = path.resolve(process.cwd(), ".env.local");
+if (fs.existsSync(envPath)) {
+  fs.readFileSync(envPath, "utf-8")
+    .split("\n")
+    .forEach((line) => {
+      const [key, ...val] = line.split("=");
+      if (key && val) {
+        process.env[key.trim()] = val.join("=").trim().replace(/^["']|["']$/g, "");
+      }
+    });
+}
+
+const USE_FIRESTORE = !!process.env.GOOGLE_APPLICATION_CREDENTIALS || !!process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID;
+let db: admin.firestore.Firestore | null = null;
+
+if (USE_FIRESTORE) {
+  if (admin.apps.length === 0) {
+    admin.initializeApp({
+      credential: admin.credential.applicationDefault(),
+      projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || "sci-listen-guide",
+    });
+  }
+  db = admin.firestore();
+}
 
 // Path configuration
 const JSON_PATH = path.resolve(process.cwd(), "public", "podcast-list.json");
@@ -146,6 +173,24 @@ async function main() {
       data.updatedAt = new Date().toISOString();
       fs.writeFileSync(JSON_PATH, JSON.stringify(data, null, 2), "utf-8");
       console.log(`\n💾 Saved changes to ${JSON_PATH}`);
+
+      // 7. Sync updated spotifyLinks back to Firestore
+      if (db) {
+        console.log("🔥 Syncing updated Spotify links back to Firestore...");
+        const updatedEpisodes = episodes.filter((ep: any) => ep.spotifyLink);
+        const BATCH_SIZE = 400;
+        for (let i = 0; i < updatedEpisodes.length; i += BATCH_SIZE) {
+          const batch = db.batch();
+          updatedEpisodes.slice(i, i + BATCH_SIZE).forEach((ep: any) => {
+            const ref = db!.collection("podcastEpisodes").doc(ep.id);
+            batch.set(ref, { spotifyLink: ep.spotifyLink }, { merge: true });
+          });
+          await batch.commit();
+        }
+        console.log(`✅ Synced ${updatedEpisodes.length} Spotify links to Firestore.`);
+      } else {
+        console.log("ℹ️ Firestore not configured — skipping Firestore sync (local mode).");
+      }
     } else {
       console.log("\nℹ️ No links needed updating. podcast-list.json is already up to date.");
     }

@@ -12,9 +12,9 @@ env:
 
 jobs:
   sync:
-    name: Sync RSS → Scrape → Build → Deploy
+    name: Sync Firstory Web → Firebase → Build → Deploy
     runs-on: ubuntu-latest
-    timeout-minutes: 60  # 初次全量爬取最長 60 分鐘
+    timeout-minutes: 60  # 全量爬取最長 60 分鐘
 
     steps:
       - name: Checkout code
@@ -39,12 +39,29 @@ jobs:
           echo "$FIREBASE_SERVICE_ACCOUNT_KEY" > /tmp/firebase-sa.json
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> $GITHUB_ENV
 
-      - name: Sync Podcast RSS + Scrape Spotify/Apple links
+      # Step 1: 從 Firstory 網頁爬取所有集數（含 VIP），合併去重，
+      #         upsert 到 Firestore podcastEpisodes，並補充各單集的 Spotify/Apple 連結
+      - name: Sync Firstory episodes → Firestore (with Spotify/Apple per-episode links)
         env:
           NEXT_PUBLIC_FIREBASE_PROJECT_ID: sci-listen-guide
         run: npx tsx scripts/sync-podcast-rss.ts
 
-      - name: Build Next.js (includes public/podcast-list.json → out/)
+      # Step 2: 從 Apple Podcasts 與 Spotify 節目總覽頁，大批次補全所有缺失連結
+      #         （此步驟更快：只開兩個頁面而不是逐集開頁），並將結果同步回 Firestore
+      - name: Update Apple & Spotify links in bulk (update-links)
+        env:
+          NEXT_PUBLIC_FIREBASE_PROJECT_ID: sci-listen-guide
+        run: npm run update-links
+
+      # Step 3: 從 Firestore 重新生成 podcast-list.json（包含最新 Apple/Spotify 連結）
+      - name: Regenerate podcast-list.json from Firestore
+        env:
+          NEXT_PUBLIC_FIREBASE_PROJECT_ID: sci-listen-guide
+          GENERATE_JSON_ONLY: "true"
+        run: npx tsx scripts/sync-podcast-rss.ts
+
+      # Step 4: 建置 Next.js（會把最新 public/podcast-list.json 打包進 out/）
+      - name: Build Next.js
         env:
           NEXT_PUBLIC_FIREBASE_API_KEY: ${{ secrets.NEXT_PUBLIC_FIREBASE_API_KEY }}
           NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: sci-listen-guide.firebaseapp.com
@@ -55,6 +72,7 @@ jobs:
           NEXT_PUBLIC_GA_ID: ${{ secrets.NEXT_PUBLIC_GA_ID }}
         run: npm run build
 
+      # Step 5: 部署到 Firebase Hosting
       - name: Deploy to Firebase Hosting
         env:
           GOOGLE_APPLICATION_CREDENTIALS: /tmp/firebase-sa.json
