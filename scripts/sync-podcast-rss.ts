@@ -2,7 +2,8 @@
  * sync-podcast-rss.ts
  *
  * 每日執行（由 GitHub Actions 呼叫），完成三件事：
- *  1. 從 Firstory RSS Feed 抓取所有 podcast 集數，upsert 到 Firestore `podcastEpisodes`
+ *  1. 從 Firstory 網頁（https://open.firstory.me/user/kidsci/episodes）爬取所有集數（含 VIP），
+ *     upsert 到 Firestore `podcastEpisodes`
  *  2. 對尚未爬取 Spotify/Apple 連結的集數，用 Playwright 補充
  *  3. 將整份 podcast 列表輸出成 public/podcast-list.json，供 CDN 靜態服務
  *
@@ -13,7 +14,6 @@
  */
 
 import * as admin from "firebase-admin";
-import { XMLParser } from "fast-xml-parser";
 import { chromium } from "playwright";
 import fs from "fs";
 import path from "path";
@@ -55,7 +55,6 @@ const db = admin.firestore();
 
 // ─── 常數 ──────────────────────────────────────────────────────────────────────
 
-const RSS_URL = "https://feed.firstory.me/rss/user/cmdpx4cs200ax01xldg5ta89p";
 const COLLECTION = "podcastEpisodes";
 const OUTPUT_PATH = path.resolve(process.cwd(), "public", "podcast-list.json");
 
@@ -113,48 +112,7 @@ function cleanTitle(rawTitle: string): string {
   return title;
 }
 
-// ─── Step 1：抓取並解析 RSS ─────────────────────────────────────────────────────
-
-async function fetchRssItems(): Promise<RssItem[]> {
-  console.log("📡 Fetching RSS feed...");
-  const res = await fetch(RSS_URL);
-  if (!res.ok) throw new Error(`RSS fetch failed: ${res.status}`);
-  const xml = await res.text();
-
-  const parser = new XMLParser({
-    ignoreAttributes: false,
-    attributeNamePrefix: "@_",
-    cdataPropName: "__cdata",
-    removeNSPrefix: false,
-  });
-
-  const parsed = parser.parse(xml);
-  const items: any[] = parsed?.rss?.channel?.item ?? [];
-
-  return items.map((item: any): RssItem => {
-    const rawTitle = item.title?.__cdata ?? item.title ?? "";
-    const rawGuid =
-      typeof item.guid === "object"
-        ? item.guid["#text"] ?? item.guid.__cdata ?? ""
-        : item.guid ?? "";
-    const link = item.link ?? "";
-    const pubDate = item.pubDate ?? "";
-    const imageHref =
-      item["itunes:image"]?.["@_href"] ??
-      item["googleplay:image"]?.["@_href"] ??
-      "";
-    const duration = parseInt(item["itunes:duration"] ?? "0", 10);
-
-    return {
-      guid: String(rawGuid).trim(),
-      title: cleanTitle(String(rawTitle)),
-      firstoryLink: String(link).trim(),
-      pubDate: String(pubDate).trim(),
-      imageUrl: String(imageHref).trim(),
-      duration,
-    };
-  }).filter((item) => item.guid && item.firstoryLink && !item.title.includes("預告") && !item.title.includes("每月一杯咖啡錢"));
-}
+// ─── Step 1：從 Firstory 網頁爬取所有集數 ──────────────────────────────────────
 
 async function fetchFirstoryWebItems(): Promise<RssItem[]> {
   console.log("🎭 Launching Playwright to scrape Firstory web episodes...");
@@ -571,29 +529,11 @@ async function main() {
   // ─── 特殊模式：僅重新從 Firestore 生成 podcast-list.json（跳過所有爬取）
   if (process.env.GENERATE_JSON_ONLY === "true") {
     console.log("📄 GENERATE_JSON_ONLY mode: Reading Firestore to regenerate podcast-list.json...");
-    // 需要有集數清單才能呼叫 generateJson，從 RSS 快速取得順序
-    const rssItems = await fetchRssItems();
     const webItems = await fetchFirstoryWebItems();
-    const itemMap = new Map<string, RssItem>();
-    for (const item of webItems) itemMap.set(item.guid, item);
-    for (const item of rssItems) itemMap.set(item.guid, item);
-    const mergedItems = Array.from(itemMap.values()).sort((a, b) =>
+    const sortedItems = webItems.sort((a, b) =>
       new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime()
     );
-    function normTitleForDup(str: string) {
-      return str.toLowerCase().replace(/[〈〉「」【】《》|｜\s\-—.,!?!?？：:()（）]/g, "").trim();
-    }
-    const titleMap2 = new Map<string, RssItem>();
-    for (const item of mergedItems) {
-      const k = normTitleForDup(item.title);
-      if (!k) continue;
-      const ex = titleMap2.get(k);
-      if (!ex || new Date(item.pubDate) > new Date(ex.pubDate)) titleMap2.set(k, item);
-    }
-    const finalItems = Array.from(titleMap2.values()).sort((a, b) =>
-      new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime()
-    );
-    await generateJson(finalItems);
+    await generateJson(sortedItems);
     console.log("\n🎉 JSON regenerated from Firestore!");
     return;
   }
@@ -611,64 +551,19 @@ async function main() {
     loadLocalCache();
   }
 
-  const rssItems = await fetchRssItems();
-  console.log(`📋 Found ${rssItems.length} episodes in RSS feed.`);
-
   const webItems = await fetchFirstoryWebItems();
   console.log(`📋 Scraped ${webItems.length} episodes from Firstory web.`);
 
-  // Merge items using Map keyed by guid (webItems will act as the baseline, RSS items will overwrite with richer metadata)
-  const itemMap = new Map<string, RssItem>();
-
-  for (const item of webItems) {
-    itemMap.set(item.guid, item);
-  }
-
-  for (const item of rssItems) {
-    itemMap.set(item.guid, item);
-  }
-
-  // Convert back to array and sort chronologically (newest first)
-  const mergedItems = Array.from(itemMap.values()).sort((a, b) => {
+  // Sort chronologically (newest first)
+  const finalItems = webItems.sort((a, b) => {
     return new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime();
   });
 
-  // Deduplicate by normalized title (keeping the one with the newer/more precise pubDate)
-  const titleMap = new Map<string, RssItem>();
-  
-  function normalizeTitleForDup(str: string): string {
-    if (!str) return "";
-    return str
-      .toLowerCase()
-      .replace(/[〈〉「」【】《》|｜\s\-—.,!?!?？：:()（）]/g, "")
-      .trim();
-  }
+  console.log(`📋 Total ${finalItems.length} episodes from Firstory web.\n`);
 
-  for (const item of mergedItems) {
-    const titleKey = normalizeTitleForDup(item.title);
-    if (!titleKey) continue;
-
-    const existing = titleMap.get(titleKey);
-    if (!existing) {
-      titleMap.set(titleKey, item);
-    } else {
-      const existingTime = new Date(existing.pubDate).getTime();
-      const currentTime = new Date(item.pubDate).getTime();
-      if (currentTime > existingTime) {
-        titleMap.set(titleKey, item);
-      }
-    }
-  }
-
-  const finalMergedItems = Array.from(titleMap.values()).sort((a, b) => {
-    return new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime();
-  });
-
-  console.log(`📋 Merged & Deduplicated total of ${finalMergedItems.length} episodes.\n`);
-
-  await upsertToFirestore(finalMergedItems);
-  await scrapeLinks(finalMergedItems);
-  await generateJson(finalMergedItems);
+  await upsertToFirestore(finalItems);
+  await scrapeLinks(finalItems);
+  await generateJson(finalItems);
 
   console.log("\n🎉 All done!");
 }
