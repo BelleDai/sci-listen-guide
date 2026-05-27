@@ -35,8 +35,6 @@ if (fs.existsSync(envPath)) {
 
 // ─── 設定開關 ──────────────────────────────────────────────────────────────────
 
-// ⚠️ 設定為 true 時：不寫入 Firestore，僅依賴本地 public/podcast-list.json 作為快取與輸出，適合本地除錯。
-// ⚠️ 設定為 false 時：正常同步並上傳到 Firestore。
 const DRY_RUN_LOCAL_ONLY = false;
 
 // Playwright 爬取時每頁最長等待秒數
@@ -44,7 +42,7 @@ const PAGE_TIMEOUT_MS = 20_000;
 // 並行爬取數量
 const SCRAPE_CONCURRENCY = 2;
 // 每次本地偵錯最多爬取的集數（避免爬太久，可自行調整）
-const MAX_SCRAPE_PER_RUN = 200;
+const MAX_SCRAPE_PER_RUN = 30;
 
 if (admin.apps.length === 0) {
   admin.initializeApp({
@@ -106,7 +104,7 @@ function cleanTitle(rawTitle: string): string {
   // 2. 移除常見干擾前綴與空白
   title = title
     .replace(/[〈〉「」【】《》]/g, "") // 移除括號
-    .replace(/公開｜|會員｜/g, "")      // 移除常見前綴
+    .replace(/公開｜|會員｜|VIP點播｜|VIP｜/g, "") // 移除常見前綴
     .replace(/^\s*[-｜\|_]\s*/g, "")     // 移除開頭的破折號或分隔符
     .replace(/\s*[-｜\|_]\s*$/g, "")     // 移除結尾的破折號或分隔符
     .replace(/\s+/g, " ")              // 合併多餘空白
@@ -156,6 +154,164 @@ async function fetchRssItems(): Promise<RssItem[]> {
       duration,
     };
   }).filter((item) => item.guid && item.firstoryLink && !item.title.includes("預告") && !item.title.includes("每月一杯咖啡錢"));
+}
+
+async function fetchFirstoryWebItems(): Promise<RssItem[]> {
+  console.log("🎭 Launching Playwright to scrape Firstory web episodes...");
+  const browser = await chromium.launch({ headless: true });
+  const page = await browser.newPage({
+    viewport: { width: 1280, height: 1000 },
+    locale: "zh-TW"
+  });
+
+  const url = "https://open.firstory.me/user/kidsci/episodes";
+  const items: RssItem[] = [];
+
+  try {
+    console.log(`🌐 Navigating to: ${url}`);
+    await page.goto(url, { waitUntil: "domcontentloaded", timeout: PAGE_TIMEOUT_MS });
+    await page.waitForTimeout(3000);
+
+    const getEpisodeCount = async () => {
+      return await page.evaluate(() => {
+        return Array.from(document.querySelectorAll("a")).filter(a => a.href.includes("/story/")).length;
+      });
+    };
+
+    let prevCount = await getEpisodeCount();
+    console.log(`   Initial visible episodes on Firstory web: ${prevCount}`);
+
+    // Click "載入更多" up to 10 times to load all (~200) episodes
+    for (let i = 0; i < 10; i++) {
+      const loadMoreButton = page.locator("button", { hasText: "載入更多" });
+      const buttonCount = await loadMoreButton.count();
+
+      if (buttonCount === 0) {
+        console.log("   ✨ '載入更多' button not found. Reached the end.");
+        break;
+      }
+
+      await loadMoreButton.first().scrollIntoViewIfNeeded();
+      await page.waitForTimeout(200);
+      await loadMoreButton.first().click();
+
+      // Wait for content hydration/network response
+      await page.waitForTimeout(2500);
+
+      const currentCount = await getEpisodeCount();
+      console.log(`   [Firstory Click ${i + 1}] Loaded ${currentCount} episodes...`);
+
+      if (currentCount === prevCount && prevCount > 0) {
+        // Double check
+        await page.waitForTimeout(1500);
+        const doubleCheckCount = await getEpisodeCount();
+        if (doubleCheckCount === prevCount) {
+          console.log("   ✨ Episode count did not increase on Firstory. Finished loading.");
+          break;
+        }
+      }
+      prevCount = currentCount;
+    }
+
+    // Scrape all episodes from DOM
+    const scrapedEpisodes = await page.evaluate(() => {
+      const anchors = Array.from(document.querySelectorAll("a")).filter(a => a.href.includes("/story/"));
+      return anchors.map((a) => {
+        const text = a.innerText.trim();
+        let imageUrl = "";
+        const img = a.querySelector("img");
+        if (img) {
+          imageUrl = img.src || img.getAttribute("src") || "";
+        } else {
+          // Check sibling or parent elements up to 4 levels
+          let parent = a.parentElement;
+          for (let i = 0; i < 4; i++) {
+            if (parent) {
+              const siblingImg = parent.querySelector("img");
+              if (siblingImg) {
+                imageUrl = siblingImg.src || siblingImg.getAttribute("src") || "";
+                break;
+              }
+              parent = parent.parentElement;
+            }
+          }
+        }
+
+        return {
+          text,
+          href: a.href,
+          imageUrl
+        };
+      });
+    });
+
+    console.log(`✅ Scraped ${scrapedEpisodes.length} total episodes from Firstory web.`);
+
+    // Parse scraped episodes into RssItem
+    for (const ep of scrapedEpisodes) {
+      if (!ep.href || !ep.text) continue;
+
+      // Extract guid from href
+      const guid = ep.href.substring(ep.href.lastIndexOf("/") + 1).split("?")[0].trim();
+      if (!guid) continue;
+
+      // Parse text: [Title]  [Date]·[Duration]
+      const parts = ep.text.split(/\s{2,}/);
+      const rawTitle = parts[0]?.trim() || "";
+      const metaPart = parts[1]?.trim() || "";
+
+      // Split date and duration by dot or U+00B7
+      const metaSplit = metaPart.split(/[·•.]/);
+      const dateStr = metaSplit[0]?.trim() || ""; // YYYY-MM-DD
+      const durationStr = metaSplit[1]?.trim() || ""; // HH:MM:SS
+
+      // Convert duration string to seconds
+      let duration = 0;
+      if (durationStr) {
+        const durParts = durationStr.split(":").map(Number);
+        if (!durParts.some(isNaN)) {
+          if (durParts.length === 3) {
+            duration = durParts[0] * 3600 + durParts[1] * 60 + durParts[2];
+          } else if (durParts.length === 2) {
+            duration = durParts[0] * 60 + durParts[1];
+          } else if (durParts.length === 1) {
+            duration = durParts[0];
+          }
+        }
+      }
+
+      // Convert date string to pubDate
+      let pubDate = "";
+      if (dateStr) {
+        pubDate = new Date(`${dateStr}T06:00:00+08:00`).toUTCString();
+      } else {
+        pubDate = new Date().toUTCString();
+      }
+
+      const cleanEpTitle = cleanTitle(rawTitle);
+
+      // Skip previews or coffee-support items
+      if (cleanEpTitle.includes("預告") || cleanEpTitle.includes("每月一杯咖啡錢")) {
+        continue;
+      }
+
+      items.push({
+        guid,
+        title: cleanEpTitle,
+        firstoryLink: ep.href.trim(),
+        pubDate,
+        imageUrl: ep.imageUrl.trim(),
+        duration,
+      });
+    }
+
+  } catch (err) {
+    console.error("❌ Error scraping Firstory web:", err);
+  } finally {
+    await browser.close();
+  }
+
+  return items;
 }
 
 // ─── Step 2：Upsert 到 Firestore ───────────────────────────────────────────────
@@ -426,11 +582,63 @@ async function main() {
   }
 
   const rssItems = await fetchRssItems();
-  console.log(`📋 Found ${rssItems.length} episodes in RSS feed.\n`);
+  console.log(`📋 Found ${rssItems.length} episodes in RSS feed.`);
 
-  await upsertToFirestore(rssItems);
-  await scrapeLinks(rssItems);
-  await generateJson(rssItems);
+  const webItems = await fetchFirstoryWebItems();
+  console.log(`📋 Scraped ${webItems.length} episodes from Firstory web.`);
+
+  // Merge items using Map keyed by guid (webItems will act as the baseline, RSS items will overwrite with richer metadata)
+  const itemMap = new Map<string, RssItem>();
+
+  for (const item of webItems) {
+    itemMap.set(item.guid, item);
+  }
+
+  for (const item of rssItems) {
+    itemMap.set(item.guid, item);
+  }
+
+  // Convert back to array and sort chronologically (newest first)
+  const mergedItems = Array.from(itemMap.values()).sort((a, b) => {
+    return new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime();
+  });
+
+  // Deduplicate by normalized title (keeping the one with the newer/more precise pubDate)
+  const titleMap = new Map<string, RssItem>();
+  
+  function normalizeTitleForDup(str: string): string {
+    if (!str) return "";
+    return str
+      .toLowerCase()
+      .replace(/[〈〉「」【】《》|｜\s\-—.,!?!?？：:()（）]/g, "")
+      .trim();
+  }
+
+  for (const item of mergedItems) {
+    const titleKey = normalizeTitleForDup(item.title);
+    if (!titleKey) continue;
+
+    const existing = titleMap.get(titleKey);
+    if (!existing) {
+      titleMap.set(titleKey, item);
+    } else {
+      const existingTime = new Date(existing.pubDate).getTime();
+      const currentTime = new Date(item.pubDate).getTime();
+      if (currentTime > existingTime) {
+        titleMap.set(titleKey, item);
+      }
+    }
+  }
+
+  const finalMergedItems = Array.from(titleMap.values()).sort((a, b) => {
+    return new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime();
+  });
+
+  console.log(`📋 Merged & Deduplicated total of ${finalMergedItems.length} episodes.\n`);
+
+  await upsertToFirestore(finalMergedItems);
+  await scrapeLinks(finalMergedItems);
+  await generateJson(finalMergedItems);
 
   console.log("\n🎉 All done!");
 }
