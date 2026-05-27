@@ -1,7 +1,10 @@
 import * as admin from "firebase-admin";
 import fs from "fs";
 import path from "path";
-import readlineSync from "readline-sync";
+import * as readline from "readline/promises";
+import { stdin as input, stdout as output } from "process";
+
+const rl = readline.createInterface({ input, output });
 
 // Load .env.local manually for script
 const envPath = path.resolve(process.cwd(), ".env.local");
@@ -99,8 +102,8 @@ async function findMatchingPodcast(title: string) {
 }
 
 async function syncEpisode() {
-  const source = readlineSync.question("Enter Local Path: ");
-  const episodeId = readlineSync.question("Enter Episode ID (e.g., 216): ");
+  const source = await rl.question("Enter Local Path: ");
+  const episodeId = await rl.question("Enter Episode ID (e.g., 216): ");
 
   // Fetch existing Firestore doc so links can be re-used with Enter
   const existingDoc = await db.collection("episodes").doc(episodeId).get();
@@ -140,7 +143,7 @@ async function syncEpisode() {
   while (true) {
     if (!searchTitle) {
       console.log("");
-      searchTitle = readlineSync.question("請輸入關鍵字搜尋 Podcast 集數 (或按 Enter 略過): ");
+      searchTitle = await rl.question("請輸入關鍵字搜尋 Podcast 集數 (或按 Enter 略過): ");
       if (!searchTitle) break;
     }
 
@@ -159,7 +162,7 @@ async function syncEpisode() {
         ? `\n選擇 (1-${candidates.length})，輸入 '/' 重新搜尋，或按 'n' 保持原連結 [原連結: ${existingGuid.slice(0, 20)}...]: `
         : `\n選擇 (1-${candidates.length})，輸入 '/' 重新搜尋，或按 'n' 略過 [預設: 1]: `;
       
-      const confirm = readlineSync.question(confirmPrompt).toLowerCase().trim();
+      const confirm = (await rl.question(confirmPrompt)).toLowerCase().trim();
 
       if (confirm === 'n') {
         break;
@@ -190,7 +193,7 @@ async function syncEpisode() {
     } else {
       console.log("   （未找到相似集數）");
       console.log("");
-      searchTitle = readlineSync.question("請輸入其他關鍵字重新搜尋 (或按 Enter 略過): ");
+      searchTitle = await rl.question("請輸入其他關鍵字重新搜尋 (或按 Enter 略過): ");
       if (!searchTitle) break;
     }
   }
@@ -203,7 +206,7 @@ async function syncEpisode() {
     : suggestedTitle
       ? `Enter Title [Enter to use: ${suggestedTitle.slice(0, 50)}]: `
       : "Enter Title: ";
-  const titleInput = readlineSync.question(titlePrompt);
+  const titleInput = await rl.question(titlePrompt);
   data.Title = titleInput || existingTitle || suggestedTitle;
 
   // ── Spotify / Apple：從 podcast 自動填入，可手動覆蓋 ─────────────────────────
@@ -212,7 +215,7 @@ async function syncEpisode() {
   const spotifyPrompt = suggestedSpotify
     ? `Enter Spotify Link [Enter to use: ${suggestedSpotify.slice(0, 50)}...]: `
     : "Enter Spotify Link (optional): ";
-  const spotifyInput = readlineSync.question(spotifyPrompt);
+  const spotifyInput = await rl.question(spotifyPrompt);
   data.Spotify = spotifyInput || suggestedSpotify;
 
   const existingApple = existing.ApplePodcast || "";
@@ -220,7 +223,7 @@ async function syncEpisode() {
   const applePrompt = suggestedApple
     ? `Enter Apple Podcasts Link [Enter to use: ${suggestedApple.slice(0, 50)}...]: `
     : "Enter Apple Podcasts Link (optional): ";
-  const appleInput = readlineSync.question(applePrompt);
+  const appleInput = await rl.question(applePrompt);
   data.ApplePodcast = appleInput || suggestedApple;
 
   // 寫入 firstoryGuid
@@ -276,4 +279,6 @@ syncEpisode().catch((err) => {
   } else {
     console.error(err);
   }
+}).finally(() => {
+  rl.close();
 });
