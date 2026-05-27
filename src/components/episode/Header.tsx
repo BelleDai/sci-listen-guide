@@ -76,7 +76,7 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
     if (episodeGuids.has(p.id)) return false;
 
     const hasValidSpotify = p.spotifyLink && p.spotifyLink.startsWith("https://open.spotify.com/episode/");
-    const hasValidApple = p.applePodcastLink && p.applePodcastLink.includes("podcasts.apple.com/podcast/id1812447277");
+    const hasValidApple = p.applePodcastLink && p.applePodcastLink.includes("podcasts.apple.com") && p.applePodcastLink.includes("1812447277");
 
     return hasValidSpotify && hasValidApple;
   });
