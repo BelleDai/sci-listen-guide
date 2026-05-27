@@ -78,19 +78,25 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
     const hasValidSpotify = p.spotifyLink && p.spotifyLink.startsWith("https://open.spotify.com/episode/");
     const hasValidApple = p.applePodcastLink && p.applePodcastLink.includes("podcasts.apple.com") && p.applePodcastLink.includes("1812447277");
 
-    return hasValidSpotify && hasValidApple;
+    return hasValidSpotify || hasValidApple;
   });
 
   // 計算與切片顯示集數
-  const hasMoreEpisodes = episodes.length > 15;
+  const sortedEpisodes = [...episodes].sort((a, b) => 
+    a.id.localeCompare(b.id, undefined, { numeric: true })
+  );
+  const hasMoreEpisodes = sortedEpisodes.length > 15;
   const displayedEpisodes = (searchQuery !== "" || showAllEpisodes)
-    ? episodes
-    : episodes.slice(0, 15);
+    ? sortedEpisodes
+    : sortedEpisodes.slice(0, 15);
 
-  const hasMorePodcastOnly = podcastOnly.length > 15;
+  const sortedPodcastOnly = [...podcastOnly].sort((a, b) => 
+    new Date(b.pubDate || 0).getTime() - new Date(a.pubDate || 0).getTime()
+  );
+  const hasMorePodcastOnly = sortedPodcastOnly.length > 15;
   const displayedPodcastOnly = (searchQuery !== "" || showAllPodcastOnly)
-    ? podcastOnly
-    : podcastOnly.slice(0, 15);
+    ? sortedPodcastOnly
+    : sortedPodcastOnly.slice(0, 15);
 
   const goHome = () => {
     router.push('/');
