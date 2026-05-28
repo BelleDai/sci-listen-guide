@@ -79,6 +79,70 @@ function similarity(a: string, b: string): number {
   return (2 * common) / (ba.size + bb.size || 1);
 }
 
+function extractOrderFromText(text?: string): number | null {
+  if (!text) return null;
+  const m = text.match(/\b(?:EP|SP)\.?\s*(\d+)\b/i);
+  if (!m) return null;
+  const n = Number(m[1]);
+  return Number.isFinite(n) ? n : null;
+}
+
+function toDayStartUtc(date: Date): Date {
+  return new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()));
+}
+
+async function backfillMissingPubDates(): Promise<number> {
+  const snapshot = await db.collection("episodes").get();
+  if (snapshot.empty) return 0;
+
+  const missing = snapshot.docs
+    .map((doc) => ({ id: doc.id, data: doc.data() as any }))
+    .filter((row) => !row.data.pubDate);
+
+  if (missing.length === 0) return 0;
+
+  const sorted = [...missing].sort((a, b) => {
+    const oa = extractOrderFromText(a.data.Title);
+    const ob = extractOrderFromText(b.data.Title);
+    if (oa !== null && ob !== null && oa !== ob) return oa - ob;
+    if (oa !== null && ob === null) return -1;
+    if (oa === null && ob !== null) return 1;
+
+    const titleA = String(a.data.Title || "").trim().toLowerCase();
+    const titleB = String(b.data.Title || "").trim().toLowerCase();
+    const byTitle = titleA.localeCompare(titleB, undefined, { numeric: true });
+    if (byTitle !== 0) return byTitle;
+
+    return a.id.localeCompare(b.id, undefined, { numeric: true });
+  });
+
+  const yesterday = new Date();
+  yesterday.setUTCDate(yesterday.getUTCDate() - 1);
+  const baseDay = toDayStartUtc(yesterday);
+
+  let updated = 0;
+  for (let i = 0; i < sorted.length; i++) {
+    const offsetDays = sorted.length - 1 - i;
+    const assignedDay = new Date(baseDay);
+    assignedDay.setUTCDate(baseDay.getUTCDate() - offsetDays);
+    const assignedPubDate = new Date(
+      Date.UTC(
+        assignedDay.getUTCFullYear(),
+        assignedDay.getUTCMonth(),
+        assignedDay.getUTCDate(),
+        22,
+        0,
+        0
+      )
+    ).toUTCString();
+
+    await db.collection("episodes").doc(sorted[i].id).set({ pubDate: assignedPubDate }, { merge: true });
+    updated++;
+  }
+
+  return updated;
+}
+
 /**
  * 在 podcastEpisodes 中模糊搜尋最相似的集數。
  * 回傳前 3 名候選（相似度 > 0.3）。
@@ -228,6 +292,7 @@ async function syncEpisode() {
 
   // 寫入 firstoryGuid
   if (chosenGuid) data.firstoryGuid = chosenGuid;
+  data.pubDate = new Date().toUTCString();
 
   // ── 讀取 JSON 資料 ─────────────────────────────────────────────────────────────
   const jsonFiles = [
@@ -269,7 +334,12 @@ async function syncEpisode() {
 
   console.log("\nUploading to Firestore...");
   await db.collection("episodes").doc(episodeId).set(data, { merge: true });
-  console.log(`✅ Successfully synced Episode ${episodeId}!`);
+  console.log("Backfilling missing pubDate for existing episodes...");
+  const backfilledCount = await backfillMissingPubDates();
+  console.log(`? Successfully synced Episode ${episodeId}!`);
+  console.log(`Set pubDate for ${episodeId}: ${data.pubDate}`);
+  console.log(`Backfilled missing pubDate count: ${backfilledCount}`);
+
 }
 
 syncEpisode().catch((err) => {

@@ -77,7 +77,7 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // 當搜尋面板收合時，自動重設為只顯示 15 筆與清空關鍵字
+  // 當搜尋面板收合時，自動重設為只顯示 10 筆與清空關鍵字
   useEffect(() => {
     if (!searchOpen) {
       setSearchQuery("");
@@ -119,18 +119,18 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
   const sortedEpisodes = [...episodes].sort((a, b) =>
     a.id.localeCompare(b.id, undefined, { numeric: true })
   );
-  const hasMoreEpisodes = sortedEpisodes.length > 15;
+  const hasMoreEpisodes = sortedEpisodes.length > 10;
   const displayedEpisodes = (searchQuery !== "" || showAllEpisodes)
     ? sortedEpisodes
-    : sortedEpisodes.slice(0, 15);
+    : sortedEpisodes.slice(0, 10);
 
   const sortedPodcastOnly = [...podcastOnly].sort((a, b) =>
     new Date(b.pubDate || 0).getTime() - new Date(a.pubDate || 0).getTime()
   );
-  const hasMorePodcastOnly = sortedPodcastOnly.length > 15;
+  const hasMorePodcastOnly = sortedPodcastOnly.length > 10;
   const displayedPodcastOnly = (searchQuery !== "" || showAllPodcastOnly)
     ? sortedPodcastOnly
-    : sortedPodcastOnly.slice(0, 15);
+    : sortedPodcastOnly.slice(0, 10);
 
   const goHome = () => {
     router.push('/');
@@ -252,7 +252,7 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
                               onSelect={() => setShowAllEpisodes(true)}
                               className="cursor-pointer text-center text-accent/70 hover:text-accent font-medium py-2 px-3 border border-dashed border-accent/20 rounded-lg justify-center flex items-center aria-selected:bg-white/5 my-0.5 text-xs"
                             >
-                              顯示更多科普伴讀 ({episodes.length - 15} 集)...
+                              顯示更多科普伴讀 ({episodes.length - 10} 集)...
                             </CommandItem>
                           )}
                         </CommandGroup>
@@ -289,7 +289,7 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
                               onSelect={() => setShowAllPodcastOnly(true)}
                               className="cursor-pointer text-center text-accent/70 hover:text-accent font-medium py-2 px-3 border border-dashed border-accent/20 rounded-lg justify-center flex items-center aria-selected:bg-white/5 my-0.5 text-xs"
                             >
-                              顯示全部 ({podcastOnly.length - 15} 集)...
+                              顯示全部 ({podcastOnly.length - 10} 集)...
                             </CommandItem>
                           )}
                         </CommandGroup>
