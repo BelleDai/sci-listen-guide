@@ -138,30 +138,31 @@ async function fetchFirstoryWebItems(): Promise<RssItem[]> {
 
     const getStoryHrefs = async () => {
       return await page.evaluate(() => {
-        const normalizeToAbs = (href: string) => {
-          try {
-            return new URL(href, window.location.origin).toString();
-          } catch {
-            return "";
-          }
-        };
+        const hrefSet = new Set();
+        const nodes = document.querySelectorAll("[href*='/story/']");
 
-        const hrefSet = new Set<string>();
-        const linkedEls = Array.from(document.querySelectorAll<HTMLElement>("[href*='/story/']"));
-        for (const el of linkedEls) {
-          const rawHref = el.getAttribute("href") || "";
-          const abs = normalizeToAbs(rawHref);
-          if (abs.includes("/story/")) hrefSet.add(abs);
+        for (const node of nodes) {
+          const rawHref = node.getAttribute("href") || "";
+          try {
+            const abs = new URL(rawHref, window.location.origin).toString();
+            if (abs.includes("/story/")) hrefSet.add(abs);
+          } catch {
+            // Ignore malformed href.
+          }
         }
 
-        const html = document.documentElement?.outerHTML || "";
+        const html = (document.documentElement && document.documentElement.outerHTML) || "";
         const absMatches = html.match(/https?:\/\/open\.firstory\.me\/story\/[a-z0-9-]+/gi) || [];
         for (const href of absMatches) hrefSet.add(href);
 
         const relMatches = html.match(/\/story\/[a-z0-9-]+/gi) || [];
         for (const relative of relMatches) {
-          const abs = normalizeToAbs(relative);
-          if (abs.includes("/story/")) hrefSet.add(abs);
+          try {
+            const abs = new URL(relative, window.location.origin).toString();
+            if (abs.includes("/story/")) hrefSet.add(abs);
+          } catch {
+            // Ignore malformed story paths.
+          }
         }
 
         return Array.from(hrefSet);
