@@ -4,26 +4,36 @@ import "server-only";
 export const PROJECT_ID = process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID;
 export const FIRESTORE_URL = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents:runQuery`;
 
+type FirestoreValue = {
+  stringValue?: string;
+  integerValue?: string;
+  doubleValue?: number;
+  booleanValue?: boolean;
+  nullValue?: null;
+  arrayValue?: { values?: FirestoreValue[] };
+  mapValue?: { fields?: Record<string, FirestoreValue> };
+};
+
 // Parse Firestore REST API value format into plain JS values
-export function parseFirestoreValue(value: any): any {
+export function parseFirestoreValue(value: FirestoreValue | undefined | null): unknown {
   if (value === undefined || value === null) return null;
-  if ("stringValue" in value) return value.stringValue;
-  if ("integerValue" in value) return parseInt(value.integerValue);
-  if ("doubleValue" in value) return value.doubleValue;
-  if ("booleanValue" in value) return value.booleanValue;
+  if (value.stringValue !== undefined) return value.stringValue;
+  if (value.integerValue !== undefined) return parseInt(value.integerValue);
+  if (value.doubleValue !== undefined) return value.doubleValue;
+  if (value.booleanValue !== undefined) return value.booleanValue;
   if ("nullValue" in value) return null;
-  if ("arrayValue" in value) {
+  if (value.arrayValue !== undefined) {
     return (value.arrayValue.values || []).map(parseFirestoreValue);
   }
-  if ("mapValue" in value) {
+  if (value.mapValue !== undefined) {
     return parseFirestoreFields(value.mapValue.fields || {});
   }
   return null;
 }
 
 // Parse Firestore fields object into plain JS object
-export function parseFirestoreFields(fields: Record<string, any>): Record<string, any> {
-  const result: Record<string, any> = {};
+export function parseFirestoreFields(fields: Record<string, FirestoreValue>): Record<string, unknown> {
+  const result: Record<string, unknown> = {};
   for (const [key, val] of Object.entries(fields)) {
     result[key] = parseFirestoreValue(val);
   }
@@ -88,39 +98,9 @@ export async function getAllPublishedEpisodes(): Promise<EpisodeData[]> {
 }
 
 export async function getLatestPublishedEpisode(): Promise<EpisodeData | null> {
-  const body = {
-    structuredQuery: {
-      from: [{ collectionId: "episodes" }],
-      where: {
-        fieldFilter: {
-          field: { fieldPath: "status" },
-          op: "EQUAL",
-          value: { stringValue: "published" },
-        },
-      },
-      orderBy: [{ field: { fieldPath: "__name__" }, direction: "DESCENDING" }],
-      limit: 1,
-    },
-  };
+  const episodes = await getAllPublishedEpisodes();
 
-  const res = await fetch(FIRESTORE_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-  });
-
-  if (!res.ok) {
-    console.error("Firestore REST API error:", await res.text());
-    return null;
-  }
-
-  const data = await res.json();
-  const doc = data.find((d: any) => d.document);
-  if (!doc) return null;
-
-  const docName: string = doc.document.name;
-  const id = docName.split("/").pop()!;
-  const fields = parseFirestoreFields(doc.document.fields || {});
-
-  return { id, ...fields } as EpisodeData;
+  return episodes
+    .filter((episode) => typeof episode.pubDate === "string")
+    .sort((a, b) => new Date(b.pubDate as string).getTime() - new Date(a.pubDate as string).getTime())[0] ?? null;
 }

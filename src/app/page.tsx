@@ -1,30 +1,29 @@
 import HomeListenPlatforms from "@/components/home/HomeListenPlatforms";
+import LatestPodcastTopFive from "@/components/home/LatestPodcastTopFive";
 import Link from "next/link";
 import Header from "@/components/episode/Header";
 import Footer from "@/components/episode/Footer";
 import { getAllPublishedEpisodes, getLatestPublishedEpisode } from "@/lib/episodes";
-import { ThumbsUp, GraduationCap, Headphones, ShieldCheck, Sparkles } from "lucide-react";
+import type { PodcastListItem } from "@/types/podcast-list";
+import { ThumbsUp, GraduationCap, Headphones, ShieldCheck, Sparkles, BookOpen } from "lucide-react";
 import ClientHeroButton from "@/components/episode/ClientHeroButton";
 import FloatingDecor from "@/components/home/FloatingDecor";
-
-// ---------------------------------------------------------------------------
-// Planet data – cards are visual-only for now (tags search coming soon)
-// ---------------------------------------------------------------------------
-// const planets = [
-//   { name: "動物世界", emoji: "🦅", desc: "猛禽、雨林、神奇生物", color: "from-[#ff7473] to-[#ffc952]" },
-//   { name: "宇宙星河", emoji: "🪐", desc: "黑洞、星系、太空船", color: "from-[#97e5ff] to-[#34314c]" },
-//   { name: "海洋探險", emoji: "🐙", desc: "深海、洋流、神秘生物", color: "from-[#47b8e0] to-[#97e5ff]" },
-//   { name: "昆蟲奇兵", emoji: "🐝", desc: "蜜蜂、螢火蟲、變態", color: "from-[#ffc952] to-[#34314c]" },
-//   { name: "數位魔法師", emoji: "💻", desc: "電腦、AI、程式邏輯", color: "from-[#7224d8] to-[#97e5ff]" },
-//   { name: "地球科學", emoji: "🌋", desc: "火山、地震、氣候", color: "from-[#ffc952] to-[#ff7473]" },
-// ];
+import podcastList from "../../public/podcast-list.json";
 
 export default async function Home() {
   const [episodes, latestEpisode] = await Promise.all([
     getAllPublishedEpisodes(),
     getLatestPublishedEpisode(),
   ]);
-  const searchIndex = episodes.map((ep) => ({ id: ep.id, title: ep.Title, tags: ep.Tags || [], firstoryGuid: (ep as any).firstoryGuid || undefined }));
+  const searchIndex = episodes.map((ep) => ({
+    id: ep.id,
+    title: ep.Title,
+    tags: ep.Tags || [],
+    firstoryGuid: typeof ep.firstoryGuid === "string" ? ep.firstoryGuid : undefined,
+  }));
+  const latestPodcastTopFive = [...(podcastList.episodes as PodcastListItem[])]
+    .sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime())
+    .slice(0, 5);
 
   return (
     <>
@@ -87,7 +86,12 @@ export default async function Home() {
                     className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover flex-shrink-0"
                   />
                   <div className="flex-1 min-w-0">
-                    <div className="text-xs font-bold text-secondary mb-1">🎧 最新精選</div>
+                    <div className="flex items-center gap-2 mb-3 relative z-10">
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary/20 text-secondary font-bold text-xs">
+                        <BookOpen className="w-4 h-4" />
+                        最新伴讀
+                      </span>
+                    </div>
                     <div className="font-extrabold text-white text-sm sm:text-base leading-snug line-clamp-2">
                       {latestEpisode.Title}
                     </div>
@@ -102,22 +106,25 @@ export default async function Home() {
         </div>
 
         {/* =========================================
-            Group 2: Listen Platforms & Brand Story
+            Group 2: Listen Platforms
         ========================================= */}
         <div className="bg-black/10 py-10 sm:py-12 flex flex-col gap-10 sm:gap-12 border-t border-white/10 shadow-[inset_0_4px_24px_rgba(0,0,0,0.4)]">
-
-          {/* ── Listen Platforms ── */}
           <section id="listen-platforms" className="max-w-2xl w-full mx-auto px-4 scroll-mt-20">
-            <h2 className="text-xl sm:text-2xl font-extrabold text-white mb-1 flex items-center gap-2">
-              <Headphones className="w-5 h-5 text-accent" />
-              全系列 200+ 集故事聽翻天
-            </h2>
-            <p className="text-white/90 text-base mb-5">隨時隨地，跟著科學隊長一起<span className="text-accent font-bold">探索世界</span>！</p>
-
+            <div className="mb-5 space-y-2">
+              <h2 className="text-xl sm:text-2xl font-extrabold text-white flex items-center gap-2">
+                <Headphones className="w-5 h-5 text-secondary" />
+                全系列 200+ 集故事聽翻天
+              </h2>
+            </div>
             <HomeListenPlatforms />
+            <LatestPodcastTopFive episodes={latestPodcastTopFive} />
           </section>
+        </div>
 
-          {/* ── Brand Story / VIP ── */}
+        {/* =========================================
+            Group 3: Brand Story
+        ========================================= */}
+        <div className="py-8 sm:py-10 flex flex-col gap-8 sm:gap-10">
           <section className="max-w-2xl w-full mx-auto px-4">
             <div
               className="rounded-3xl p-6 sm:p-8 backdrop-blur-xl border border-white/10 shadow-[var(--shadow-card)] relative overflow-hidden"

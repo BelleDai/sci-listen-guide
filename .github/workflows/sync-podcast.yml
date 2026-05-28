@@ -10,6 +10,9 @@ on:
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
+permissions:
+  contents: write
+
 jobs:
   sync:
     name: Sync Firstory Web → Firebase → Build → Deploy
@@ -60,7 +63,22 @@ jobs:
           GENERATE_JSON_ONLY: "true"
         run: npx tsx scripts/sync-podcast-rss.ts
 
-      # Step 4: 建置 Next.js（會把最新 public/podcast-list.json 打包進 out/）
+      # Step 4: Commit regenerated podcast-list.json back to git
+      - name: Commit podcast-list.json changes
+        run: |
+          if git diff --quiet -- public/podcast-list.json; then
+            echo "podcast-list.json is already up to date."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/podcast-list.json
+          git commit -m "chore: update podcast list"
+          git pull --rebase origin ${{ github.ref_name }}
+          git push origin HEAD:${{ github.ref_name }}
+
+      # Step 5: 建置 Next.js（會把最新 public/podcast-list.json 打包進 out/）
       - name: Build Next.js
         env:
           NEXT_PUBLIC_FIREBASE_API_KEY: ${{ secrets.NEXT_PUBLIC_FIREBASE_API_KEY }}
@@ -72,7 +90,7 @@ jobs:
           NEXT_PUBLIC_GA_ID: ${{ secrets.NEXT_PUBLIC_GA_ID }}
         run: npm run build
 
-      # Step 5: 部署到 Firebase Hosting
+      # Step 6: 部署到 Firebase Hosting
       - name: Deploy to Firebase Hosting
         env:
           GOOGLE_APPLICATION_CREDENTIALS: /tmp/firebase-sa.json
