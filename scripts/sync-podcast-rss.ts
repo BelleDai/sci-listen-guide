@@ -83,6 +83,12 @@ const localCacheMap = new Map<string, { spotifyLink?: string; applePodcastLink?:
 // 用來儲存本次新爬取到的連結
 const newlyScrapedMap = new Map<string, { spotifyLink?: string; applePodcastLink?: string }>();
 
+function extractStoryIdFromLink(link?: string): string | undefined {
+  if (!link) return undefined;
+  const storyId = link.split("/").filter(Boolean).pop()?.split("?")[0]?.trim();
+  return storyId || undefined;
+}
+
 // ─── 輔助函數 ──────────────────────────────────────────────────────────────────
 
 function cleanTitle(rawTitle: string): string {
@@ -130,50 +136,75 @@ async function fetchFirstoryWebItems(): Promise<RssItem[]> {
     await page.goto(url, { waitUntil: "domcontentloaded", timeout: PAGE_TIMEOUT_MS });
     await page.waitForTimeout(3000);
 
-    const getEpisodeCount = async () => {
+    const getStoryHrefs = async () => {
       return await page.evaluate(() => {
-        return Array.from(document.querySelectorAll("a")).filter(a => a.href.includes("/story/")).length;
+        const normalizeToAbs = (href: string) => {
+          try {
+            return new URL(href, window.location.origin).toString();
+          } catch {
+            return "";
+          }
+        };
+
+        const hrefSet = new Set<string>();
+        const linkedEls = Array.from(document.querySelectorAll<HTMLElement>("[href*='/story/']"));
+        for (const el of linkedEls) {
+          const rawHref = el.getAttribute("href") || "";
+          const abs = normalizeToAbs(rawHref);
+          if (abs.includes("/story/")) hrefSet.add(abs);
+        }
+
+        const html = document.documentElement?.outerHTML || "";
+        const absMatches = html.match(/https?:\/\/open\.firstory\.me\/story\/[a-z0-9-]+/gi) || [];
+        for (const href of absMatches) hrefSet.add(href);
+
+        const relMatches = html.match(/\/story\/[a-z0-9-]+/gi) || [];
+        for (const relative of relMatches) {
+          const abs = normalizeToAbs(relative);
+          if (abs.includes("/story/")) hrefSet.add(abs);
+        }
+
+        return Array.from(hrefSet);
       });
     };
 
-    let prevCount = await getEpisodeCount();
+    let prevCount = (await getStoryHrefs()).length;
     console.log(`   Initial visible episodes on Firstory web: ${prevCount}`);
 
-    // Click "載入更多" up to 10 times to load all (~200) episodes
     for (let i = 0; i < 10; i++) {
-      const loadMoreButton = page.locator("button", { hasText: "載入更多" });
-      const buttonCount = await loadMoreButton.count();
+      const loadMoreButton = page.locator("button").filter({ hasText: /load more|more/i }).first();
+      const hasLoadMoreButton = (await loadMoreButton.count()) > 0;
 
-      if (buttonCount === 0) {
-        console.log("   ✨ '載入更多' button not found. Reached the end.");
-        break;
+      if (hasLoadMoreButton) {
+        await loadMoreButton.scrollIntoViewIfNeeded();
+      await page.waitForTimeout(200);
+        await loadMoreButton.click().catch(() => { });
+      } else {
+        await page.mouse.wheel(0, 3000);
       }
 
-      await loadMoreButton.first().scrollIntoViewIfNeeded();
-      await page.waitForTimeout(200);
-      await loadMoreButton.first().click();
-
-      // Wait for content hydration/network response
       await page.waitForTimeout(2500);
 
-      const currentCount = await getEpisodeCount();
+      const currentCount = (await getStoryHrefs()).length;
       console.log(`   [Firstory Click ${i + 1}] Loaded ${currentCount} episodes...`);
 
       if (currentCount === prevCount && prevCount > 0) {
-        // Double check
         await page.waitForTimeout(1500);
-        const doubleCheckCount = await getEpisodeCount();
+        const doubleCheckCount = (await getStoryHrefs()).length;
         if (doubleCheckCount === prevCount) {
           console.log("   ✨ Episode count did not increase on Firstory. Finished loading.");
           break;
         }
       }
+
+      if (currentCount === 0 && !hasLoadMoreButton) {
+        console.log("   [WARN] No visible stories found and no load-more button detected.");
+      }
       prevCount = currentCount;
     }
 
-    // Scrape all episodes from DOM
     const scrapedEpisodes = await page.evaluate(() => {
-      const anchors = Array.from(document.querySelectorAll("a")).filter(a => a.href.includes("/story/"));
+      const anchors = Array.from(document.querySelectorAll("a")).filter((a) => a.href.includes("/story/"));
       return anchors.map((a) => {
         const text = a.innerText.trim();
         let imageUrl = "";
@@ -181,7 +212,6 @@ async function fetchFirstoryWebItems(): Promise<RssItem[]> {
         if (img) {
           imageUrl = img.src || img.getAttribute("src") || "";
         } else {
-          // Check sibling or parent elements up to 4 levels
           let parent = a.parentElement;
           for (let i = 0; i < 4; i++) {
             if (parent) {
@@ -195,63 +225,41 @@ async function fetchFirstoryWebItems(): Promise<RssItem[]> {
           }
         }
 
-        return {
-          text,
-          href: a.href,
-          imageUrl
-        };
+        return { text, href: a.href, imageUrl };
       });
     });
 
     console.log(`✅ Scraped ${scrapedEpisodes.length} total episodes from Firstory web.`);
 
-    // Parse scraped episodes into RssItem
     for (const ep of scrapedEpisodes) {
       if (!ep.href || !ep.text) continue;
 
-      // Extract guid from href
       const guid = ep.href.substring(ep.href.lastIndexOf("/") + 1).split("?")[0].trim();
       if (!guid) continue;
 
-      // Parse text: [Title]  [Date]·[Duration]
       const parts = ep.text.split(/\s{2,}/);
       const rawTitle = parts[0]?.trim() || "";
       const metaPart = parts[1]?.trim() || "";
 
-      // Split date and duration by dot or U+00B7
-      const metaSplit = metaPart.split(/[·•.]/);
-      const dateStr = metaSplit[0]?.trim() || ""; // YYYY-MM-DD
-      const durationStr = metaSplit[1]?.trim() || ""; // HH:MM:SS
+      const metaSplit = metaPart.split(/[.\u00B7\u2022]/);
+      const dateStr = metaSplit[0]?.trim() || "";
+      const durationStr = metaSplit[1]?.trim() || "";
 
-      // Convert duration string to seconds
       let duration = 0;
       if (durationStr) {
         const durParts = durationStr.split(":").map(Number);
         if (!durParts.some(isNaN)) {
-          if (durParts.length === 3) {
-            duration = durParts[0] * 3600 + durParts[1] * 60 + durParts[2];
-          } else if (durParts.length === 2) {
-            duration = durParts[0] * 60 + durParts[1];
-          } else if (durParts.length === 1) {
-            duration = durParts[0];
+          if (durParts.length === 3) duration = durParts[0] * 3600 + durParts[1] * 60 + durParts[2];
+          else if (durParts.length === 2) duration = durParts[0] * 60 + durParts[1];
+          else if (durParts.length === 1) duration = durParts[0];
           }
         }
-      }
 
-      // Convert date string to pubDate
       let pubDate = "";
-      if (dateStr) {
-        pubDate = new Date(`${dateStr}T06:00:00+08:00`).toUTCString();
-      } else {
-        pubDate = new Date().toUTCString();
-      }
+      if (dateStr) pubDate = new Date(dateStr + "T06:00:00+08:00").toUTCString();
+      else pubDate = new Date().toUTCString();
 
       const cleanEpTitle = cleanTitle(rawTitle);
-
-      // Skip previews or coffee-support items
-      if (cleanEpTitle.includes("預告") || cleanEpTitle.includes("每月一杯咖啡錢")) {
-        continue;
-      }
 
       items.push({
         guid,
@@ -262,18 +270,14 @@ async function fetchFirstoryWebItems(): Promise<RssItem[]> {
         duration,
       });
     }
-
   } catch (err) {
-    console.error("❌ Error scraping Firstory web:", err);
+    console.error("Error scraping Firstory web:", err);
   } finally {
     await browser.close();
   }
 
   return items;
 }
-
-// ─── Step 2：Upsert 到 Firestore ───────────────────────────────────────────────
-
 async function upsertToFirestore(items: RssItem[]): Promise<void> {
   if (DRY_RUN_LOCAL_ONLY) {
     console.log("🔥 [DRY RUN] Skipping Firestore upsert (Dry-run mode is active).");
@@ -443,7 +447,7 @@ async function scrapeLinks(items: RssItem[]): Promise<void> {
 // ─── Step 4：輸出 podcast-list.json ──────────────────────────────────────────────
 
 async function generateJson(rssItems: RssItem[]): Promise<void> {
-  let docMap = new Map<string, { spotifyLink?: string; applePodcastLink?: string }>();
+  const docMap = new Map<string, { spotifyLink?: string; applePodcastLink?: string }>();
 
   if (DRY_RUN_LOCAL_ONLY) {
     console.log("📄 [DRY RUN] Generating podcast-list.json combining local cache and new scrape results...");
@@ -473,8 +477,9 @@ async function generateJson(rssItems: RssItem[]): Promise<void> {
   const list: PodcastListItem[] = rssItems
     .map((item) => {
       const stored = docMap.get(item.guid);
+      const canonicalId = extractStoryIdFromLink(item.firstoryLink) || item.guid;
       return {
-        id: item.guid,
+        id: canonicalId,
         title: item.title,
         firstoryLink: item.firstoryLink,
         pubDate: item.pubDate,
@@ -497,6 +502,38 @@ async function generateJson(rssItems: RssItem[]): Promise<void> {
 
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify(output, null, 2), "utf-8");
   console.log(`✅ podcast-list.json written: ${list.length} episodes → ${OUTPUT_PATH}`);
+}
+
+async function generateJsonFromFirestoreOnly(): Promise<void> {
+  console.log("📄 Reading Firestore to regenerate podcast-list.json (Firestore-only mode)...");
+  const snapshot = await db.collection(COLLECTION).get();
+
+  const list: PodcastListItem[] = snapshot.docs
+    .map((doc) => {
+      const data = doc.data() as Partial<PodcastEpisode>;
+      const canonicalId = extractStoryIdFromLink(data.firstoryLink) || doc.id;
+      return {
+        id: canonicalId,
+        title: data.title || "",
+        firstoryLink: data.firstoryLink || "",
+        pubDate: data.pubDate || "",
+        imageUrl: data.imageUrl || "",
+        duration: Number(data.duration || 0),
+        spotifyLink: data.spotifyLink || undefined,
+        applePodcastLink: data.applePodcastLink || undefined,
+      };
+    })
+    .filter((ep) => ep.firstoryLink && ep.title)
+    .sort((a, b) => new Date(b.pubDate || 0).getTime() - new Date(a.pubDate || 0).getTime());
+
+  const output = {
+    updatedAt: new Date().toISOString(),
+    count: list.length,
+    episodes: list,
+  };
+
+  fs.writeFileSync(OUTPUT_PATH, JSON.stringify(output, null, 2), "utf-8");
+  console.log(`✅ podcast-list.json written from Firestore: ${list.length} episodes → ${OUTPUT_PATH}`);
 }
 
 // ─── 本地快取載入 ──────────────────────────────────────────────────────────────
@@ -529,11 +566,7 @@ async function main() {
   // ─── 特殊模式：僅重新從 Firestore 生成 podcast-list.json（跳過所有爬取）
   if (process.env.GENERATE_JSON_ONLY === "true") {
     console.log("📄 GENERATE_JSON_ONLY mode: Reading Firestore to regenerate podcast-list.json...");
-    const webItems = await fetchFirstoryWebItems();
-    const sortedItems = webItems.sort((a, b) =>
-      new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime()
-    );
-    await generateJson(sortedItems);
+    await generateJsonFromFirestoreOnly();
     console.log("\n🎉 JSON regenerated from Firestore!");
     return;
   }
@@ -553,6 +586,10 @@ async function main() {
 
   const webItems = await fetchFirstoryWebItems();
   console.log(`📋 Scraped ${webItems.length} episodes from Firstory web.`);
+
+  if (webItems.length === 0) {
+    throw new Error("Scraped 0 episodes from Firstory web. Aborting sync to avoid publishing stale/empty results.");
+  }
 
   // Sort chronologically (newest first)
   const finalItems = webItems.sort((a, b) => {

@@ -1,13 +1,47 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, Headphones, Radio, BookOpen } from "lucide-react";
+import { Search, Radio, BookOpen } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { SearchIndexItem } from "@/lib/episodes";
+import { defaultFilter } from "cmdk";
+import type { SearchIndexItem } from "@/lib/episodes";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
 import PlayerLaunch from "@/components/episode/PlayerLaunch";
 import type { PodcastListItem } from "@/types/podcast-list";
+
+const podcastEpisodeNumberPattern = /\b(?:EP|SP)\.?\s*(\d+)\b/i;
+
+function getPodcastEpisodeNumber(title: string): string | undefined {
+  return title.match(podcastEpisodeNumberPattern)?.[1];
+}
+
+function parseSearchValue(value: string): { guideId?: string; text: string } {
+  const guideMatch = value.match(/^guide:(\d+)\s+(.+)$/);
+  if (guideMatch) return { guideId: guideMatch[1], text: guideMatch[2] };
+
+  const podcastMatch = value.match(/^podcast:\S+\s+(.+)$/);
+  if (podcastMatch) return { text: podcastMatch[1] };
+
+  return { text: value };
+}
+
+function searchResultFilter(value: string, search: string, keywords?: string[]): number {
+  const episodeNumberQuery = search.trim().match(/^(?:(?:EP|SP)\.?\s*)?(\d+)$/i)?.[1];
+
+  if (episodeNumberQuery) {
+    const { guideId, text } = parseSearchValue(value);
+    const episodeNumber = getPodcastEpisodeNumber(text);
+
+    if (guideId === episodeNumberQuery || episodeNumber === episodeNumberQuery) return 1;
+    if (guideId?.startsWith(episodeNumberQuery) || episodeNumber?.startsWith(episodeNumberQuery)) return 0.95;
+    if (guideId?.includes(episodeNumberQuery) || episodeNumber?.includes(episodeNumberQuery)) return 0.85;
+    if (text.includes(episodeNumberQuery)) return 0.7;
+    return 0;
+  }
+
+  return defaultFilter(value, search, keywords);
+}
 
 interface Props {
   episodes?: SearchIndexItem[];
@@ -82,7 +116,7 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
   });
 
   // 計算與切片顯示集數
-  const sortedEpisodes = [...episodes].sort((a, b) => 
+  const sortedEpisodes = [...episodes].sort((a, b) =>
     a.id.localeCompare(b.id, undefined, { numeric: true })
   );
   const hasMoreEpisodes = sortedEpisodes.length > 15;
@@ -90,7 +124,7 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
     ? sortedEpisodes
     : sortedEpisodes.slice(0, 15);
 
-  const sortedPodcastOnly = [...podcastOnly].sort((a, b) => 
+  const sortedPodcastOnly = [...podcastOnly].sort((a, b) =>
     new Date(b.pubDate || 0).getTime() - new Date(a.pubDate || 0).getTime()
   );
   const hasMorePodcastOnly = sortedPodcastOnly.length > 15;
@@ -133,7 +167,7 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
         <div className="flex items-center gap-3 flex-shrink-0" ref={searchContainerRef}>
           {/* CMDK Pill search */}
           {mounted && (
-            <Command className="bg-transparent overflow-visible static flex flex-row items-center justify-end" shouldFilter={true}>
+            <Command className="bg-transparent overflow-visible static flex flex-row items-center justify-end" shouldFilter={true} filter={searchResultFilter}>
               <motion.div
                 animate={{
                   width: searchOpen ? (typeof window !== "undefined" && window.innerWidth < 640 ? 180 : 240) : 36,
@@ -204,7 +238,7 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
                           {displayedEpisodes.map((ep) => (
                             <CommandItem
                               key={ep.id}
-                              value={`${ep.title} ${ep.tags?.join(' ') || ''}`}
+                              value={`guide:${ep.id} ${ep.title} ${ep.tags?.join(' ') || ''}`}
                               onSelect={() => handleSelect(ep.id)}
                               className="group cursor-pointer aria-selected:bg-accent/20 aria-selected:text-white text-white/90 my-1 py-2.5 px-3 flex items-start gap-3 rounded-lg"
                             >
@@ -230,7 +264,7 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
                           {displayedPodcastOnly.map((ep) => (
                             <CommandItem
                               key={ep.id}
-                              value={ep.title}
+                              value={`podcast:${ep.id} ${ep.title}`}
                               // 純 podcast 不跳頁，onSelect 用來展開/收合按鈕
                               onSelect={() => {/* 不做任何事，讓按鈕自己處理 */ }}
                               className="group aria-selected:bg-white/5 text-white/70 my-0.5 py-2 px-3 flex flex-col items-start gap-1 rounded-lg cursor-default"
