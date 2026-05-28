@@ -37,7 +37,7 @@ yarn-error.log*
 # .vercel
 
 # Episode images (large files, generated locally by sync script)
-public/episodes/
+public/episodes/**/3d.jpg
 
 # typescript
 *.tsbuildinfo
