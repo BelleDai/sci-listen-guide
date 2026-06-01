@@ -15,7 +15,7 @@ import SpeakLine from "@/components/episode/SpeakLine";
 import PlayerLaunch from "@/components/episode/PlayerLaunch";
 import SpeedDial from "@/components/episode/SpeedDial";
 import { useTTS } from "@/hooks/useTTS";
-import { trackEpisodeStep, trackEpisodeCompleted, trackAnswerOpened, trackEpisodeLanded } from "@/lib/analytics";
+import { trackEpisodeStep, trackEpisodeCompleted, trackEpisodeLanded } from "@/lib/analytics";
 
 const TOTAL = 4;
 
@@ -340,10 +340,7 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
             text={audio.reference_answer}
             episodeId={episodeData.id}
             contentType="audio_question_ans"
-            onFirstReveal={() => {
-              setIsAudioAnswerOpened(true);
-              trackAnswerOpened("audio_question", episodeData.id ?? "");
-            }}
+            onFirstReveal={() => setIsAudioAnswerOpened(true)}
           />
 
           {isAudioAnswerOpened && (
@@ -380,10 +377,7 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
             text={family.reference_answer}
             episodeId={episodeData.id}
             contentType="family_discussion_ans"
-            onFirstReveal={() => {
-              setIsFamilyAnswerOpened(true);
-              trackAnswerOpened("family_discussion", episodeData.id ?? "");
-            }}
+            onFirstReveal={() => setIsFamilyAnswerOpened(true)}
           />
 
           <div className="mt-10 min-h-[80px] flex justify-center">

@@ -19,7 +19,11 @@ export const trackEvent = (
   params?: GTagEvent
 ): void => {
   if (typeof window === "undefined" || typeof window.gtag !== "function") return;
-  window.gtag("event", eventName, params);
+  // Use transport: "beacon" to ensure event data is sent successfully even when page unloads/navigates away!
+  window.gtag("event", eventName, {
+    ...params,
+    transport: "beacon",
+  });
 };
 
 // ── Convenience wrappers ───────────────────────────────────────────
@@ -29,7 +33,8 @@ export const trackEpisodeLanded = (episodeId: string, episodeTitle: string, sour
   trackEvent("episode_landed", {
     episode_id: episodeId,
     episode_title: episodeTitle,
-    entry_source: source || "search", // e.g. "podcast" | "fb" | "search" (default)
+    entry_source: source || "search", // Original registered name
+    episode_entry_source: source || "search", // Backup / renamed name
   });
 
 /** Called whenever the user clicks "下一步" and reaches a new Section */
@@ -47,23 +52,27 @@ export const trackEpisodeCompleted = (episodeId: string, episodeTitle: string) =
     episode_title: episodeTitle,
   });
 
-/** Called when a Collapsible answer section is opened */
-export const trackAnswerOpened = (sectionId: string, episodeId: string) =>
+/** Called when user reveals an answer (via spin or direct show) */
+export const trackAnswerOpened = (sectionId: string, episodeId: string, isSpin: boolean) =>
   trackEvent("answer_opened", {
-    section_id: sectionId,
+    section_id: sectionId, // "audio_question" or "family_discussion"
+    section: sectionId, // Backup parameter name
     episode_id: episodeId,
+    is_spin: isSpin ? "yes" : "no", // "yes" or "no" to record whether there was a spin
   });
 
-/** Called when user clicks a platform link (Apple, Spotify, YouTube, KKBOX) */
+/** Called when user clicks a platform link (Apple, Spotify, YouTube, KKBOX, Facebook) */
 export const trackOutboundClick = (platform: string, source: string) =>
   trackEvent("outbound_click", {
     outbound_platform: platform,
+    click_platform: platform, // Backup parameter name
     outbound_source: source, // e.g. "player_launch" | "home" | "footer"
   });
 
-/** Called when TTS is triggered anywhere (e.g. SpeakLine) */
+/** Called when TTS is triggered anywhere (e.g. SpeakLine, GlossaryCard, Auto-speak) */
 export const trackTTSPlay = (contentType: string, episodeId: string) =>
   trackEvent("tts_play", {
-    content_type: contentType,
+    content_type: contentType, // Original registered name
+    tts_content_type: contentType, // Backup / renamed name
     episode_id: episodeId,
   });

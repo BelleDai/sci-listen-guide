@@ -12,11 +12,7 @@ export default function HomeListenPlatforms() {
           href="https://podcasts.apple.com/tw/podcast/%E7%A7%91%E5%AD%B8%E5%A5%BD%E5%A5%BD%E8%81%BD/id1812447277"
           target="_blank"
           rel="noopener noreferrer"
-          onClick={() => {
-            import("@/lib/analytics").then(({ trackOutboundClick }) =>
-              trackOutboundClick("apple_podcasts", "home")
-            );
-          }}
+          onClick={() => import("@/lib/analytics").then(({ trackOutboundClick }) => trackOutboundClick("apple_podcasts", "home"))}
           className="flex flex-col items-center justify-center gap-2 rounded-2xl p-4 border border-white/15 backdrop-blur-md hover:-translate-y-1 hover:scale-[1.03] transition-all"
           style={{ backgroundColor: "#7224d822", boxShadow: "0 6px 24px -10px #7224d8" }}
         >
@@ -33,11 +29,7 @@ export default function HomeListenPlatforms() {
           href="https://open.spotify.com/show/1eyISRdcgDTwZqIqrP1qKv"
           target="_blank"
           rel="noopener noreferrer"
-          onClick={() => {
-            import("@/lib/analytics").then(({ trackOutboundClick }) =>
-              trackOutboundClick("spotify", "home")
-            );
-          }}
+          onClick={() => import("@/lib/analytics").then(({ trackOutboundClick }) => trackOutboundClick("spotify", "home"))}
           className="flex flex-col items-center justify-center gap-2 rounded-2xl p-4 border border-white/15 backdrop-blur-md hover:-translate-y-1 hover:scale-[1.03] transition-all"
           style={{ backgroundColor: "#1DB95422", boxShadow: "0 6px 24px -10px #1DB954" }}
         >
@@ -54,11 +46,7 @@ export default function HomeListenPlatforms() {
           href="https://www.youtube.com/playlist?list=PLLMTd7kOjc2Xb4GtG8oRF9amKathXcnEK"
           target="_blank"
           rel="noopener noreferrer"
-          onClick={() => {
-            import("@/lib/analytics").then(({ trackOutboundClick }) =>
-              trackOutboundClick("youtube", "home")
-            );
-          }}
+          onClick={() => import("@/lib/analytics").then(({ trackOutboundClick }) => trackOutboundClick("youtube", "home"))}
           className="flex flex-col items-center justify-center gap-2 rounded-2xl p-4 border border-white/15 backdrop-blur-md hover:-translate-y-1 hover:scale-[1.03] transition-all"
           style={{ backgroundColor: "#FF000022", boxShadow: "0 6px 24px -10px #FF0000" }}
         >
@@ -75,11 +63,7 @@ export default function HomeListenPlatforms() {
           href="https://podcast.kkbox.com/tw/channel/KkRvjF8kret9SG5Nbf"
           target="_blank"
           rel="noopener noreferrer"
-          onClick={() => {
-            import("@/lib/analytics").then(({ trackOutboundClick }) =>
-              trackOutboundClick("kkbox", "home")
-            );
-          }}
+          onClick={() => import("@/lib/analytics").then(({ trackOutboundClick }) => trackOutboundClick("kkbox", "home"))}
           className="flex flex-col items-center justify-center gap-2 rounded-2xl p-4 border border-white/15 backdrop-blur-md hover:-translate-y-1 hover:scale-[1.03] transition-all"
           style={{ backgroundColor: "#00EBEB22", boxShadow: "0 6px 24px -10px #00EBEB" }}
         >

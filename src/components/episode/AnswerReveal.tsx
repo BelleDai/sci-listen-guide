@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import SpeakLine from "@/components/episode/SpeakLine";
 import { useTTS, stripMarkdown } from "@/hooks/useTTS";
+import { trackAnswerOpened, trackTTSPlay } from "@/lib/analytics";
 
 // ── 💡 Brand color palette from tailwind.config.ts (HSL mapped) ──────────────────
 const SLICE_COLORS = [
@@ -87,6 +88,10 @@ export default function AnswerReveal({ idPrefix, text, episodeId, contentType, o
       stop();
     }
 
+    // 🎡 Track the wheel spin in Google Analytics!
+    const cleanedSection = contentType?.replace("_ans", "") || "unknown";
+    trackAnswerOpened(cleanedSection, episodeId || "", true);
+
     // Filter to find remaining unselected sectors
     const unused = Array.from({ length: n }, (_, i) => i).filter(i => !usedSet.has(i));
     const target = unused[Math.floor(Math.random() * unused.length)];
@@ -114,12 +119,15 @@ export default function AnswerReveal({ idPrefix, text, episodeId, contentType, o
       const revealId = `${idPrefix}-reveal-${target}`;
       speak(items[target], revealId);
 
+      // 🎡 Track the automatic TTS play in Google Analytics!
+      trackTTSPlay(contentType || "answer", episodeId || "");
+
       if (!firstFired.current) {
         firstFired.current = true;
         onFirstReveal?.();
       }
     }, 3500); // 3.5s matches CSS ease-out deceleration curve
-  }, [spinning, allDone, n, rotation, usedSet, segAngle, onFirstReveal, speak, stop, speakingId, items, idPrefix]);
+  }, [spinning, allDone, n, rotation, usedSet, segAngle, onFirstReveal, speak, stop, speakingId, items, idPrefix, contentType, episodeId]);
 
   const reset = useCallback(() => {
     setUsedSet(new Set());
@@ -137,8 +145,11 @@ export default function AnswerReveal({ idPrefix, text, episodeId, contentType, o
   useEffect(() => {
     if (n === 0) {
       onFirstReveal?.();
+      // 🎡 Track direct reveal (without spin) on mount!
+      const cleanedSection = contentType?.replace("_ans", "") || "unknown";
+      trackAnswerOpened(cleanedSection, episodeId || "", false);
     }
-  }, [n, onFirstReveal]);
+  }, [n, onFirstReveal, contentType, episodeId]);
 
   // If there are no list items to spin for, display ONLY the preamble answer card directly
   if (n === 0) {
@@ -415,60 +426,54 @@ export default function AnswerReveal({ idPrefix, text, episodeId, contentType, o
                 </p>
               </motion.div>
             ) : (
-              (() => {
-                const cleanAnswer = stripMarkdown(items[revealed]).trim();
-                const sliceColor = SLICE_COLORS[revealed % SLICE_COLORS.length];
-                const revealId = `${idPrefix}-reveal-${revealed}`;
+              revealed !== null && (
+                <motion.div
+                  key={`reveal-${revealed}`}
+                  initial={{ opacity: 0, y: 20, scale: 0.97 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -10, scale: 0.97 }}
+                  transition={{ type: "spring", stiffness: 350, damping: 26 }}
+                  className="rounded-2xl p-3 leading-relaxed overflow-hidden flex flex-col justify-center h-full"
+                >
+                  <div className="flex items-center gap-2 mb-3 select-none">
+                    <span
+                      className="inline-flex items-center justify-center w-7 h-7 rounded-full text-sm font-black text-[#1a1830] shadow-sm"
+                      style={{ background: SLICE_COLORS[revealed % SLICE_COLORS.length] }}
+                    >
+                      {revealed + 1}
+                    </span>
+                    <span
+                      className="text-base font-black tracking-wider"
+                      style={{ color: SLICE_COLORS[revealed % SLICE_COLORS.length] }}
+                    >
+                      答案揭曉！
+                    </span>
+                  </div>
 
-                return (
-                  <motion.div
-                    key={revealed}
-                    initial={{ opacity: 0, y: 20, scale: 0.97 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -10, scale: 0.97 }}
-                    transition={{ type: "spring", stiffness: 350, damping: 26 }}
-                    className="rounded-2xl p-3 leading-relaxed overflow-hidden flex flex-col justify-center h-full"
-                  >
-                    <div className="flex items-center gap-2 mb-3 select-none">
-                      <span
-                        className="inline-flex items-center justify-center w-7 h-7 rounded-full text-sm font-black text-[#1a1830] shadow-sm"
-                        style={{ background: sliceColor }}
+                  <div className="text-white">
+                    <SpeakLine
+                      id={`${idPrefix}-reveal-${revealed}`}
+                      text={stripMarkdown(items[revealed]).trim()}
+                      className="rounded-xl px-4 py-3 bg-white/5 border border-white/5 text-base sm:text-lg hover:bg-white/10 transition-colors"
+                      episodeId={episodeId}
+                      contentType={contentType}
+                    >
+                      <ReactMarkdown
+                        components={{
+                          p: ({ children }) => <p className="leading-relaxed mb-0">{children}</p>,
+                          strong: ({ children }) => (
+                            <strong style={{ color: SLICE_COLORS[revealed % SLICE_COLORS.length] }} className="font-extrabold">
+                              {children}
+                            </strong>
+                          ),
+                        }}
                       >
-                        {revealed + 1}
-                      </span>
-                      <span
-                        className="text-base font-black tracking-wider"
-                        style={{ color: sliceColor }}
-                      >
-                        答案揭曉！
-                      </span>
-                    </div>
-
-                    <div className="text-white">
-                      <SpeakLine
-                        id={revealId}
-                        text={cleanAnswer}
-                        className="rounded-xl px-4 py-3 bg-white/5 border border-white/5 text-base sm:text-lg hover:bg-white/10 transition-colors"
-                        episodeId={episodeId}
-                        contentType={contentType}
-                      >
-                        <ReactMarkdown
-                          components={{
-                            p: ({ children }) => <p className="leading-relaxed mb-0">{children}</p>,
-                            strong: ({ children }) => (
-                              <strong style={{ color: sliceColor }} className="font-extrabold">
-                                {children}
-                              </strong>
-                            ),
-                          }}
-                        >
-                          {items[revealed]}
-                        </ReactMarkdown>
-                      </SpeakLine>
-                    </div>
-                  </motion.div>
-                );
-              })()
+                        {items[revealed]}
+                      </ReactMarkdown>
+                    </SpeakLine>
+                  </div>
+                </motion.div>
+              )
             )}
           </AnimatePresence>
         </div>
