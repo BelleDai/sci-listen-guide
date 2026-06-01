@@ -21,7 +21,7 @@ const SectionShell = forwardRef<HTMLElement, Props>(({ id, title, emoji, childre
     <section
       ref={ref}
       id={id}
-      className={`w-full flex items-start justify-center px-4 pt-8 pb-16 sm:pt-12 sm:pb-20 ${className}`}
+      className={`w-full flex items-start justify-center px-4 pt-8 pb-16 sm:pt-12 sm:pb-20 scroll-mt-24 sm:scroll-mt-28 ${className}`}
     >
       <motion.div
         initial={{ opacity: 0, y: 50 }}

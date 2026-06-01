@@ -8,10 +8,9 @@ import { BookOpen, Brain, Lightbulb, Users, CircleStar, Sparkles, Award } from "
 import SectionShell from "@/components/episode/SectionShell";
 import NextButton from "@/components/episode/NextButton";
 import GlossaryCard from "@/components/episode/GlossaryCard";
-import Collapsible from "@/components/episode/Collapsible";
+import AnswerReveal from "@/components/episode/AnswerReveal";
 import Header from "@/components/episode/Header";
 import Footer from "@/components/episode/Footer";
-import AnswerList from "@/components/episode/AnswerList";
 import SpeakLine from "@/components/episode/SpeakLine";
 import PlayerLaunch from "@/components/episode/PlayerLaunch";
 import SpeedDial from "@/components/episode/SpeedDial";
@@ -183,7 +182,16 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
   const familyList = Array.isArray(episodeData.FamilyDiscussion)
     ? episodeData.FamilyDiscussion
     : [episodeData.FamilyDiscussion];
-  const [familyIndex] = useState(() => Math.floor(Math.random() * familyList.length));
+  const [familyIndex, setFamilyIndex] = useState(0);
+
+  useEffect(() => {
+    // Select a random family discussion index after mounting to prevent SSR hydration mismatches
+    if (familyList.length > 1) {
+      const randomIndex = Math.floor(Math.random() * familyList.length);
+      setFamilyIndex(randomIndex);
+    }
+  }, [familyList.length]);
+
   const family = familyList[familyIndex] || familyList[0];
 
   return (
@@ -230,16 +238,12 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
             </div>
           </div>
 
-          <div className="text-left mt-8 md:mt-10">
-            <h3 className="flex items-center gap-2 text-xl font-bold text-accent mb-2">
+          <div className="text-left mt-12 md:mt-16">
+            <h3 className="flex items-center gap-2 text-xl font-bold text-accent mb-3">
               <BookOpen className="w-6 h-6" />
               聽故事時有不懂的詞嗎？
             </h3>
-            {/* <p className="text-white/90 text-sm sm:text-base mb-4 rounded-xl bg-accent/10 border border-accent/30 px-4 py-3 flex items-center gap-2">
-              <Volume2 className="w-4 h-4 text-accent flex-shrink-0" />
-              想聽哪裡點哪裡！只要看到小喇叭 🔊，就唸給你聽喔！
-            </p> */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
               {episodeData.Glossary.map((g) => (
                 <GlossaryCard key={g.term} term={g.term} explanation={g.explanation ?? g.definition ?? ""} episodeId={episodeData.id} />
               ))}
@@ -266,7 +270,7 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
               ? "想知道這些知識背後的神奇故事嗎？點擊上方播放鍵，跟著科學隊長出發吧！"
               : "複習完重點，下方還有好玩的動動腦挑戰等著你喔！"}
           </p> */}
-          <div className="space-y-4">
+          <div className="space-y-6">
             {episodeData.KeyTakeaway.map((k, i) => {
               const id = `take-${i}`;
               const active = speakingId === id;
@@ -277,7 +281,7 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="glass-card rounded-2xl p-5 flex gap-4 items-start"
+                  className="glass-card rounded-2xl p-6 sm:p-7 flex gap-5 sm:gap-6 items-start"
                   style={{
                     boxShadow: `0 6px 0 -2px hsl(var(--primary) / 0.4), var(--shadow-card)`,
                   }}
@@ -303,7 +307,7 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
           </div>
 
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
-            <NextButton className="flex" label="都學會了，下一步" onClick={() => goNext(3)} done={step >= 3} />
+            <NextButton className="flex" label="我學會了，下一步" onClick={() => goNext(3)} done={step >= 3} />
           </div>
         </SectionShell>
 
@@ -318,7 +322,7 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
           <SpeakLine
             id="audio-q"
             text={`${audio.description}`}
-            className="glass-card rounded-3xl p-5 sm:p-7 mb-5 hover:border-accent/50"
+            className="glass-card rounded-3xl p-5 sm:p-7 mb-8 hover:border-accent/50"
             episodeId={episodeData.id}
             contentType="audio_question_desc"
           >
@@ -331,20 +335,19 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
             <p className="leading-relaxed text-base sm:text-lg text-white">{audio.description}</p>
           </SpeakLine>
 
-          <Collapsible
-            label="聽聽科學隊長怎麼說"
-            onToggle={(open) => {
-              if (open) {
-                setIsAudioAnswerOpened(true);
-                trackAnswerOpened("audio_question", episodeData.id ?? "");
-              }
+          <AnswerReveal
+            idPrefix="audio-ans"
+            text={audio.reference_answer}
+            episodeId={episodeData.id}
+            contentType="audio_question_ans"
+            onFirstReveal={() => {
+              setIsAudioAnswerOpened(true);
+              trackAnswerOpened("audio_question", episodeData.id ?? "");
             }}
-          >
-            <AnswerList idPrefix="audio-ans" text={audio.reference_answer} episodeId={episodeData.id} contentType="audio_question_ans" />
-          </Collapsible>
+          />
 
           {isAudioAnswerOpened && (
-            <NextButton label="我學會了！" onClick={() => goNext(4)} done={step >= 4} />
+            <NextButton label="我學會了，下一步" onClick={() => goNext(4)} done={step >= 4} />
           )}
         </SectionShell>
 
@@ -353,36 +356,35 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
           id="s4"
           show={step >= 4}
           ref={refs[3]}
-          title="最後，跟爸爸媽媽一起動動腦吧！"
+          title="最後，跟爸媽一起討論吧！"
           emoji="👨‍👩‍👧"
         >
           <SpeakLine
             id="fam-q"
             text={`${family.description}`}
-            className="glass-card rounded-3xl p-5 sm:p-7 mb-5 border-secondary/40 hover:border-accent/50"
+            className="glass-card rounded-3xl p-5 sm:p-7 mb-8 border-secondary/40 hover:border-accent/50"
             episodeId={episodeData.id}
             contentType="family_discussion_desc"
           >
             <div className="flex items-center gap-2 flex-wrap mb-3">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/20 text-accent font-bold text-sm">
                 <Users className="w-4 h-4" />
-                親子討論：{family.topic}
+                {family.topic}
               </span>
             </div>
             <p className="leading-relaxed text-base sm:text-lg text-white">{family.description}</p>
           </SpeakLine>
 
-          <Collapsible
-            label="聽聽科學隊長怎麼說"
-            onToggle={(open) => {
-              if (open) {
-                setIsFamilyAnswerOpened(true);
-                trackAnswerOpened("family_discussion", episodeData.id ?? "");
-              }
+          <AnswerReveal
+            idPrefix="fam-ans"
+            text={family.reference_answer}
+            episodeId={episodeData.id}
+            contentType="family_discussion_ans"
+            onFirstReveal={() => {
+              setIsFamilyAnswerOpened(true);
+              trackAnswerOpened("family_discussion", episodeData.id ?? "");
             }}
-          >
-            <AnswerList idPrefix="fam-ans" text={family.reference_answer} episodeId={episodeData.id} contentType="family_discussion_ans" />
-          </Collapsible>
+          />
 
           <div className="mt-10 min-h-[80px] flex justify-center">
             <AnimatePresence mode="wait">
