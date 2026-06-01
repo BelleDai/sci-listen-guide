@@ -3,6 +3,16 @@
 import PlayerLaunch from "@/components/episode/PlayerLaunch";
 import type { PodcastListItem } from "@/types/podcast-list";
 
+function openHeaderSearch() {
+  const btn = document.querySelector<HTMLButtonElement>(
+    'header button[aria-label="展開搜尋"]'
+  );
+  if (btn) {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setTimeout(() => btn.click(), 200);
+  }
+}
+
 function formatDate(pubDate: string) {
   const date = new Date(pubDate);
   if (Number.isNaN(date.getTime())) return "";
@@ -31,7 +41,7 @@ export default function LatestPodcastTopFive({ episodes }: Props) {
         <span className="text-accent font-bold">新故事</span>到站，準備開聽！
       </p>
       <div className="space-y-3">
-        {episodes.map((episode, index) => {
+        {episodes.map((episode) => {
           const date = formatDate(episode.pubDate);
           const duration = formatDuration(episode.duration);
           const meta = [date, duration].filter(Boolean).join(" · ");
@@ -48,14 +58,11 @@ export default function LatestPodcastTopFive({ episodes }: Props) {
                   loading="lazy"
                   className="h-full w-full object-cover"
                 />
-                <span className="absolute left-1.5 top-1.5 inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-black/65 px-1.5 text-xs font-extrabold text-white">
-                  {index + 1}
-                </span>
               </div>
 
               <div className="flex min-w-0 flex-1 flex-col justify-between gap-2">
                 <div className="min-w-0">
-                  {meta && <div className="mb-1 text-xs font-bold text-accent">{meta}</div>}
+                  {meta && <div className="mb-1 text-xs font-semibold text-white/85">{meta}</div>}
                   <div className="line-clamp-2 text-sm font-extrabold leading-snug text-white sm:text-base">
                     {episode.title}
                   </div>
@@ -73,6 +80,15 @@ export default function LatestPodcastTopFive({ episodes }: Props) {
           );
         })}
       </div>
+
+      {/* ── Read-more button ── */}
+      <button
+        type="button"
+        onClick={openHeaderSearch}
+        className="mt-5 w-full flex items-center justify-center gap-2 py-3 px-4 rounded-2xl border border-dashed border-secondary/30 hover:border-accent/60 text-white/90 hover:text-white transition-colors group"
+      >
+        <span className="text-sm font-bold">探索更多故事</span>
+      </button>
     </div>
   );
 }

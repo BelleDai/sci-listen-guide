@@ -31,9 +31,8 @@ const GlossaryCard = ({ term, explanation, episodeId }: Props) => {
   return (
     <motion.div
       layout
-      className={`text-left w-full glass-card rounded-2xl p-4 sm:p-5 transition-all ${
-        open ? "border-accent shadow-[0_0_0_2px_hsl(var(--accent)/0.5)]" : "hover:border-primary"
-      }`}
+      className={`text-left w-full glass-card rounded-2xl p-4 sm:p-5 transition-all ${open ? "border-accent shadow-[0_0_0_2px_hsl(var(--accent)/0.5)]" : "hover:border-secondary/40"
+        }`}
     >
       <button
         onClick={toggleOpen}

@@ -303,7 +303,7 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
           </div>
 
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
-            <NextButton className="flex" label="故事聽完了，來玩動動腦！" onClick={() => goNext(3)} done={step >= 3} />
+            <NextButton className="flex" label="都學會了，下一步" onClick={() => goNext(3)} done={step >= 3} />
           </div>
         </SectionShell>
 

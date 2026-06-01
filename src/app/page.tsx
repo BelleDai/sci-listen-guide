@@ -1,26 +1,29 @@
 import HomeListenPlatforms from "@/components/home/HomeListenPlatforms";
 import LatestPodcastTopFive from "@/components/home/LatestPodcastTopFive";
-import Link from "next/link";
+import LatestEpisodesCarousel from "@/components/home/LatestEpisodesCarousel";
 import Header from "@/components/episode/Header";
 import Footer from "@/components/episode/Footer";
-import { getAllPublishedEpisodes, getLatestPublishedEpisode } from "@/lib/episodes";
+import { getAllPublishedEpisodes } from "@/lib/episodes";
 import type { PodcastListItem } from "@/types/podcast-list";
-import { ThumbsUp, GraduationCap, Headphones, ShieldCheck, Sparkles, BookOpen } from "lucide-react";
+import { ThumbsUp, GraduationCap, Headphones, ShieldCheck, Sparkles } from "lucide-react";
 import ClientHeroButton from "@/components/episode/ClientHeroButton";
 import FloatingDecor from "@/components/home/FloatingDecor";
 import podcastList from "../../public/podcast-list.json";
 
 export default async function Home() {
-  const [episodes, latestEpisode] = await Promise.all([
-    getAllPublishedEpisodes(),
-    getLatestPublishedEpisode(),
-  ]);
+  const episodes = await getAllPublishedEpisodes();
   const searchIndex = episodes.map((ep) => ({
     id: ep.id,
     title: ep.Title,
     tags: ep.Tags || [],
     firstoryGuid: typeof ep.firstoryGuid === "string" ? ep.firstoryGuid : undefined,
   }));
+  // Project to minimal shape so only 3 fields cross the server→client boundary
+  const latestFiveEpisodes = [...episodes]
+    .filter((ep) => typeof ep.pubDate === "string")
+    .sort((a, b) => new Date(b.pubDate as string).getTime() - new Date(a.pubDate as string).getTime())
+    .slice(0, 5)
+    .map(({ id, Title, Cover }) => ({ id, Title, Cover }));
   const latestPodcastTopFive = [...(podcastList.episodes as PodcastListItem[])]
     .sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime())
     .slice(0, 5);
@@ -62,46 +65,22 @@ export default async function Home() {
               </p>
             </div>
 
-            {/* Full-width static hero image */}
+            {/* Full-width static hero image — above the fold, prioritise for LCP */}
             <div className="max-w-2xl mx-auto px-4 mb-5">
               <img
                 src="/hero-collage.png"
                 alt="科學百科主題拼貼：火山、地球、顯微鏡、海洋生物、昆蟲、太空"
                 className="w-full h-auto block"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
             </div>
           </section>
 
-          {/* ── Today's episode shortcut ── */}
-          {latestEpisode && (
-            <section className="max-w-2xl w-full mx-auto px-4 -mt-5">
-              <Link
-                href={`/guide/${latestEpisode.id}`}
-                className="block rounded-3xl overflow-hidden glass-card border-2 border-secondary/40 hover:border-accent/70 transition-colors group"
-              >
-                <div className="flex items-center gap-4 p-4 sm:p-5">
-                  <img
-                    src={latestEpisode.Cover}
-                    alt={latestEpisode.Title}
-                    className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover flex-shrink-0"
-                  />
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-3 relative z-10">
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary/20 text-secondary font-bold text-xs">
-                        <BookOpen className="w-4 h-4" />
-                        最新伴讀
-                      </span>
-                    </div>
-                    <div className="font-extrabold text-white text-sm sm:text-base leading-snug line-clamp-2">
-                      {latestEpisode.Title}
-                    </div>
-                    <div className="text-accent text-xs sm:text-sm mt-2 font-bold group-hover:translate-x-1 transition-transform">
-                      點我開始探索 →
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </section>
+          {/* ── Latest Episodes Carousel ── */}
+          {latestFiveEpisodes.length > 0 && (
+            <LatestEpisodesCarousel episodes={latestFiveEpisodes} />
           )}
         </div>
 
@@ -140,7 +119,7 @@ export default async function Home() {
                 </span>
               </div>
 
-              <h2 className="text-2xl sm:text-3xl font-black text-white leading-snug mb-3 relative z-10">
+              <h2 className="text-xl sm:text-2xl font-black text-white leading-snug mb-3 relative z-10">
                 理工爸爸給台灣孩子的<br className="sm:hidden" />
                 <span className="text-secondary">科學禮物</span>
               </h2>
@@ -171,7 +150,7 @@ export default async function Home() {
                   href="https://www.facebook.com/profile.php?id=61577975781160"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full font-bold text-base text-white shadow-[var(--shadow-glow)] hover:scale-[1.03] transition-transform"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-bold text-base text-white shadow-[var(--shadow-glow)] hover:scale-[1.03] transition-transform"
                   style={{ backgroundColor: "#1877F2" }}
                 >
                   <ThumbsUp className="w-5 h-5" />
