@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-06-01T01:50:55.108Z",
-  "count": 219,
+  "updatedAt": "2026-06-02T01:54:35.396Z",
+  "count": 220,
   "episodes": [
+    {
+      "id": "cmpv2d7hx0b5v01wr05td8kqn",
+      "title": "重力特輯(1)｜宇宙級吸吸功大師：揭開重力的隱形絲線｜EP.71",
+      "firstoryLink": "https://open.firstory.me/story/cmpv2d7hx0b5v01wr05td8kqn",
+      "pubDate": "Sun, 31 May 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/-c1Ovp-c_fBDtdXh-f2eT.jpg",
+      "duration": 659,
+      "spotifyLink": "https://open.spotify.com/episode/3BIVFJldl3nhMFrVZ9zu6g",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000770652808"
+    },
     {
       "id": "cmpjig06506ba01nq0zw3d0z7",
       "title": "軍事武器專輯(9)｜揭開海上金字塔的神秘面紗：朱瓦特級驅逐艦與雷達匿蹤的科學魔法｜SP.52",
