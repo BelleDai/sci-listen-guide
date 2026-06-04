@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-06-03T01:58:27.961Z",
-  "count": 221,
+  "updatedAt": "2026-06-04T01:58:11.580Z",
+  "count": 222,
   "episodes": [
+    {
+      "id": "cmpwfza4200kp01y0avru2r7f",
+      "title": "重力特輯(2)｜月亮在對你拉勾勾？潮汐與引力的神祕律動｜EP.72",
+      "firstoryLink": "https://open.firstory.me/story/cmpwfza4200kp01y0avru2r7f",
+      "pubDate": "Tue, 02 Jun 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/CgpLMnJF90-IWZFoamrVF.jpg",
+      "duration": 518,
+      "spotifyLink": "https://open.spotify.com/episode/6SsiHZnGjn4a6RK1t8UnRP",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000771058191"
+    },
     {
       "id": "cmpt2w5tk078801z65ol4axj6",
       "title": "人體內的奈米探險：解密超級細胞工廠的運作黑科技｜VIP.16",
