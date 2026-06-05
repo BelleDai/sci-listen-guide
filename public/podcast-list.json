@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-06-04T01:58:11.580Z",
-  "count": 222,
+  "updatedAt": "2026-06-05T01:48:45.651Z",
+  "count": 223,
   "episodes": [
+    {
+      "id": "cmpt3387w022g01wr7jzv167p",
+      "title": "誰說海牛只是胖？揭開美人魚的五大不可思議超能力｜EP.230",
+      "firstoryLink": "https://open.firstory.me/story/cmpt3387w022g01wr7jzv167p",
+      "pubDate": "Wed, 03 Jun 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/SXFBBI51upHsjHWHcdkfQ.jpg",
+      "duration": 1038,
+      "spotifyLink": "https://open.spotify.com/episode/258rTsk22fk4wtjvNrnp9z",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000770373880"
+    },
     {
       "id": "cmpwfza4200kp01y0avru2r7f",
       "title": "重力特輯(2)｜月亮在對你拉勾勾？潮汐與引力的神祕律動｜EP.72",
