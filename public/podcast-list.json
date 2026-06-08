@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-06-07T01:49:35.584Z",
-  "count": 223,
+  "updatedAt": "2026-06-08T01:51:27.149Z",
+  "count": 224,
   "episodes": [
+    {
+      "id": "cmq393x4u08kh010pawxpdvl8",
+      "title": "重力特輯(3)｜飛天英雄大揭密：為什麼飛機能在天上飛？｜EP.73",
+      "firstoryLink": "https://open.firstory.me/story/cmq393x4u08kh010pawxpdvl8",
+      "pubDate": "Sat, 06 Jun 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/LEM_G2uJuIE2M4fIVXuqK.jpg",
+      "duration": 545,
+      "spotifyLink": "https://open.spotify.com/episode/11ZEJF4mLpxkhIodiPOzWv",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000771593142"
+    },
     {
       "id": "cmpt3387w022g01wr7jzv167p",
       "title": "誰說海牛只是胖？揭開美人魚的五大不可思議超能力｜EP.230",
