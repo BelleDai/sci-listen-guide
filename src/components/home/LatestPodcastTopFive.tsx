@@ -17,10 +17,8 @@ function formatDate(pubDate: string) {
   const date = new Date(pubDate);
   if (Number.isNaN(date.getTime())) return "";
 
-  return date.toLocaleDateString("zh-TW", {
-    month: "numeric",
-    day: "numeric",
-  });
+  const taipeiDate = new Date(date.getTime() + 8 * 60 * 60 * 1000);
+  return `${taipeiDate.getUTCMonth() + 1}/${taipeiDate.getUTCDate()}`;
 }
 
 function formatDuration(seconds: number) {

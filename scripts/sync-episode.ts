@@ -307,7 +307,7 @@ async function syncEpisode() {
     const p = path.join(source, item.file);
     if (fs.existsSync(p)) {
       const raw = JSON.parse(fs.readFileSync(p, "utf-8"));
-      let value = getCaseInsensitiveKey(raw, item.key);
+      let value = Array.isArray(raw) ? raw : getCaseInsensitiveKey(raw, item.key);
 
       if (item.key === "Glossary" && Array.isArray(value)) {
         value = normalizeGlossary(value);
@@ -322,10 +322,7 @@ async function syncEpisode() {
     data.Cover = `/episodes/${episodeId}/profile.jpg`;
   }
 
-  if (fs.existsSync(path.join(source, "3d.jpg"))) {
-    fs.copyFileSync(path.join(source, "3d.jpg"), path.join(publicDir, "3d.jpg"));
-    data.ThreeDImage = `/episodes/${episodeId}/3d.jpg`;
-  }
+  data.ThreeDImage = admin.firestore.FieldValue.delete();
 
   const captionPath = path.join(source, "3d_caption.txt");
   if (fs.existsSync(captionPath)) {
