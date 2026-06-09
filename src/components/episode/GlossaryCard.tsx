@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Sparkles, Volume2 } from "lucide-react";
 import { useTTS, isTTSSupported } from "@/hooks/useTTS";
 import SpeakingIndicator from "./SpeakingIndicator";
@@ -12,13 +12,19 @@ interface Props {
 
 const GlossaryCard = ({ term, explanation, episodeId }: Props) => {
   const [open, setOpen] = useState(false);
+  const [canSpeak, setCanSpeak] = useState(false);
   const { speak, stop, speakingId } = useTTS();
   const id = `glossary-${term}`;
   const isSpeaking = speakingId === id;
+
+  useEffect(() => {
+    setCanSpeak(isTTSSupported);
+  }, []);
+
   const toggleOpen = () => {
     const next = !open;
     setOpen(next);
-    if (next) {
+    if (next && canSpeak) {
       if (episodeId) {
         import("@/lib/analytics").then(({ trackTTSPlay }) => trackTTSPlay("glossary", episodeId));
       }
@@ -40,7 +46,7 @@ const GlossaryCard = ({ term, explanation, episodeId }: Props) => {
       >
         <Sparkles className="w-5 h-5 text-secondary flex-shrink-0" />
         <span className="font-extrabold text-lg text-white flex-1">{term}</span>
-        {isTTSSupported && (
+        {canSpeak && (
           <span className="inline-flex items-center gap-1 text-accent" aria-hidden>
             <Volume2 className="w-4 h-4" />
             <SpeakingIndicator active={isSpeaking} />

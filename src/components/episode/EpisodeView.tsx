@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import confetti from "canvas-confetti";
 
 import { BookOpen, Brain, Lightbulb, Users, CircleStar, Sparkles, Award } from "lucide-react";
 import SectionShell from "@/components/episode/SectionShell";
@@ -19,7 +19,20 @@ import { trackEpisodeStep, trackEpisodeCompleted, trackEpisodeLanded } from "@/l
 
 const TOTAL = 4;
 
-const fireConfetti = () => {
+const EMPTY_AUDIO: AudioQuestion = {
+  topic: "",
+  description: "",
+  reference_answer: "",
+};
+
+const EMPTY_FAMILY: FamilyDiscussion = {
+  topic: "",
+  description: "",
+  reference_answer: "",
+};
+
+const fireConfetti = async () => {
+  const { default: confetti } = await import("canvas-confetti");
   const colors = ["#ff7473", "#ffc952", "#47b8e0", "#ffffff"];
   const end = Date.now() + 1500;
   (function frame() {
@@ -28,6 +41,94 @@ const fireConfetti = () => {
     if (Date.now() < end) requestAnimationFrame(frame);
   })();
   confetti({ particleCount: 120, spread: 100, origin: { y: 0.4 }, colors });
+};
+
+const playCheerSound = () => {
+  if (typeof window === "undefined") return;
+
+  const audioWindow = window as Window & typeof globalThis & {
+    webkitAudioContext?: typeof AudioContext;
+  };
+  const AudioContextCtor = audioWindow.AudioContext ?? audioWindow.webkitAudioContext;
+  if (!AudioContextCtor) return;
+
+  const ctx = new AudioContextCtor();
+  const now = ctx.currentTime;
+  const master = ctx.createGain();
+  master.gain.setValueAtTime(0.0001, now);
+  master.gain.exponentialRampToValueAtTime(0.75, now + 0.04);
+  master.gain.exponentialRampToValueAtTime(0.0001, now + 2.05);
+  master.connect(ctx.destination);
+
+  for (let i = 0; i < 12; i++) {
+    const duration = 0.4 + i * 0.025;
+    const buffer = ctx.createBuffer(1, Math.floor(ctx.sampleRate * duration), ctx.sampleRate);
+    const channel = buffer.getChannelData(0);
+    for (let j = 0; j < channel.length; j++) {
+      const fade = 1 - j / channel.length;
+      channel[j] = (Math.random() * 2 - 1) * fade;
+    }
+
+    const source = ctx.createBufferSource();
+    source.buffer = buffer;
+    const filter = ctx.createBiquadFilter();
+    filter.type = "bandpass";
+    filter.frequency.setValueAtTime(520 + i * 115, now);
+    filter.Q.setValueAtTime(1.2, now);
+    const gain = ctx.createGain();
+    gain.gain.setValueAtTime(0.08, now);
+    gain.gain.exponentialRampToValueAtTime(0.22, now + 0.05 + i * 0.012);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.95 + i * 0.055);
+    source.connect(filter);
+    filter.connect(gain);
+    gain.connect(master);
+    source.playbackRate.setValueAtTime(0.8 + i * 0.055, now);
+    source.start(now + i * 0.045);
+  }
+
+  for (let i = 0; i < 10; i++) {
+    const clapTime = now + 0.12 + i * 0.13;
+    const duration = 0.055;
+    const buffer = ctx.createBuffer(1, Math.floor(ctx.sampleRate * duration), ctx.sampleRate);
+    const channel = buffer.getChannelData(0);
+    for (let j = 0; j < channel.length; j++) {
+      const envelope = Math.exp(-j / (ctx.sampleRate * 0.012));
+      channel[j] = (Math.random() * 2 - 1) * envelope;
+    }
+
+    const source = ctx.createBufferSource();
+    source.buffer = buffer;
+    const filter = ctx.createBiquadFilter();
+    filter.type = "highpass";
+    filter.frequency.setValueAtTime(1300 + Math.random() * 900, clapTime);
+    const gain = ctx.createGain();
+    gain.gain.setValueAtTime(0.55, clapTime);
+    gain.gain.exponentialRampToValueAtTime(0.0001, clapTime + 0.08);
+    source.connect(filter);
+    filter.connect(gain);
+    gain.connect(master);
+    source.start(clapTime);
+  }
+
+  [523.25, 659.25, 783.99, 1046.5].forEach((frequency, i) => {
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    const start = now + 0.04 + 0.11 * i;
+    osc.type = "square";
+    osc.frequency.setValueAtTime(frequency, start);
+    osc.frequency.exponentialRampToValueAtTime(frequency * 1.08, start + 0.2);
+    gain.gain.setValueAtTime(0.0001, start);
+    gain.gain.exponentialRampToValueAtTime(0.18, start + 0.03);
+    gain.gain.exponentialRampToValueAtTime(0.0001, start + 0.38);
+    osc.connect(gain);
+    gain.connect(master);
+    osc.start(start);
+    osc.stop(start + 0.42);
+  });
+
+  window.setTimeout(() => {
+    void ctx.close();
+  }, 2300);
 };
 
 export interface GlossaryItem {
@@ -79,20 +180,23 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
   const [isFamilyAnswerOpened, setIsFamilyAnswerOpened] = useState(false);
   const [isAudioAnswerOpened, setIsAudioAnswerOpened] = useState(false);
   const [isPodcastSource, setIsPodcastSource] = useState<boolean | null>(null);
+  const [familyIndex, setFamilyIndex] = useState(0);
   const [mounted, setMounted] = useState(false);
-  const { speakingId, stop } = useTTS();
+  const { speakingId, speak, stop } = useTTS();
 
-  const refs = [
-    useRef<HTMLElement>(null),
-    useRef<HTMLElement>(null),
-    useRef<HTMLElement>(null),
-    useRef<HTMLElement>(null),
-  ];
+  const sectionOneRef = useRef<HTMLElement>(null);
+  const sectionTwoRef = useRef<HTMLElement>(null);
+  const sectionThreeRef = useRef<HTMLElement>(null);
+  const sectionFourRef = useRef<HTMLElement>(null);
 
   const playerLaunchRef = useRef<HTMLDivElement>(null);
   const [isPlayerLaunchVisible, setIsPlayerLaunchVisible] = useState(true);
+  const pendingTimersRef = useRef<number[]>([]);
+  const speakingIdRef = useRef(speakingId);
 
   useEffect(() => {
+    if (!("IntersectionObserver" in window)) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsPlayerLaunchVisible(entry.isIntersecting);
@@ -105,19 +209,43 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
     return () => observer.disconnect();
   }, []);
 
-  const goNext = (next: number) => {
-    setStep((s) => Math.max(s, next));
-    setTimeout(() => {
-      refs[next - 1].current?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 120);
-  };
+  const scheduleTimer = useCallback((callback: () => void, delay: number) => {
+    const timerId = window.setTimeout(() => {
+      pendingTimersRef.current = pendingTimersRef.current.filter((id) => id !== timerId);
+      callback();
+    }, delay);
+    pendingTimersRef.current.push(timerId);
+  }, []);
 
-  const jumpTo = (n: number) => {
-    refs[n - 1].current?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
+  useEffect(() => {
+    return () => {
+      pendingTimersRef.current.forEach((timerId) => window.clearTimeout(timerId));
+      pendingTimersRef.current = [];
+    };
+  }, []);
 
-  const speakingIdRef = useRef(speakingId);
-  speakingIdRef.current = speakingId;
+  const getSectionRef = useCallback((n: number) => {
+    switch (n) {
+      case 1:
+        return sectionOneRef;
+      case 2:
+        return sectionTwoRef;
+      case 3:
+        return sectionThreeRef;
+      case 4:
+        return sectionFourRef;
+      default:
+        return sectionOneRef;
+    }
+  }, []);
+
+  const jumpTo = useCallback((n: number) => {
+    getSectionRef(n).current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [getSectionRef]);
+
+  useEffect(() => {
+    speakingIdRef.current = speakingId;
+  }, [speakingId]);
 
   // 用 hash 簡單攔截 back 鍵來停止 TTS
   useEffect(() => {
@@ -148,18 +276,29 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
   }, [stop, episodeData.Title]);
 
   useEffect(() => {
-    setMounted(true);
     const params = new URLSearchParams(window.location.search);
     const source = params.get("source") ?? undefined;
     const isPodcast = source === "podcast";
-    setIsPodcastSource(isPodcast);
 
-    trackEpisodeLanded(episodeData.id ?? "", episodeData.Title, source);
+    pendingTimersRef.current.forEach((timerId) => window.clearTimeout(timerId));
+    pendingTimersRef.current = [];
+    stop();
 
-    if (!isPodcast) {
-      setStep((s) => Math.max(s, 2));
-    }
-  }, [episodeData.id, episodeData.Title]);
+    const timerId = window.setTimeout(() => {
+      setMounted(true);
+      setIsPodcastSource(isPodcast);
+      setStep(isPodcast ? 1 : 2);
+      setCelebrated(false);
+      setIsAudioAnswerOpened(false);
+      setIsFamilyAnswerOpened(false);
+      setFamilyIndex(0);
+      setIsPlayerLaunchVisible(true);
+
+      trackEpisodeLanded(episodeData.id ?? "", episodeData.Title, source);
+    }, 0);
+
+    return () => window.clearTimeout(timerId);
+  }, [episodeData.id, episodeData.Title, stop]);
 
   // 追蹤連續連各階段進入
   useEffect(() => {
@@ -168,38 +307,79 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
     }
   }, [step, episodeData.id, episodeData.Title]);
 
-  const onCelebrate = () => {
+  const onCelebrate = useCallback(() => {
+    if (celebrated) return;
+
+    stop();
+    playCheerSound();
     setCelebrated(true);
-    fireConfetti();
+    void fireConfetti();
     trackEpisodeCompleted(episodeData.id ?? "", episodeData.Title);
-    setTimeout(() => {
+    scheduleTimer(() => {
       window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
     }, 200);
-  };
+  }, [celebrated, episodeData.id, episodeData.Title, scheduleTimer, stop]);
 
-  const audio = episodeData.AudioQuestion[0];
+  const glossaryItems = useMemo(
+    () => (Array.isArray(episodeData.Glossary) ? episodeData.Glossary.filter(Boolean) : []),
+    [episodeData.Glossary],
+  );
+  const keyTakeaways = useMemo(
+    () => (Array.isArray(episodeData.KeyTakeaway) ? episodeData.KeyTakeaway.filter(Boolean) : []),
+    [episodeData.KeyTakeaway],
+  );
+  const audio = useMemo(
+    () => episodeData.AudioQuestion?.[0] ?? EMPTY_AUDIO,
+    [episodeData.AudioQuestion],
+  );
   // FamilyDiscussion is an array — pick a random one each visit
-  const familyList = Array.isArray(episodeData.FamilyDiscussion)
-    ? episodeData.FamilyDiscussion
-    : [episodeData.FamilyDiscussion];
-  const [familyIndex, setFamilyIndex] = useState(0);
-
+  const familyList = useMemo(
+    () => (
+      Array.isArray(episodeData.FamilyDiscussion)
+        ? episodeData.FamilyDiscussion.filter(Boolean)
+        : episodeData.FamilyDiscussion
+          ? [episodeData.FamilyDiscussion]
+          : []
+    ),
+    [episodeData.FamilyDiscussion],
+  );
   useEffect(() => {
     // Select a random family discussion index after mounting to prevent SSR hydration mismatches
     if (familyList.length > 1) {
-      const randomIndex = Math.floor(Math.random() * familyList.length);
-      setFamilyIndex(randomIndex);
+      const timerId = window.setTimeout(() => {
+        const randomIndex = Math.floor(Math.random() * familyList.length);
+        setFamilyIndex(randomIndex);
+      }, 0);
+      return () => window.clearTimeout(timerId);
     }
-  }, [familyList.length]);
+  }, [episodeData.id, familyList.length]);
 
-  const family = familyList[familyIndex] || familyList[0];
+  const family = useMemo(
+    () => familyList[familyIndex] || familyList[0] || EMPTY_FAMILY,
+    [familyIndex, familyList],
+  );
+
+  const goNext = useCallback((next: number) => {
+    setStep((s) => Math.max(s, next));
+    scheduleTimer(() => {
+      getSectionRef(next).current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 120);
+
+    if (next === 3 && audio.description) {
+      scheduleTimer(() => speak(audio.description, "audio-q"), 450);
+    }
+
+    if (next === 4 && family.description) {
+      scheduleTimer(() => speak(family.description, "fam-q"), 450);
+    }
+  }, [audio.description, family.description, getSectionRef, scheduleTimer, speak]);
 
   return (
     <>
       <Header step={step} total={TOTAL} onJump={jumpTo} episodes={searchIndex} />
       <main className="text-foreground">
         {/* Section 1 - Hero */}
-        <SectionShell id="s1" show ref={refs[0]}>
+        <SectionShell id="s1" show ref={sectionOneRef}>
           <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-start text-center md:text-left">
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
@@ -207,12 +387,14 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
               transition={{ delay: 0.1 }}
               className="w-full md:w-[40%] flex-shrink-0"
             >
-              <div className="relative rounded-3xl overflow-hidden shadow-[var(--shadow-card)] border-4 border-secondary/40">
-                <img
+              <div className="relative aspect-square max-h-[40vh] md:max-h-none rounded-3xl overflow-hidden shadow-[var(--shadow-card)] border-4 border-secondary/40">
+                <Image
                   src={episodeData.Cover}
                   alt={`${episodeData.Title} 封面`}
-                  className="w-full h-auto max-h-[40vh] md:max-h-none aspect-square object-cover"
-                  loading="eager"
+                  fill
+                  sizes="(min-width: 768px) 40vw, 100vw"
+                  className="object-cover"
+                  priority
                 />
               </div>
             </motion.div>
@@ -244,7 +426,7 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
               聽故事時有不懂的詞嗎？
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-              {episodeData.Glossary.map((g) => (
+              {glossaryItems.map((g) => (
                 <GlossaryCard key={g.term} term={g.term} explanation={g.explanation ?? g.definition ?? ""} episodeId={episodeData.id} />
               ))}
             </div>
@@ -261,7 +443,7 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
         <SectionShell
           id="s2"
           show={step >= 2}
-          ref={refs[1]}
+          ref={sectionTwoRef}
           title={isPodcastSource === false ? "聽完故事，孩子將得到的知識" : "這集最重要的三件事，你記住了嗎？"}
           emoji={isPodcastSource === false ? "🚀" : "💡"}
         >
@@ -271,9 +453,8 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
               : "複習完重點，下方還有好玩的動動腦挑戰等著你喔！"}
           </p> */}
           <div className="space-y-6">
-            {episodeData.KeyTakeaway.map((k, i) => {
+            {keyTakeaways.map((k, i) => {
               const id = `take-${i}`;
-              const active = speakingId === id;
               return (
                 <motion.div
                   key={i}
@@ -315,7 +496,7 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
         <SectionShell
           id="s3"
           show={step >= 3}
-          ref={refs[2]}
+          ref={sectionThreeRef}
           title="聽完故事，換你動動腦！"
           emoji="🧠"
         >
@@ -352,7 +533,7 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
         <SectionShell
           id="s4"
           show={step >= 4}
-          ref={refs[3]}
+          ref={sectionFourRef}
           title="最後，跟爸媽一起討論吧！"
           emoji="👨‍👩‍👧"
         >

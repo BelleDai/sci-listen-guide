@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { Volume2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTTS, isTTSSupported } from "@/hooks/useTTS";
@@ -16,9 +16,14 @@ interface Props {
 }
 
 const SpeakLine = ({ id, text, children, className, contentClassName, episodeId, contentType }: Props) => {
+  const [canSpeak, setCanSpeak] = useState(false);
   const { speak, speakingId } = useTTS();
 
-  if (!isTTSSupported) {
+  useEffect(() => {
+    setCanSpeak(isTTSSupported);
+  }, []);
+
+  if (!canSpeak) {
     return (
       <div className={className}>
         <div className={contentClassName}>{children ?? text}</div>
