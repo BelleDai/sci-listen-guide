@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-06-09T06:33:30.179Z",
-  "count": 225,
+  "updatedAt": "2026-06-10T01:48:01.081Z",
+  "count": 226,
   "episodes": [
+    {
+      "id": "cmq6et3a600en01yg8ec9gql0",
+      "title": "重力特輯(4)｜空中陀螺對抗賽：直升機與海鷹偵探的祕密｜EP.74",
+      "firstoryLink": "https://open.firstory.me/story/cmq6et3a600en01yg8ec9gql0",
+      "pubDate": "Mon, 08 Jun 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/Yi0Fs1lMRNDUUe-0mLUBI.jpg",
+      "duration": 539,
+      "spotifyLink": "https://open.spotify.com/episode/2akKFYVR3QZWFhNJ6QSyHV",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000771931931"
+    },
     {
       "id": "cmq39elsb08l9010pc3maga0s",
       "title": "解密人體微觀宇宙：從36兆細胞大軍到看穿皮膚的透視超能力｜SP.54",
