@@ -8,6 +8,7 @@ import type { PodcastListItem } from "@/types/podcast-list";
 import { ThumbsUp, GraduationCap, Headphones, ShieldCheck, Sparkles } from "lucide-react";
 import ClientHeroButton from "@/components/episode/ClientHeroButton";
 import FloatingDecor from "@/components/home/FloatingDecor";
+import HomeGamesDropdown from "@/components/home/HomeGamesDropdown";
 import podcastList from "../../public/podcast-list.json";
 
 export default async function Home() {
@@ -50,6 +51,7 @@ export default async function Home() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-in fade-in duration-700 delay-300">
               <ClientHeroButton />
+              <HomeGamesDropdown />
             </div>
           </section>
 
