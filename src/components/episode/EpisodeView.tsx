@@ -586,8 +586,8 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
                   exit={{ opacity: 0 }}
                   transition={{ type: "spring", stiffness: 220, damping: 18 }}
                   className="w-full rounded-3xl px-6 py-10 text-center shadow-[0_0_40px_rgba(255,201,82,0.25)] border-[1px]"
-                  style={{ backgroundColor: "#34314c", borderColor: "#ffc952" }}
-                >
+                    style={{ backgroundColor: "#34314c", borderColor: "rgb(255, 201, 82, 0.5)" }}
+                  >
                   <div
                     className="inline-flex items-center justify-center w-24 h-24 rounded-full mb-6 shadow-xl relative"
                     style={{ backgroundColor: "#ffc952" }}

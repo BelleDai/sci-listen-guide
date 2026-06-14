@@ -71,8 +71,8 @@ export default function GamePageShell({ title, children }: GamePageShellProps) {
             onClick={() => setConfirmOpen(true)}
           >
             <StopCircle className="h-5 w-5" />
-            <span className="hidden sm:inline">停止遊戲</span>
-            <span className="sm:hidden">停止</span>
+            <span className="hidden sm:inline">結束遊戲</span>
+            <span className="sm:hidden">結束</span>
           </Button>
         </div>
       </header>
@@ -87,11 +87,8 @@ export default function GamePageShell({ title, children }: GamePageShellProps) {
         <AlertDialogContent className="rounded-2xl border-accent/30 bg-card text-white shadow-2xl">
           <AlertDialogHeader>
             <AlertDialogTitle className="text-xl font-black">
-              要停止遊戲嗎？
+              要結束遊戲嗎？
             </AlertDialogTitle>
-            <AlertDialogDescription className="text-white/75">
-              停止後會結束目前遊戲，並回到上一頁。
-            </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel className="rounded-full border-white/20 bg-white/10 text-white hover:bg-white/20 hover:text-white">
@@ -101,7 +98,7 @@ export default function GamePageShell({ title, children }: GamePageShellProps) {
               className="rounded-full bg-destructive text-destructive-foreground hover:bg-destructive/90"
               onClick={stopAndGoBack}
             >
-              停止遊戲
+              確定
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

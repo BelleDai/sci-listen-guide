@@ -5,8 +5,81 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Home, Play, ArrowLeft, CheckCircle, Sparkles, Map, Volume2, XCircle } from 'lucide-react';
 import { useGameBgm } from './useGameBgm';
 import { treasureHunterGame } from './data/treasureHunter.data';
+import GameResultPanel from './GameResultPanel';
+import { GAME_SETTINGS, isChallengeSuccessful } from './core/gameSettings';
+import { markEpisodeGameCompleted } from './core/gameProgress';
+import { toSingleQuestionScenes } from './core/questionQueue';
+import type { GameScene } from './core/types';
 
-export default function App() {
+const GROUP_ITEM_LAYOUTS = [
+  { x: 50, y: 25, size: 'text-5xl' },
+  { x: 26, y: 34, size: 'text-5xl' },
+  { x: 74, y: 34, size: 'text-5xl' },
+  { x: 38, y: 49, size: 'text-5xl' },
+  { x: 62, y: 49, size: 'text-5xl' },
+  { x: 22, y: 66, size: 'text-5xl' },
+  { x: 78, y: 66, size: 'text-5xl' },
+  { x: 50, y: 75, size: 'text-5xl' },
+];
+
+const GROUP_DECOY_LAYOUTS = [
+  { x: 15, y: 22, size: 'text-5xl' },
+  { x: 85, y: 23, size: 'text-5xl' },
+  { x: 17, y: 47, size: 'text-5xl' },
+  { x: 83, y: 48, size: 'text-5xl' },
+  { x: 31, y: 78, size: 'text-5xl' },
+  { x: 69, y: 79, size: 'text-5xl' },
+  { x: 12, y: 71, size: 'text-5xl' },
+  { x: 88, y: 70, size: 'text-5xl' },
+];
+
+function buildTreasureQuestionGroups(sourceScenes: GameScene[]): GameScene[] {
+  const questionScenes = toSingleQuestionScenes(sourceScenes);
+  if (questionScenes.length === 0) {
+    return [];
+  }
+
+  const firstScene = questionScenes[0];
+  const items = questionScenes.map((scene, index) => ({
+    ...scene.items[0],
+    id: `${scene.items[0].id}-${index}`,
+    ...GROUP_ITEM_LAYOUTS[index % GROUP_ITEM_LAYOUTS.length],
+  }));
+  const decoys = questionScenes.slice(0, GROUP_DECOY_LAYOUTS.length).flatMap((scene, index) => {
+    const decoy = scene.decoys[0];
+    if (!decoy) return [];
+
+    return [{
+      ...decoy,
+      id: `${decoy.id}-group-decoy-${index}`,
+      ...GROUP_DECOY_LAYOUTS[index % GROUP_DECOY_LAYOUTS.length],
+    }];
+  });
+
+  return [{
+    ...firstScene,
+    id: `${firstScene.id}-treasure-group`,
+    title: firstScene.title,
+    prompt: firstScene.prompt,
+    items,
+    decoys,
+    knowledge: Array.from(new Set(questionScenes.map((scene) => scene.knowledge).filter(Boolean))).join('\n\n'),
+  }];
+}
+
+type TreasureHunterGameProps = {
+  scenes?: GameScene[];
+  episodeId?: string;
+  gamesHref?: string;
+  reviewHref?: string;
+};
+
+export default function App({
+  scenes,
+  episodeId,
+  gamesHref = '/games',
+  reviewHref,
+}: TreasureHunterGameProps) {
   const [currentSceneId, setCurrentSceneId] = useState(null);
   const [selectedScenes, setSelectedScenes] = useState([]);
   const [sceneIndex, setSceneIndex] = useState(0);
@@ -19,8 +92,12 @@ export default function App() {
   const [subtitle, setSubtitle] = useState("");
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [mistakeCount, setMistakeCount] = useState(0); // 記錄目前題目的錯誤次數
+  const [totalCorrect, setTotalCorrect] = useState(0);
+  const [totalWrong, setTotalWrong] = useState(0);
+  const [showResult, setShowResult] = useState(false);
   
-  const activeScenes = selectedScenes.length > 0 ? selectedScenes : treasureHunterGame.scenes;
+  const sourceScenes = scenes ?? treasureHunterGame.scenes;
+  const activeScenes = selectedScenes.length > 0 ? selectedScenes : sourceScenes;
   const currentScene = activeScenes.find(s => s.id === currentSceneId);
   const audioRef = useRef(null);
   const { startBgm, stopBgm } = useGameBgm(treasureHunterGame.bgmNotes, 300, 0.035);
@@ -94,6 +171,7 @@ export default function App() {
     
     // 答對了！
     setClickedItemId(item.id);
+    setTotalCorrect(prev => prev + 1);
     
     const isLastItem = foundItems.length + 1 === currentScene.items.length;
     const nextItemIndex = foundItems.length + 1;
@@ -122,6 +200,7 @@ export default function App() {
     if (currentScene && foundItems.length === currentScene.items.length) return; // 遊戲結束防誤觸
     setWrongItemId(decoy.id);
     setMistakeCount(prev => prev + 1); // 增加錯誤次數
+    setTotalWrong(prev => prev + 1);
     playTTS("哎呀！這不是我們要找的喔！"); 
     
     setTimeout(() => setWrongItemId(null), 600);
@@ -134,9 +213,16 @@ export default function App() {
     setMistakeCount(0);
   };
 
+  const resetGameStats = () => {
+    setTotalCorrect(0);
+    setTotalWrong(0);
+    setShowResult(false);
+  };
+
   const startGame = () => {
-    const nextScenes = treasureHunterGame.pickScenes(2);
+    const nextScenes = buildTreasureQuestionGroups(sourceScenes);
     setSelectedScenes(nextScenes);
+    resetGameStats();
     resetLevel();
     setSceneIndex(0);
     setCurrentSceneId(nextScenes[0].id);
@@ -151,8 +237,14 @@ export default function App() {
       setCurrentSceneId(selectedScenes[nextSceneIndex].id);
     } else {
       stopBgm();
-      goHome();
+      stopAudio();
+      setShowKnowledge(false);
+      setShowResult(true);
     }
+  };
+
+  const playAgain = () => {
+    startGame();
   };
 
   const goHome = () => {
@@ -161,6 +253,7 @@ export default function App() {
     setCurrentSceneId(null);
     setSelectedScenes([]);
     setSceneIndex(0);
+    resetGameStats();
     resetLevel();
   };
 
@@ -196,12 +289,12 @@ export default function App() {
             <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_#000_1px,_transparent_1px)] bg-[size:20px_20px]"></div>
             
             <div className="z-10 text-center mb-10">
-              <div className="w-24 h-24 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg border-4 border-white shadow-blue-500/50 relative">
-                <span className="text-6xl">🕵️‍♂️</span>
-                <Sparkles className="absolute -top-2 -right-2 text-yellow-400 w-8 h-8" />
+              <div className="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg border-4 border-white shadow-blue-500/50 relative">
+                <span className="text-6xl">💎</span>
+                <Sparkles className="absolute -top-2 -right-2 text-blue-400 w-8 h-8" />
               </div>
               <h1 className="text-3xl font-extrabold text-[#8c5230] drop-shadow-sm mb-2 tracking-wide">
-                寶藏獵人
+                尋寶獵人
               </h1>
               <p className="text-[#a36b4a] font-bold">打開聲音，邊找邊學！</p>
             </div>
@@ -246,7 +339,8 @@ export default function App() {
                 {currentScene.items.map((item, idx) => {
                   const isFound = foundItems.includes(item.id);
                   const isCurrentTarget = foundItems.length === idx;
-                  const showHint = isCurrentTarget && mistakeCount >= 5; // 點錯 5 次才顯示提示
+                  const showHint =
+                    isCurrentTarget && mistakeCount >= GAME_SETTINGS.treasureHunter.maxMistakesBeforeHint;
                   
                   let displayIcon = '❓';
                   if (isFound) displayIcon = item.icon;
@@ -275,8 +369,16 @@ export default function App() {
             </div>
 
             {/* 主要尋寶區域 */}
-            <div className={`flex-1 relative ${currentScene.bgColor} overflow-hidden`}>
-              {currentScene.background}
+            <div className={`flex-1 relative ${currentScene.bgColor ?? 'bg-gradient-to-b from-sky-300 via-blue-200 to-blue-500'} overflow-hidden`}>
+              {currentScene.background ?? (
+                <div className="pointer-events-none absolute inset-0 overflow-hidden">
+                  <div className="absolute left-[8%] top-[12%] h-28 w-28 rounded-full bg-white/20 blur-xl" />
+                  <div className="absolute right-[10%] top-[22%] h-16 w-16 rounded-full bg-yellow-100/30 blur-lg" />
+                  <div className="absolute bottom-0 left-0 h-24 w-full bg-black/15" />
+                  <div className="absolute bottom-[12%] left-[12%] h-12 w-24 rounded-full bg-white/15 blur-md" />
+                  <div className="absolute bottom-[18%] right-[16%] h-16 w-32 rounded-full bg-white/10 blur-md" />
+                </div>
+              )}
 
               {/* 繪製干擾物品 (誘餌) */}
               {currentScene.decoys.map(decoy => {
@@ -293,7 +395,7 @@ export default function App() {
                     >
                       <span className="drop-shadow-md">{decoy.icon}</span>
                       {/* Emoji 下方的文字標籤 */}
-                      <span className="mt-1 text-[11px] font-bold text-white bg-black/50 px-1.5 py-0.5 rounded backdrop-blur-sm whitespace-nowrap tracking-wider">
+                      <span className="mt-1 text-sm font-bold text-white bg-black/50 px-2 py-0.5 rounded backdrop-blur-sm whitespace-nowrap tracking-wider">
                         {decoy.label}
                       </span>
                       {isWrongNow && (
@@ -337,7 +439,7 @@ export default function App() {
                         )}
                       </span>
                       {/* Emoji 下方的文字標籤 */}
-                      <span className="mt-1 text-[11px] font-bold text-white bg-black/50 px-1.5 py-0.5 rounded backdrop-blur-sm whitespace-nowrap tracking-wider">
+                      <span className="mt-1 text-sm font-bold text-white bg-black/50 px-2 py-0.5 rounded backdrop-blur-sm whitespace-nowrap tracking-wider">
                         {item.label}
                       </span>
                       
@@ -394,11 +496,26 @@ export default function App() {
                       onClick={advanceScene}
                       className="flex-1 py-3 bg-[#d17a49] text-white rounded-xl font-bold flex items-center justify-center gap-2 shadow-[0_4px_0_#a8572b] active:translate-y-1 active:shadow-none transition-all"
                     >
-                      {sceneIndex < selectedScenes.length - 1 ? '下一關' : '完成遊戲'}
+                      {sceneIndex < selectedScenes.length - 1 ? '下一題' : '完成遊戲'}
                     </button>
                   </div>
                 </div>
               </div>
+            )}
+
+            {showResult && (
+              <GameResultPanel
+                isWin={isChallengeSuccessful(totalCorrect, totalWrong)}
+                correctCount={totalCorrect}
+                wrongCount={totalWrong}
+                correctLabel="找到正確物件"
+                wrongLabel="點錯次數"
+                knowledge={selectedScenes[0]?.knowledge ?? currentScene.knowledge}
+                gamesHref={gamesHref}
+                reviewHref={reviewHref ?? (episodeId ? `/guide/${episodeId}` : undefined)}
+                onWin={episodeId ? () => markEpisodeGameCompleted(episodeId) : undefined}
+                onPlayAgain={playAgain}
+              />
             )}
             
           </div>

@@ -42,7 +42,7 @@ export type GameScene = {
   title: string;
 
   /** 整個關卡的主要題目或指令，適合氣球這種一關一題的玩法。 */
-  audioText?: string;
+  prompt?: string;
 
   /** 關卡簡介，說明這關要學什麼或要玩家完成什麼任務。 */
   description?: string;

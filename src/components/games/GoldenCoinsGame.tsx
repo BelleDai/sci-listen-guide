@@ -5,10 +5,27 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Home, Play, ArrowLeft, CheckCircle, Sparkles, Map, Volume2, XCircle } from 'lucide-react';
 import { useGameBgm } from './useGameBgm';
 import { goldenCoinsGame } from './data/goldenCoins.data';
+import GameResultPanel from './GameResultPanel';
+import { GAME_SETTINGS, isChallengeSuccessful } from './core/gameSettings';
+import { markEpisodeGameCompleted } from './core/gameProgress';
+import { toSingleQuestionScenes } from './core/questionQueue';
+import type { GameScene } from './core/types';
 
-const GAME_DURATION = 40; 
+const GAME_DURATION = GAME_SETTINGS.goldenCoins.secondsPerQuestion; 
 
-export default function App() {
+type GoldenCoinsGameProps = {
+  scenes?: GameScene[];
+  episodeId?: string;
+  gamesHref?: string;
+  reviewHref?: string;
+};
+
+export default function App({
+  scenes,
+  episodeId,
+  gamesHref = '/games',
+  reviewHref,
+}: GoldenCoinsGameProps) {
   const [gameState, setGameState] = useState('MENU'); 
   const [currentScene, setCurrentScene] = useState(null);
   const [selectedScenes, setSelectedScenes] = useState([]);
@@ -18,6 +35,8 @@ export default function App() {
   const [timeLeft, setTimeLeft] = useState(GAME_DURATION);
   const [scores, setScores] = useState({}); 
   const [bombCount, setBombCount] = useState(0);
+  const [totalCorrectCount, setTotalCorrectCount] = useState(0);
+  const [totalBombCount, setTotalBombCount] = useState(0);
   const [fallingItems, setFallingItems] = useState([]);
   const [floatingTexts, setFloatingTexts] = useState([]);
   const [godPosition, setGodPosition] = useState(50); 
@@ -43,6 +62,7 @@ export default function App() {
   const questionStartTimeoutRef = useRef(null);
   const isDroppingRef = useRef(false);
   const { initAudioContext, startBgm: startBGM, stopBgm: stopBGM } = useGameBgm(goldenCoinsGame.bgmNotes);
+  const sourceScenes = scenes ?? goldenCoinsGame.scenes;
 
   const playTickSound = () => {
     const ctx = initAudioContext();
@@ -119,9 +139,20 @@ export default function App() {
   };
 
   const startNewGame = () => {
-    const nextScenes = goldenCoinsGame.pickScenes(2);
+    const nextScenes = toSingleQuestionScenes(sourceScenes);
     setSelectedScenes(nextScenes);
+    setTotalCorrectCount(0);
+    setTotalBombCount(0);
     handleStartGameClick(nextScenes[0], 0);
+  };
+
+  const playAgain = () => {
+    stopAudio();
+    stopBGM();
+    cancelAnimationFrame(gameLoopRef.current);
+    clearTimeout(questionStartTimeoutRef.current);
+    clearTimeout(intermissionTimeoutRef.current);
+    startNewGame();
   };
 
   const advanceOrFinishGame = () => {
@@ -319,11 +350,13 @@ export default function App() {
     
     if (isCorrect) {
       setScores(prev => ({ ...prev, [item.data.id]: (prev[item.data.id] || 0) + 1 }));
+      setTotalCorrectCount(prev => prev + 1);
       showFloatingText(`+1 ${item.data.icon}`, pX, 'text-green-500');
       // 成功時唸出選項名稱 (例如：太陽)
       speakInstant(item.data.label);
     } else {
       setBombCount(prev => prev + 1);
+      setTotalBombCount(prev => prev + 1);
       showFloatingText(`💥 扣分`, pX, 'text-red-500 animate-shake-wrong');
       // 失敗發出哎呀
       speakInstant("哎呀！");
@@ -400,13 +433,13 @@ export default function App() {
 
             <div className="z-10 text-center mb-10">
                 <div className="w-24 h-24 bg-[#d17a49] rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg border-4 border-white shadow-orange-500/30 relative">
-                    <span className="text-5xl">🎅</span>
+                    <span className="text-5xl">🪙</span>
                     <Sparkles className="absolute -top-2 -right-2 text-yellow-400 w-8 h-8 animate-pulse" />
                 </div>
                 <h1 className="text-3xl font-extrabold text-[#8c5230] drop-shadow-sm mb-2 tracking-wide">
                     知識接接樂
                 </h1>
-                <p className="text-[#a36b4a] font-bold">先聽題目，再接答案喔！</p>
+                <p className="text-[#a36b4a] font-bold">先聽題目，再把正確答案接起來喔！</p>
             </div>
 
             <div className="w-full z-10 px-1">
@@ -425,8 +458,32 @@ export default function App() {
 
   if (gameState === 'RESULT') {
     const totalCorrect = Object.values(scores).reduce((a, b) => a + b, 0);
-    // 勝利條件：正確數 > 炸彈數
-    const isWin = totalCorrect > bombCount;
+    // 勝利條件由共用設定管理：正確題數與答題準確率都要達標。
+    const isWin = isChallengeSuccessful(totalCorrect, bombCount);
+
+    if (sceneIndex >= selectedScenes.length - 1) {
+      const finalCorrect = totalCorrectCount;
+      const finalWrong = totalBombCount;
+
+      return (
+        <div className="w-full flex flex-1 items-stretch justify-center font-sans touch-manipulation">
+          <div className="w-full max-w-2xl h-full bg-white rounded-[40px] shadow-2xl overflow-hidden relative border-8 border-neutral-800 flex items-center justify-center">
+            <GameResultPanel
+              isWin={isChallengeSuccessful(finalCorrect, finalWrong)}
+              correctCount={finalCorrect}
+              wrongCount={finalWrong}
+              correctLabel="接中正確選項"
+              wrongLabel="接到炸彈次數"
+              knowledge={currentScene.knowledge}
+              gamesHref={gamesHref}
+              reviewHref={reviewHref ?? (episodeId ? `/guide/${episodeId}` : undefined)}
+              onWin={episodeId ? () => markEpisodeGameCompleted(episodeId) : undefined}
+              onPlayAgain={playAgain}
+            />
+          </div>
+        </div>
+      );
+    }
 
     return (
       <div className="w-full flex flex-1 items-stretch justify-center font-sans touch-manipulation">
@@ -477,7 +534,7 @@ export default function App() {
                         <Home size={18} /> 首頁
                     </button>
                     <button onClick={advanceOrFinishGame} className="flex-1 py-3 bg-[#d17a49] text-white rounded-xl font-bold flex items-center justify-center gap-2 shadow-[0_4px_0_#a8572b] active:translate-y-1 active:shadow-none transition-all">
-                        {sceneIndex < selectedScenes.length - 1 ? '下一關' : '完成遊戲'}
+                        {sceneIndex < selectedScenes.length - 1 ? '下一題' : '完成遊戲'}
                     </button>
                 </div>
             </div>
@@ -491,6 +548,8 @@ export default function App() {
   // PLAYING 或 INTERMISSION
   const activeQuestion = currentScene.items[questionIndex];
   const currentItemScore = scores[activeQuestion.id] || 0;
+  const currentQuestionNumber = sceneIndex + 1;
+  const totalQuestionCount = selectedScenes.length || 1;
 
   return (
     <div className="w-full flex flex-1 items-stretch justify-center font-sans touch-manipulation select-none">
@@ -507,7 +566,7 @@ export default function App() {
           </button>
           
           <h2 className="text-center text-sm font-black mb-3 drop-shadow-md opacity-90">
-            第 {questionIndex + 1} / {currentScene.items.length} 題
+            第 {currentQuestionNumber} / {totalQuestionCount} 題
           </h2>
 
           <div 
@@ -519,12 +578,6 @@ export default function App() {
                 <p className="text-yellow-50 text-[15px] font-bold leading-snug">
                   {activeQuestion.question}
                 </p>
-                {/* 尚未掉落時，顯示聆聽中提示 */}
-                {!isDropping && gameState === 'PLAYING' && (
-                   <span className="inline-block mt-1 text-[11px] bg-white/20 px-2 py-0.5 rounded-full text-white animate-pulse">
-                      聆聽題目中...準備接取！
-                   </span>
-                )}
             </div>
           </div>
 
@@ -544,13 +597,13 @@ export default function App() {
           </div>
         </div>
 
-        <div className={`relative flex-1 w-full overflow-hidden ${currentScene.bgColor}`}>
+        <div className={`relative flex-1 w-full overflow-hidden ${currentScene.bgColor ?? 'bg-gradient-to-b from-sky-300 via-blue-200 to-blue-500'}`}>
           
           <div 
             className="absolute top-2 transition-transform duration-75"
             style={{ left: `${godPosition}%`, transform: 'translateX(-50%)', zIndex: 10 }}
           >
-            <div className="text-5xl drop-shadow-lg">🎅</div>
+            <div className="text-5xl drop-shadow-lg">🪙</div>
           </div>
 
           {fallingItems.map((item, index) => (
@@ -559,8 +612,8 @@ export default function App() {
               className="absolute flex flex-col items-center justify-center transition-none"
               style={{ left: `${item.x}%`, top: `${item.y}%`, transform: 'translate(-50%, -50%)', zIndex: 5 }}
             >
-              <div className="text-4xl drop-shadow-md">{item.data.icon}</div>
-              <div className="bg-black/50 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full mt-1 whitespace-nowrap backdrop-blur-sm">
+              <div className="text-5xl drop-shadow-md sm:text-6xl">{item.data.icon}</div>
+              <div className="mt-1 max-w-28 rounded-full border border-white/25 bg-black/70 px-2.5 py-1 text-center text-sm font-black leading-tight text-white shadow-lg backdrop-blur-sm sm:max-w-36">
                 {item.data.label}
               </div>
             </div>

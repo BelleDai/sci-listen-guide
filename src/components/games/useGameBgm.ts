@@ -6,6 +6,8 @@ type AudioWindow = Window & typeof globalThis & {
   webkitAudioContext?: typeof AudioContext;
 };
 
+let activeBgmStop: (() => void) | null = null;
+
 export function useGameBgm(notes: number[], intervalMs = 250, volume = 0.04) {
   const audioCtxRef = useRef<AudioContext | null>(null);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -48,22 +50,45 @@ export function useGameBgm(notes: number[], intervalMs = 250, volume = 0.04) {
     noteIndexRef.current++;
   }, [notes, volume]);
 
-  const startBgm = useCallback(() => {
-    initAudioContext();
-    playingRef.current = true;
-    if (intervalRef.current) clearInterval(intervalRef.current);
-    intervalRef.current = setInterval(playNote, intervalMs);
-  }, [initAudioContext, intervalMs, playNote]);
-
   const stopBgm = useCallback(() => {
     playingRef.current = false;
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
       intervalRef.current = null;
     }
+    if (activeBgmStop === stopBgm) {
+      activeBgmStop = null;
+    }
   }, []);
 
-  useEffect(() => stopBgm, [stopBgm]);
+  const startBgm = useCallback(() => {
+    if (activeBgmStop) {
+      activeBgmStop();
+    }
+    initAudioContext();
+    playingRef.current = true;
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(playNote, intervalMs);
+    activeBgmStop = stopBgm;
+  }, [initAudioContext, intervalMs, playNote, stopBgm]);
+
+  useEffect(() => {
+    const stopWhenLeaving = () => stopBgm();
+    const stopWhenHidden = () => {
+      if (document.visibilityState === "hidden") {
+        stopBgm();
+      }
+    };
+
+    window.addEventListener("pagehide", stopWhenLeaving);
+    document.addEventListener("visibilitychange", stopWhenHidden);
+
+    return () => {
+      window.removeEventListener("pagehide", stopWhenLeaving);
+      document.removeEventListener("visibilitychange", stopWhenHidden);
+      stopBgm();
+    };
+  }, [stopBgm]);
 
   return { initAudioContext, startBgm, stopBgm };
 }

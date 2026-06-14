@@ -2,9 +2,14 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from 'react';
-import { CheckCircle, Clock, Home, Play, Star, Volume2, XCircle } from 'lucide-react';
+import { CheckCircle, Clock, Home, Play, Volume2, XCircle } from 'lucide-react';
 import { useGameBgm } from './useGameBgm';
 import { colorfulBalloonsGame } from './data/colorfulBalloons.data';
+import GameResultPanel from './GameResultPanel';
+import { GAME_SETTINGS, isChallengeSuccessful } from './core/gameSettings';
+import { markEpisodeGameCompleted } from './core/gameProgress';
+import { summarizeSceneKnowledge, toSingleQuestionScenes } from './core/questionQueue';
+import type { GameScene } from './core/types';
 
 const BALLOON_COLORS = [
   'bg-red-400 border-red-500',
@@ -14,8 +19,6 @@ const BALLOON_COLORS = [
   'bg-purple-400 border-purple-500',
   'bg-pink-400 border-pink-500',
 ];
-
-const ROUND_SECONDS = 30;
 
 class AudioEngine {
   constructor() {
@@ -67,13 +70,25 @@ class AudioEngine {
   }
 }
 
-export default function App() {
+type ColorfulBalloonsGameProps = {
+  scenes?: GameScene[];
+  episodeId?: string;
+  gamesHref?: string;
+  reviewHref?: string;
+};
+
+export default function App({
+  scenes,
+  episodeId,
+  gamesHref = '/games',
+  reviewHref,
+}: ColorfulBalloonsGameProps) {
   const [gameState, setGameState] = useState('start');
   const [selectedScenes, setSelectedScenes] = useState([]);
   const [sceneIndex, setSceneIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [bombCount, setBombCount] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(ROUND_SECONDS);
+  const [timeLeft, setTimeLeft] = useState(GAME_SETTINGS.colorfulBalloons.secondsPerQuestion);
   const [balloons, setBalloons] = useState([]);
   const [isSpeaking, setIsSpeaking] = useState(false);
 
@@ -81,8 +96,12 @@ export default function App() {
   const gameTimer = useRef(null);
   const balloonSpawner = useRef(null);
   const readyTimer = useRef(null);
+  const speechFallbackTimer = useRef(null);
+  const speechTokenRef = useRef(0);
+  const gameRunRef = useRef(0);
   const balloonIdCounter = useRef(0);
   const currentScene = selectedScenes[sceneIndex];
+  const sourceScenes = scenes ?? colorfulBalloonsGame.scenes;
   const { startBgm, stopBgm } = useGameBgm(colorfulBalloonsGame.bgmNotes, 280, 0.035);
 
   const initAudio = () => {
@@ -92,6 +111,8 @@ export default function App() {
   };
 
   const stopAudio = () => {
+    speechTokenRef.current += 1;
+    clearTimeout(speechFallbackTimer.current);
     if ('speechSynthesis' in window) {
       window.speechSynthesis.cancel();
     }
@@ -110,6 +131,9 @@ export default function App() {
     }
 
     const synth = window.speechSynthesis;
+    const speechToken = speechTokenRef.current + 1;
+    speechTokenRef.current = speechToken;
+    clearTimeout(speechFallbackTimer.current);
     synth.cancel();
     setIsSpeaking(true);
 
@@ -118,53 +142,63 @@ export default function App() {
     utterance.rate = 1.1;
     utterance.pitch = 1.2;
 
-    const fallbackId = window.setTimeout(() => {
-      synth.cancel();
-      setIsSpeaking(false);
-      if (callback) callback();
-    }, Math.max(2500, text.length * 180));
-
+    let finished = false;
     const finish = () => {
-      clearTimeout(fallbackId);
+      if (speechTokenRef.current !== speechToken || finished) return;
+      finished = true;
+      clearTimeout(speechFallbackTimer.current);
       setIsSpeaking(false);
       if (callback) callback();
     };
+
+    speechFallbackTimer.current = window.setTimeout(() => {
+      if (speechTokenRef.current !== speechToken || finished) return;
+      synth.cancel();
+      finish();
+    }, Math.max(2500, text.length * 180));
 
     utterance.onend = finish;
     utterance.onerror = finish;
     synth.speak(utterance);
   };
 
-  const startScene = (scene, index) => {
+  const startScene = (scene, index, runId = gameRunRef.current) => {
     if (!scene) return;
 
+    stopBgm();
     clearTimeout(readyTimer.current);
     setSceneIndex(index);
     setGameState('reading');
     setBalloons([]);
-    setTimeLeft(ROUND_SECONDS);
+    setTimeLeft(GAME_SETTINGS.colorfulBalloons.secondsPerQuestion);
 
-    const audioText = `${scene.audioText ?? scene.title} 注意囉！這裡有好幾個正確答案，請把對的氣球戳破！`;
-    speakText(audioText, () => {
+    const promptText = `${scene.prompt ?? scene.title}`;
+    speakText(promptText, () => {
+      if (gameRunRef.current !== runId) return;
       setGameState('ready');
       readyTimer.current = window.setTimeout(() => {
+        if (gameRunRef.current !== runId) return;
+        startBgm();
         setGameState('playing');
       }, 1200);
     });
   };
 
   const startGame = () => {
+    const runId = gameRunRef.current + 1;
+    gameRunRef.current = runId;
     initAudio();
-    startBgm();
-    const nextScenes = colorfulBalloonsGame.pickScenes(2);
+    stopBgm();
+    const nextScenes = toSingleQuestionScenes(sourceScenes);
     setSelectedScenes(nextScenes);
     setScore(0);
     setBombCount(0);
     setSceneIndex(0);
-    startScene(nextScenes[0], 0);
+    startScene(nextScenes[0], 0, runId);
   };
 
   const goHome = () => {
+    gameRunRef.current += 1;
     stopAudio();
     stopBgm();
     clearInterval(gameTimer.current);
@@ -176,9 +210,13 @@ export default function App() {
     setBalloons([]);
   };
 
+  const playAgain = () => {
+    goHome();
+    window.setTimeout(startGame, 0);
+  };
+
   const advanceOrFinish = () => {
     if (sceneIndex < selectedScenes.length - 1) {
-      startBgm();
       startScene(selectedScenes[sceneIndex + 1], sceneIndex + 1);
     } else {
       setGameState('gameover');
@@ -212,7 +250,10 @@ export default function App() {
     };
 
     spawnBalloon();
-    balloonSpawner.current = window.setInterval(spawnBalloon, 1000);
+    balloonSpawner.current = window.setInterval(
+      spawnBalloon,
+      GAME_SETTINGS.colorfulBalloons.spawnIntervalMs,
+    );
     return () => clearInterval(balloonSpawner.current);
   }, [gameState, currentScene]);
 
@@ -273,6 +314,7 @@ export default function App() {
     return () => {
       stopAudio();
       stopBgm();
+      clearTimeout(speechFallbackTimer.current);
       clearInterval(gameTimer.current);
       clearInterval(balloonSpawner.current);
       clearTimeout(readyTimer.current);
@@ -305,9 +347,9 @@ export default function App() {
                 <span className="text-7xl">🎈</span>
               </div>
               <h1 className="text-3xl font-extrabold text-[#8c5230] drop-shadow-sm mb-3 tracking-wide">
-                七彩氣球戳戳樂
+                七彩氣球
               </h1>
-              <p className="text-[#a36b4a] font-bold text-lg bg-white/50 px-4 py-2 rounded-full inline-block">
+              <p className="text-[#a36b4a] font-bold text-lg px-4 py-2 rounded-full inline-block">
                 聽題目，把正確答案戳破！
               </p>
             </div>
@@ -329,13 +371,13 @@ export default function App() {
               </button>
 
               <h2 className="text-sm font-black mb-2 opacity-90 drop-shadow-md tracking-wider">
-                第 {sceneIndex + 1} / {selectedScenes.length} 關
+                第 {sceneIndex + 1} / {selectedScenes.length} 題
               </h2>
 
               <div className="bg-[#a8572b]/60 w-full p-3 rounded-2xl border border-white/20 shadow-inner flex items-start gap-2">
                 <Volume2 className={`w-6 h-6 text-yellow-300 shrink-0 mt-0.5 ${isSpeaking ? 'animate-pulse' : ''}`} />
                 <p className="text-white text-[16px] font-bold leading-snug">
-                  {currentScene.audioText}
+                  {currentScene.prompt}
                 </p>
               </div>
             </div>
@@ -426,7 +468,7 @@ export default function App() {
                       <div className={`absolute -bottom-2.5 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-b-[10px] ${balloon.color.replace('bg-', 'border-b-').replace('border-', '').split(' ')[0]} opacity-90`}></div>
                     </div>
                     <div className="w-[2px] h-10 bg-white/70"></div>
-                    <div className="bg-white px-3 py-1.5 rounded-xl shadow-md text-[17px] font-extrabold text-[#6b4731] w-28 text-center border-2 border-gray-200 mt-1">
+                    <div className="bg-white px-3 py-1.5 rounded-xl shadow-md text-sm font-extrabold text-[#6b4731] w-28 text-center border-2 border-gray-200 mt-1">
                       {balloon.label}
                     </div>
                   </div>
@@ -455,31 +497,18 @@ export default function App() {
             </div>
 
             {gameState === 'gameover' && (
-              <div className="absolute inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-6 animate-in fade-in duration-300">
-                <div className="bg-white w-full rounded-[30px] p-6 text-center shadow-2xl animate-[bounce-in_0.5s_ease-out]">
-                  <div className="w-20 h-20 bg-yellow-100 text-yellow-500 rounded-full flex items-center justify-center mx-auto -mt-12 mb-4 border-4 border-white shadow-lg">
-                    <Star size={40} fill="currentColor" />
-                  </div>
-
-                  <h3 className="text-2xl font-black text-[#8c5230] mb-2">闖關完成！</h3>
-                  <div className="w-16 h-1 bg-orange-200 mx-auto mb-6 rounded-full"></div>
-
-                  <div className="bg-blue-50 rounded-2xl p-4 mb-6 border border-blue-100 flex flex-col gap-3">
-                    <div className="flex justify-between items-center text-lg font-bold text-blue-800">
-                      <span>答對氣球</span>
-                      <span className="text-2xl">{score} 個</span>
-                    </div>
-                    <div className="flex justify-between items-center text-lg font-bold text-red-600">
-                      <span>錯誤氣球</span>
-                      <span className="text-2xl">{bombCount} 個</span>
-                    </div>
-                  </div>
-
-                  <button onClick={goHome} className="flex-1 w-full py-3 bg-[#d17a49] text-white rounded-xl font-bold flex items-center justify-center gap-2 shadow-[0_4px_0_#a8572b] active:translate-y-1 active:shadow-none transition-all">
-                    完成遊戲
-                  </button>
-                </div>
-              </div>
+              <GameResultPanel
+                isWin={isChallengeSuccessful(score, bombCount)}
+                correctCount={score}
+                wrongCount={bombCount}
+                correctLabel="戳破正確選項"
+                wrongLabel="戳到錯誤選項"
+                knowledge={summarizeSceneKnowledge(selectedScenes)}
+                gamesHref={gamesHref}
+                reviewHref={reviewHref ?? (episodeId ? `/guide/${episodeId}` : undefined)}
+                onWin={episodeId ? () => markEpisodeGameCompleted(episodeId) : undefined}
+                onPlayAgain={playAgain}
+              />
             )}
           </>
         )}

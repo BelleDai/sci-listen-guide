@@ -4,8 +4,8 @@ import GamePageShell from "@/components/games/GamePageShell";
 import TreasureHunterGame from "@/components/games/TreasureHunterGame";
 
 export const metadata: Metadata = {
-  title: "寶藏獵人小遊戲｜科學好好聽",
-  description: "在科學好好聽的小遊戲中挑戰寶藏獵人關卡。",
+  title: "尋寶獵人｜科學好好聽",
+  description: "在科學好好聽的小遊戲中挑戰尋寶獵人關卡。",
 };
 
 export default function TreasureHunterPage() {
