@@ -34,27 +34,51 @@ const GROUP_DECOY_LAYOUTS = [
 ];
 
 function buildTreasureQuestionGroups(sourceScenes: GameScene[]): GameScene[] {
-  const questionScenes = toSingleQuestionScenes(sourceScenes);
-  if (questionScenes.length === 0) {
+  const allQuestionScenes = toSingleQuestionScenes(sourceScenes);
+  if (allQuestionScenes.length === 0) {
     return [];
   }
+
+  // 1. 過濾掉具有相同正確答案 (label) 的題目，避免畫面上出現兩個一樣的選項
+  // 並且最多只取 GROUP_ITEM_LAYOUTS.length 題，避免位置重疊
+  const questionScenes = [];
+  const usedLabels = new Set();
+
+  for (const scene of allQuestionScenes) {
+    if (questionScenes.length >= GROUP_ITEM_LAYOUTS.length) break;
+
+    const itemLabel = scene.items[0]?.label;
+    if (itemLabel && !usedLabels.has(itemLabel)) {
+      usedLabels.add(itemLabel);
+      questionScenes.push(scene);
+    }
+  }
+
+  if (questionScenes.length === 0) return [];
 
   const firstScene = questionScenes[0];
   const items = questionScenes.map((scene, index) => ({
     ...scene.items[0],
     id: `${scene.items[0].id}-${index}`,
-    ...GROUP_ITEM_LAYOUTS[index % GROUP_ITEM_LAYOUTS.length],
+    ...GROUP_ITEM_LAYOUTS[index],
   }));
-  const decoys = questionScenes.slice(0, GROUP_DECOY_LAYOUTS.length).flatMap((scene, index) => {
-    const decoy = scene.decoys[0];
-    if (!decoy) return [];
 
-    return [{
-      ...decoy,
-      id: `${decoy.id}-group-decoy-${index}`,
-      ...GROUP_DECOY_LAYOUTS[index % GROUP_DECOY_LAYOUTS.length],
-    }];
-  });
+  // 2. 挑選干擾物 (Decoy)，確保不跟正確解答或其他干擾物重複
+  const decoys = [];
+  for (const scene of allQuestionScenes) {
+    for (const decoy of scene.decoys) {
+      if (decoys.length >= GROUP_DECOY_LAYOUTS.length) break;
+      if (decoy.label && !usedLabels.has(decoy.label)) {
+        usedLabels.add(decoy.label);
+        decoys.push({
+          ...decoy,
+          id: `${decoy.id}-group-decoy-${decoys.length}`,
+          ...GROUP_DECOY_LAYOUTS[decoys.length],
+        });
+      }
+    }
+    if (decoys.length >= GROUP_DECOY_LAYOUTS.length) break;
+  }
 
   return [{
     ...firstScene,
@@ -88,7 +112,6 @@ export default function App({
   const [selectedScenes, setSelectedScenes] = useState([]);
   const [sceneIndex, setSceneIndex] = useState(0);
   const [foundItems, setFoundItems] = useState([]);
-  const [showKnowledge, setShowKnowledge] = useState(false);
   
   // 狀態控制
   const [clickedItemId, setClickedItemId] = useState(null);
@@ -100,7 +123,7 @@ export default function App({
   const [totalWrong, setTotalWrong] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [failedExplanation, setFailedExplanation] = useState(null);
-  
+
   const sourceScenes = scenes ?? treasureHunterGame.scenes;
   const activeScenes = selectedScenes.length > 0 ? selectedScenes : sourceScenes;
   const currentScene = activeScenes.find(s => s.id === currentSceneId);
@@ -195,7 +218,7 @@ export default function App({
   // 處理點擊物品
   const handleItemClick = (item) => {
     if (foundItems.includes(item.id)) return;
-    
+
     // 獲取目前「應該」要尋找的目標物品
     const expectedItem = currentScene.items[foundItems.length];
 
@@ -208,7 +231,7 @@ export default function App({
     // ------- 答對了！-------
     setClickedItemId(item.id);
     setTotalCorrect(prev => prev + 1);
-    
+
     const isLastItem = foundItems.length + 1 === currentScene.items.length;
     const nextItemIndex = foundItems.length + 1;
 
@@ -218,49 +241,47 @@ export default function App({
       if (!isLastItem) {
         playTTS(currentScene.items[nextItemIndex].question, null, false);
       } else {
-        setShowKnowledge(true);
-        playTTS(episodeKnowledge ?? currentScene.knowledge);
+        advanceScene();
       }
     });
-    
+
     setTimeout(() => {
       const newFoundItems = [...foundItems, item.id];
       setFoundItems(newFoundItems);
       setMistakeCount(0);
     }, 400);
-    
+
     setTimeout(() => setClickedItemId(null), 1000);
   };
 
   // 處理點擊干擾物(誘餌) 或 點錯順序
   const handleDecoyClick = (decoy) => {
     if (currentScene && foundItems.length === currentScene.items.length) return;
-    if (mistakeCount >= 3) return;
     setWrongItemId(decoy.id);
     const newMistakeCount = mistakeCount + 1;
+    const newTotalWrong = totalWrong + 1;
     setMistakeCount(newMistakeCount);
-    setTotalWrong(prev => prev + 1);
+    setTotalWrong(newTotalWrong);
     setTimeout(() => setWrongItemId(null), 600);
 
     const expectedItem = currentScene.items[foundItems.length];
 
-    if (newMistakeCount === 1) {
-      playTTS("哎呀！這不是喔！");
-    } else if (newMistakeCount === 2) {
-      playTTS("哎呀！這不是喔！小提示：試著尋找黃色光圈附近的地方喔！");
-    } else {
+    if (newTotalWrong > totalCorrect) {
       playTTS("哎呀！這不是喔！尋寶失敗！", () => {
         stopBgm();
-        setFailedExplanation(expectedItem.audioText ?? expectedItem.explanation ?? expectedItem.question);
+        setFailedExplanation(expectedItem?.audioText ?? expectedItem?.explanation ?? expectedItem?.question ?? "挑戰失敗！");
         setShowResult(true);
       });
+    } else if (newMistakeCount === 1) {
+      playTTS("哎呀！這不是喔！");
+    } else {
+      playTTS("哎呀！這不是喔！小提示：試著尋找黃色光圈附近的地方喔！");
     }
   };
 
   const resetLevel = () => {
     stopAudio();
     setFoundItems([]);
-    setShowKnowledge(false);
     setMistakeCount(0);
     setFailedExplanation(null);
   };
@@ -282,17 +303,9 @@ export default function App({
   };
 
   const advanceScene = () => {
-    if (sceneIndex < selectedScenes.length - 1) {
-      const nextSceneIndex = sceneIndex + 1;
-      resetLevel();
-      setSceneIndex(nextSceneIndex);
-      setCurrentSceneId(selectedScenes[nextSceneIndex].id);
-    } else {
-      stopBgm();
-      stopAudio();
-      setShowKnowledge(false);
-      setShowResult(true);
-    }
+    stopBgm();
+    stopAudio();
+    setShowResult(true);
   };
 
   useEffect(() => {
@@ -325,13 +338,14 @@ export default function App({
   }, []);
 
   // 取得目前問題
-  const currentTargetItem = currentScene && foundItems.length < currentScene.items.length 
-    ? currentScene.items[foundItems.length] 
+  const currentTargetItem = currentScene && foundItems.length < currentScene.items.length
+    ? currentScene.items[foundItems.length]
     : null;
 
   return (
     <div className="w-full flex flex-1 items-stretch justify-center font-sans touch-manipulation">
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @keyframes shake-wrong {
           0%, 100% { transform: rotate(0deg); }
           25% { transform: rotate(-15deg); }
@@ -341,70 +355,72 @@ export default function App({
         .animate-shake-wrong { animation: shake-wrong 0.4s ease-in-out; }
       `}} />
 
-      <div className="w-full max-w-2xl h-full bg-white rounded-[40px] shadow-2xl overflow-hidden relative border-8 border-neutral-800 flex flex-col">
-        
+      <div className="w-full max-w-2xl h-full bg-white rounded-none sm:rounded-[40px] shadow-2xl overflow-hidden relative border-0 sm:border-8 border-neutral-800 flex flex-col">
+
         {!currentScene ? (
           // ================= [ 主選單畫面 ] =================
-          <div className="flex-1 bg-[#fff8eb] flex flex-col items-center justify-center p-6 relative">
-            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_#000_1px,_transparent_1px)] bg-[size:20px_20px]"></div>
-            
-            <div className="z-10 text-center mb-6">
-              <div className="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg border-4 border-white shadow-blue-500/50 relative">
-                <span className="text-6xl">💎</span>
-                <Sparkles className="absolute -top-2 -right-2 text-blue-400 w-8 h-8" />
-              </div>
-              <h1 className="text-3xl font-extrabold text-[#8c5230] drop-shadow-sm mb-1 tracking-wide">
-                尋寶獵人
-              </h1>
-              {gameTitle && (
-                <p className="text-[#a36b4a]/90 font-bold text-base px-4 py-2 rounded-full inline-block">
-                  {gameTitle}
-                </p>
-              )}
-            </div>
+          <div className="flex-1 bg-[#fff8eb] overflow-y-auto relative">
+            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_#000_1px,_transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>
 
-            {/* 遊戲機制說明 */}
-            <div className="z-10 w-full max-w-xs bg-white/80 rounded-2xl border border-orange-200 p-4 mb-6 text-left space-y-2">
-              <p className="font-black text-[#8c5230] mb-2">遊戲規則</p>
-              <div className="flex items-start gap-2 text-[#6b4731]">
-                <span>👂</span>
-                <span>打開聲音，邊找邊學！</span>
+            <div className="min-h-full flex flex-col items-center justify-center p-4 py-8">
+              <div className="z-10 text-center mb-4 sm:mb-6">
+                <div className="w-20 h-20 sm:w-24 sm:h-24 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg border-4 border-white shadow-blue-500/50 relative">
+                  <span className="text-6xl">💎</span>
+                  <Sparkles className="absolute -top-2 -right-2 text-blue-400 w-8 h-8" />
+                </div>
+                <h1 className="text-3xl font-extrabold text-[#8c5230] drop-shadow-sm mb-1 tracking-wide">
+                  尋寶獵人
+                </h1>
+                {gameTitle && (
+                  <p className="text-[#a36b4a]/90 font-bold text-base px-4 py-2 rounded-full inline-block">
+                    {gameTitle}
+                  </p>
+                )}
               </div>
-              <div className="flex items-start gap-2 text-[#6b4731]">
-                <span>👌</span>
-                <span>聽題目提示，按順序點擊場景中的尋寶物品</span>
-              </div>
-              <div className="flex items-start gap-2 text-[#6b4731]">
+
+              {/* 遊戲機制說明 */}
+              <div className="z-10 w-full max-w-xs bg-white/80 rounded-2xl border border-orange-200 p-4 mb-6 text-left space-y-1.5 sm:space-y-2 text-sm sm:text-base">
+                <p className="font-black text-[#8c5230] mb-1.5 sm:mb-2">遊戲規則</p>
+                <div className="flex items-start gap-2 text-[#6b4731]">
+                  <span>👂</span>
+                  <span>打開聲音，邊找邊學！</span>
+                </div>
+                <div className="flex items-start gap-2 text-[#6b4731]">
+                  <span>👌</span>
+                  <span>聽題目提示，按順序點擊場景中的尋寶物品</span>
+                </div>
+                <div className="flex items-start gap-2 text-[#6b4731]">
                 <span>💡</span>
-                <span>答錯會加強提示，選錯 3 次會直接失敗喔！</span>
+                <span>尋寶要仔細！如果「失誤次數」大於「尋獲次數」，就會直接挑戰失敗喔！</span>
               </div>
             </div>
 
-            <div className="w-full z-10 px-1">
-              <button
-                onClick={startGame}
-                className="mx-auto flex items-center justify-center gap-3 rounded-full bg-blue-500 px-10 py-4 text-2xl font-black text-white shadow-[0_6px_0_#1d4ed8] transition-all hover:bg-blue-600 active:translate-y-2 active:shadow-none"
-              >
-                <Play fill="currentColor" /> 開始遊戲
-              </button>
+              <div className="w-full z-10 px-1 mt-2 flex justify-center">
+                <button
+                  onClick={startGame}
+                  className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 sm:py-4 sm:px-10 rounded-full text-xl sm:text-2xl flex items-center gap-3 shadow-[0_6px_0_#1d4ed8] active:translate-y-2 active:shadow-none transition-all"
+                >
+                  <Play fill="currentColor" /> 開始遊戲
+                </button>
+              </div>
             </div>
           </div>
         ) : (
           // ================= [ 遊戲場景畫面 ] =================
           <div className="flex-1 flex flex-col relative overflow-hidden bg-black">
-            
+
             {/* 頂部任務與問題欄 */}
-            <div className="bg-[#d17a49] text-white pt-10 pb-4 px-2 rounded-b-[30px] border-b-[6px] border-[#a8572b] shadow-[0_10px_20px_rgba(0,0,0,0.2)] relative z-30">
+            <div className="bg-[#d17a49] text-white pt-6 sm:pt-10 pb-3 sm:pb-4 px-2 sm:rounded-b-[30px] rounded-b-[20px] border-b-[4px] sm:border-b-[6px] border-[#a8572b] shadow-[0_10px_20px_rgba(0,0,0,0.2)] relative z-30">
               <button onClick={goHome} className="hidden">
                 <ArrowLeft size={18} />
               </button>
-              
-              <h2 className="text-center text-sm font-black mb-2 drop-shadow-md opacity-80 md:hidden">
+
+              {/* <h2 className="text-center text-sm font-black mb-2 drop-shadow-md opacity-80 md:hidden">
                 {currentScene.title}
-              </h2>
-              
+              </h2> */}
+
               {/* 目前要尋找的問題提示框 (加入點擊可重新聽題目) */}
-              <div 
+              <div
                 onClick={() => currentTargetItem && playTTS(currentTargetItem.question, null, false)}
                 className="bg-[#a8572b]/60 mx-3 mb-4 p-3 rounded-2xl border border-white/20 shadow-inner flex items-start gap-2 cursor-pointer active:scale-95 transition-transform"
                 title="點擊重新聽題目"
@@ -414,7 +430,7 @@ export default function App({
                   {currentTargetItem ? currentTargetItem.question : '任務完成！恭喜你找出所有物品。'}
                 </p>
               </div>
-              
+
               {/* 尋寶進度條 (小圖標) */}
               <div className="flex justify-center gap-2">
                 {currentScene.items.map((item, idx) => {
@@ -422,24 +438,24 @@ export default function App({
                   const isCurrentTarget = foundItems.length === idx;
                   const showHint =
                     isCurrentTarget && mistakeCount >= GAME_SETTINGS.treasureHunter.maxMistakesBeforeHint;
-                  
+
                   let displayIcon = '❓';
                   if (isFound) displayIcon = item.icon;
                   else if (showHint) displayIcon = item.icon;
 
                   return (
-                    <div 
-                      key={`header-${item.id}`} 
-                      className={`relative w-12 h-12 rounded-full bg-white flex items-center justify-center text-2xl transition-all duration-500 shadow-inner
-                        ${isFound ? 'border-[3px] border-green-500 shadow-[0_0_15px_rgba(34,197,94,0.6)] scale-90' : 
+                    <div
+                      key={`header-${item.id}`}
+                      className={`relative w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white flex items-center justify-center text-xl sm:text-2xl transition-all duration-500 shadow-inner
+                        ${isFound ? 'border-[3px] border-green-500 shadow-[0_0_15px_rgba(34,197,94,0.6)] scale-90' :
                           isCurrentTarget ? 'border-[4px] border-yellow-400 scale-110 shadow-[0_0_16px_rgba(250,204,21,0.45)]' : 'border-[3px] border-[#e6a583] opacity-40 grayscale'}
                       `}
                     >
-                      <span className={displayIcon === '❓' ? 'text-gray-400 opacity-60 font-black text-xl' : ''}>
+                      <span className={displayIcon === '❓' ? 'text-gray-400 opacity-60 font-black text-lg sm:text-xl' : ''}>
                         {displayIcon}
                       </span>
                       {isFound && (
-                        <div className="absolute -bottom-1 -right-1 bg-green-500 rounded-full text-white">
+                        <div className="absolute -bottom-1 -right-1 bg-green-500 rounded-full text-white scale-75 sm:scale-100">
                           <CheckCircle size={14} />
                         </div>
                       )}
@@ -495,7 +511,7 @@ export default function App({
                 const isCurrentTarget = currentScene.items[foundItems.length]?.id === item.id;
                 // 第 2 次錯誤時，目標物品顯示淡小光圈
                 const showGlowHint = isCurrentTarget && mistakeCount >= 2 && mistakeCount < GAME_SETTINGS.treasureHunter.maxMistakesBeforeHint;
-                
+
                 return (
                   <div
                     key={`scene-${item.id}`}
@@ -532,7 +548,7 @@ export default function App({
                       `}>
                         {item.label}
                       </span>
-                      
+
                       {isWrongNow && (
                         <XCircle className="absolute top-0 right-0 w-8 h-8 text-red-500 bg-white rounded-full scale-125 -translate-y-1/2 translate-x-1/2" />
                       )}
@@ -555,45 +571,6 @@ export default function App({
               </div>
             </div>
 
-            {/* 過關科普知識彈窗 */}
-            {showKnowledge && (
-              <div className="absolute inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-6 animate-in fade-in duration-300">
-                <div className="bg-white w-full max-w-sm rounded-[30px] p-6 text-center shadow-2xl transform scale-100 animate-[bounce-in_0.5s_ease-out]">
-                  
-                  <div className="w-20 h-20 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto -mt-12 mb-4 border-4 border-white shadow-lg">
-                    <CheckCircle size={40} />
-                  </div>
-                  
-                  <h3 className="text-2xl font-black text-[#8c5230] mb-2">太棒了！全找到啦！</h3>
-                  <div className="w-16 h-1 bg-orange-200 mx-auto mb-4 rounded-full"></div>
-                  
-                  <div className="bg-orange-50 rounded-2xl p-4 mb-6 border border-orange-100 relative text-left">
-                     <span className="absolute -top-3 left-4 bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1">
-                      <Map size={12} /> 科普總結
-                     </span>
-                    <p className="text-gray-700 font-medium leading-relaxed mt-2 text-[15px]">
-                      {episodeKnowledge ?? currentScene.knowledge}
-                    </p>
-                  </div>
-                  
-                  <div className="flex gap-3">
-                    <button 
-                      onClick={goHome}
-                      className="hidden"
-                    >
-                      <Home size={18} /> 回首頁
-                    </button>
-                    <button 
-                      onClick={advanceScene}
-                      className="flex-1 py-3 bg-[#d17a49] text-white rounded-xl font-bold flex items-center justify-center gap-2 shadow-[0_4px_0_#a8572b] active:translate-y-1 active:shadow-none transition-all"
-                    >
-                      {sceneIndex < selectedScenes.length - 1 ? '下一題' : '完成遊戲'}
-                    </button>
-                  </div>
-                </div>
-              </div>
-            )}
-
             {showResult && (
               <GameResultPanel
                 correctCount={totalCorrect}
@@ -608,7 +585,7 @@ export default function App({
                 stars={failedExplanation ? 0 : 3}
               />
             )}
-            
+
           </div>
         )}
       </div>

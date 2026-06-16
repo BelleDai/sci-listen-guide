@@ -468,15 +468,16 @@ export default function App({
         .animate-fever-bg { animation: feverPulse 1s ease-in-out infinite; }
       `}} />
 
-      <div className="w-full max-w-2xl h-full sm:rounded-[40px] bg-white shadow-2xl overflow-hidden relative border-[6px] border-neutral-800 flex flex-col">
+      <div className="w-full max-w-2xl h-full sm:rounded-[40px] bg-white shadow-2xl overflow-hidden relative sm:border-[6px] border-neutral-800 flex flex-col">
         {gameState === 'start' && (
-          <div className="flex-1 bg-[#fff8eb] flex flex-col items-center justify-center p-6 relative">
-            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_#000_1px,_transparent_1px)] bg-[size:20px_20px]"></div>
+          <div className="flex-1 bg-[#fff8eb] overflow-y-auto relative">
+            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_#000_1px,_transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>
 
-            <div className="z-10 text-center mb-8">
-              <div className="w-28 h-28 bg-[#d17a49] rounded-full flex items-center justify-center mx-auto mb-6 shadow-[0_8px_0_#a8572b] border-4 border-white relative animate-bounce">
-                <span className="text-7xl">🎈</span>
-              </div>
+            <div className="min-h-full flex flex-col items-center justify-center p-4 py-8">
+              <div className="z-10 text-center mb-4 sm:mb-8">
+                <div className="w-24 h-24 sm:w-28 sm:h-28 bg-[#d17a49] rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-[0_8px_0_#a8572b] border-4 border-white relative animate-bounce">
+                  <span className="text-6xl sm:text-7xl">🎈</span>
+                </div>
               <h1 className="text-3xl font-extrabold text-[#8c5230] drop-shadow-sm mb-1 tracking-wide">
                 七彩氣球
               </h1>
@@ -489,42 +490,45 @@ export default function App({
             </div>
 
             {/* 遊戲機制說明 */}
-            <div className="z-10 w-full max-w-xs bg-white/80 rounded-2xl border border-orange-200 p-4 mb-6 text-left space-y-2">
-              <p className="font-black text-rose-500 mb-2">遊戲規則</p>
-              <div className="flex items-start gap-2 text-rose-900/80">
+            <div className="z-10 w-full max-w-xs bg-white/80 rounded-2xl border border-orange-200 p-4 mb-6 text-left space-y-1.5 sm:space-y-2 text-sm sm:text-base">
+              <p className="font-black text-[#8c5230] mb-1.5 sm:mb-2">遊戲規則</p>
+              <div className="flex items-start gap-2 text-[#6b4731]">
                 <span>🎈</span>
                 <span>聆聽語音提示，點擊畫面上正確的氣球。</span>
               </div>
-              <div className="flex items-start gap-2 text-rose-900/80">
+              <div className="flex items-start gap-2 text-[#6b4731]">
                 <span>💣</span>
                 <span>小心炸彈！點到炸彈會扣分並重置連擊！</span>
               </div>
-              <div className="flex items-start gap-2 text-rose-900/80">
+              <div className="flex items-start gap-2 text-[#6b4731]">
                 <span>🔥</span>
                 <span>連續點對氣球可以進入 Fever Time 分數加倍！</span>
               </div>
-              <div className="flex items-start gap-2 text-rose-900/80">
+              <div className="flex items-start gap-2 text-[#6b4731]">
                 <span>💡</span>
                 <span>同一題點錯 3 次會直接挑戰失敗喔！</span>
               </div>
-              <div className="flex items-start gap-2 text-rose-900/80">
+              <div className="flex items-start gap-2 text-[#6b4731]">
                 <span>⭐</span>
                 <span>100顆3星，50顆2星，10顆1星。</span>
               </div>
             </div>
 
-            <button
-              onClick={startGame}
-              className="z-10 bg-[#d17a49] hover:bg-[#c26b3a] text-white font-bold py-4 px-10 rounded-full text-2xl flex items-center gap-3 shadow-[0_6px_0_#a8572b] active:translate-y-2 active:shadow-none transition-all"
-            >
-              <Play fill="currentColor" /> 開始遊戲
-            </button>
+            <div className="w-full z-10 px-1 mt-2 flex justify-center">
+              <button
+                onClick={startGame}
+                className="bg-[#d17a49] hover:bg-[#c26b3a] text-white font-bold py-3 px-8 sm:py-4 sm:px-10 rounded-full text-xl sm:text-2xl flex items-center gap-3 shadow-[0_6px_0_#a8572b] active:translate-y-2 active:shadow-none transition-all"
+              >
+                <Play fill="currentColor" /> 開始遊戲
+              </button>
+            </div>
+            </div>
           </div>
         )}
 
         {gameState !== 'start' && currentScene && (
           <>
-            <div className={`text-white pt-6 pb-4 px-4 rounded-b-[30px] border-b-[6px] shadow-md relative z-30 flex flex-col items-center transition-all duration-500 ${isFever ? 'bg-yellow-500 border-yellow-700' : 'bg-[#d17a49] border-[#a8572b]'}`}>
+            <div className={`text-white pt-4 sm:pt-6 pb-3 sm:pb-4 px-3 sm:px-4 rounded-b-[20px] sm:rounded-b-[30px] border-b-[4px] sm:border-b-[6px] shadow-md relative z-30 flex flex-col items-center transition-all duration-500 ${isFever ? 'bg-yellow-500 border-yellow-700' : 'bg-[#d17a49] border-[#a8572b]'}`}>
               <button onClick={goHome} className="hidden">
                 <Home size={20} />
               </button>
@@ -674,7 +678,7 @@ export default function App({
                 if (correct >= 10) return 1;
                 return 0; // 0 stars means fail.
               };
-              
+
               const stars = calcBalloonStars(score);
 
               return (

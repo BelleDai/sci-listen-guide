@@ -41,7 +41,20 @@ export default function GamePageShell({ title, children }: GamePageShellProps) {
 
   return (
     <div className="min-h-svh bg-background [--game-header-height:65px]">
-      <header className="fixed inset-x-0 top-0 z-50 h-[var(--game-header-height)] w-full border-b border-border/60 bg-card/80 backdrop-blur-md">
+      {/* 浮動的返回按鈕 (僅在手機版全螢幕時顯示) */}
+      <div className="fixed top-3 left-3 z-[60] sm:hidden">
+        <Button
+          type="button"
+          variant="destructive"
+          size="icon"
+          className="h-10 w-10 rounded-full shadow-lg opacity-70 hover:opacity-100 active:scale-95 transition-all"
+          onClick={() => setConfirmOpen(true)}
+        >
+          <OctagonX className="h-5 w-5" />
+        </Button>
+      </div>
+
+      <header className="hidden sm:block fixed inset-x-0 top-0 z-50 h-[var(--game-header-height)] w-full border-b border-border/60 bg-card/80 backdrop-blur-md">
         <div className="mx-auto flex h-full max-w-4xl items-center justify-between gap-3 px-4">
           <button
             type="button"
@@ -77,8 +90,8 @@ export default function GamePageShell({ title, children }: GamePageShellProps) {
         </div>
       </header>
 
-      <main className="flex min-h-svh pt-[var(--game-header-height)] text-foreground">
-        <section className="mx-auto flex h-[calc(100svh-var(--game-header-height))] w-full max-w-2xl px-2 sm:px-4">
+      <main className="flex min-h-svh pt-0 sm:pt-[var(--game-header-height)] text-foreground">
+        <section className="mx-auto flex h-[100svh] sm:h-[calc(100svh-var(--game-header-height))] w-full max-w-2xl sm:px-4">
           {running ? children : null}
         </section>
       </main>

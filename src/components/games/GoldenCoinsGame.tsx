@@ -68,6 +68,8 @@ export default function App({
   const intermissionTimeoutRef = useRef(null);
   const questionStartTimeoutRef = useRef(null);
   const isDroppingRef = useRef(false);
+  const speechTokenRef = useRef(0);
+  const speechFallbackTimerRef = useRef(null);
   // 錯題回收：單題內炸彈次數
   const wrongCountPerScene = useRef(0);
   // 供 RAF loop 讀取最新的 selectedScenes / sceneIndex
@@ -94,13 +96,19 @@ export default function App({
 
   // ================= [ 語音功能 ] =================
   const stopAudio = useCallback(() => {
+    speechTokenRef.current += 1;
+    clearTimeout(speechFallbackTimerRef.current);
+    
     if (audioRef.current) {
       audioRef.current.onended = null;
       audioRef.current.pause();
       audioRef.current = null;
     }
     if ('speechSynthesis' in window) {
-      if (window.currentUtterance) window.currentUtterance.onend = null;
+      if (window.currentUtterance) {
+        window.currentUtterance.onend = null;
+        window.currentUtterance.onerror = null;
+      }
       window.speechSynthesis.cancel();
     }
     setIsSpeaking(false);
@@ -113,11 +121,19 @@ export default function App({
       if (onEndCallback) onEndCallback();
       return;
     }
+    
     setIsSpeaking(true);
     if (showSubtitle) setSubtitle(text);
     initAudioContext();
+    
+    const speechToken = speechTokenRef.current + 1;
+    speechTokenRef.current = speechToken;
+    let finished = false;
 
     const finish = () => {
+      if (speechTokenRef.current !== speechToken || finished) return;
+      finished = true;
+      clearTimeout(speechFallbackTimerRef.current);
       setIsSpeaking(false);
       setTimeout(() => setSubtitle(""), 1000);
       if (onEndCallback) onEndCallback();
@@ -130,9 +146,16 @@ export default function App({
       window.currentUtterance = utterance;
       utterance.onend = finish;
       utterance.onerror = finish;
+      
+      speechFallbackTimerRef.current = window.setTimeout(() => {
+        if (speechTokenRef.current !== speechToken || finished) return;
+        window.speechSynthesis.cancel();
+        finish();
+      }, Math.max(4000, text.length * 350));
+      
       window.speechSynthesis.speak(utterance);
     } else {
-      setTimeout(finish, 1800);
+      speechFallbackTimerRef.current = window.setTimeout(finish, 1800);
     }
   }, [initAudioContext, stopAudio]);
 
@@ -398,8 +421,8 @@ export default function App({
       showFloatingText(`+1 ${item.data.icon}`, pX, 'text-green-500');
       // 成功時唸出選項名稱
       speakInstant(item.data.label);
-      // 提早過關：接到 3 個正確物品立刻進下一題
-      if (newScore >= 3) {
+      // 提早過關：接到 5 個正確物品立刻進下一題
+      if (newScore >= 5) {
         handleTimeUp();
       }
     } else {
@@ -407,9 +430,9 @@ export default function App({
       setTotalBombCount(prev => prev + 1);
       showFloatingText(`💥 扣分`, pX, 'text-red-500 animate-shake-wrong');
       speakInstant("哎呀！");
-      // 錯題挑戰失敗：單題內接到炸彈 >= 3 次
+      // 錯題挑戰失敗：單題內接到炸彈 >= 5 次
       wrongCountPerScene.current += 1;
-      if (wrongCountPerScene.current >= 3) {
+      if (wrongCountPerScene.current >= 5) {
         cancelAnimationFrame(gameLoopRef.current);
         setIsDropping(false);
         setFailedExplanation(activeQuestionRef.current?.audioText ?? activeQuestionRef.current?.question);
@@ -483,12 +506,13 @@ export default function App({
   if (gameState === 'MENU') {
     return (
       <div className="w-full flex flex-1 items-stretch justify-center font-sans touch-manipulation">
-        <div className="w-full max-w-2xl h-full bg-white rounded-[40px] shadow-2xl overflow-hidden relative border-8 border-neutral-800 flex flex-col">
-          <div className="flex-1 bg-[#fff8eb] flex flex-col items-center justify-center p-6 relative">
-            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_#000_1px,_transparent_1px)] bg-[size:20px_20px]"></div>
+        <div className="w-full max-w-2xl h-full bg-white rounded-none sm:rounded-[40px] shadow-2xl overflow-hidden relative border-0 sm:border-8 border-neutral-800 flex flex-col">
+          <div className="flex-1 bg-[#fff8eb] overflow-y-auto relative">
+            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_#000_1px,_transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>
 
-            <div className="z-10 text-center mb-6">
-              <div className="w-24 h-24 bg-[#d17a49] rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg border-4 border-white shadow-orange-500/30 relative">
+            <div className="min-h-full flex flex-col items-center justify-center p-4 py-8">
+              <div className="z-10 text-center mb-4 sm:mb-6">
+                <div className="w-20 h-20 sm:w-24 sm:h-24 bg-[#d17a49] rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg border-4 border-white shadow-orange-500/30 relative">
                 <span className="text-5xl">🪙</span>
                 <Sparkles className="absolute -top-2 -right-2 text-yellow-400 w-8 h-8 animate-pulse" />
               </div>
@@ -503,19 +527,19 @@ export default function App({
             </div>
 
             {/* 遊戲機制說明 */}
-            <div className="z-10 w-full max-w-xs bg-white/80 rounded-2xl border border-orange-200 p-4 mb-6 text-left space-y-2">
-              <p className="font-black text-[#8c5230] mb-2">遊戲規則</p>
+            <div className="z-10 w-full max-w-xs bg-white/80 rounded-2xl border border-orange-200 p-4 mb-6 text-left space-y-1.5 sm:space-y-2 text-sm sm:text-base">
+              <p className="font-black text-[#8c5230] mb-1.5 sm:mb-2">遊戲規則</p>
               <div className="flex items-start gap-2 text-[#6b4731]">
                 <span>👂</span>
                 <span>先聽題目，再把正確答案接起來喔！</span>
               </div>
               <div className="flex items-start gap-2 text-[#6b4731]">
                 <span>✅</span>
-                <span>每題接滿 3 個正確答案就提早進入下一題！</span>
+                <span>每題接滿 5 個正確答案就提早進入下一題！</span>
               </div>
               <div className="flex items-start gap-2 text-[#6b4731]">
                 <span>💥</span>
-                <span>接錯 3 個就直接挑戰失敗！</span>
+                <span>同一題接錯 5 個就直接挑戰失敗！</span>
               </div>
               <div className="flex items-start gap-2 text-[#6b4731]">
                 <span>⭐</span>
@@ -523,13 +547,14 @@ export default function App({
               </div>
             </div>
 
-            <div className="w-full z-10 px-1">
+            <div className="w-full z-10 px-1 mt-2">
               <button
                 onClick={startNewGame}
-                className="mx-auto flex items-center justify-center gap-3 rounded-full bg-[#d17a49] px-10 py-4 text-2xl font-black text-white shadow-[0_6px_0_#a8572b] transition-all hover:bg-[#c26b3a] active:translate-y-2 active:shadow-none"
+                className="mx-auto flex items-center justify-center gap-3 rounded-full bg-[#d17a49] px-8 py-3 sm:px-10 sm:py-4 text-xl sm:text-2xl font-black text-white shadow-[0_6px_0_#a8572b] transition-all hover:bg-[#c26b3a] active:translate-y-2 active:shadow-none"
               >
                 <Play fill="currentColor" /> 開始遊戲
               </button>
+            </div>
             </div>
           </div>
         </div>
@@ -545,15 +570,15 @@ export default function App({
 
       let calculatedStars = 0;
       if (!failedExplanation) {
-        if (finalCorrect >= 24) calculatedStars = 3;
-        else if (finalCorrect >= 16) calculatedStars = 2;
-        else if (finalCorrect >= 8) calculatedStars = 1;
+        if (finalCorrect >= 25) calculatedStars = 3;
+        else if (finalCorrect >= 15) calculatedStars = 2;
+        else if (finalCorrect >= 10) calculatedStars = 1;
         else calculatedStars = 0;
       }
 
       return (
         <div className="w-full flex flex-1 items-stretch justify-center font-sans touch-manipulation">
-          <div className="w-full max-w-2xl h-full bg-white rounded-[40px] shadow-2xl overflow-hidden relative border-8 border-neutral-800 flex items-center justify-center">
+          <div className="w-full max-w-2xl h-full bg-white rounded-none sm:rounded-[40px] shadow-2xl overflow-hidden relative border-0 sm:border-8 border-neutral-800 flex items-center justify-center">
             <GameResultPanel
               correctCount={finalCorrect}
               wrongCount={finalWrong}
@@ -588,9 +613,9 @@ export default function App({
         .animate-shake-wrong { animation: shake-wrong 0.3s ease-in-out; }
       `}} />
 
-      <div className="w-full max-w-2xl h-full bg-white rounded-[40px] shadow-2xl overflow-hidden relative border-8 border-neutral-800 flex flex-col">
+      <div className="w-full max-w-2xl h-full bg-white rounded-none sm:rounded-[40px] shadow-2xl overflow-hidden relative border-0 sm:border-8 border-neutral-800 flex flex-col">
 
-        <div className="bg-[#d17a49] text-white pt-6 pb-4 px-2 rounded-b-[30px] border-b-[6px] border-[#a8572b] shadow-[0_10px_20px_rgba(0,0,0,0.15)] relative z-30">
+        <div className="bg-[#d17a49] text-white pt-4 sm:pt-6 pb-3 sm:pb-4 px-2 sm:rounded-b-[30px] rounded-b-[20px] border-b-[4px] sm:border-b-[6px] border-[#a8572b] shadow-[0_10px_20px_rgba(0,0,0,0.15)] relative z-30">
           <button onClick={goHome} className="hidden">
             <ArrowLeft size={18} />
           </button>
@@ -611,18 +636,18 @@ export default function App({
             </div>
           </div>
 
-          <div className="flex justify-center items-center gap-3 px-3">
-            <div className={`px-3 py-1.5 rounded-xl border text-sm font-bold flex flex-col items-center flex-1 transition-colors ${timeLeft <= 10 && isDropping ? 'bg-red-500 border-red-400 animate-pulse' : 'bg-white/20 border-white/30'}`}>
-              <span className="text-white/80 text-xs mb-0.5">時間</span>
-              <span className="text-xl tracking-wider">{String(timeLeft).padStart(2, '0')}</span>
+          <div className="flex gap-2 sm:gap-4 mt-2 sm:mt-4 mx-1 sm:mx-2">
+            <div className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg sm:rounded-xl border text-sm font-bold flex flex-col items-center flex-1 transition-colors ${timeLeft <= 10 && isDropping ? 'bg-red-500 border-red-400 animate-pulse' : 'bg-white/20 border-white/30'}`}>
+              <span className="text-white/80 text-[10px] sm:text-xs mb-0.5">時間</span>
+              <span className="text-base sm:text-xl tracking-wider">{String(timeLeft).padStart(2, '0')}</span>
             </div>
-            <div className="bg-white/20 px-3 py-1.5 rounded-xl border border-white/30 text-sm font-bold flex flex-col items-center flex-1">
-              <span className="text-orange-200 text-xs mb-0.5">收集</span>
-              <span className="text-xl tracking-wider text-green-300">{currentItemScore}</span>
+            <div className="bg-white/20 px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg sm:rounded-xl border border-white/30 text-sm font-bold flex flex-col items-center flex-1">
+              <span className="text-orange-200 text-[10px] sm:text-xs mb-0.5">收集</span>
+              <span className="text-base sm:text-xl tracking-wider text-green-300">{currentItemScore}</span>
             </div>
-            <div className="bg-red-500/40 px-3 py-1.5 rounded-xl border border-red-400/50 text-sm font-bold flex flex-col items-center flex-1">
-              <span className="text-red-200 text-xs mb-0.5">炸彈</span>
-              <span className="text-xl tracking-wider text-red-100">{bombCount}</span>
+            <div className="bg-red-500/40 px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg sm:rounded-xl border border-red-400/50 text-sm font-bold flex flex-col items-center flex-1">
+              <span className="text-red-200 text-[10px] sm:text-xs mb-0.5">炸彈</span>
+              <span className="text-base sm:text-xl tracking-wider text-red-100">{bombCount}</span>
             </div>
           </div>
         </div>
