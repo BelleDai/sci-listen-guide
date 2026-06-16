@@ -33,22 +33,27 @@ const toGameItem = (
 const toGameScene = (
   input: QuestionInput,
   options: SceneAdapterOptions = {},
-): GameScene => ({
-  id: input.id,
-  name: input.title,
-  title: input.title,
-  prompt: input.prompt,
-  description: input.description,
-  bgColor: options.bgColor,
-  knowledge: input.knowledge,
-  items: input.correctAnswers.map((answer, index) => (
-    toGameItem(answer, options.itemLayouts?.[index])
-  )),
-  decoys: input.wrongAnswers.map((answer, index) => (
-    toGameItem(answer, options.decoyLayouts?.[index])
-  )),
-  background: options.background,
-});
+): GameScene => {
+  const title = input.title || input.id;
+  const prompt = input.prompt || title;
+
+  return {
+    id: input.id,
+    name: title,
+    title,
+    prompt,
+    description: input.description || input.knowledge,
+    bgColor: options.bgColor,
+    knowledge: input.knowledge,
+    items: input.correctAnswers.map((answer, index) => (
+      toGameItem(answer, options.itemLayouts?.[index])
+    )),
+    decoys: input.wrongAnswers.map((answer, index) => (
+      toGameItem(answer, options.decoyLayouts?.[index])
+    )),
+    background: options.background,
+  };
+};
 
 /** 將標準問答題轉成金幣遊戲使用的關卡資料。 */
 export const toGoldenCoinsScene = (

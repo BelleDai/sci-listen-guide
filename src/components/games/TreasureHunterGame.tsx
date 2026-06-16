@@ -6,7 +6,7 @@ import { Home, Play, ArrowLeft, CheckCircle, Sparkles, Map, Volume2, XCircle } f
 import { useGameBgm } from './useGameBgm';
 import { treasureHunterGame } from './data/treasureHunter.data';
 import GameResultPanel from './GameResultPanel';
-import { GAME_SETTINGS, isChallengeSuccessful } from './core/gameSettings';
+import { GAME_SETTINGS } from './core/gameSettings';
 import { markEpisodeGameCompleted } from './core/gameProgress';
 import { toSingleQuestionScenes } from './core/questionQueue';
 import type { GameScene } from './core/types';
@@ -72,6 +72,8 @@ type TreasureHunterGameProps = {
   episodeId?: string;
   gamesHref?: string;
   reviewHref?: string;
+  gameTitle?: string;
+  episodeKnowledge?: string;
 };
 
 export default function App({
@@ -79,6 +81,8 @@ export default function App({
   episodeId,
   gamesHref = '/games',
   reviewHref,
+  gameTitle,
+  episodeKnowledge,
 }: TreasureHunterGameProps) {
   const [currentSceneId, setCurrentSceneId] = useState(null);
   const [selectedScenes, setSelectedScenes] = useState([]);
@@ -95,15 +99,20 @@ export default function App({
   const [totalCorrect, setTotalCorrect] = useState(0);
   const [totalWrong, setTotalWrong] = useState(0);
   const [showResult, setShowResult] = useState(false);
+  const [failedExplanation, setFailedExplanation] = useState(null);
   
   const sourceScenes = scenes ?? treasureHunterGame.scenes;
   const activeScenes = selectedScenes.length > 0 ? selectedScenes : sourceScenes;
   const currentScene = activeScenes.find(s => s.id === currentSceneId);
   const audioRef = useRef(null);
+  const speechFallbackTimer = useRef(null);
+  const speechTokenRef = useRef(0);
   const { startBgm, stopBgm } = useGameBgm(treasureHunterGame.bgmNotes, 300, 0.035);
 
   // 清除所有音訊與字幕
   const stopAudio = () => {
+    speechTokenRef.current += 1;
+    clearTimeout(speechFallbackTimer.current);
     if (audioRef.current) {
       audioRef.current.onended = null; // 確保不會觸發舊的 callback
       audioRef.current.pause();
@@ -120,28 +129,55 @@ export default function App({
   };
 
   // 播放 TTS 語音 (新增 onEndCallback 以支援連續播放)
-  const playTTS = (text, onEndCallback = null) => {
+  const playTTS = (text, onEndCallback = null, showSubtitle = true) => {
     stopAudio();
-    setIsSpeaking(true);
-    setSubtitle(text);
+    if (!text) {
+      if (onEndCallback) onEndCallback();
+      return;
+    }
 
+    setIsSpeaking(true);
+    if (showSubtitle) setSubtitle(text);
+
+    if (!('speechSynthesis' in window)) {
+      setTimeout(() => {
+        setIsSpeaking(false);
+        setTimeout(() => setSubtitle(""), 1000);
+        if (onEndCallback) onEndCallback();
+      }, 1800);
+      return;
+    }
+
+    const synth = window.speechSynthesis;
+    const speechToken = speechTokenRef.current + 1;
+    speechTokenRef.current = speechToken;
+    clearTimeout(speechFallbackTimer.current);
+    synth.cancel();
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'zh-TW';
+    utterance.rate = 1.15;
+
+    let finished = false;
     const finish = () => {
+      if (speechTokenRef.current !== speechToken || finished) return;
+      finished = true;
+      clearTimeout(speechFallbackTimer.current);
       setIsSpeaking(false);
       setTimeout(() => setSubtitle(""), 1000);
       if (onEndCallback) onEndCallback();
     };
 
-    if ('speechSynthesis' in window) {
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'zh-TW';
-      utterance.rate = 1.15;
-      window.currentUtterance = utterance;
-      utterance.onend = finish;
-      utterance.onerror = finish;
-      window.speechSynthesis.speak(utterance);
-    } else {
-      setTimeout(finish, 1800);
-    }
+    speechFallbackTimer.current = window.setTimeout(() => {
+      if (speechTokenRef.current !== speechToken || finished) return;
+      synth.cancel();
+      finish();
+    }, Math.max(4000, text.length * 350));
+
+    window.currentUtterance = utterance; // 避免 Chrome GC 導致語音中斷
+    utterance.onend = finish;
+    utterance.onerror = finish;
+    synth.speak(utterance);
   };
   // 進入新場景時，自動唸出第一題的題目
   useEffect(() => {
@@ -149,7 +185,7 @@ export default function App({
       const scene = activeScenes.find(s => s.id === currentSceneId);
       if (scene && scene.items.length > 0) {
         const timer = setTimeout(() => {
-          playTTS(scene.items[0].question);
+          playTTS(scene.items[0].question, null, false);
         }, 600);
         return () => clearTimeout(timer);
       }
@@ -163,33 +199,34 @@ export default function App({
     // 獲取目前「應該」要尋找的目標物品
     const expectedItem = currentScene.items[foundItems.length];
 
-    // 如果點擊的是正確物品，但是不符合「當前問題」，當作點錯處理
+    // 點擊的是錯誤的物品 (順序不對的目標物)
     if (item.id !== expectedItem.id) {
       handleDecoyClick({ id: item.id });
       return;
     }
-    
-    // 答對了！
+
+    // ------- 答對了！-------
     setClickedItemId(item.id);
     setTotalCorrect(prev => prev + 1);
     
     const isLastItem = foundItems.length + 1 === currentScene.items.length;
     const nextItemIndex = foundItems.length + 1;
 
-    // 唸出原理解釋，結束後唸下一題 (或結尾知識總結)
-    playTTS(item.audioText, () => {
+    // 播放 explanation (audioText)，完成後再吸下一題或結尾知識總結
+    const explanation = item.audioText ?? item.question;
+    playTTS(explanation, () => {
       if (!isLastItem) {
-        playTTS(currentScene.items[nextItemIndex].question);
+        playTTS(currentScene.items[nextItemIndex].question, null, false);
       } else {
         setShowKnowledge(true);
-        playTTS(currentScene.knowledge);
+        playTTS(episodeKnowledge ?? currentScene.knowledge);
       }
     });
     
     setTimeout(() => {
       const newFoundItems = [...foundItems, item.id];
       setFoundItems(newFoundItems);
-      setMistakeCount(0); // 答對了，重置錯誤次數給下一題
+      setMistakeCount(0);
     }, 400);
     
     setTimeout(() => setClickedItemId(null), 1000);
@@ -197,13 +234,27 @@ export default function App({
 
   // 處理點擊干擾物(誘餌) 或 點錯順序
   const handleDecoyClick = (decoy) => {
-    if (currentScene && foundItems.length === currentScene.items.length) return; // 遊戲結束防誤觸
+    if (currentScene && foundItems.length === currentScene.items.length) return;
+    if (mistakeCount >= 3) return;
     setWrongItemId(decoy.id);
-    setMistakeCount(prev => prev + 1); // 增加錯誤次數
+    const newMistakeCount = mistakeCount + 1;
+    setMistakeCount(newMistakeCount);
     setTotalWrong(prev => prev + 1);
-    playTTS("哎呀！這不是我們要找的喔！"); 
-    
     setTimeout(() => setWrongItemId(null), 600);
+
+    const expectedItem = currentScene.items[foundItems.length];
+
+    if (newMistakeCount === 1) {
+      playTTS("哎呀！這不是喔！");
+    } else if (newMistakeCount === 2) {
+      playTTS("哎呀！這不是喔！小提示：試著尋找黃色光圈附近的地方喔！");
+    } else {
+      playTTS("哎呀！這不是喔！尋寶失敗！", () => {
+        stopBgm();
+        setFailedExplanation(expectedItem.audioText ?? expectedItem.explanation ?? expectedItem.question);
+        setShowResult(true);
+      });
+    }
   };
 
   const resetLevel = () => {
@@ -211,6 +262,7 @@ export default function App({
     setFoundItems([]);
     setShowKnowledge(false);
     setMistakeCount(0);
+    setFailedExplanation(null);
   };
 
   const resetGameStats = () => {
@@ -242,6 +294,14 @@ export default function App({
       setShowResult(true);
     }
   };
+
+  useEffect(() => {
+    if (showResult) {
+      stopBgm();
+      const finalKnowledge = failedExplanation ?? episodeKnowledge ?? currentScene?.knowledge;
+      if (finalKnowledge) playTTS(finalKnowledge);
+    }
+  }, [showResult]);
 
   const playAgain = () => {
     startGame();
@@ -288,15 +348,36 @@ export default function App({
           <div className="flex-1 bg-[#fff8eb] flex flex-col items-center justify-center p-6 relative">
             <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_#000_1px,_transparent_1px)] bg-[size:20px_20px]"></div>
             
-            <div className="z-10 text-center mb-10">
+            <div className="z-10 text-center mb-6">
               <div className="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg border-4 border-white shadow-blue-500/50 relative">
                 <span className="text-6xl">💎</span>
                 <Sparkles className="absolute -top-2 -right-2 text-blue-400 w-8 h-8" />
               </div>
-              <h1 className="text-3xl font-extrabold text-[#8c5230] drop-shadow-sm mb-2 tracking-wide">
+              <h1 className="text-3xl font-extrabold text-[#8c5230] drop-shadow-sm mb-1 tracking-wide">
                 尋寶獵人
               </h1>
-              <p className="text-[#a36b4a] font-bold">打開聲音，邊找邊學！</p>
+              {gameTitle && (
+                <p className="text-[#a36b4a]/90 font-bold text-base px-4 py-2 rounded-full inline-block">
+                  {gameTitle}
+                </p>
+              )}
+            </div>
+
+            {/* 遊戲機制說明 */}
+            <div className="z-10 w-full max-w-xs bg-white/80 rounded-2xl border border-orange-200 p-4 mb-6 text-left space-y-2">
+              <p className="font-black text-[#8c5230] mb-2">遊戲規則</p>
+              <div className="flex items-start gap-2 text-[#6b4731]">
+                <span>👂</span>
+                <span>打開聲音，邊找邊學！</span>
+              </div>
+              <div className="flex items-start gap-2 text-[#6b4731]">
+                <span>👌</span>
+                <span>聽題目提示，按順序點擊場景中的尋寶物品</span>
+              </div>
+              <div className="flex items-start gap-2 text-[#6b4731]">
+                <span>💡</span>
+                <span>答錯會加強提示，選錯 3 次會直接失敗喔！</span>
+              </div>
             </div>
 
             <div className="w-full z-10 px-1">
@@ -324,7 +405,7 @@ export default function App({
               
               {/* 目前要尋找的問題提示框 (加入點擊可重新聽題目) */}
               <div 
-                onClick={() => currentTargetItem && playTTS(currentTargetItem.question)}
+                onClick={() => currentTargetItem && playTTS(currentTargetItem.question, null, false)}
                 className="bg-[#a8572b]/60 mx-3 mb-4 p-3 rounded-2xl border border-white/20 shadow-inner flex items-start gap-2 cursor-pointer active:scale-95 transition-transform"
                 title="點擊重新聽題目"
               >
@@ -411,6 +492,9 @@ export default function App({
                 const isFound = foundItems.includes(item.id);
                 const isClickedNow = clickedItemId === item.id;
                 const isWrongNow = wrongItemId === item.id;
+                const isCurrentTarget = currentScene.items[foundItems.length]?.id === item.id;
+                // 第 2 次錯誤時，目標物品顯示淡小光圈
+                const showGlowHint = isCurrentTarget && mistakeCount >= 2 && mistakeCount < GAME_SETTINGS.treasureHunter.maxMistakesBeforeHint;
                 
                 return (
                   <div
@@ -437,9 +521,15 @@ export default function App({
                             <Sparkles className="w-full h-full" />
                           </div>
                         )}
+                        {/* 第 2 次錯誤光圈提示 */}
+                        {showGlowHint && (
+                          <div className="absolute inset-0 rounded-full animate-ping opacity-60 bg-yellow-300 blur-sm scale-150 pointer-events-none" />
+                        )}
                       </span>
                       {/* Emoji 下方的文字標籤 */}
-                      <span className="mt-1 text-sm font-bold text-white bg-black/50 px-2 py-0.5 rounded backdrop-blur-sm whitespace-nowrap tracking-wider">
+                      <span className={`mt-1 text-sm font-bold text-white px-2 py-0.5 rounded backdrop-blur-sm whitespace-nowrap tracking-wider
+                        ${showGlowHint ? 'bg-yellow-500/80 border border-yellow-300' : 'bg-black/50'}
+                      `}>
                         {item.label}
                       </span>
                       
@@ -450,6 +540,7 @@ export default function App({
                   </div>
                 );
               })}
+
             </div>
 
             {/* 字幕與語音狀態區塊 (浮動在底部) */}
@@ -481,7 +572,7 @@ export default function App({
                       <Map size={12} /> 科普總結
                      </span>
                     <p className="text-gray-700 font-medium leading-relaxed mt-2 text-[15px]">
-                      {currentScene.knowledge}
+                      {episodeKnowledge ?? currentScene.knowledge}
                     </p>
                   </div>
                   
@@ -505,16 +596,16 @@ export default function App({
 
             {showResult && (
               <GameResultPanel
-                isWin={isChallengeSuccessful(totalCorrect, totalWrong)}
                 correctCount={totalCorrect}
                 wrongCount={totalWrong}
-                correctLabel="找到正確物件"
-                wrongLabel="點錯次數"
-                knowledge={selectedScenes[0]?.knowledge ?? currentScene.knowledge}
+                correctLabel="尋獲目標"
+                wrongLabel="尋寶失誤"
+                knowledge={failedExplanation ?? episodeKnowledge ?? currentScene.knowledge}
                 gamesHref={gamesHref}
                 reviewHref={reviewHref ?? (episodeId ? `/guide/${episodeId}` : undefined)}
-                onWin={episodeId ? () => markEpisodeGameCompleted(episodeId) : undefined}
+                onWin={episodeId ? (s) => markEpisodeGameCompleted(episodeId, s) : undefined}
                 onPlayAgain={playAgain}
+                stars={failedExplanation ? 0 : 3}
               />
             )}
             

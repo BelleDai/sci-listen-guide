@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState, type ReactNode } from "react";
-import { StopCircle } from "lucide-react";
+import { OctagonX } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -45,8 +45,8 @@ export default function GamePageShell({ title, children }: GamePageShellProps) {
         <div className="mx-auto flex h-full max-w-4xl items-center justify-between gap-3 px-4">
           <button
             type="button"
-            onClick={() => router.push("/")}
-            aria-label="回到首頁"
+            onClick={() => router.push("/games")}
+            aria-label="回遊戲基地"
             className="flex min-w-0 flex-shrink-0 items-center gap-2 transition-transform hover:scale-[1.02]"
           >
             <img
@@ -59,7 +59,7 @@ export default function GamePageShell({ title, children }: GamePageShellProps) {
                 科學好好聽
               </span>
               <span className="hidden text-base font-extrabold leading-none text-accent sm:inline">
-                {title}
+                遊戲基地
               </span>
             </span>
           </button>
@@ -70,7 +70,7 @@ export default function GamePageShell({ title, children }: GamePageShellProps) {
             className="h-10 shrink-0 rounded-full px-3 font-extrabold shadow-[var(--shadow-card)] sm:px-4"
             onClick={() => setConfirmOpen(true)}
           >
-            <StopCircle className="h-5 w-5" />
+            <OctagonX className="h-5 w-5" />
             <span className="hidden sm:inline">結束遊戲</span>
             <span className="sm:hidden">結束</span>
           </Button>

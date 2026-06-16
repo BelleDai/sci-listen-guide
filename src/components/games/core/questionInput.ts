@@ -21,14 +21,14 @@ export type QuestionInput = {
   /** 題組唯一識別碼，用來建立 GameScene.id 與抽題來源。 */
   id: string;
 
-  /** 題組標題，會用在畫面標題或 GameScene.name 的 fallback。 */
-  title: string;
+  /** 題組標題；省略時會使用 episode name 或題組 id。 */
+  title?: string;
 
-  /** 題組提示文字，通常用來引導玩家這組題目要找什麼。 */
-  prompt: string;
+  /** 題組提示文字；省略時會使用實際題目或標題。 */
+  prompt?: string;
 
-  /** 題組補充說明，可用在介紹、列表或未來的複習頁。 */
-  description: string;
+  /** 題組補充說明；省略時會使用 knowledge。 */
+  description?: string;
 
   /** 題組科普總結，會在每題或結算回饋時顯示與朗讀。 */
   knowledge: string;

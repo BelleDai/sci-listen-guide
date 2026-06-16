@@ -54,6 +54,8 @@ export default async function EpisodeGamePage({ params }: EpisodeGamePageProps) 
     episodeId,
     gamesHref: '/games',
     reviewHref: `/guide/${episodeId}`,
+    gameTitle: episodeMeta.name,
+    episodeKnowledge: episode.knowledge,
   };
 
   return (

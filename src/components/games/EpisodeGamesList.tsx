@@ -6,8 +6,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { Check, Sparkles } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 
-import { Dialog, DialogContent } from '@/components/ui/dialog';
-import { getCompletedEpisodeGameIds } from './core/gameProgress';
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
+import { getCompletedEpisodeGameIds, getEpisodeGameStars } from './core/gameProgress';
 import { getEpisodeGameId, type StageCategory, type StageEpisode } from './core/episodeQuizzes';
 import { GAME_METADATA } from './core/gameMetadata';
 
@@ -59,8 +59,8 @@ export default function EpisodeGamesList({ categories }: EpisodeGamesListProps) 
         <div className="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between gap-3 relative">
           <button
             type="button"
-            onClick={() => router.push("/")}
-            aria-label="回到首頁"
+            onClick={() => router.push("/games")}
+            aria-label="回遊戲基地"
             className="flex min-w-0 flex-shrink-0 items-center gap-2 transition-transform hover:scale-[1.02]"
           >
             <img
@@ -143,6 +143,7 @@ export default function EpisodeGamesList({ categories }: EpisodeGamesListProps) 
                     const done = completedSet.has(episode.id);
                     const gameId = getEpisodeGameId(episode.id);
                     const gameMeta = GAME_METADATA[gameId];
+                    const stars = getEpisodeGameStars(episode.id) ?? 0;
 
                     return (
                       <button
@@ -159,35 +160,35 @@ export default function EpisodeGamesList({ categories }: EpisodeGamesListProps) 
                         }}
                       >
                         <span
-                          className="mb-2 flex h-14 w-14 items-center justify-center rounded-full text-2xl drop-shadow-lg sm:h-16 sm:w-16 sm:text-3xl"
-                        >
-                          {episode.emoji}
-                        </span>
-                        <span className="line-clamp-2 text-xs font-bold leading-5 text-white/85 sm:text-sm group-hover:underline">
-                          {episode.name}
-                        </span>
-                        <span
-                          className="absolute left-2 top-2 z-10 inline-flex h-8 max-w-8 items-center overflow-hidden rounded-full border p-1 text-xs font-semibold transition-[max-width,padding,box-shadow] duration-200 group-hover:max-w-[132px] group-hover:px-2 group-focus-visible:max-w-[132px] group-focus-visible:px-2"
+                          className="mb-3 flex h-14 w-14 items-center justify-center rounded-full text-3xl drop-shadow-lg sm:h-16 sm:w-16 sm:text-4xl"
                           style={{
                             ...gameMeta.badgeClassName,
                           }}
                         >
-                          <span
-                            aria-hidden="true"
-                            className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-base leading-none"
-                          >
-                            {gameMeta.emoji}
-                          </span>
-                          <span className="max-w-0 truncate opacity-0 transition-[max-width,opacity,margin] duration-200 group-hover:ml-1 group-hover:max-w-[92px] group-hover:opacity-100 group-focus-visible:ml-1 group-focus-visible:max-w-[92px] group-focus-visible:opacity-100">
-                            {gameMeta.label}
+                          {gameMeta.emoji}
+                        </span>
+                        <span className="text-sm font-black leading-5 text-white sm:text-base group-hover:underline">
+                          {gameMeta.label}
+                        </span>
+                        <span className="mt-2 block max-w-full rounded-full border px-2.5 py-1 text-xs font-semibold leading-4 text-white/90">
+                          <span className="line-clamp-2 text-justify">
+                            {episode.name}
                           </span>
                         </span>
                         {done && (
                           <span
-                            className="absolute -right-1 -top-1 flex h-6 w-6 items-center justify-center rounded-full text-white"
-                            style={{ background: COLORS.green, boxShadow: `0 0 10px ${COLORS.green}cc` }}
+                            className="absolute -right-1 -top-2 flex h-7 items-center justify-center rounded-full text-white px-2 py-0.5"
+                            style={{ 
+                              background: gameId === 'treasure-hunter' ? COLORS.green : 'rgba(0,0,0,0.6)', 
+                              boxShadow: gameId === 'treasure-hunter' ? `0 0 10px ${COLORS.green}cc` : `0 0 10px rgba(0,0,0,0.5)`,
+                              backdropFilter: gameId === 'treasure-hunter' ? 'none' : 'blur(4px)',
+                            }}
                           >
-                            <Check className="h-3.5 w-3.5" strokeWidth={3} />
+                            {gameId === 'treasure-hunter' ? (
+                              <Check className="h-4 w-4" strokeWidth={3} />
+                            ) : (
+                              <span className="text-xs tracking-tighter">{'⭐'.repeat(stars)}</span>
+                            )}
                           </span>
                         )}
                       </button>
@@ -210,6 +211,11 @@ export default function EpisodeGamesList({ categories }: EpisodeGamesListProps) 
             borderRadius: '24px',
           }}
         >
+          <DialogTitle className="sr-only">
+            {selected
+              ? `開始挑戰：${GAME_METADATA[getEpisodeGameId(selected.id)].label} - ${selected.name}`
+              : '開始挑戰'}
+          </DialogTitle>
           <AnimatePresence>
             {selected && (
               (() => {
@@ -234,29 +240,15 @@ export default function EpisodeGamesList({ categories }: EpisodeGamesListProps) 
                         ...gameMeta.cardStyle,
                       }}
                     >
-                      <span className="relative drop-shadow-sm">{selected.emoji}</span>
+                      <span className="relative drop-shadow-sm">{gameMeta.emoji}</span>
                     </motion.div>
-                    <div className="mb-2">
-                      <span
-                        className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-black shadow-lg sm:text-base"
-                        style={{
-                          ...gameMeta.badgeClassName,
-                        }}
-                      >
-                        <span
-                          aria-hidden="true"
-                          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xl leading-none"
-                        >
-                          {gameMeta.emoji}
-                        </span>
-                        <span className="whitespace-nowrap">
-                          接下來玩：{gameMeta.label}
-                        </span>
-                      </span>
-                    </div>
-                    <h3 className="mb-4 text-xl font-black leading-snug sm:text-2xl" style={{ color: COLORS.yellow }}>
-                      {selected.name}
+                    <h3 className="mb-3 text-2xl font-black leading-snug sm:text-3xl" style={{ color: COLORS.yellow }}>
+                      {gameMeta.label}
                     </h3>
+                    <p className="mb-6 inline-flex items-center justify-center gap-1.5 rounded-full bg-black/20 px-3 py-1.5 text-base font-bold text-white/80">
+                      <span aria-hidden="true">{selected.emoji}</span>
+                      <span className="text-justify">{selected.name}</span>
+                    </p>
                     <motion.div
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}

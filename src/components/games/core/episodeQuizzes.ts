@@ -28,9 +28,6 @@ export type EpisodeQuizFile = {
   episodeId: string;
   categoryName: string;
   name: string;
-  title: string;
-  prompt: string;
-  description: string;
   knowledge: string;
   gameId: EpisodeQuizGameId;
   quizzes: EpisodeQuiz[];
@@ -96,6 +93,19 @@ function getEpisodeBgColor(episodeId: string) {
   return EPISODE_BG_COLORS[stableHash(episodeId) % EPISODE_BG_COLORS.length];
 }
 
+function getGamePrompt(gameId: EpisodeQuizGameId, question: string) {
+  switch (gameId) {
+    case 'colorful-balloons':
+      return `戳破正確氣球：${question}`;
+    case 'golden-coins':
+      return `接住正確答案：${question}`;
+    case 'treasure-hunter':
+      return `找出正確寶物：${question}`;
+    default:
+      return question;
+  }
+}
+
 export function flattenStageCategories(categories: StageCategory[]) {
   return categories.flatMap((category) =>
     category.episode.map((episode) => ({
@@ -110,22 +120,26 @@ export function flattenStageCategories(categories: StageCategory[]) {
 }
 
 function toQuestionInput(episode: EpisodeQuizFile, quiz: EpisodeQuiz): QuestionInput {
+  const question = quiz.question || episode.name;
+  const prompt = getGamePrompt(episode.gameId, question);
+  const knowledge = quiz.correctAnswers[0]?.explanation || episode.knowledge;
+
   return {
     id: `${episode.episodeId}-${quiz.id}`,
     title: episode.name,
-    prompt: quiz.question || episode.prompt,
-    description: episode.description,
-    knowledge: quiz.correctAnswers[0]?.explanation || episode.knowledge,
+    prompt,
+    description: episode.knowledge,
+    knowledge,
     correctAnswers: quiz.correctAnswers.map((answer, index) => ({
       ...answer,
       id: answer.id || `${quiz.id}-correct-${index + 1}`,
-      question: answer.question || quiz.question,
+      question: answer.question || question,
       explanation: answer.explanation || episode.knowledge,
     })),
     wrongAnswers: quiz.wrongAnswers.map((answer, index) => ({
       ...answer,
       id: answer.id || `${quiz.id}-wrong-${index + 1}`,
-      question: answer.question || quiz.question,
+      question: answer.question || question,
     })),
   };
 }
