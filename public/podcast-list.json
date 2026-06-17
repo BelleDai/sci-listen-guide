@@ -1,7 +1,27 @@
 {
-  "updatedAt": "2026-06-16T01:58:19.818Z",
-  "count": 229,
+  "updatedAt": "2026-06-17T01:55:22.303Z",
+  "count": 231,
   "episodes": [
+    {
+      "id": "cmqd7tmfs03bb01qoeyulfteh",
+      "title": "能量特輯(2)｜從火堆到發電廠：能量的超級變變變！｜EP.76",
+      "firstoryLink": "https://open.firstory.me/story/cmqd7tmfs03bb01qoeyulfteh",
+      "pubDate": "Mon, 15 Jun 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/93vQQIxMQXJLb_lYke0VD.jpg",
+      "duration": 635,
+      "spotifyLink": "https://open.spotify.com/episode/6NhPmo6YN22NcflNTI2fhC",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000772913125"
+    },
+    {
+      "id": "cmqd84fwg03e101qo7nir8tfb",
+      "title": "啟動人體無敵引擎！微觀下的肌肉三大家族與分子彈簧｜SP.55",
+      "firstoryLink": "https://open.firstory.me/story/cmqd84fwg03e101qo7nir8tfb",
+      "pubDate": "Mon, 15 Jun 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/X0rYT4uNJlNhagjeP6Xzf.jpg",
+      "duration": 1245,
+      "spotifyLink": "https://open.spotify.com/episode/7jJiJuJWJP66uQCl0tJFRo",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000772586393"
+    },
     {
       "id": "cmqd7k8it039w01qo7sx13h0t",
       "title": "雨林中的尤達大師：眼鏡猴的超能力與玻璃般脆弱的靈魂｜EP.232",
