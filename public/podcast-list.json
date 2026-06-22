@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-06-21T01:54:11.464Z",
-  "count": 233,
+  "updatedAt": "2026-06-22T01:55:08.217Z",
+  "count": 234,
   "episodes": [
+    {
+      "id": "cmqn6useb0dzn01xa71rrhm8l",
+      "title": "誰在玩躲貓貓？尋找隱形的超能力光線！｜EP.78",
+      "firstoryLink": "https://open.firstory.me/story/cmqn6useb0dzn01xa71rrhm8l",
+      "pubDate": "Sat, 20 Jun 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/PDDLnxI6fbxr0N0g-9veT.jpg",
+      "duration": 465,
+      "spotifyLink": "https://open.spotify.com/episode/37aLRu6evKeOWjAR7VNwbx",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000773644742"
+    },
     {
       "id": "cmqf13bsu00hj01uva3mu2gwk",
       "title": "雪山之鬼：雪豹的極限生存黑科技與驚人基因秘密｜EP.233",
