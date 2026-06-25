@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-06-24T01:42:34.353Z",
-  "count": 235,
+  "updatedAt": "2026-06-25T01:45:39.172Z",
+  "count": 236,
   "episodes": [
+    {
+      "id": "cmqnf706w000801ylhb3dh3bi",
+      "title": "太空裡的傳聲筒：通訊衛星與它們的超級快遞任務！｜EP.79",
+      "firstoryLink": "https://open.firstory.me/story/cmqnf706w000801ylhb3dh3bi",
+      "pubDate": "Tue, 23 Jun 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/5hk47s0jwCxDVvMPD2sDr.jpg",
+      "duration": 503,
+      "spotifyLink": "https://open.spotify.com/episode/6AxgxcQwwWhhK7DMYyqtsh",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000774102300"
+    },
     {
       "id": "cmqnbuo5n0f5l0107779iaia4",
       "title": "解密表情大師與肌肉的記憶超能力！還有大腦通訊的新發現｜SP.56",
