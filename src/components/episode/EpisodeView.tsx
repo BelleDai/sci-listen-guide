@@ -2,9 +2,10 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
-import { BookOpen, Brain, Lightbulb, Users, CircleStar, Sparkles, Award } from "lucide-react";
+import { BookOpen, Brain, Lightbulb, Users, CircleStar, Sparkles, Award, LogIn } from "lucide-react";
 import SectionShell from "@/components/episode/SectionShell";
 import NextButton from "@/components/episode/NextButton";
 import GlossaryCard from "@/components/episode/GlossaryCard";
@@ -15,6 +16,10 @@ import SpeakLine from "@/components/episode/SpeakLine";
 import PlayerLaunch from "@/components/episode/PlayerLaunch";
 import SpeedDial from "@/components/episode/SpeedDial";
 import { useTTS } from "@/hooks/useTTS";
+import { AuthDialog } from "@/components/auth/AuthDialog";
+import { useAuth } from "@/components/auth/AuthProvider";
+import { GAME_METADATA } from "@/components/games/core/gameMetadata";
+import { getEpisodeGameId } from "@/components/games/core/episodeQuizzes";
 import { trackEpisodeStep, trackEpisodeCompleted, trackEpisodeLanded } from "@/lib/analytics";
 
 const TOTAL = 4;
@@ -183,6 +188,11 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
   const [familyIndex, setFamilyIndex] = useState(0);
   const [mounted, setMounted] = useState(false);
   const { speakingId, speak, stop } = useTTS();
+  const { user, loading: authLoading, completions } = useAuth();
+  const [authDialogOpen, setAuthDialogOpen] = useState(false);
+
+  const isGameDone = !!episodeData.id && (episodeData.id in completions);
+  const gameStars = isGameDone ? completions[episodeData.id] : 0;
 
   const sectionOneRef = useRef<HTMLElement>(null);
   const sectionTwoRef = useRef<HTMLElement>(null);
@@ -365,13 +375,13 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
       getSectionRef(next).current?.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 120);
 
-    if (next === 3 && audio.description) {
-      scheduleTimer(() => speak(audio.description, "audio-q"), 450);
-    }
+    // if (next === 3 && audio.description) {
+    //   scheduleTimer(() => speak(audio.description, "audio-q"), 450);
+    // }
 
-    if (next === 4 && family.description) {
-      scheduleTimer(() => speak(family.description, "fam-q"), 450);
-    }
+    // if (next === 4 && family.description) {
+    //   scheduleTimer(() => speak(family.description, "fam-q"), 450);
+    // }
   }, [audio.description, family.description, getSectionRef, scheduleTimer, speak]);
 
   return (
@@ -408,7 +418,7 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
                 <div className="block text-secondary text-sm mb-3">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary/15 font-bold">
                     <CircleStar className="w-4 h-4 md:w-5 md:h-5" />
-                    今日科普探險
+                    {isGameDone ? "挑戰成功" : "今日科普探險"}
                   </span>
                 </div>
                 {episodeData.Title}
@@ -417,6 +427,20 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
               <div ref={playerLaunchRef}>
                 <PlayerLaunch className="flex flex-row items-center justify-center md:justify-start gap-3 flex-wrap" applePodcast={episodeData.ApplePodcast} spotify={episodeData.Spotify} />
               </div>
+
+              {!isGameDone && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="mt-6 inline-flex items-start gap-2.5 rounded-xl bg-accent/15 border border-accent/30 px-4 py-3 text-sm sm:text-base font-bold text-accent"
+                >
+                  <Sparkles className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                  <span className="text-left leading-relaxed">
+                    小提醒：加油喔！努力滑到頁面的最後，有好玩的挑戰遊戲喔！
+                  </span>
+                </motion.div>
+              )}
             </div>
           </div>
 
@@ -447,11 +471,6 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
           title={isPodcastSource === false ? "聽完故事，孩子將得到的知識" : "這集最重要的三件事，你記住了嗎？"}
           emoji={isPodcastSource === false ? "🚀" : "💡"}
         >
-          {/* <p className="text-white/80 text-sm sm:text-base font-medium mb-6 text-center">
-            {isPodcastSource === false
-              ? "想知道這些知識背後的神奇故事嗎？點擊上方播放鍵，跟著科學隊長出發吧！"
-              : "複習完重點，下方還有好玩的動動腦挑戰等著你喔！"}
-          </p> */}
           <div className="space-y-6">
             {keyTakeaways.map((k, i) => {
               const id = `take-${i}`;
@@ -529,10 +548,111 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
           )}
         </SectionShell>
 
-        {/* Section 4 - Family Discussion */}
+        {/* Section 4 - Game Call to Action (Replaces Family Discussion) */}
         <SectionShell
           id="s4"
           show={step >= 4}
+          ref={sectionFourRef}
+          title="測實力，贏徽章！"
+          emoji="🎖️"
+        >
+          {(() => {
+            const gameId = getEpisodeGameId(episodeData.id);
+            const gameMeta = GAME_METADATA[gameId];
+
+            return (
+              <div
+                className="relative px-6 py-10 text-center sm:px-8 rounded-3xl overflow-hidden border-[1px] text-white"
+                style={{
+                  backgroundColor: "#34314c",
+                  borderColor: "rgb(255, 201, 82, 0.5)",
+                  boxShadow: `0 20px 60px rgba(0,0,0,0.55), 0 0 40px #ffc95240`,
+                }}
+              >
+                <Sparkles className="absolute right-8 top-10 h-6 w-6 text-[#ff7473]" />
+                <Sparkles className="absolute bottom-28 left-8 h-5 w-5 text-[#97e5ff]" />
+
+                <motion.div
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
+                  className="relative mb-6 inline-flex h-24 w-24 items-center justify-center rounded-full text-5xl shadow-xl"
+                  style={{
+                    ...gameMeta.cardStyle,
+                    border: isGameDone ? `2px solid #ffc952` : gameMeta.cardStyle.border,
+                    boxShadow: isGameDone
+                      ? `0 0 22px #ffc95280, 0 0 38px #ffc95230`
+                      : gameMeta.cardStyle.boxShadow,
+                  }}
+                >
+                  <span className="relative drop-shadow-sm">{gameMeta.emoji}</span>
+                  {isGameDone && (
+                    <span
+                      className="absolute -right-2 -top-2 flex h-8 items-center justify-center rounded-full text-white px-2.5 py-0.5"
+                      style={{
+                        background: 'rgba(0,0,0,0.6)',
+                        boxShadow: '0 0 10px rgba(0,0,0,0.5)',
+                        backdropFilter: 'blur(4px)',
+                      }}
+                    >
+                      <span className="text-sm tracking-tighter">{'⭐'.repeat(gameStars)}</span>
+                    </span>
+                  )}
+                </motion.div>
+                <h3 className="mb-3 text-2xl font-black leading-snug sm:text-3xl" style={{ color: "#ffc952" }}>
+                  {gameMeta.label}
+                </h3>
+                <p className="mb-6 inline-flex items-center justify-center gap-1.5 rounded-full bg-black/20 px-3 py-1.5 text-base font-bold text-white/80">
+                  <span className="text-justify">{isGameDone ? "這集已經挑戰成功囉！" : episodeData.Title}</span>
+                </p>
+                {user ? (
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Link
+                      href={`/games/${episodeData.id}`}
+                      onClick={() => trackEpisodeStep(5, episodeData.id ?? "", episodeData.Title)}
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-secondary bg-[image:var(--gradient-primary)] px-7 py-4 text-base font-bold text-primary-foreground shadow-[var(--shadow-glow)] transition sm:text-lg"
+                    >
+                      <Sparkles className="h-5 w-5" />
+                      {isGameDone ? "再玩一次" : "開始挑戰"}
+                    </Link>
+                  </motion.div>
+                ) : (
+                  <div className="space-y-4">
+                    <div className="rounded-2xl border border-cyan-200/30 bg-cyan-200/10 p-4 text-left">
+                      <p className="text-lg font-black text-cyan-50">
+                        玩遊戲前請先登入
+                      </p>
+                      <p className="mt-2 text-sm font-bold leading-6 text-white/80">
+                        登入後，我們會幫你保存徽章和星星，下次回來也看得到。
+                      </p>
+                    </div>
+                    <motion.button
+                      type="button"
+                      onClick={() => {
+                        trackEpisodeStep(5, episodeData.id ?? "", episodeData.Title);
+                        setAuthDialogOpen(true);
+                      }}
+                      disabled={authLoading}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-secondary bg-[image:var(--gradient-primary)] px-7 py-4 text-base font-bold text-primary-foreground shadow-[var(--shadow-glow)] transition disabled:cursor-wait disabled:opacity-70 sm:text-lg"
+                    >
+                      <LogIn className="h-5 w-5" />
+                      登入
+                    </motion.button>
+                  </div>
+                )}
+              </div>
+            );
+          })()}
+        </SectionShell>
+
+        {/* Section 4 - Family Discussion (Hidden per user request)
+        <SectionShell
+          id="s4-legacy"
+          show={false}
           ref={sectionFourRef}
           title="最後，跟爸媽一起討論吧！"
           emoji="👨‍👩‍👧"
@@ -624,10 +744,12 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
             </AnimatePresence>
           </div>
         </SectionShell>
+        */}
 
         {step >= 4 && <Footer />}
       </main>
       <SpeedDial show={mounted && !isPlayerLaunchVisible} applePodcast={episodeData.ApplePodcast} spotify={episodeData.Spotify} />
+      <AuthDialog open={authDialogOpen} onOpenChange={setAuthDialogOpen} />
     </>
   );
 };

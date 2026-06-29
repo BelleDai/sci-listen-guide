@@ -116,11 +116,11 @@ export default function AnswerReveal({ idPrefix, text, episodeId, contentType, o
       setSpinning(false);
 
       // 🗣️ Automatically speak the revealed answer aloud!
-      const revealId = `${idPrefix}-reveal-${target}`;
-      speak(items[target], revealId);
+      // const revealId = `${idPrefix}-reveal-${target}`;
+      // speak(items[target], revealId);
 
       // 🎡 Track the automatic TTS play in Google Analytics!
-      trackTTSPlay(contentType || "answer", episodeId || "");
+      // trackTTSPlay(contentType || "answer", episodeId || "");
 
       if (!firstFired.current) {
         firstFired.current = true;

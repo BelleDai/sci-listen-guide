@@ -106,7 +106,7 @@ export default function EpisodeGamesList({ categories }: EpisodeGamesListProps) 
         <div className="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between gap-3 relative">
           <button
             type="button"
-            onClick={() => router.push("/games")}
+            onClick={() => router.push("/")}
             aria-label="回遊戲基地"
             className="flex min-w-0 flex-shrink-0 items-center gap-2 transition-transform hover:scale-[1.02]"
           >
@@ -249,8 +249,8 @@ export default function EpisodeGamesList({ categories }: EpisodeGamesListProps) 
                         {done && (
                           <span
                             className="absolute -right-1 -top-2 flex h-7 items-center justify-center rounded-full text-white px-2 py-0.5"
-                            style={{ 
-                              background: 'rgba(0,0,0,0.6)', 
+                            style={{
+                              background: 'rgba(0,0,0,0.6)',
                               boxShadow: '0 0 10px rgba(0,0,0,0.5)',
                               backdropFilter: 'blur(4px)',
                             }}
@@ -317,18 +317,18 @@ export default function EpisodeGamesList({ categories }: EpisodeGamesListProps) 
                       <span className="text-justify">{selected.name}</span>
                     </p>
                     {user ? (
-                    <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Link
-                        href={`/games/${selected.id}`}
-                        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-secondary bg-[image:var(--gradient-primary)] px-7 py-4 text-base font-bold text-primary-foreground shadow-[var(--shadow-glow)] transition sm:text-lg"
+                      <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                       >
-                        <Sparkles className="h-5 w-5" />
-                        開始挑戰
-                      </Link>
-                    </motion.div>
+                        <Link
+                          href={`/games/${selected.id}`}
+                          className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-secondary bg-[image:var(--gradient-primary)] px-7 py-4 text-base font-bold text-primary-foreground shadow-[var(--shadow-glow)] transition sm:text-lg"
+                        >
+                          <Sparkles className="h-5 w-5" />
+                          開始挑戰
+                        </Link>
+                      </motion.div>
                     ) : (
                       <div className="space-y-4">
                         <div className="rounded-2xl border border-cyan-200/30 bg-cyan-200/10 p-4 text-left">
