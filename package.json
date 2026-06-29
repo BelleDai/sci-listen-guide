@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node -e \"require('fs').rmSync('.next/cache/fetch-cache',{recursive:true,force:true})\" && next build",
+    "build": "node -e \"const fs=require('fs'); fs.rmSync('.next/cache/fetch-cache',{recursive:true,force:true}); fs.rmSync('out',{recursive:true,force:true})\" && next build",
     "start": "next start",
     "lint": "eslint",
     "sync": "tsx scripts/sync-episode.ts",
