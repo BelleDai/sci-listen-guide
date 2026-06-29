@@ -3,11 +3,18 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
-import { Check, Sparkles } from 'lucide-react';
+import { LogIn, LogOut, Sparkles } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 
+import { AuthDialog } from '@/components/auth/AuthDialog';
+import { useAuth } from '@/components/auth/AuthProvider';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
-import { getCompletedEpisodeGameIds, getEpisodeGameStars } from './core/gameProgress';
+import {
+  GAME_COMPLETIONS_UPDATED_EVENT,
+  getCompletedRecords,
+  type GameCompletionRecords,
+  type GameCompletionsUpdatedEvent,
+} from './core/gameProgress';
 import { getEpisodeGameId, type StageCategory, type StageEpisode } from './core/episodeQuizzes';
 import { GAME_METADATA } from './core/gameMetadata';
 
@@ -32,13 +39,53 @@ const CATEGORY_EMOJIS = ['🔬', '⛰️', '🌦️', '🚀', '🛰️', '🧬']
 
 export default function EpisodeGamesList({ categories }: EpisodeGamesListProps) {
   const router = useRouter();
-  const [completedIds, setCompletedIds] = useState<string[]>([]);
+  const {
+    user,
+    loading: authLoading,
+    progressLoading,
+    completions,
+    signOutUser,
+  } = useAuth();
+  const [completionRecords, setCompletionRecords] = useState<GameCompletionRecords>({});
   const [selected, setSelected] = useState<SelectedEpisode | null>(null);
+  const [authDialogOpen, setAuthDialogOpen] = useState(false);
+  const [signingOut, setSigningOut] = useState(false);
 
   useEffect(() => {
-    setCompletedIds(getCompletedEpisodeGameIds());
+    setCompletionRecords(getCompletedRecords());
+
+    const syncLocalCompletions = (event: Event) => {
+      const updatedEvent = event as GameCompletionsUpdatedEvent;
+      setCompletionRecords(updatedEvent.detail ?? getCompletedRecords());
+    };
+
+    window.addEventListener(GAME_COMPLETIONS_UPDATED_EVENT, syncLocalCompletions);
+
+    return () => {
+      window.removeEventListener(GAME_COMPLETIONS_UPDATED_EVENT, syncLocalCompletions);
+    };
   }, []);
 
+  useEffect(() => {
+    if (user) {
+      setCompletionRecords(completions);
+    } else if (!authLoading) {
+      setCompletionRecords(getCompletedRecords());
+    }
+  }, [authLoading, completions, user]);
+
+  const handleSignOut = async () => {
+    setSigningOut(true);
+    try {
+      await signOutUser();
+    } catch (error) {
+      console.warn('Unable to sign out.', error);
+    } finally {
+      setSigningOut(false);
+    }
+  };
+
+  const completedIds = useMemo(() => Object.keys(completionRecords), [completionRecords]);
   const completedSet = useMemo(() => new Set(completedIds), [completedIds]);
   const stats = useMemo(() => {
     let completed = 0;
@@ -78,10 +125,34 @@ export default function EpisodeGamesList({ categories }: EpisodeGamesListProps) 
             </span>
           </button>
 
-          <div className="flex shrink-0 items-center gap-2 rounded-full border border-yellow-300/35 bg-yellow-300/10 px-3 py-2 text-sm font-black text-yellow-100 sm:px-4">
-            <span aria-hidden="true">🏆</span>
-            <span>收集: {stats.completed} / {stats.total} 個徽章</span>
-          </div>
+          {user ? (
+            <div className="flex shrink-0 items-center gap-2">
+              <div className="flex items-center gap-2 rounded-full border border-yellow-300/35 bg-yellow-300/10 px-3 py-2 text-sm font-black text-yellow-100 sm:px-4">
+                <span aria-hidden="true">🏅</span>
+                <span>徽章 {stats.completed} / {stats.total}</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => void handleSignOut()}
+                disabled={signingOut}
+                aria-label="登出"
+                title="登出"
+                className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white/85 transition hover:bg-white/20 hover:text-white disabled:cursor-wait disabled:opacity-60"
+              >
+                <LogOut className="h-4 w-4" />
+              </button>
+            </div>
+          ) : (
+            <button
+              type="button"
+              onClick={() => setAuthDialogOpen(true)}
+              disabled={authLoading}
+              className="inline-flex shrink-0 items-center justify-center gap-1.5 rounded-full border border-cyan-200/40 bg-cyan-200/15 px-3 py-2 text-xs font-black text-cyan-50 shadow-[0_0_18px_rgba(151,229,255,0.18)] transition hover:bg-cyan-200/25 disabled:cursor-wait disabled:opacity-70 sm:px-4 sm:text-sm"
+            >
+              <LogIn className="h-4 w-4" />
+              <span>登入</span>
+            </button>
+          )}
         </div>
       </header>
 
@@ -143,7 +214,7 @@ export default function EpisodeGamesList({ categories }: EpisodeGamesListProps) 
                     const done = completedSet.has(episode.id);
                     const gameId = getEpisodeGameId(episode.id);
                     const gameMeta = GAME_METADATA[gameId];
-                    const stars = getEpisodeGameStars(episode.id) ?? 0;
+                    const stars = completionRecords[episode.id] ?? 0;
 
                     return (
                       <button
@@ -179,16 +250,12 @@ export default function EpisodeGamesList({ categories }: EpisodeGamesListProps) 
                           <span
                             className="absolute -right-1 -top-2 flex h-7 items-center justify-center rounded-full text-white px-2 py-0.5"
                             style={{ 
-                              background: gameId === 'treasure-hunter' ? COLORS.green : 'rgba(0,0,0,0.6)', 
-                              boxShadow: gameId === 'treasure-hunter' ? `0 0 10px ${COLORS.green}cc` : `0 0 10px rgba(0,0,0,0.5)`,
-                              backdropFilter: gameId === 'treasure-hunter' ? 'none' : 'blur(4px)',
+                              background: 'rgba(0,0,0,0.6)', 
+                              boxShadow: '0 0 10px rgba(0,0,0,0.5)',
+                              backdropFilter: 'blur(4px)',
                             }}
                           >
-                            {gameId === 'treasure-hunter' ? (
-                              <Check className="h-4 w-4" strokeWidth={3} />
-                            ) : (
-                              <span className="text-xs tracking-tighter">{'⭐'.repeat(stars)}</span>
-                            )}
+                            <span className="text-xs tracking-tighter">{'⭐'.repeat(stars)}</span>
                           </span>
                         )}
                       </button>
@@ -249,6 +316,7 @@ export default function EpisodeGamesList({ categories }: EpisodeGamesListProps) 
                       <span aria-hidden="true">{selected.emoji}</span>
                       <span className="text-justify">{selected.name}</span>
                     </p>
+                    {user ? (
                     <motion.div
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
@@ -261,6 +329,29 @@ export default function EpisodeGamesList({ categories }: EpisodeGamesListProps) 
                         開始挑戰
                       </Link>
                     </motion.div>
+                    ) : (
+                      <div className="space-y-4">
+                        <div className="rounded-2xl border border-cyan-200/30 bg-cyan-200/10 p-4 text-left">
+                          <p className="text-lg font-black text-cyan-50">
+                            先登入，徽章才不會不見喔！
+                          </p>
+                          <p className="mt-2 text-sm font-bold leading-6 text-white/80">
+                            玩遊戲前請先登入。登入後，我們會幫你保存徽章和星星，下次回來也看得到。
+                          </p>
+                        </div>
+                        <motion.button
+                          type="button"
+                          onClick={() => setAuthDialogOpen(true)}
+                          disabled={authLoading || progressLoading}
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-secondary bg-[image:var(--gradient-primary)] px-7 py-4 text-base font-bold text-primary-foreground shadow-[var(--shadow-glow)] transition disabled:cursor-wait disabled:opacity-70 sm:text-lg"
+                        >
+                          <LogIn className="h-5 w-5" />
+                          登入
+                        </motion.button>
+                      </div>
+                    )}
                   </motion.div>
                 );
               })()
@@ -268,6 +359,7 @@ export default function EpisodeGamesList({ categories }: EpisodeGamesListProps) 
           </AnimatePresence>
         </DialogContent>
       </Dialog>
+      <AuthDialog open={authDialogOpen} onOpenChange={setAuthDialogOpen} />
     </main>
   );
 }

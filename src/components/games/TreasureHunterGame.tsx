@@ -6,10 +6,17 @@ import { Home, Play, ArrowLeft, CheckCircle, Sparkles, Map, Volume2, XCircle } f
 import { useGameBgm } from './useGameBgm';
 import { treasureHunterGame } from './data/treasureHunter.data';
 import GameResultPanel from './GameResultPanel';
-import { GAME_SETTINGS } from './core/gameSettings';
 import { markEpisodeGameCompleted } from './core/gameProgress';
 import { toSingleQuestionScenes } from './core/questionQueue';
 import type { GameScene } from './core/types';
+
+const TREASURE_HUNTER_MAX_ATTEMPTS = 3;
+const TREASURE_HUNTER_TIMER_BASE_SECONDS = 8;
+const TREASURE_HUNTER_SECONDS_PER_OPTION = 3;
+const TREASURE_HUNTER_MIN_SECONDS = 22;
+const TREASURE_HUNTER_MAX_SECONDS = 45;
+const TREASURE_HUNTER_QUESTION_TTS_RATE = 1.15;
+const TREASURE_HUNTER_EXPLANATION_TTS_RATE = 1.35;
 
 const GROUP_ITEM_LAYOUTS = [
   { x: 50, y: 25, size: 'text-5xl' },
@@ -91,6 +98,25 @@ function buildTreasureQuestionGroups(sourceScenes: GameScene[]): GameScene[] {
   }];
 }
 
+function getTreasureQuestionTimeLimit(scene: GameScene) {
+  const optionCount = scene.items.length + scene.decoys.length;
+  const seconds = TREASURE_HUNTER_TIMER_BASE_SECONDS + optionCount * TREASURE_HUNTER_SECONDS_PER_OPTION;
+  return Math.min(
+    TREASURE_HUNTER_MAX_SECONDS,
+    Math.max(TREASURE_HUNTER_MIN_SECONDS, seconds)
+  );
+}
+
+function getTreasureStars(correctCount: number, totalQuestions: number): 0 | 1 | 2 | 3 {
+  if (totalQuestions <= 0 || correctCount <= 0) return 0;
+
+  const ratio = correctCount / totalQuestions;
+  if (ratio >= 0.85) return 3;
+  if (ratio >= 0.6) return 2;
+  if (ratio >= 0.35) return 1;
+  return 0;
+}
+
 type TreasureHunterGameProps = {
   scenes?: GameScene[];
   episodeId?: string;
@@ -112,6 +138,8 @@ export default function App({
   const [selectedScenes, setSelectedScenes] = useState([]);
   const [sceneIndex, setSceneIndex] = useState(0);
   const [foundItems, setFoundItems] = useState([]);
+  const [failedItems, setFailedItems] = useState([]);
+  const [currentItemIndex, setCurrentItemIndex] = useState(0);
   
   // 狀態控制
   const [clickedItemId, setClickedItemId] = useState(null);
@@ -119,6 +147,9 @@ export default function App({
   const [subtitle, setSubtitle] = useState("");
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [mistakeCount, setMistakeCount] = useState(0); // 記錄目前題目的錯誤次數
+  const [questionActive, setQuestionActive] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(0);
+  const [timeLimit, setTimeLimit] = useState(0);
   const [totalCorrect, setTotalCorrect] = useState(0);
   const [totalWrong, setTotalWrong] = useState(0);
   const [showResult, setShowResult] = useState(false);
@@ -152,7 +183,12 @@ export default function App({
   };
 
   // 播放 TTS 語音 (新增 onEndCallback 以支援連續播放)
-  const playTTS = (text, onEndCallback = null, showSubtitle = true) => {
+  const playTTS = (
+    text,
+    onEndCallback = null,
+    showSubtitle = true,
+    rate = TREASURE_HUNTER_QUESTION_TTS_RATE
+  ) => {
     stopAudio();
     if (!text) {
       if (onEndCallback) onEndCallback();
@@ -179,7 +215,7 @@ export default function App({
 
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = 'zh-TW';
-    utterance.rate = 1.15;
+    utterance.rate = rate;
 
     let finished = false;
     const finish = () => {
@@ -202,25 +238,79 @@ export default function App({
     utterance.onerror = finish;
     synth.speak(utterance);
   };
-  // 進入新場景時，自動唸出第一題的題目
-  useEffect(() => {
-    if (currentSceneId) {
-      const scene = activeScenes.find(s => s.id === currentSceneId);
-      if (scene && scene.items.length > 0) {
-        const timer = setTimeout(() => {
-          playTTS(scene.items[0].question, null, false);
-        }, 600);
-        return () => clearTimeout(timer);
-      }
+  const startQuestion = (scene, itemIndex, delayMs = 0) => {
+    const targetItem = scene?.items?.[itemIndex];
+    if (!targetItem) return;
+
+    const limit = getTreasureQuestionTimeLimit(scene);
+    setQuestionActive(false);
+    setCurrentItemIndex(itemIndex);
+    setMistakeCount(0);
+    setTimeLimit(limit);
+    setTimeLeft(limit);
+
+    window.setTimeout(() => {
+      playTTS(targetItem.question, () => {
+        setQuestionActive(true);
+      }, false, TREASURE_HUNTER_QUESTION_TTS_RATE);
+    }, delayMs);
+  };
+
+  const moveToNextQuestion = (nextItemIndex) => {
+    if (!currentScene) return;
+
+    if (nextItemIndex >= currentScene.items.length) {
+      advanceScene();
+      return;
     }
-  }, [currentSceneId]);
+
+    startQuestion(currentScene, nextItemIndex, 350);
+  };
+
+  const revealCurrentAnswer = (reason = 'wrong') => {
+    if (!currentScene || currentItemIndex >= currentScene.items.length) return;
+
+    const expectedItem = currentScene.items[currentItemIndex];
+    setQuestionActive(false);
+    setFailedItems(prev => prev.includes(expectedItem.id) ? prev : [...prev, expectedItem.id]);
+    setMistakeCount(0);
+    if (reason === 'timeout') {
+      setTotalWrong(prev => prev + 1);
+    }
+
+    const explanation = expectedItem.audioText ?? expectedItem.explanation ?? expectedItem.question;
+    const revealText = reason === 'timeout'
+      ? `時間到！答案是 ${expectedItem.label}。${explanation}`
+      : `答案是 ${expectedItem.label}。${explanation}`;
+
+    playTTS(revealText, () => {
+      moveToNextQuestion(currentItemIndex + 1);
+    }, true, TREASURE_HUNTER_EXPLANATION_TTS_RATE);
+  };
+
+  useEffect(() => {
+    if (!questionActive || showResult) return;
+
+    if (timeLeft <= 0) {
+      revealCurrentAnswer('timeout');
+      return;
+    }
+
+    const timer = window.setTimeout(() => {
+      setTimeLeft(prev => Math.max(0, prev - 1));
+    }, 1000);
+
+    return () => window.clearTimeout(timer);
+  }, [questionActive, showResult, timeLeft, currentItemIndex]);
 
   // 處理點擊物品
   const handleItemClick = (item) => {
-    if (foundItems.includes(item.id)) return;
+    if (!currentScene || foundItems.includes(item.id) || failedItems.includes(item.id)) return;
+    if (clickedItemId || (mistakeCount > 0 && !questionActive)) return;
 
     // 獲取目前「應該」要尋找的目標物品
-    const expectedItem = currentScene.items[foundItems.length];
+    const expectedItem = currentScene.items[currentItemIndex];
+    if (!expectedItem || foundItems.includes(expectedItem.id) || failedItems.includes(expectedItem.id)) return;
 
     // 點擊的是錯誤的物品 (順序不對的目標物)
     if (item.id !== expectedItem.id) {
@@ -229,25 +319,20 @@ export default function App({
     }
 
     // ------- 答對了！-------
+    setQuestionActive(false);
     setClickedItemId(item.id);
     setTotalCorrect(prev => prev + 1);
 
-    const isLastItem = foundItems.length + 1 === currentScene.items.length;
-    const nextItemIndex = foundItems.length + 1;
+    const nextItemIndex = currentItemIndex + 1;
 
     // 播放 explanation (audioText)，完成後再吸下一題或結尾知識總結
     const explanation = item.audioText ?? item.question;
     playTTS(explanation, () => {
-      if (!isLastItem) {
-        playTTS(currentScene.items[nextItemIndex].question, null, false);
-      } else {
-        advanceScene();
-      }
-    });
+      moveToNextQuestion(nextItemIndex);
+    }, true, TREASURE_HUNTER_EXPLANATION_TTS_RATE);
 
     setTimeout(() => {
-      const newFoundItems = [...foundItems, item.id];
-      setFoundItems(newFoundItems);
+      setFoundItems(prev => prev.includes(item.id) ? prev : [...prev, item.id]);
       setMistakeCount(0);
     }, 400);
 
@@ -256,33 +341,37 @@ export default function App({
 
   // 處理點擊干擾物(誘餌) 或 點錯順序
   const handleDecoyClick = (decoy) => {
-    if (currentScene && foundItems.length === currentScene.items.length) return;
+    if (!currentScene || currentItemIndex >= currentScene.items.length) return;
+    const expectedItem = currentScene.items[currentItemIndex];
+    if (!expectedItem || foundItems.includes(expectedItem.id) || failedItems.includes(expectedItem.id)) return;
+    if (clickedItemId || (mistakeCount > 0 && !questionActive)) return;
+
+    setQuestionActive(false);
     setWrongItemId(decoy.id);
     const newMistakeCount = mistakeCount + 1;
-    const newTotalWrong = totalWrong + 1;
     setMistakeCount(newMistakeCount);
-    setTotalWrong(newTotalWrong);
+    setTotalWrong(prev => prev + 1);
     setTimeout(() => setWrongItemId(null), 600);
 
-    const expectedItem = currentScene.items[foundItems.length];
-
-    if (newTotalWrong > totalCorrect) {
-      playTTS("哎呀！這不是喔！尋寶失敗！", () => {
-        stopBgm();
-        setFailedExplanation(expectedItem?.audioText ?? expectedItem?.explanation ?? expectedItem?.question ?? "挑戰失敗！");
-        setShowResult(true);
-      });
-    } else if (newMistakeCount === 1) {
-      playTTS("哎呀！這不是喔！");
-    } else {
-      playTTS("哎呀！這不是喔！小提示：試著尋找黃色光圈附近的地方喔！");
+    if (newMistakeCount >= TREASURE_HUNTER_MAX_ATTEMPTS) {
+      revealCurrentAnswer('wrong');
+      return;
     }
+
+    playTTS(`哎呀！錯囉！還有 ${TREASURE_HUNTER_MAX_ATTEMPTS - newMistakeCount} 次機會。`, () => {
+      setQuestionActive(true);
+    }, true, TREASURE_HUNTER_QUESTION_TTS_RATE);
   };
 
   const resetLevel = () => {
     stopAudio();
     setFoundItems([]);
+    setFailedItems([]);
+    setCurrentItemIndex(0);
     setMistakeCount(0);
+    setQuestionActive(false);
+    setTimeLeft(0);
+    setTimeLimit(0);
     setFailedExplanation(null);
   };
 
@@ -294,11 +383,14 @@ export default function App({
 
   const startGame = () => {
     const nextScenes = buildTreasureQuestionGroups(sourceScenes);
+    if (nextScenes.length === 0) return;
+
     setSelectedScenes(nextScenes);
     resetGameStats();
     resetLevel();
     setSceneIndex(0);
     setCurrentSceneId(nextScenes[0].id);
+    startQuestion(nextScenes[0], 0, 600);
     startBgm();
   };
 
@@ -312,7 +404,7 @@ export default function App({
     if (showResult) {
       stopBgm();
       const finalKnowledge = failedExplanation ?? episodeKnowledge ?? currentScene?.knowledge;
-      if (finalKnowledge) playTTS(finalKnowledge);
+      if (finalKnowledge) playTTS(finalKnowledge, null, true, TREASURE_HUNTER_EXPLANATION_TTS_RATE);
     }
   }, [showResult]);
 
@@ -338,9 +430,11 @@ export default function App({
   }, []);
 
   // 取得目前問題
-  const currentTargetItem = currentScene && foundItems.length < currentScene.items.length
-    ? currentScene.items[foundItems.length]
+  const currentTargetItem = currentScene && currentItemIndex < currentScene.items.length
+    ? currentScene.items[currentItemIndex]
     : null;
+  const timerPercent = timeLimit > 0 ? Math.max(0, Math.min(100, (timeLeft / timeLimit) * 100)) : 0;
+  const finalStars = currentScene ? getTreasureStars(totalCorrect, currentScene.items.length) : 0;
 
   return (
     <div className="w-full flex flex-1 items-stretch justify-center font-sans touch-manipulation">
@@ -383,17 +477,25 @@ export default function App({
                 <p className="font-black text-[#8c5230] mb-1.5 sm:mb-2">遊戲規則</p>
                 <div className="flex items-start gap-2 text-[#6b4731]">
                   <span>👂</span>
-                  <span>打開聲音，邊找邊學！</span>
+                  <span>先聽題目，題目念完後才開始倒數。</span>
                 </div>
                 <div className="flex items-start gap-2 text-[#6b4731]">
-                  <span>👌</span>
-                  <span>聽題目提示，按順序點擊場景中的尋寶物品</span>
+                  <span>🔎</span>
+                  <span>每一題找一個寶物，答對後會播放解說，接著換下一題。</span>
                 </div>
                 <div className="flex items-start gap-2 text-[#6b4731]">
-                <span>💡</span>
-                <span>尋寶要仔細！如果「失誤次數」大於「尋獲次數」，就會直接挑戰失敗喔！</span>
+                  <span>❤️</span>
+                  <span>每題有<b className="text-blue-500 text-lg"> 3 次</b> 機會。時間到或 3 次都答錯，會顯示正確答案。</span>
+                </div>
+                {/* <div className="flex items-start gap-2 text-[#6b4731]">
+                  <span>✅</span>
+                  <span>答對會出現綠色勾勾；沒答對會灰掉並出現叉叉。</span>
+                </div> */}
+                <div className="flex items-start gap-2 text-[#6b4731]">
+                  <span>🏆</span>
+                  <span>完成全部題目後，會依答對數拿到 1 到 3 顆星。</span>
+                </div>
               </div>
-            </div>
 
               <div className="w-full z-10 px-1 mt-2 flex justify-center">
                 <button
@@ -411,6 +513,17 @@ export default function App({
 
             {/* 頂部任務與問題欄 */}
             <div className="bg-[#d17a49] text-white pt-6 sm:pt-10 pb-3 sm:pb-4 px-2 sm:rounded-b-[30px] rounded-b-[20px] border-b-[4px] sm:border-b-[6px] border-[#a8572b] shadow-[0_10px_20px_rgba(0,0,0,0.2)] relative z-30">
+              <div className="absolute inset-x-0 top-0 h-3 overflow-hidden bg-black/20 sm:rounded-t-[32px]">
+                <div
+                  className={`h-full rounded-r-full transition-all duration-300 ${
+                    timeLeft <= 6 && questionActive ? 'bg-red-400' : 'bg-yellow-300'
+                  }`}
+                  style={{ width: `${timerPercent}%` }}
+                />
+                <span className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-black/45 px-2 py-0.5 text-xs font-black leading-none text-white shadow-sm">
+                  {questionActive ? `${timeLeft}s` : '--'}
+                </span>
+              </div>
               <button onClick={goHome} className="hidden">
                 <ArrowLeft size={18} />
               </button>
@@ -421,7 +534,7 @@ export default function App({
 
               {/* 目前要尋找的問題提示框 (加入點擊可重新聽題目) */}
               <div
-                onClick={() => currentTargetItem && playTTS(currentTargetItem.question, null, false)}
+                onClick={() => currentTargetItem && playTTS(currentTargetItem.question, null, false, TREASURE_HUNTER_QUESTION_TTS_RATE)}
                 className="bg-[#a8572b]/60 mx-3 mb-4 p-3 rounded-2xl border border-white/20 shadow-inner flex items-start gap-2 cursor-pointer active:scale-95 transition-transform"
                 title="點擊重新聽題目"
               >
@@ -435,19 +548,19 @@ export default function App({
               <div className="flex justify-center gap-2">
                 {currentScene.items.map((item, idx) => {
                   const isFound = foundItems.includes(item.id);
-                  const isCurrentTarget = foundItems.length === idx;
-                  const showHint =
-                    isCurrentTarget && mistakeCount >= GAME_SETTINGS.treasureHunter.maxMistakesBeforeHint;
+                  const isFailed = failedItems.includes(item.id);
+                  const isCurrentTarget = currentItemIndex === idx && !isFound && !isFailed;
 
                   let displayIcon = '❓';
                   if (isFound) displayIcon = item.icon;
-                  else if (showHint) displayIcon = item.icon;
+                  else if (isFailed) displayIcon = item.icon;
 
                   return (
                     <div
-                      key={`header-${item.id}`}
+                      key={`header-${idx}-${item.id}`}
                       className={`relative w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white flex items-center justify-center text-xl sm:text-2xl transition-all duration-500 shadow-inner
                         ${isFound ? 'border-[3px] border-green-500 shadow-[0_0_15px_rgba(34,197,94,0.6)] scale-90' :
+                          isFailed ? 'border-[3px] border-red-400 opacity-70 grayscale' :
                           isCurrentTarget ? 'border-[4px] border-yellow-400 scale-110 shadow-[0_0_16px_rgba(250,204,21,0.45)]' : 'border-[3px] border-[#e6a583] opacity-40 grayscale'}
                       `}
                     >
@@ -459,6 +572,11 @@ export default function App({
                           <CheckCircle size={14} />
                         </div>
                       )}
+                      {isFailed && (
+                        <div className="absolute -bottom-1 -right-1 rounded-full bg-red-500 text-white scale-75 sm:scale-100">
+                          <XCircle size={14} />
+                        </div>
+                      )}
                     </div>
                   );
                 })}
@@ -466,7 +584,7 @@ export default function App({
             </div>
 
             {/* 主要尋寶區域 */}
-            <div className={`flex-1 relative ${currentScene.bgColor ?? 'bg-gradient-to-b from-sky-300 via-blue-200 to-blue-500'} overflow-hidden`}>
+            <div className={`flex-1 relative ${currentScene.bgColor ?? 'bg-gradient-to-b from-sky-300 via-blue-200 to-blue-500'} overflow-hidden -mt-8`}>
               {currentScene.background ?? (
                 <div className="pointer-events-none absolute inset-0 overflow-hidden">
                   <div className="absolute left-[8%] top-[12%] h-28 w-28 rounded-full bg-white/20 blur-xl" />
@@ -478,11 +596,11 @@ export default function App({
               )}
 
               {/* 繪製干擾物品 (誘餌) */}
-              {currentScene.decoys.map(decoy => {
+              {currentScene.decoys.map((decoy, idx) => {
                 const isWrongNow = wrongItemId === decoy.id;
                 return (
                   <div
-                    key={`decoy-${decoy.id}`}
+                    key={`decoy-${idx}-${decoy.id}`}
                     style={{ top: `${decoy.y}%`, left: `${decoy.x}%` }}
                     className="absolute z-10 -translate-x-1/2 -translate-y-1/2"
                   >
@@ -504,28 +622,27 @@ export default function App({
               })}
 
               {/* 繪製隱藏的正確物品 */}
-              {currentScene.items.map(item => {
+              {currentScene.items.map((item, idx) => {
                 const isFound = foundItems.includes(item.id);
+                const isFailed = failedItems.includes(item.id);
                 const isClickedNow = clickedItemId === item.id;
                 const isWrongNow = wrongItemId === item.id;
-                const isCurrentTarget = currentScene.items[foundItems.length]?.id === item.id;
-                // 第 2 次錯誤時，目標物品顯示淡小光圈
-                const showGlowHint = isCurrentTarget && mistakeCount >= 2 && mistakeCount < GAME_SETTINGS.treasureHunter.maxMistakesBeforeHint;
 
                 return (
                   <div
-                    key={`scene-${item.id}`}
+                    key={`scene-${idx}-${item.id}`}
                     style={{ top: `${item.y}%`, left: `${item.x}%` }}
                     className={`absolute z-20 -translate-x-1/2 -translate-y-1/2 transition-all duration-700
                       ${isFound ? 'opacity-0 scale-150 pointer-events-none -translate-y-20' : 'opacity-100'}
+                      ${isFailed ? 'grayscale opacity-60' : ''}
                     `}
                   >
                     <button
                       onClick={() => handleItemClick(item)}
-                      disabled={isFound}
+                      disabled={isFound || isFailed}
                       className={`relative cursor-pointer select-none transition-transform duration-200 flex flex-col items-center
                         ${item.size} 
-                        ${!isFound && !isClickedNow && !isWrongNow ? 'hover:scale-110' : ''}
+                        ${!isFound && !isFailed && !isClickedNow && !isWrongNow ? 'hover:scale-110' : ''}
                         ${isClickedNow ? 'scale-150 brightness-150' : ''}
                         ${isWrongNow ? 'animate-shake-wrong' : ''}
                       `}
@@ -537,19 +654,16 @@ export default function App({
                             <Sparkles className="w-full h-full" />
                           </div>
                         )}
-                        {/* 第 2 次錯誤光圈提示 */}
-                        {showGlowHint && (
-                          <div className="absolute inset-0 rounded-full animate-ping opacity-60 bg-yellow-300 blur-sm scale-150 pointer-events-none" />
-                        )}
                       </span>
                       {/* Emoji 下方的文字標籤 */}
-                      <span className={`mt-1 text-sm font-bold text-white px-2 py-0.5 rounded backdrop-blur-sm whitespace-nowrap tracking-wider
-                        ${showGlowHint ? 'bg-yellow-500/80 border border-yellow-300' : 'bg-black/50'}
-                      `}>
+                      <span className="mt-1 text-sm font-bold text-white px-2 py-0.5 rounded backdrop-blur-sm whitespace-nowrap tracking-wider bg-black/50">
                         {item.label}
                       </span>
 
                       {isWrongNow && (
+                        <XCircle className="absolute top-0 right-0 w-8 h-8 text-red-500 bg-white rounded-full scale-125 -translate-y-1/2 translate-x-1/2" />
+                      )}
+                      {isFailed && (
                         <XCircle className="absolute top-0 right-0 w-8 h-8 text-red-500 bg-white rounded-full scale-125 -translate-y-1/2 translate-x-1/2" />
                       )}
                     </button>
@@ -582,7 +696,7 @@ export default function App({
                 reviewHref={reviewHref ?? (episodeId ? `/guide/${episodeId}` : undefined)}
                 onWin={episodeId ? (s) => markEpisodeGameCompleted(episodeId, s) : undefined}
                 onPlayAgain={playAgain}
-                stars={failedExplanation ? 0 : 3}
+                stars={finalStars}
               />
             )}
 

@@ -2,15 +2,16 @@
 
 import { useRouter } from "next/navigation";
 import { useState, type ReactNode } from "react";
-import { OctagonX } from "lucide-react";
+import { LogIn, OctagonX } from "lucide-react";
 
+import { AuthDialog } from "@/components/auth/AuthDialog";
+import { useAuth } from "@/components/auth/AuthProvider";
 import { Button } from "@/components/ui/button";
 import {
   AlertDialog,
   AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
-  AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
@@ -23,8 +24,10 @@ interface GamePageShellProps {
 
 export default function GamePageShell({ title, children }: GamePageShellProps) {
   const router = useRouter();
+  const { user, loading: authLoading } = useAuth();
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [running, setRunning] = useState(true);
+  const [authDialogOpen, setAuthDialogOpen] = useState(false);
 
   const stopAndGoBack = () => {
     setRunning(false);
@@ -92,7 +95,45 @@ export default function GamePageShell({ title, children }: GamePageShellProps) {
 
       <main className="flex min-h-svh pt-0 sm:pt-[var(--game-header-height)] text-foreground">
         <section className="mx-auto flex h-[100svh] sm:h-[calc(100svh-var(--game-header-height))] w-full max-w-2xl sm:px-4">
-          {running ? children : null}
+          {authLoading ? (
+            <div className="flex min-h-full w-full items-center justify-center p-6 text-center">
+              <div className="rounded-2xl border border-white/15 bg-card/85 px-6 py-5 text-sm font-bold text-white shadow-2xl">
+                檢查登入狀態中...
+              </div>
+            </div>
+          ) : user ? (
+            running ? children : null
+          ) : (
+            <div className="flex min-h-full w-full items-center justify-center p-6 text-center">
+              <div className="w-full max-w-sm rounded-[28px] border border-cyan-200/30 bg-card/90 p-7 text-white shadow-2xl">
+                <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-cyan-200/15 text-cyan-50">
+                  <LogIn className="h-8 w-8" />
+                </div>
+                <h1 className="mb-3 text-2xl font-black text-cyan-50">
+                  先登入，才能開始玩遊戲
+                </h1>
+                <p className="mb-6 text-sm font-bold leading-6 text-white/80">
+                  登入後，我們會幫你保存徽章和星星。下次回來，也能繼續看見自己的紀錄。
+                </p>
+                <Button
+                  type="button"
+                  onClick={() => setAuthDialogOpen(true)}
+                  className="h-12 w-full rounded-full text-base font-black"
+                >
+                  <LogIn className="h-5 w-5" />
+                  登入
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  onClick={() => router.push("/games")}
+                  className="mt-3 h-10 w-full rounded-full text-white/75 hover:bg-white/10 hover:text-white"
+                >
+                  回遊戲列表
+                </Button>
+              </div>
+            </div>
+          )}
         </section>
       </main>
 
@@ -116,6 +157,7 @@ export default function GamePageShell({ title, children }: GamePageShellProps) {
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
+      <AuthDialog open={authDialogOpen} onOpenChange={setAuthDialogOpen} />
     </div>
   );
 }

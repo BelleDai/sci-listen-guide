@@ -24,9 +24,9 @@ const SCENE_VISUALS: Record<string, SceneAdapterOptions> = {
     ],
     background: (
       <>
-        <div className="absolute bottom-0 w-full h-1/3 bg-blue-600/60 rounded-t-[100px] border-t-8 border-blue-400"></div>
-        <div className="absolute bottom-0 right-[-10%] w-[60%] h-[40%] bg-emerald-500 rounded-t-[100px] border-t-8 border-emerald-400"></div>
-        <div className="absolute top-[20%] left-[10%] w-20 h-4 bg-white/40 rounded-full blur-md"></div>
+        <div key="cycle-ocean" className="absolute bottom-0 w-full h-1/3 bg-blue-600/60 rounded-t-[100px] border-t-8 border-blue-400"></div>
+        <div key="cycle-island" className="absolute bottom-0 right-[-10%] w-[60%] h-[40%] bg-emerald-500 rounded-t-[100px] border-t-8 border-emerald-400"></div>
+        <div key="cycle-cloud" className="absolute top-[20%] left-[10%] w-20 h-4 bg-white/40 rounded-full blur-md"></div>
       </>
     ),
   },
@@ -48,10 +48,10 @@ const SCENE_VISUALS: Record<string, SceneAdapterOptions> = {
     ],
     background: (
       <>
-        <div className="absolute bottom-[-10%] left-[-10%] w-[120%] h-[60%] bg-blue-600 rounded-t-full opacity-80 border-t-[10px] border-blue-400 flex items-center justify-center">
+        <div key="storage-ocean" className="absolute bottom-[-10%] left-[-10%] w-[120%] h-[60%] bg-blue-600 rounded-t-full opacity-80 border-t-[10px] border-blue-400 flex items-center justify-center">
           <span className="text-white/30 font-bold text-4xl mb-20">OCEAN</span>
         </div>
-        <div className="absolute top-[30%] right-[10%] w-32 h-32 bg-white/80 rounded-t-full"></div>
+        <div key="storage-ice" className="absolute top-[30%] right-[10%] w-32 h-32 bg-white/80 rounded-t-full"></div>
       </>
     ),
   },
@@ -73,8 +73,8 @@ const SCENE_VISUALS: Record<string, SceneAdapterOptions> = {
     ],
     background: (
       <>
-        <div className="absolute left-0 top-0 w-1/2 h-full bg-green-600/30"></div>
-        <div className="absolute right-0 bottom-0 w-1/2 h-[70%] bg-blue-800/60 rounded-tl-full"></div>
+        <div key="extremes-land" className="absolute left-0 top-0 w-1/2 h-full bg-green-600/30"></div>
+        <div key="extremes-water" className="absolute right-0 bottom-0 w-1/2 h-[70%] bg-blue-800/60 rounded-tl-full"></div>
       </>
     ),
   },
@@ -96,11 +96,11 @@ const SCENE_VISUALS: Record<string, SceneAdapterOptions> = {
     ],
     background: (
       <>
-        <div className="absolute inset-0 flex items-center justify-center opacity-10">
+        <div key="time-clock" className="absolute inset-0 flex items-center justify-center opacity-10">
           <div className="w-64 h-64 border-[20px] border-white rounded-full border-dashed animate-[spin_60s_linear_infinite]"></div>
         </div>
-        <div className="absolute bottom-0 w-full h-[40%] bg-slate-900 border-t-8 border-slate-700"></div>
-        <div className="absolute top-[40%] left-[5%] w-[40%] h-[30%] bg-white rounded-t-full opacity-80"></div>
+        <div key="time-ground" className="absolute bottom-0 w-full h-[40%] bg-slate-900 border-t-8 border-slate-700"></div>
+        <div key="time-ice" className="absolute top-[40%] left-[5%] w-[40%] h-[30%] bg-white rounded-t-full opacity-80"></div>
       </>
     ),
   },

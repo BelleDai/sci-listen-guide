@@ -1,0 +1,203 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: users
+    // Document ID: Firebase Auth uid
+    // Fields:
+    //   - uid: string (required, immutable) - Firebase Auth uid.
+    //   - email: string (required) - User email from Google sign-in.
+    //   - displayName: string (required, max 80 chars) - Google display name or empty string.
+    //   - marketingOptIn: bool (required) - Explicit future email marketing consent.
+    //   - completions: map (required, max 50 keys) - Episode ID to best star count.
+    //   - completedCount: int (required, 0..50) - Number of completed episode games.
+    //   - createdAt: timestamp (required, immutable) - Profile creation time.
+    //   - lastLoginAt: timestamp (required) - Last login/profile sync time.
+    //   - updatedAt: timestamp (required) - Last profile/progress update time.
+    //
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function hasOnlyAllowedFields(fields) {
+      return request.resource.data.keys().hasOnly(fields);
+    }
+
+    function hasRequiredFields(fields) {
+      return request.resource.data.keys().hasAll(fields);
+    }
+
+    function isValidEmail(email) {
+      return email is string &&
+        email == request.auth.token.email &&
+        email.size() > 3 &&
+        email.size() <= 254 &&
+        email.matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$");
+    }
+
+    function isValidRecentTimestamp(value) {
+      return value is timestamp &&
+        value > request.time - duration.value(5, 'm') &&
+        value <= request.time;
+    }
+
+    function isValidCompletionValue(completions, episodeId) {
+      return !(episodeId in completions) ||
+        (
+          completions[episodeId] is int &&
+          completions[episodeId] >= 1 &&
+          completions[episodeId] <= 3
+        );
+    }
+
+    function hasOnlyKnownCompletionKeys(completions) {
+      return completions.keys().hasOnly([
+        '148', '149', '150', '151', '152', '153', '154', '155', '215', '216',
+        '130', '132', '133', '140', '142', '143', '144', '145', '146', '131',
+        '134', '135', '136', '138', '147', 's12', 's15', 's19', 's2', 's7',
+        's8', 's9', 's10', 's11', 's14', 's16', 's17', 's18', 's23', 's3',
+        's4', 's5', 's6', 's13', 's20', 's21', 's22', 's24', 's25', 's26'
+      ]);
+    }
+
+    function hasValidCompletionValues(completions) {
+      return
+        isValidCompletionValue(completions, '148') &&
+        isValidCompletionValue(completions, '149') &&
+        isValidCompletionValue(completions, '150') &&
+        isValidCompletionValue(completions, '151') &&
+        isValidCompletionValue(completions, '152') &&
+        isValidCompletionValue(completions, '153') &&
+        isValidCompletionValue(completions, '154') &&
+        isValidCompletionValue(completions, '155') &&
+        isValidCompletionValue(completions, '215') &&
+        isValidCompletionValue(completions, '216') &&
+        isValidCompletionValue(completions, '130') &&
+        isValidCompletionValue(completions, '132') &&
+        isValidCompletionValue(completions, '133') &&
+        isValidCompletionValue(completions, '140') &&
+        isValidCompletionValue(completions, '142') &&
+        isValidCompletionValue(completions, '143') &&
+        isValidCompletionValue(completions, '144') &&
+        isValidCompletionValue(completions, '145') &&
+        isValidCompletionValue(completions, '146') &&
+        isValidCompletionValue(completions, '131') &&
+        isValidCompletionValue(completions, '134') &&
+        isValidCompletionValue(completions, '135') &&
+        isValidCompletionValue(completions, '136') &&
+        isValidCompletionValue(completions, '138') &&
+        isValidCompletionValue(completions, '147') &&
+        isValidCompletionValue(completions, 's12') &&
+        isValidCompletionValue(completions, 's15') &&
+        isValidCompletionValue(completions, 's19') &&
+        isValidCompletionValue(completions, 's2') &&
+        isValidCompletionValue(completions, 's7') &&
+        isValidCompletionValue(completions, 's8') &&
+        isValidCompletionValue(completions, 's9') &&
+        isValidCompletionValue(completions, 's10') &&
+        isValidCompletionValue(completions, 's11') &&
+        isValidCompletionValue(completions, 's14') &&
+        isValidCompletionValue(completions, 's16') &&
+        isValidCompletionValue(completions, 's17') &&
+        isValidCompletionValue(completions, 's18') &&
+        isValidCompletionValue(completions, 's23') &&
+        isValidCompletionValue(completions, 's3') &&
+        isValidCompletionValue(completions, 's4') &&
+        isValidCompletionValue(completions, 's5') &&
+        isValidCompletionValue(completions, 's6') &&
+        isValidCompletionValue(completions, 's13') &&
+        isValidCompletionValue(completions, 's20') &&
+        isValidCompletionValue(completions, 's21') &&
+        isValidCompletionValue(completions, 's22') &&
+        isValidCompletionValue(completions, 's24') &&
+        isValidCompletionValue(completions, 's25') &&
+        isValidCompletionValue(completions, 's26');
+    }
+
+    function isValidCompletions(data) {
+      return data.completions is map &&
+        data.completions.size() <= 50 &&
+        hasOnlyKnownCompletionKeys(data.completions) &&
+        hasValidCompletionValues(data.completions) &&
+        data.completedCount is int &&
+        data.completedCount >= 0 &&
+        data.completedCount <= 50 &&
+        data.completedCount == data.completions.size();
+    }
+
+    function isValidUserProfile(userId, data) {
+      return hasOnlyAllowedFields([
+          'uid',
+          'email',
+          'displayName',
+          'marketingOptIn',
+          'completions',
+          'completedCount',
+          'createdAt',
+          'lastLoginAt',
+          'updatedAt'
+        ]) &&
+        hasRequiredFields([
+          'uid',
+          'email',
+          'displayName',
+          'marketingOptIn',
+          'completions',
+          'completedCount',
+          'createdAt',
+          'lastLoginAt',
+          'updatedAt'
+        ]) &&
+        data.uid is string &&
+        data.uid == userId &&
+        data.uid == request.auth.uid &&
+        isValidEmail(data.email) &&
+        data.displayName is string &&
+        data.displayName.size() <= 80 &&
+        data.marketingOptIn is bool &&
+        isValidCompletions(data) &&
+        data.createdAt is timestamp &&
+        data.lastLoginAt is timestamp &&
+        data.updatedAt is timestamp;
+    }
+
+    match /users/{userId} {
+      allow read: if isOwner(userId);
+
+      allow create: if isOwner(userId) &&
+        isValidUserProfile(userId, request.resource.data) &&
+        isValidRecentTimestamp(request.resource.data.createdAt) &&
+        isValidRecentTimestamp(request.resource.data.lastLoginAt) &&
+        isValidRecentTimestamp(request.resource.data.updatedAt);
+
+      allow update: if isOwner(userId) &&
+        isValidUserProfile(userId, request.resource.data) &&
+        request.resource.data.uid == resource.data.uid &&
+        request.resource.data.createdAt == resource.data.createdAt &&
+        request.resource.data.updatedAt >= resource.data.updatedAt;
+
+      allow delete: if false;
+    }
+
+    match /episodes/{episodeId} {
+      allow read: if resource.data.status == 'published';
+      allow write: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
