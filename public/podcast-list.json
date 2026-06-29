@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-06-28T01:46:39.409Z",
-  "count": 237,
+  "updatedAt": "2026-06-29T01:48:30.984Z",
+  "count": 238,
   "episodes": [
+    {
+      "id": "cmqxmg426026c01xegvg8465v",
+      "title": "宇宙偵探找找看：GPS如何從兩萬公里的太空找到你？｜EP.80",
+      "firstoryLink": "https://open.firstory.me/story/cmqxmg426026c01xegvg8465v",
+      "pubDate": "Sat, 27 Jun 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/BIQ4Hym-SBj7jK438iVr1.jpg",
+      "duration": 434,
+      "spotifyLink": "https://open.spotify.com/episode/2LqGBlqIf2OklCmBbf0Lgz",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000774614359"
+    },
     {
       "id": "cmqnh8bpr00s301xc8kwsdq66",
       "title": "暗夜精靈的魔指傳說：指猴的敲擊回聲定位與第六根手指之謎｜EP.234",
