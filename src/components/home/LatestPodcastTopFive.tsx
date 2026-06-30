@@ -34,11 +34,11 @@ export default function LatestPodcastTopFive({ episodes }: Props) {
   if (episodes.length === 0) return null;
 
   return (
-    <div className="mt-9 space-y-4 sm:mt-10">
-      <p className="text-white/85 text-base leading-relaxed">
-        <span className="text-accent font-bold">新故事</span>到站，準備開聽！
+    <div className="mt-8 space-y-4 sm:mt-9">
+      <p className="text-base font-normal leading-7 text-white/68 sm:text-lg sm:leading-8">
+        <span className="font-semibold text-accent/90">新故事</span>到站，準備開聽！
       </p>
-      <div className="space-y-3">
+      <div className="grid gap-3 lg:grid-cols-2 lg:gap-4">
         {episodes.map((episode) => {
           const date = formatDate(episode.pubDate);
           const duration = formatDuration(episode.duration);
@@ -47,7 +47,7 @@ export default function LatestPodcastTopFive({ episodes }: Props) {
           return (
             <article
               key={episode.id}
-              className="flex gap-3 rounded-2xl border border-white/15 bg-white/[0.07] p-3 backdrop-blur-md"
+              className="flex gap-3 rounded-2xl border border-white/15 bg-white/[0.07] p-3.5 backdrop-blur-md sm:p-4"
             >
               <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-xl bg-white/10 sm:h-24 sm:w-24">
                 <img
@@ -60,8 +60,8 @@ export default function LatestPodcastTopFive({ episodes }: Props) {
 
               <div className="flex min-w-0 flex-1 flex-col justify-between gap-2">
                 <div className="min-w-0">
-                  {meta && <div className="mb-1 text-xs font-semibold text-white/85">{meta}</div>}
-                  <div className="line-clamp-2 text-sm font-extrabold leading-snug text-white sm:text-base">
+                  {meta && <div className="mb-1 text-xs font-normal text-white/58 sm:text-sm">{meta}</div>}
+                  <div className="line-clamp-2 text-sm font-medium leading-snug text-white/90 sm:text-base">
                     {episode.title}
                   </div>
                 </div>
@@ -83,9 +83,9 @@ export default function LatestPodcastTopFive({ episodes }: Props) {
       <button
         type="button"
         onClick={openHeaderSearch}
-        className="mt-5 w-full flex items-center justify-center gap-2 py-3 px-4 rounded-2xl border border-dashed border-secondary/30 hover:border-accent/60 text-white/90 hover:text-white transition-colors group"
+        className="group mt-5 flex w-full items-center justify-center gap-2 rounded-2xl border border-dashed border-secondary/30 px-4 py-3 text-white/78 transition-colors hover:border-accent/60 hover:text-white sm:py-3.5"
       >
-        <span className="text-sm font-bold">探索更多故事</span>
+        <span className="text-base font-medium">探索更多故事</span>
       </button>
     </div>
   );

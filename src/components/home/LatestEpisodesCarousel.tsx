@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Search } from "lucide-react";
-import { useRef, useEffect, useCallback } from "react";
+import { ChevronLeft, ChevronRight, Search } from "lucide-react";
+import { useRef, useEffect, useCallback, useState } from "react";
 
 interface EpisodeCard {
   id: string;
@@ -13,6 +13,8 @@ interface EpisodeCard {
 interface LatestEpisodesCarouselProps {
   episodes: EpisodeCard[];
 }
+
+const SCROLL_EDGE_TOLERANCE = 24;
 
 function openHeaderSearch() {
   // The header search button has aria-label="展開搜尋" when closed
@@ -27,6 +29,8 @@ function openHeaderSearch() {
 
 export default function LatestEpisodesCarousel({ episodes }: LatestEpisodesCarouselProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
 
   // ── Mouse-drag scroll (desktop) ────────────────────────────────────────────
   const isDragging = useRef(false);
@@ -57,26 +61,61 @@ export default function LatestEpisodesCarousel({ episodes }: LatestEpisodesCarou
     scrollRef.current.scrollLeft = scrollLeft.current - walk;
   }, []);
 
+  const updateScrollState = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const remainingScroll = el.scrollWidth - el.clientWidth - el.scrollLeft;
+    setCanScrollLeft(el.scrollLeft > SCROLL_EDGE_TOLERANCE);
+    setCanScrollRight(remainingScroll > SCROLL_EDGE_TOLERANCE);
+  }, []);
+
+  const scrollPrevious = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    el.scrollBy({
+      left: -Math.round(el.clientWidth * 0.85),
+      behavior: "smooth",
+    });
+  }, []);
+
+  const scrollNext = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    el.scrollBy({
+      left: Math.round(el.clientWidth * 0.85),
+      behavior: "smooth",
+    });
+  }, []);
+
   // Set initial cursor style
   useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.style.cursor = "grab";
-    }
-  }, []);
+    const el = scrollRef.current;
+    if (!el) return;
+
+    el.style.cursor = "grab";
+    el.scrollLeft = 0;
+    requestAnimationFrame(updateScrollState);
+
+    el.addEventListener("scroll", updateScrollState, { passive: true });
+    window.addEventListener("resize", updateScrollState);
+
+    return () => {
+      el.removeEventListener("scroll", updateScrollState);
+      window.removeEventListener("resize", updateScrollState);
+    };
+  }, [updateScrollState]);
 
   if (!episodes || episodes.length === 0) return null;
 
   return (
-    <section className="w-full -mt-5">
-      {/*
-        Constrain to max-w-2xl to match the topic-planets section width.
-        overflow-hidden clips the scroll track to the same boundary.
-        The inner scroll div handles the horizontal overflow.
-      */}
-      <div className="max-w-2xl mx-auto overflow-hidden">
+    <section className="w-full">
+      <div className="relative mx-auto max-w-5xl overflow-hidden">
         <div
           ref={scrollRef}
-          className="latest-carousel flex gap-3 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2"
+          className="latest-carousel flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth pb-2 sm:gap-4"
           style={{
             scrollbarWidth: "none",
             msOverflowStyle: "none",
@@ -93,26 +132,24 @@ export default function LatestEpisodesCarousel({ episodes }: LatestEpisodesCarou
               key={ep.id}
               href={`/guide/${ep.id}`}
               draggable={false}
-              // 77% of the container width → ~1.3 cards visible
-              className="flex-none snap-start rounded-3xl overflow-hidden glass-card border-2 border-secondary/40 hover:border-accent/70 transition-colors group relative"
-              style={{ width: "min(77%, 320px)" }}
+              className="group relative w-[82%] max-w-[360px] flex-none snap-start overflow-hidden rounded-2xl border border-secondary/35 glass-card transition-colors hover:border-accent/70 sm:w-[46%] lg:w-[32%]"
               aria-label={`伴讀單元：${ep.Title}`}
             >
-              <div className="flex items-center gap-4 p-4">
+              <div className="flex items-center gap-3 p-4 sm:gap-4">
                 <div className="relative flex-shrink-0">
                   <img
                     src={ep.Cover}
                     alt={ep.Title}
-                    className="w-20 h-20 rounded-2xl object-cover"
+                    className="h-[72px] w-[72px] rounded-2xl object-cover sm:h-20 sm:w-20"
                     loading={idx === 0 ? "eager" : "lazy"}
                     draggable={false}
                   />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="font-extrabold text-white text-sm leading-snug line-clamp-3">
+                  <div className="line-clamp-3 text-sm font-medium leading-snug text-white/90 sm:text-base">
                     {ep.Title}
                   </div>
-                  <div className="text-accent text-xs mt-2 font-bold group-hover:translate-x-1 transition-transform">
+                  <div className="mt-2 text-sm font-medium text-accent/90 transition-transform group-hover:translate-x-1">
                     進入伴讀 →
                   </div>
                 </div>
@@ -122,8 +159,7 @@ export default function LatestEpisodesCarousel({ episodes }: LatestEpisodesCarou
 
           {/* ── "更多伴讀" card at the end ── */}
           <div
-            className="flex-none snap-start rounded-3xl border-2 border-dashed border-secondary/30 hover:border-accent/60 transition-colors flex flex-col items-center justify-center gap-3 cursor-pointer group"
-            style={{ width: "min(60%, 220px)", minHeight: "112px" }}
+            className="group flex min-h-[112px] w-[68%] flex-none snap-start cursor-pointer flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-secondary/30 transition-colors hover:border-accent/60 sm:w-[240px]"
             role="button"
             tabIndex={0}
             aria-label="探索更多伴讀"
@@ -134,13 +170,39 @@ export default function LatestEpisodesCarousel({ episodes }: LatestEpisodesCarou
               <Search className="w-5 h-5 text-secondary group-hover:text-accent transition-colors" />
             </div>
             <div className="text-center px-3">
-              <div className="text-white font-bold text-sm leading-snug">探索更多伴讀</div>
+              <div className="text-sm font-medium leading-snug text-white/90 sm:text-base">探索更多伴讀</div>
             </div>
           </div>
 
           {/* Trailing spacer */}
           <div className="flex-none w-1" aria-hidden="true" />
         </div>
+
+        {canScrollLeft && (
+          <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center bg-gradient-to-r from-background via-background/80 to-transparent pl-2 pr-10">
+            <button
+              type="button"
+              aria-label="顯示前面的科普伴讀"
+              className="pointer-events-auto grid h-11 w-11 place-items-center rounded-full border border-secondary/40 bg-card/95 text-secondary shadow-[0_0_18px_hsl(var(--secondary)/0.22)] backdrop-blur-md transition hover:scale-105 hover:border-accent hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              onClick={scrollPrevious}
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+          </div>
+        )}
+
+        {canScrollRight && (
+          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center bg-gradient-to-l from-background via-background/80 to-transparent pl-10 pr-2">
+            <button
+              type="button"
+              aria-label="顯示更多科普伴讀"
+              className="pointer-events-auto grid h-11 w-11 place-items-center rounded-full border border-secondary/40 bg-card/95 text-secondary shadow-[0_0_18px_hsl(var(--secondary)/0.22)] backdrop-blur-md transition hover:scale-105 hover:border-accent hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              onClick={scrollNext}
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Hide scrollbar webkit */}
