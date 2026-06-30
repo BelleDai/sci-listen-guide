@@ -16,6 +16,11 @@ export type GameCompletionRecords = Record<string, number>;
 
 export type GameCompletionsUpdatedEvent = CustomEvent<GameCompletionRecords>;
 
+export type UserGameProgressSyncResult = {
+  completions: GameCompletionRecords;
+  isNewUserProfile: boolean;
+};
+
 function normalizeStars(value: unknown): number | null {
   if (typeof value !== 'number' || !Number.isFinite(value)) return null;
   const normalized = Math.floor(value);
@@ -87,25 +92,16 @@ function writeCompletedRecords(records: GameCompletionRecords) {
   );
 }
 
-function mergeCompletedRecords(
-  first: GameCompletionRecords,
-  second: GameCompletionRecords
-): GameCompletionRecords {
-  const merged = { ...first };
-  for (const [episodeId, stars] of Object.entries(second)) {
-    if (!(episodeId in merged) || stars > merged[episodeId]) {
-      merged[episodeId] = stars;
-    }
-  }
-  return merged;
-}
-
 function getUserDocRef(uid: string) {
   return doc(db, 'users', uid);
 }
 
 export function getCompletedRecords(): GameCompletionRecords {
   return readCompletedRecords();
+}
+
+export function clearCompletedRecords() {
+  writeCompletedRecords({});
 }
 
 export function getCompletedEpisodeGameIds(): string[] {
@@ -122,33 +118,35 @@ export function isEpisodeGameCompleted(episodeId: string): boolean {
 }
 
 export async function syncUserGameProgress(
-  user: User,
-  marketingOptIn = false
-): Promise<GameCompletionRecords> {
-  const localRecords = readCompletedRecords();
+  user: User
+): Promise<UserGameProgressSyncResult> {
   const userRef = getUserDocRef(user.uid);
   const snapshot = await getDoc(userRef);
   const now = serverTimestamp();
 
   if (!snapshot.exists()) {
+    const emptyRecords: GameCompletionRecords = {};
+
     await setDoc(userRef, {
       uid: user.uid,
       email: user.email ?? '',
       displayName: user.displayName ?? '',
-      marketingOptIn,
-      completions: localRecords,
-      completedCount: Object.keys(localRecords).length,
+      marketingOptIn: false,
+      completions: emptyRecords,
+      completedCount: 0,
       createdAt: now,
       lastLoginAt: now,
       updatedAt: now,
     });
-    writeCompletedRecords(localRecords);
-    return localRecords;
+    writeCompletedRecords(emptyRecords);
+    return {
+      completions: emptyRecords,
+      isNewUserProfile: true,
+    };
   }
 
   const data = snapshot.data();
   const cloudRecords = normalizeCompletedRecords(data.completions);
-  const mergedRecords = mergeCompletedRecords(cloudRecords, localRecords);
 
   await setDoc(
     userRef,
@@ -156,17 +154,33 @@ export async function syncUserGameProgress(
       uid: user.uid,
       email: user.email ?? data.email ?? '',
       displayName: user.displayName ?? data.displayName ?? '',
-      marketingOptIn: data.marketingOptIn === true || marketingOptIn,
-      completions: mergedRecords,
-      completedCount: Object.keys(mergedRecords).length,
+      marketingOptIn: data.marketingOptIn === true,
+      completions: cloudRecords,
+      completedCount: Object.keys(cloudRecords).length,
       lastLoginAt: now,
       updatedAt: now,
     },
     { merge: true }
   );
 
-  writeCompletedRecords(mergedRecords);
-  return mergedRecords;
+  writeCompletedRecords(cloudRecords);
+  return {
+    completions: cloudRecords,
+    isNewUserProfile: false,
+  };
+}
+
+export async function updateUserMarketingOptIn(user: User, marketingOptIn: boolean) {
+  const userRef = getUserDocRef(user.uid);
+
+  await setDoc(
+    userRef,
+    {
+      marketingOptIn,
+      updatedAt: serverTimestamp(),
+    },
+    { merge: true }
+  );
 }
 
 async function syncCompletedGameToCloud(episodeId: string, stars: number) {

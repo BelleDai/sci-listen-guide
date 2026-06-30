@@ -52,7 +52,7 @@ export default function EpisodeGamesList({ categories }: EpisodeGamesListProps) 
   const [signingOut, setSigningOut] = useState(false);
 
   useEffect(() => {
-    setCompletionRecords(getCompletedRecords());
+    setCompletionRecords(user ? getCompletedRecords() : {});
 
     const syncLocalCompletions = (event: Event) => {
       const updatedEvent = event as GameCompletionsUpdatedEvent;
@@ -64,13 +64,13 @@ export default function EpisodeGamesList({ categories }: EpisodeGamesListProps) 
     return () => {
       window.removeEventListener(GAME_COMPLETIONS_UPDATED_EVENT, syncLocalCompletions);
     };
-  }, []);
+  }, [user]);
 
   useEffect(() => {
     if (user) {
       setCompletionRecords(completions);
     } else if (!authLoading) {
-      setCompletionRecords(getCompletedRecords());
+      setCompletionRecords({});
     }
   }, [authLoading, completions, user]);
 
@@ -333,10 +333,10 @@ export default function EpisodeGamesList({ categories }: EpisodeGamesListProps) 
                       <div className="space-y-4">
                         <div className="rounded-2xl border border-cyan-200/30 bg-cyan-200/10 p-4 text-left">
                           <p className="text-lg font-black text-cyan-50">
-                            先登入，徽章才不會不見喔！
+                            玩遊戲前請先登入
                           </p>
                           <p className="mt-2 text-sm font-bold leading-6 text-white/80">
-                            玩遊戲前請先登入。登入後，我們會幫你保存徽章和星星，下次回來也看得到。
+                            登入後，我們會幫你保存徽章和星星，下次回來也看得到。
                           </p>
                         </div>
                         <motion.button
