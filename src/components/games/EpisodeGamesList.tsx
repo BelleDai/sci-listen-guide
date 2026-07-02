@@ -111,9 +111,9 @@ export default function EpisodeGamesList({ categories }: EpisodeGamesListProps) 
             className="flex min-w-0 flex-shrink-0 items-center gap-2 transition-transform hover:scale-[1.02]"
           >
             <img
-              src="https://files.soundon.fm/1758618850575-3b62b9ae-8417-4916-a6dc-b25e0b872fba.jpeg"
+              src="/icon.png"
               alt="科學好好聽"
-              className="h-9 w-9 rounded-md object-cover"
+              className="h-9 w-9 rounded-full object-cover"
             />
             <span className="flex min-w-0 items-baseline gap-1.5">
               <span className="truncate text-base font-extrabold leading-none text-white">

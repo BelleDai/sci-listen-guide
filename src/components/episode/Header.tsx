@@ -153,9 +153,9 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
           className="flex items-center gap-2 flex-shrink-0 hover:scale-[1.02] transition-transform"
         >
           <img
-            src="https://files.soundon.fm/1758618850575-3b62b9ae-8417-4916-a6dc-b25e0b872fba.jpeg"
+            src="/icon.png"
             alt="科學好好聽"
-            className="w-9 h-9 rounded-md object-cover"
+            className="w-9 h-9 rounded-full object-cover"
           />
           <span className="flex items-baseline gap-1.5">
             <span className="font-extrabold text-white text-base leading-none">科學好好聽</span>
