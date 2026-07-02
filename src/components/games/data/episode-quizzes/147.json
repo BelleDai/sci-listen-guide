@@ -1,0 +1,588 @@
+{
+  "episode_id": "147",
+  "category_name": "氣象魔法與地球防衛隊",
+  "name": "海洋的律動：潮汐、洋流與氣候的連結",
+  "knowledge": "波浪多由風吹形成，潮汐受月球和太陽引力影響；洋流會搬運熱量，調節地球氣候。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "大部分的海浪是怎麼形成的？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "🌬️",
+          "label": "風吹形成",
+          "explanation": "風吹過海面會推動海水，形成一波一波的海浪。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "🌋",
+          "label": "海底地震"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "🌕",
+          "label": "月球引力"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "🚢",
+          "label": "大船航行"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "海浪移動的時候，水分子主要是怎麼動的？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "🌀",
+          "label": "原地繞圈",
+          "explanation": "海浪前進時，水分子多在原地上下繞圈。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "🏄",
+          "label": "衝上岸"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "⚓",
+          "label": "往下沉"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🧊",
+          "label": "靜止不動"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "主要是誰的引力造成了地球上海水的潮汐變化？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "🌕",
+          "label": "月球",
+          "explanation": "月球引力會拉動海水，是潮汐變化的主因。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "☀️",
+          "label": "太陽"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "🌍",
+          "label": "地球自轉"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🌊",
+          "label": "海底洋流"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "除了月球之外，還有誰的引力也會影響地球的潮汐？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "☀️",
+          "label": "太陽引力",
+          "explanation": "太陽也有引力，因此也會影響海水漲退。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "☄️",
+          "label": "附近小行星"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🌬️",
+          "label": "強風"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "⛰️",
+          "label": "海底地形"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "什麼時候會發生威力加倍的「大潮」？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "📏",
+          "label": "日月地成一直線",
+          "explanation": "太陽、月球和地球成一直線時，引力加強形成大潮。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "🌀",
+          "label": "颱風來襲"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "⚡",
+          "label": "太陽風暴"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "🕛",
+          "label": "每天中午"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "海面上的洋流主要是由什麼力量幫忙推動的？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "🌍",
+          "label": "風和自轉",
+          "explanation": "海面洋流主要受風和地球自轉影響而流動。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🌋",
+          "label": "海底火山"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🐟",
+          "label": "魚群游動"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🌕",
+          "label": "月球引力"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "有名的「墨西哥灣流」會把什麼送到歐洲西北部？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "🌡️",
+          "label": "溫暖海水",
+          "explanation": "墨西哥灣流把溫暖海水帶到歐洲西北部。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "🧊",
+          "label": "冰冷海水"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "🏖️",
+          "label": "深海泥沙"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "🫧",
+          "label": "氧氣"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "在深海裡壯觀又神祕的流動，科學家稱呼它為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "🌊",
+          "label": "溫鹽環流",
+          "explanation": "深海洋流受溫度和鹽分差異推動，稱為溫鹽環流。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "🖤",
+          "label": "黑潮大環流"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "🌪️",
+          "label": "大洋龍捲風"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "⚙️",
+          "label": "潮汐輸送帶"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "深海的「溫鹽環流」在地球上扮演什麼重要角色？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "🌡️",
+          "label": "調節氣溫",
+          "explanation": "溫鹽環流搬運熱量，能幫助調節地球氣溫。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "🏄",
+          "label": "製造大浪"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🗑️",
+          "label": "清潔海洋"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "🐟",
+          "label": "天然漁場"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "深層洋流的形成跟海水的哪些特性有關？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "🌡️",
+          "label": "溫度和鹽度",
+          "explanation": "冷而鹹的海水較重會下沉，推動深層洋流。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "🎨",
+          "label": "顏色和深淺"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "🧭",
+          "label": "流速和方向"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "🐟",
+          "label": "魚群的數量"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "當太陽和月亮與地球形成直角時，會發生什麼現象？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "🌊",
+          "label": "小潮",
+          "explanation": "日月引力方向成直角，力量部分抵消，所以形成小潮。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "🚀",
+          "label": "超級大潮"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "🐕",
+          "label": "可怕瘋狗浪"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "😱",
+          "label": "巨大海嘯"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "衝浪選手為什麼可以在海浪上滑行？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "⚡",
+          "label": "波浪能量",
+          "explanation": "海浪會傳遞能量，衝浪者可借這股力量滑行。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "🌬️",
+          "label": "風一直吹"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🏃",
+          "label": "水流很快"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "🏄",
+          "label": "衝浪板會動"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "如果沒有「墨西哥灣流」，歐洲西北部可能會發生什麼事？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "🧊",
+          "label": "氣候變冷",
+          "explanation": "墨西哥灣流送來暖水，少了它當地氣候會變冷。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🔥",
+          "label": "夏天變超熱"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "🌪️",
+          "label": "每天颳颱風"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "🧂",
+          "label": "海水變超鹹"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "被稱為「全球傳送帶」的溫鹽環流，繞行地球一圈大約需要花費多少時間？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "⏳",
+          "label": "一千年",
+          "explanation": "溫鹽環流速度很慢，繞地球一圈約需一千年。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "🌞",
+          "label": "一天"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🌙",
+          "label": "一個月"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "📅",
+          "label": "兩年"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "當溫暖的海水流向極地並冷卻後，會發生什麼事？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "📉",
+          "label": "冷鹹下沉",
+          "explanation": "海水變冷又更鹹時密度增加，會往深海下沉。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "☁️",
+          "label": "蒸發變成雲"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "🧊",
+          "label": "結冰黏住"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "🌬️",
+          "label": "被風吹回去"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "為什麼赤道附近的海水比較溫暖？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "☀️",
+          "label": "陽光直射",
+          "explanation": "赤道陽光照射較直接，得到熱量多，海水較溫暖。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "🌋",
+          "label": "海底火山多"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "🏃",
+          "label": "洋流特別快"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "🍃",
+          "label": "因為沒有風"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "哪種海洋環境雖然面積小，卻是超過四分之一海洋生物的家？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "🪸",
+          "label": "珊瑚礁",
+          "explanation": "珊瑚礁面積小，卻提供許多海洋生物住處。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "🏞️",
+          "label": "深海平原"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "🧊",
+          "label": "極地冰山"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "🖤",
+          "label": "黑潮海域"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "科學家估計，目前人類大約探索了多少比例的海底世界？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🤏",
+          "label": "約百分之五",
+          "explanation": "海底又深又廣，人類目前只探索約百分之五。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "🌗",
+          "label": "一半多"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "💰",
+          "label": "八成"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "🌍",
+          "label": "全部"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "當海水漲潮時，地球上哪裡的海水會鼓起來？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🌕",
+          "label": "向月與背月",
+          "explanation": "月球引力作用下，向月面和背月面海水都會鼓起。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "👀",
+          "label": "只有向月側"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "🌍",
+          "label": "赤道附近"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "🐧",
+          "label": "南北極"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "影響海浪高度和大小的因素，不包括下列哪一項？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "🌕",
+          "label": "日月引力",
+          "explanation": "海浪大小主要受風影響，日月引力主要造成潮汐。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "💨",
+          "label": "風力強度"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "⏳",
+          "label": "風吹時間"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "📏",
+          "label": "風吹範圍大"
+        }
+      ]
+    }
+  ]
+}

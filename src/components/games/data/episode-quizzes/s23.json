@@ -1,0 +1,588 @@
+{
+  "episode_id": "s23",
+  "category_name": "探索無垠的宇宙",
+  "name": "冥王星的復仇：我才不是死掉的石頭！",
+  "knowledge": "冥王星因未清空軌道被改列矮行星；新視野號發現它有藍色大氣、愛心冰原，冰還會慢慢流動。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "科學隊長小時候背的「九大行星口訣」，最後一個字是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "🪐",
+          "label": "「冥」王星",
+          "explanation": "以前九大行星最後一顆是冥王星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "🌊",
+          "label": "「海」王星"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "☁️",
+          "label": "「天」王星"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "🌍",
+          "label": "「地」球"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "冥王星表面有一個巨大的驚喜特徵，它是什麼形狀？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "💖",
+          "label": "巨大愛心形",
+          "explanation": "新視野號拍到冥王星表面有巨大愛心冰原。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "⭐",
+          "label": "神祕五角星"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "📐",
+          "label": "整齊三角形"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "⚡",
+          "label": "閃電長條形"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "冥王星的名字「Pluto」最早是由誰建議命名的？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "👧",
+          "label": "11歲的女孩",
+          "explanation": "Pluto 這個名字由11歲女孩威妮夏提出。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "👨‍🔬",
+          "label": "湯博士女兒"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "🌟",
+          "label": "好萊塢明星"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🎩",
+          "label": "美國總統"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "第一艘近距離飛過冥王星、拍下清晰照片的太空船是？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "🚀",
+          "label": "新視野號",
+          "explanation": "新視野號在2015年近距離飛掠冥王星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "🛸",
+          "label": "航海家1號"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🌕",
+          "label": "阿波羅11號"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "🚗",
+          "label": "毅力號"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "冥王星被踢出行星行列，主要是因為它無法達成哪項條件？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "🧹",
+          "label": "沒清空軌道的鄰居",
+          "explanation": "冥王星軌道附近仍有許多天體，未清空鄰居。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "☀️",
+          "label": "沒有繞太陽公轉"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🟤",
+          "label": "形狀長得不夠圓"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "📏",
+          "label": "離地球實在太遠"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "冥王星位於太陽系邊緣一個冰凍天體聚集區，這個區域是？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "🧊",
+          "label": "古柏帶",
+          "explanation": "古柏帶在海王星外側，聚集許多冰凍天體。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🪨",
+          "label": "小行星帶"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🌌",
+          "label": "銀河中心點"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "⭐",
+          "label": "北極星圈"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "是哪位天文學家透過比對照片，耐心發現了冥王星？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "🔭",
+          "label": "克萊爾‧湯博",
+          "explanation": "湯博比對照片，發現會移動的冥王星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "🌟",
+          "label": "伽利略"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "🍎",
+          "label": "牛頓"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "👨‍🔬",
+          "label": "愛因斯坦"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "新視野號載著哪件具有紀念意義的東西飛向冥王星？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "⚱️",
+          "label": "發現者的骨灰",
+          "explanation": "新視野號帶著發現者湯博的部分骨灰。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "💰",
+          "label": "特製的太空金幣"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "🖼️",
+          "label": "發現者的照片"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "🌱",
+          "label": "地球的泥土樣本"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "冥王星稀薄的大氣層在陽光照射下，會呈現什麼顏色？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "🔵",
+          "label": "淡淡的藍光",
+          "explanation": "陽光照過稀薄大氣，讓冥王星呈淡藍光。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "🔴",
+          "label": "熱情的紅色"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🟢",
+          "label": "螢光綠色"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "⚫",
+          "label": "深邃的黑色"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "太空船後來造訪的小天體 Arrokoth，外型看起來像什麼？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "⛄",
+          "label": "紅色的雪人",
+          "explanation": "Arrokoth 由兩個圓塊相連，像紅色雪人。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "🍩",
+          "label": "甜甜圈"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "🥖",
+          "label": "法棍麵包"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "饅頭",
+          "label": "愛心小饅頭"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "冥王星目前在太陽系中，與穀神星一起被歸類為哪種天體？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "🪐",
+          "label": "矮行星",
+          "explanation": "冥王星未清空軌道，因此被歸類為矮行星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "🌕",
+          "label": "超級衛星"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "☄️",
+          "label": "宇宙流星"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "☄️",
+          "label": "巨型彗星"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "冥王星上的巨大冰山，主要是由什麼物質構成的？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "⛰️",
+          "label": "堅硬如石的水冰",
+          "explanation": "冥王星很冷，水冰硬得像岩石，可形成冰山。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "🥶",
+          "label": "凍結的液態氮"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🧊",
+          "label": "固體的二氧化碳"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "💨",
+          "label": "宇宙的岩石塵埃"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "「冥王星之心」左半邊非常平坦，是因為什麼物質在流動？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "🌬️",
+          "label": "冰冷的氮冰",
+          "explanation": "氮冰會非常慢地流動，讓地表變平坦。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🌋",
+          "label": "滾燙的岩漿"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "💧",
+          "label": "清澈的河水"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "🔩",
+          "label": "滾動的氮化鎵"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "1930年湯博發現冥王星時，是用什麼機器來比對照片的？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "🔬",
+          "label": "閃爍比對器",
+          "explanation": "閃爍比對器能讓移動天體在照片中跳動。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "📷",
+          "label": "數位相機"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "📡",
+          "label": "大型雷達儀"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "🔭",
+          "label": "神奇望遠鏡"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "冥王星上的冰山很高，大約跟地球哪座山差不多高？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "🗻",
+          "label": "玉山或富士山",
+          "explanation": "冥王星冰山約3500公尺，接近玉山或富士山。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "🏢",
+          "label": "台北101"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "⛰️",
+          "label": "陽明山"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "🏔️",
+          "label": "喜馬拉雅山"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "冥王星的平原幾乎沒有隕石坑，代表這塊地形有什麼特點？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "🆕",
+          "label": "地質非常年輕",
+          "explanation": "隕石坑少代表地表常被更新，地質很年輕。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "🧲",
+          "label": "引力太小吸不到"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "🔥",
+          "label": "大氣層燒掉隕石"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "🎯",
+          "label": "這裡剛好沒被撞"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "新視野號從地球出發飛到冥王星，大約花了多久的時間？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "⏳",
+          "label": "漫長9年半",
+          "explanation": "冥王星很遠，新視野號飛了約9年半才到。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "📅",
+          "label": "短短3天"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "🌙",
+          "label": "不到1個月"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "🕰️",
+          "label": "一百多年"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "冥王星上的「冰火山」噴發出來的物質可能是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🌋",
+          "label": "氨與水冰",
+          "explanation": "冥王星冰火山可能噴出氨和水冰混合物。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "🔥",
+          "label": "藍色的岩漿"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "🍹",
+          "label": "果汁冰沙"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "🚰",
+          "label": "滾燙的水"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "為什麼迪士尼狗狗布魯托會跟冥王星同名？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🐕",
+          "label": "冥王星轟動全球",
+          "explanation": "冥王星發現時很轟動，Pluto 名字因此流行。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "👽",
+          "label": "來自冥王星的狗"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "🔭",
+          "label": "迪士尼是天文迷"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "⭐",
+          "label": "長得像冥王星"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "雖然冥王星離太陽很遠，但科學家發現它的地表其實？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "😲",
+          "label": "充滿了驚喜",
+          "explanation": "新視野號發現冥王星有冰河、藍天和高山。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "🪨",
+          "label": "死氣沉沉"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "🔥",
+          "label": "火燒過的痕跡"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "💎",
+          "label": "鋪滿黃金鑽石"
+        }
+      ]
+    }
+  ]
+}

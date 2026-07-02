@@ -1,0 +1,588 @@
+{
+  "episode_id": "150",
+  "category_name": "侏羅紀生物遠征隊",
+  "name": "生物演化歷程：從單細胞到恐龍霸主 (上集)",
+  "knowledge": "岩層像地球歷史書，越下層越古老；生命從單細胞開始，寒武紀時動物快速多樣化。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "地球最早的生命，大約是在多久以前出現的呢？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "🦠",
+          "label": "38億年前",
+          "explanation": "最早生命約在 38 億年前出現，當時地球環境很不同。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "🐚",
+          "label": "六億年前"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "🐒",
+          "label": "3百萬年前"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "🌍",
+          "label": "46億年前"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "科學家把地層裡的岩石比喻成什麼，用來記錄歷史？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "🍰",
+          "label": "巨大蛋糕",
+          "explanation": "岩層像蛋糕一層層堆疊，越下層通常越古老。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "📖",
+          "label": "厚重字典"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "🧅",
+          "label": "洋蔥"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🧰",
+          "label": "神秘藏寶箱"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "我們常聽到的「化石」，通常是指古代生物留下來的什麼？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "🦴",
+          "label": "骨頭和腳印",
+          "explanation": "化石常是古生物的骨頭、腳印等被保存下來。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "🎨",
+          "label": "原始人壁畫"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "🧊",
+          "label": "冰凍的動物"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🌋",
+          "label": "火山熔岩"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "在非常古老的「前寒武紀」時期，地球的環境是什麼樣子？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "🌋",
+          "label": "炎熱多火山",
+          "explanation": "前寒武紀早期地球很熱，火山活動也很頻繁。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "❄️",
+          "label": "冰河"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🌲",
+          "label": "高大植物"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "🦖",
+          "label": "恐龍稱霸"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "38億年前，地球上出現的最早生命是誰？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "🦠",
+          "label": "單細胞生物",
+          "explanation": "最早生命很簡單，是只有一個細胞的微小生物。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "🦀",
+          "label": "多細胞動物"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🐟",
+          "label": "最早的魚類"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "🌱",
+          "label": "綠色小植物"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "身體構造比較複雜的「多細胞動物」，是在多久以前大量出現的？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "🐚",
+          "label": "六億年前",
+          "explanation": "多細胞動物約在六億年前開始大量出現。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🦠",
+          "label": "38億年前"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🦖",
+          "label": "六千萬年前"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🦕",
+          "label": "兩億年前"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "發生「寒武紀大爆發」時，動物們演化出什麼超酷的特徵？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "🛡️",
+          "label": "硬殼和骨骼",
+          "explanation": "寒武紀許多動物長出硬殼和骨骼來保護自己。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "🦎",
+          "label": "健壯四肢"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "🦅",
+          "label": "薄膜翅膀"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "☀️",
+          "label": "行光合作用"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "寒武紀海裡的小明星「馬瑞拉蟲」，體型大約有多大？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "🤏",
+          "label": "一兩公分",
+          "explanation": "馬瑞拉蟲很小，大約只有一兩公分長。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "🦐",
+          "label": "像蝦子"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "📏",
+          "label": "一公尺"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "🔬",
+          "label": "細菌般小"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "古生代時期，最先離開海洋跑到陸地上的探險家是誰？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "🌿",
+          "label": "綠色植物",
+          "explanation": "綠色植物先登上陸地，之後動物才陸續上岸。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "🐸",
+          "label": "早期兩棲類"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🪲",
+          "label": "硬殼大昆蟲"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "🐟",
+          "label": "無下巴魚類"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "早期的登陸植物「頂囊蕨」，演化出什麼構造來支撐身體？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "🎋",
+          "label": "支撐莖",
+          "explanation": "陸地沒有水的浮力，植物需要莖來支撐身體。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "🍃",
+          "label": "吸陽光葉子"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "🥕",
+          "label": "粗壯的根部"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "🌸",
+          "label": "鮮豔的花朵"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "長相呆萌、沒有下巴，身體還有骨板保護的古代魚類是？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "🐟",
+          "label": "沙卡班貝魚",
+          "explanation": "沙卡班貝魚沒有下巴，身上有骨板保護。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "🦈",
+          "label": "羅芙魚"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "🛡️",
+          "label": "連甲魚"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "🪲",
+          "label": "三葉蟲"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "哪一個地質年代因為魚類超級多，被科學家稱為「魚類時代」？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "🌊",
+          "label": "泥盆紀",
+          "explanation": "泥盆紀魚類種類很多，因此被稱為魚類時代。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "🦑",
+          "label": "寒武紀"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🌲",
+          "label": "石炭紀"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "🦕",
+          "label": "侏羅紀"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "在魚類時代，有些魚類的「魚鰭」變成了什麼，幫助牠們上岸？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "🦶",
+          "label": "像腳的構造",
+          "explanation": "有些魚鰭長出骨骼和肌肉，逐漸像腳一樣。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🦇",
+          "label": "像翅膀薄膜"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "🛡️",
+          "label": "堅硬的骨板"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "🫁",
+          "label": "呼吸用的肺"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "最早跑到陸地上的「兩棲動物」，是後來哪些生物的祖先？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "🦎",
+          "label": "陸地脊椎類",
+          "explanation": "早期兩棲動物是後來陸地脊椎動物的祖先。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "🐠",
+          "label": "魚類"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🐸",
+          "label": "青蛙"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "🦋",
+          "label": "昆蟲"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "在石炭紀時期，有一種叫做「鱗木」的大樹，大約能長到多高？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "🏢",
+          "label": "約十層樓",
+          "explanation": "石炭紀鱗木可長到約十層樓高，非常巨大。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "🏠",
+          "label": "三層樓高"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "🏟️",
+          "label": "操場一圈"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "🏙️",
+          "label": "摩天大樓"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "為什麼石炭紀會出現比老鷹還要大的「巨蜻蜓」？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "💨",
+          "label": "氧氣特別多",
+          "explanation": "石炭紀氧氣濃度高，昆蟲能長得特別巨大。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "🦅",
+          "label": "沒鳥類捕食"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "🍃",
+          "label": "樹葉超營養"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "🌍",
+          "label": "地球引力小"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "二疊紀的「異齒獸」背上有一大片帆，科學家猜測有什麼功用？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "🌡️",
+          "label": "調溫或炫耀",
+          "explanation": "異齒獸背帆可能用來調節體溫或吸引同類。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "⛵",
+          "label": "當船帆"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "💧",
+          "label": "儲存水分"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "🛡️",
+          "label": "抵擋攻擊"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "地球歷史上的「第一隻恐龍」，大約是在哪一個年代出現的？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🌋",
+          "label": "三疊紀",
+          "explanation": "最早的恐龍大約在三疊紀出現。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "🦎",
+          "label": "二疊紀"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "🦕",
+          "label": "侏羅紀"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "☄️",
+          "label": "白堊紀"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "中生代在天空中飛翔的「翼龍」，牠的翅膀構造是什麼樣子？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🦇",
+          "label": "手指連皮膜",
+          "explanation": "翼龍翅膀由延長的手指連著皮膜形成。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "🪶",
+          "label": "長滿羽毛"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "🪰",
+          "label": "薄翅"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "🛡️",
+          "label": "骨板"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "在哪一個地質時期，恐龍真正稱霸了陸地，進入「黃金時代」？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "🦕",
+          "label": "侏羅紀",
+          "explanation": "侏羅紀恐龍種類變多，成為陸地主要動物。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "🐟",
+          "label": "泥盆紀"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "🌲",
+          "label": "石炭紀"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "🌋",
+          "label": "三疊紀"
+        }
+      ]
+    }
+  ]
+}

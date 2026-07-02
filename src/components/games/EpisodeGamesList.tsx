@@ -15,7 +15,7 @@ import {
   type GameCompletionRecords,
   type GameCompletionsUpdatedEvent,
 } from './core/gameProgress';
-import { getEpisodeGameId, type StageCategory, type StageEpisode } from './core/episodeQuizzes';
+import { type StageCategory, type StageEpisode } from './core/episodeQuizzes';
 import { GAME_METADATA } from './core/gameMetadata';
 
 type EpisodeGamesListProps = {
@@ -212,7 +212,7 @@ export default function EpisodeGamesList({ categories }: EpisodeGamesListProps) 
                 <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
                   {category.episode.map((episode) => {
                     const done = completedSet.has(episode.id);
-                    const gameId = getEpisodeGameId(episode.id);
+                    const gameId = episode.gameId!;
                     const gameMeta = GAME_METADATA[gameId];
                     const stars = completionRecords[episode.id] ?? 0;
 
@@ -280,13 +280,13 @@ export default function EpisodeGamesList({ categories }: EpisodeGamesListProps) 
         >
           <DialogTitle className="sr-only">
             {selected
-              ? `開始挑戰：${GAME_METADATA[getEpisodeGameId(selected.id)].label} - ${selected.name}`
+              ? `開始挑戰：${GAME_METADATA[selected.gameId!].label} - ${selected.name}`
               : '開始挑戰'}
           </DialogTitle>
           <AnimatePresence>
             {selected && (
               (() => {
-                const gameMeta = GAME_METADATA[getEpisodeGameId(selected.id)];
+                const gameMeta = GAME_METADATA[selected.gameId!];
 
                 return (
                   <motion.div

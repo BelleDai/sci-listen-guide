@@ -1,0 +1,588 @@
+{
+  "episode_id": "s20",
+  "category_name": "探索無垠的宇宙",
+  "name": "牛郎織女的遠距離戀愛：光年與夏季大三角",
+  "knowledge": "光速很快，一秒可繞地球七圈半；但星星距離太遠，牛郎織女用光速通信來回也約30年。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "我們抬頭看到的太陽光其實不是「新鮮」的，它大約是多久前的影像？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "☀️",
+          "label": "8分多鐘前",
+          "explanation": "太陽光到地球約8分多鐘，所以看到的是過去。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "⚡",
+          "label": "1秒鐘前"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "📅",
+          "label": "10年前"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "🕰️",
+          "label": "100年前"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "組成「夏季大三角」的是哪三顆星星？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "📐",
+          "label": "織女、牛郎、天津四",
+          "explanation": "夏季大三角由織女星、牛郎星和天津四組成。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "⭐",
+          "label": "北極、天狼、比鄰星"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "🪐",
+          "label": "水星、金星、火星"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🌍",
+          "label": "太陽、月亮、地球"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "牛郎和織女互傳「光速訊息」，來回一趟要多久？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "⏳",
+          "label": "要等30年",
+          "explanation": "兩星相距約15光年，光速訊息來回約30年。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "⏱️",
+          "label": "只要1分"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "👴",
+          "label": "要10年"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "📱",
+          "label": "當天就能收到"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "宇宙的絕對限速「光速」，一秒鐘大約可以繞地球跑幾圈？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "🏃",
+          "label": "七圈半",
+          "explanation": "光一秒可跑約30萬公里，約繞地球七圈半。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "🐢",
+          "label": "只能跑半圈"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🌪️",
+          "label": "一百圈"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "🚲",
+          "label": "一萬圈"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "離很遠的天津四為什麼看起來跟織女星一樣亮？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "🌟",
+          "label": "它是超巨星",
+          "explanation": "天津四雖遠，但本身是超巨星，亮度很強。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "🤏",
+          "label": "離地球比較近"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🧊",
+          "label": "表面溫度較低"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "🌑",
+          "label": "比太陽還要大"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "人類飛得最遠的太空船「航海家 1 號」現在在哪裡？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "🚀",
+          "label": "還沒離開太陽系",
+          "explanation": "航海家1號飛很遠，但仍在太陽系邊緣附近。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🌌",
+          "label": "飛出銀河系"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🐄",
+          "label": "降落在牛郎星"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🌕",
+          "label": "剛離開月球"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "天文學說的「一光年」大約代表多長的距離？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "📏",
+          "label": "9.5 兆公里",
+          "explanation": "一光年是光走一年的距離，約9.5兆公里。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "🚗",
+          "label": "10公里"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "🚶",
+          "label": "1公里"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "☀️",
+          "label": "光走一天的距離"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "為什麼說看星空就像是在看「過去的歷史」？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "🕰️",
+          "label": "光傳過來要很久",
+          "explanation": "星光傳到地球要很久，所以看到的是過去。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "🔭",
+          "label": "星星離我們很近"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "👀",
+          "label": "看到的是舊影像"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "👴",
+          "label": "星星活了幾億年"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "我們在夏天夜空看到的「銀河」其實是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "🌌",
+          "label": "銀河系側面",
+          "explanation": "我們在銀河系內往側面看，會見到銀河光帶。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "💨",
+          "label": "太空中的發光體"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🔭",
+          "label": "距離很近的星雲"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "🪐",
+          "label": "許多行星排成線"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "搭現在最快的太空船前往牛郎星，大約要花多久？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "🛸",
+          "label": "要數萬年",
+          "explanation": "牛郎星離地球很遠，現代太空船需飛數萬年。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "📅",
+          "label": "花 100 天"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "♾️",
+          "label": "要50兆年"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "🕰️",
+          "label": "要1千年"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "距離地球大約 25 光年，夏季大三角中最亮的星星是？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "✨",
+          "label": "織女星",
+          "explanation": "織女星距地約25光年，是夏季大三角最亮星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "🐄",
+          "label": "牛郎星"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "🦢",
+          "label": "天津四"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "⭐",
+          "label": "北極星"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "「天津四」本身的亮度大約是牛郎星的幾倍？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "💥",
+          "label": "1 萬倍",
+          "explanation": "天津四本身很亮，約是牛郎星的一萬倍。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "🔟",
+          "label": "10倍"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "💯",
+          "label": "1百倍"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "🔥",
+          "label": "1千倍"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "什麼是科學家說的「一個天文單位」（AU）？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "🌍",
+          "label": "地球到太陽的距離",
+          "explanation": "一個天文單位就是地球到太陽的平均距離。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "📏",
+          "label": "光走一整年的距離"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "🌕",
+          "label": "地球到月球的距離"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "☀️",
+          "label": "太陽的大小"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "我們現在看到「天津四」的星光，是多久以前發出的？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "🕯️",
+          "label": "1,400 年前",
+          "explanation": "天津四距離約1400光年，光要走1400年。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "⚡",
+          "label": "1 秒鐘前"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🕰️",
+          "label": "1 萬年前"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "☀️",
+          "label": "8 分鐘前"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "宇宙中最快的「光速」，每秒鐘大約跑多少公里？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "⚡",
+          "label": "30萬公里",
+          "explanation": "光速每秒約30萬公里，是宇宙中的最快速度。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "🚗",
+          "label": "一百公里"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "✈️",
+          "label": "一千公里"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "🏃",
+          "label": "25公里"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "天津四的光傳了 1,400 年，那大概是中國什麼朝代？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "📜",
+          "label": "隋唐時代",
+          "explanation": "天津四的光來自約1400年前，約是隋唐時代。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "辮",
+          "label": "清朝時期"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "📱",
+          "label": "現代社會"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "🗿",
+          "label": "古代夏朝"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "在現實的星空中，牛郎星與織女星距離大約多遠？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "💔",
+          "label": "15光年",
+          "explanation": "牛郎星和織女星實際相距約15光年。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "🚶",
+          "label": "距離1公里"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "🌌",
+          "label": "距離1億光"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "🌍",
+          "label": "半個地球"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "如果把巨大的天津四放在太陽的位置，地球會發生什麼事？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🔥",
+          "label": "被天津四吞掉",
+          "explanation": "天津四是超巨星，放在太陽位置會吞掉地球。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "🌱",
+          "label": "變得適合居住"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "🧊",
+          "label": "變成大冰塊"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "🌸",
+          "label": "長出更多花"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "在宇宙的高速公路上，光速被視為？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🛑",
+          "label": "宇宙絕對限速",
+          "explanation": "光速是宇宙最高速限，沒有物體能超過。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "🐢",
+          "label": "最慢移動速度"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "🚀",
+          "label": "可超越的速度"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "🌠",
+          "label": "流星飛行速度"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "天文單位中的「光年」，是用來測量什麼的？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "📏",
+          "label": "遙遠的距離",
+          "explanation": "光年不是時間，而是測量遙遠距離的單位。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "⏱️",
+          "label": "時間快慢"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "🔦",
+          "label": "手電筒亮度"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "🧨",
+          "label": "光過一年的時間"
+        }
+      ]
+    }
+  ]
+}

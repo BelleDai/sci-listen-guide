@@ -1,0 +1,588 @@
+{
+  "episode_id": "154",
+  "category_name": "侏羅紀生物遠征隊",
+  "name": "雷克斯暴龍：陸地霸主的傳奇（下集）",
+  "knowledge": "暴龍可能以快走移動，短前肢也有用途；牠們或許會群體行動，最後在白堊紀末滅絕。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "科學家推測，成年暴龍的體重跟什麼東西差不多重？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "🐘",
+          "label": "五頭非洲象",
+          "explanation": "成年暴龍非常重，體重約等於五頭非洲象。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "🚌",
+          "label": "坐滿人巴士"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "✈️",
+          "label": "載滿貨客機"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "🚗",
+          "label": "家庭小轎車"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "暴龍的哪種構造與鳥類相似，有助於牠高效跑步？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "🦶",
+          "label": "腳踝細長",
+          "explanation": "暴龍腳踝細長，和鳥類相似，有助有效率行走。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "🥿",
+          "label": "寬扁腳底板"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "🦴",
+          "label": "巨大的膝蓋"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🐾",
+          "label": "厚肉墊腳掌"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "根據科學家研究，成年暴龍最快的時速大約是多少？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "🚲",
+          "label": "約25公里",
+          "explanation": "研究推測，成年暴龍最快約時速二十多公里。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "🏍️",
+          "label": "約45公里"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "🏎️",
+          "label": "約65公里"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🚶",
+          "label": "約8公里"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "為什麼暴龍不適合像賽車一樣在短時間內猛力衝刺？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "💥",
+          "label": "摔倒風險高",
+          "explanation": "暴龍體重很大，快速衝刺跌倒可能造成嚴重傷害。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "🍗",
+          "label": "後腿不強壯"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "❤️",
+          "label": "心臟受不了"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "🫁",
+          "label": "肺活量太小"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "在節目中，暴龍的尾巴被比喻成什麼？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "🚀",
+          "label": "推進力量",
+          "explanation": "暴龍尾巴連著強壯肌肉，可幫助身體向前移動。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "🪭",
+          "label": "趕蚊蟲扇子"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🍔",
+          "label": "存脂肪倉庫"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "🛶",
+          "label": "游泳方向舵"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "暴龍的前肢（雙手）與巨大的身體相比，外觀如何？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "🤏",
+          "label": "比起來很小",
+          "explanation": "暴龍身體巨大，相比之下前肢顯得很短小。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "📏",
+          "label": "能碰到地面"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🦵",
+          "label": "和後腿一樣"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "💪",
+          "label": "比其他粗壯"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "科學家對暴龍小短手的「小李飛刀」猜測是什麼用途？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "🔪",
+          "label": "劃傷獵物",
+          "explanation": "暴龍前肢雖短，爪子仍可能用來劃傷獵物。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "🪃",
+          "label": "把手丟出去"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "⛏️",
+          "label": "挖地下水源"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "🥊",
+          "label": "把獵物打昏"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "美國猶他州的化石發現，暗示暴龍可能有什麼生活習性？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "🐺",
+          "label": "組隊打獵",
+          "explanation": "多隻暴龍化石聚集，暗示牠們可能會群體行動。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "🌊",
+          "label": "住水裡面"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "🦉",
+          "label": "晚上活動"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "洞穴",
+          "label": "藏食於山洞"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "根據化石紀錄，暴龍大約在多久以前完全滅絕？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "☄️",
+          "label": "約6600萬年前",
+          "explanation": "暴龍在約 6600 萬年前的白堊紀末滅絕。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "🦕",
+          "label": "侏羅紀末"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🐒",
+          "label": "兩百萬年前"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "📜",
+          "label": "五千年前"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "造成恐龍滅絕的「第一擊」火山爆發發生在哪個地點？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "🌋",
+          "label": "現在的印度",
+          "explanation": "德干暗色岩火山爆發發生在現在的印度附近。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "🌊",
+          "label": "大西洋海底"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "❄️",
+          "label": "北極的冰川"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "🦘",
+          "label": "現在的澳洲"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "超級火山噴發對當時的地球造成什麼影響？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "☠️",
+          "label": "氣候不穩",
+          "explanation": "大量火山氣體會改變氣候，讓環境變得不穩定。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "⛄",
+          "label": "地球變更冷"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "⛰️",
+          "label": "火山灰填海"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "💨",
+          "label": "氧氣突加倍"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "造成恐龍滅絕的「第二擊」小行星，撞擊地點在哪裡？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "🇲🇽",
+          "label": "現在墨西哥",
+          "explanation": "小行星撞擊地點在現在墨西哥的尤加敦半島。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "🐧",
+          "label": "現在南極洲"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🏜️",
+          "label": "撒哈拉沙漠"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "🗾",
+          "label": "現在的日本"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "節目中形容，撞擊地球的小行星體型大約像什麼？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "⛰️",
+          "label": "一座大山",
+          "explanation": "小行星直徑約十公里，節目比喻像一座大山。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🏟️",
+          "label": "像體育館"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "🇹🇼",
+          "label": "像一個台灣"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "🏙️",
+          "label": "像摩天大樓"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "小行星撞擊後，為什麼地球上的植物會先大量死亡？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "☀️",
+          "label": "沒光合作用",
+          "explanation": "撞擊灰塵遮住陽光，植物無法順利光合作用。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "🔥",
+          "label": "被高溫烤焦"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🌪️",
+          "label": "被強風吹倒"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "🧪",
+          "label": "被毒雨毒死"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "植物大量消失後，為什麼暴龍最終也會面臨餓死？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "🥩",
+          "label": "食物鏈中斷",
+          "explanation": "植物減少後草食恐龍變少，暴龍也會缺少食物。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "💨",
+          "label": "氧少沒力氣"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "👃",
+          "label": "嗅覺大失靈"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "🌫️",
+          "label": "煙遮視線盲"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "哪一種現代動物被科學家認為是暴龍倖存親戚的後代？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "🐦",
+          "label": "鳥類",
+          "explanation": "現代鳥類是存活下來的小型羽毛恐龍後代。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "🐊",
+          "label": "鱷魚與蜥蜴"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "🦁",
+          "label": "獅子與老虎"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "🐸",
+          "label": "青蛙與蟾蜍"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "在恐龍的科學分類中，暴龍屬於哪一種分類？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "🦖",
+          "label": "獸腳類",
+          "explanation": "暴龍是兩腳行走的肉食性恐龍，屬於獸腳類。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "🦕",
+          "label": "蜥腳類"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "🦏",
+          "label": "角龍類"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "🪁",
+          "label": "劍龍類"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "總結來說，造成暴龍滅絕的最主要原因是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "☄️",
+          "label": "火山與小行星",
+          "explanation": "火山爆發加上小行星撞擊，讓環境劇烈改變。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "🥊",
+          "label": "被強龍打敗"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "🧊",
+          "label": "地球冰河期"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "💧",
+          "label": "找不到水源"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "節目中將暴龍的最高時速比喻成什麼？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🚲",
+          "label": "腳踏車衝刺",
+          "explanation": "暴龍最高時速約二十多公里，像腳踏車衝刺。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "🚗",
+          "label": "高速路汽車"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "✈️",
+          "label": "飛機起飛速"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "🚶",
+          "label": "阿公阿嬤走"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "如果暴龍會團隊合作，年輕的暴龍可能負責什麼工作？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "🏃",
+          "label": "驅趕包圍",
+          "explanation": "年輕暴龍較輕快，可能負責驅趕或包圍獵物。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "🗡️",
+          "label": "致命的一擊"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "🛡️",
+          "label": "保護小寶寶"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "🗺️",
+          "label": "找埋伏地點"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,588 @@
+{
+  "episode_id": "s6",
+  "category_name": "探索無垠的宇宙",
+  "name": "星塵往事：解讀夜空中那些「眨眼」的巨人們",
+  "knowledge": "星星閃爍多因大氣擾動；恆星顏色能反映溫度，而人體許多元素來自古老恆星。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "為什麼我們看星星時，星星好像在眨眼睛？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "😉",
+          "label": "大氣層干擾",
+          "explanation": "星光穿過流動大氣會被折射，所以看起來閃爍。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "📳",
+          "label": "星本身在震"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "💡",
+          "label": "星亮度不穩"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "☁️",
+          "label": "星光被雲擋"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "哪一種顏色的星星，表面溫度最高？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "🔵",
+          "label": "藍色",
+          "explanation": "藍色恆星表面溫度最高，紅色恆星較低。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "🔴",
+          "label": "紅色"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "🟡",
+          "label": "黃色"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🟢",
+          "label": "綠色"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "巨大的「參宿四」是屬於哪一個星座的星星？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "🏹",
+          "label": "獵戶座",
+          "explanation": "參宿四位在獵戶座，是一顆明亮的紅色巨星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "🦁",
+          "label": "獅子座"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "🧚",
+          "label": "仙女座"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🐻",
+          "label": "大熊座"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "如果把參宿四放在太陽的位置，它會變多大？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "👹",
+          "label": "可吞火星",
+          "explanation": "參宿四若放在太陽位置，大小可延伸到火星附近。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "🤏",
+          "label": "只到水星軌道"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🌍",
+          "label": "只到地球軌道"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "🐜",
+          "label": "其實比日還"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "在完全沒有光害的地方，肉眼大約能看到幾顆星？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "🌌",
+          "label": "六千顆星星",
+          "explanation": "在無光害環境，肉眼大約能看見六千顆星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "♾️",
+          "label": "無限多顆星"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "💯",
+          "label": "一百顆星星"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "🔢",
+          "label": "30億顆星"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "天文學提到的「星等」，數字越小代表星星越怎樣？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "🌟",
+          "label": "亮度越亮",
+          "explanation": "星等數字越小，代表星星看起來越亮。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🕶️",
+          "label": "亮度越暗"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🤏",
+          "label": "體積越小"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "📏",
+          "label": "距離越遠"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "太陽是天空中最亮的，它的星等大約是多少？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "☀️",
+          "label": "負27等",
+          "explanation": "太陽非常亮，視星等約為負 27 等。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "1️⃣",
+          "label": "1等"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "6️⃣",
+          "label": "6等"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "➖",
+          "label": "負100等"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "科學家說「我們都是星塵」，這句話是什麼意思？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "✨",
+          "label": "元素源恆星",
+          "explanation": "人體許多元素是在古老恆星中形成，再散到宇宙。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "🦸",
+          "label": "人類如新星"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "🏠",
+          "label": "大家住太空"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "🐜",
+          "label": "人類很渺小"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "為什麼在天空中，我們看不到綠色的星星？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "🌈",
+          "label": "人眼混白",
+          "explanation": "恆星發出多種顏色，綠光常被人眼混成白色。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "🧽",
+          "label": "綠光被大氣"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🧲",
+          "label": "地磁場吸收"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "❌",
+          "label": "沒有發綠光"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "除了太陽以外，目前離我們最近的恆星是哪一顆？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "📍",
+          "label": "比鄰星",
+          "explanation": "比鄰星是除太陽外，距離地球最近的恆星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "👗",
+          "label": "織女星"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "🐺",
+          "label": "天狼星"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "👹",
+          "label": "參宿四"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "為什麼行星（如木星）看起來比較不會眨眼睛？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "🪐",
+          "label": "近似圓盤",
+          "explanation": "行星較近、像小圓盤，受大氣閃爍影響較小。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "💡",
+          "label": "行星不間斷"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "🐘",
+          "label": "行星超級大"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "🌕",
+          "label": "行星有衛星"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "現代望遠鏡用來消除大氣干擾的技術叫什麼？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "🔭",
+          "label": "自適應光學",
+          "explanation": "自適應光學能修正大氣擾動，讓星星影像更清楚。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "🦸",
+          "label": "超級光學"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🩻",
+          "label": "透視光學"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "🔫",
+          "label": "雷射光學"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "參宿四在 2019 年底突然變暗，主要原因是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "🌫️",
+          "label": "被塵埃遮住",
+          "explanation": "參宿四噴出塵埃遮住星光，所以看起來變暗。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "😴",
+          "label": "進入了星休"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "🕳️",
+          "label": "公轉時接近"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "🌑",
+          "label": "被另一顆星"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "以目前技術搭太空船去比鄰星，來回一趟要多久？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "🚀",
+          "label": "幾萬年",
+          "explanation": "比鄰星雖最近，但以現有太空船往返仍需幾萬年。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "🗓️",
+          "label": "幾十年"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🕰️",
+          "label": "幾百年"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "📜",
+          "label": "幾千年"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "在夜晚的星空中，哪一顆恆星看起來最亮？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "🐺",
+          "label": "天狼星",
+          "explanation": "天狼星是夜空中看起來最亮的恆星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "👗",
+          "label": "織女星"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "⬆️",
+          "label": "北極星"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "🐄",
+          "label": "牛郎星"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "「蓋亞任務」的目的是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "🗺️",
+          "label": "繪製銀河系",
+          "explanation": "蓋亞任務測量大量恆星位置，幫助繪製銀河系。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "👽",
+          "label": "尋找外星生"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "📸",
+          "label": "拍攝日黑子"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "🕳️",
+          "label": "尋找宇黑洞"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "我們的太陽，在天文分類中屬於哪種顏色的恆星？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "🟡",
+          "label": "黃色恆星",
+          "explanation": "太陽表面溫度中等，常被歸為黃色恆星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "🔴",
+          "label": "紅色恆星"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "⚪",
+          "label": "白色恆星"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "🔵",
+          "label": "藍色恆星"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "如果參宿四真的爆炸了，在地球上看會變怎樣？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🎇",
+          "label": "白天也看得到",
+          "explanation": "參宿四若超新星爆炸，亮度可能白天也看得到。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "🎆",
+          "label": "紅色煙火般"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "☄️",
+          "label": "像流星一樣"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "🌌",
+          "label": "地磁場爆發"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "科學家估計，銀河系裡面大約有多少顆恆星？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🔢",
+          "label": "兩千億顆",
+          "explanation": "銀河系約有兩千億顆恆星，太陽只是其中之一。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "💯",
+          "label": "幾百萬顆"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "🤏",
+          "label": "只有幾千顆"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "♾️",
+          "label": "無限多顆"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "構成行星和生命的重元素（如碳、鐵），來源是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "💥",
+          "label": "核融合與爆炸",
+          "explanation": "重元素多在恆星核融合和爆炸中形成並散出。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "🌋",
+          "label": "宇宙大爆炸"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "🕳️",
+          "label": "被黑洞吸出來"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "☄️",
+          "label": "彗星帶過來"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,588 @@
+{
+  "episode_id": "131",
+  "category_name": "氣象魔法與地球防衛隊",
+  "name": "地球資源保衛戰：吃喝玩樂也要愛地球！",
+  "knowledge": "農業科技能增加糧食、節省用水；森林製造氧氣，減少塑膠垃圾也能保護海洋。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "袁隆平研發出「雜交水稻」，這項技術主要幫助人類解決了什麼問題？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "🍚",
+          "label": "稻米變多",
+          "explanation": "雜交水稻能提高產量，讓同樣農田長出更多稻米。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "🌾",
+          "label": "增加種類"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "👨‍🌾",
+          "label": "提升肥沃"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "🕒",
+          "label": "減少工作"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "下列哪一種不是人類仰賴的主要糧食作物？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "🥣",
+          "label": "燕麥",
+          "explanation": "主要糧食是小麥、稻米和玉米，燕麥不是前三大。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "🌾",
+          "label": "小麥"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "🍚",
+          "label": "稻米"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🌽",
+          "label": "甜玉米"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "滴灌系統的發明對農業有什麼主要好處？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "💧",
+          "label": "節省水資源",
+          "explanation": "滴灌把水慢慢滴到根部，所以能節省水資源。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "⏱️",
+          "label": "加快收成"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "🐛",
+          "label": "防止害蟲"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "💰",
+          "label": "降低成本"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "被譽為「雜交水稻之父」的是誰？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "👨‍🔬",
+          "label": "袁隆平",
+          "explanation": "袁隆平研究雜交水稻，幫助提高糧食產量。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "🧠",
+          "label": "愛因斯坦"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🍎",
+          "label": "大牛頓"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "🐦",
+          "label": "小達爾文"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "森林因為能吸收二氧化碳釋放氧氣，被稱為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "🌲",
+          "label": "地球之肺",
+          "explanation": "森林吸收二氧化碳、釋放氧氣，所以被稱為地球之肺。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "🫀",
+          "label": "地球之腎"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "💖",
+          "label": "地球之心"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "👁️",
+          "label": "地球之眼"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "植物進行光合作用時會吸收什麼氣體？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "🌫️",
+          "label": "二氧化碳",
+          "explanation": "植物光合作用會吸收二氧化碳，用來製造養分。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🌬️",
+          "label": "鮮氧氣"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "💨",
+          "label": "純氮氣"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🎈",
+          "label": "輕氫氣"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "植物進行光合作用後會釋放什麼對人類有益的氣體？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "✨",
+          "label": "氧氣",
+          "explanation": "植物光合作用後會釋放氧氣，讓人類和動物呼吸。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "🚗",
+          "label": "一氧化碳"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "🐄",
+          "label": "臭甲烷"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "🎈",
+          "label": "氣球氦氣"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "「永續林業」的經營核心，下列哪一項敘述最準確？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "⚖️",
+          "label": "維持平衡",
+          "explanation": "永續林業會砍樹也種樹，讓森林保持平衡。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "🚫",
+          "label": "禁止砍伐"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "🌲",
+          "label": "轉人工林"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "🛡️",
+          "label": "保護貴樹"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "世界上最大的熱帶雨林是哪一個？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "🦜",
+          "label": "亞馬遜",
+          "explanation": "亞馬遜是世界最大熱帶雨林，也住著許多生物。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "🍰",
+          "label": "黑森林"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🚂",
+          "label": "阿里山"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "🦍",
+          "label": "剛果雨林"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "魚類富含哪種營養素？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "💪",
+          "label": "蛋白質",
+          "explanation": "魚肉含有豐富蛋白質，能幫助身體成長。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "🍬",
+          "label": "甜糖分"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "🥔",
+          "label": "澱粉質"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "🥬",
+          "label": "纖維素"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "為了避免魚被抓光，國際社會實施了哪種管理措施？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "📉",
+          "label": "限制配額",
+          "explanation": "限制配額能避免過度捕撈，讓魚有時間長大繁殖。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "💰",
+          "label": "提升價格"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "🚢",
+          "label": "補助漁船"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "🧪",
+          "label": "培育魚苗"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "「拖網漁法」對環境最大的傷害是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "🌊",
+          "label": "傷害海底",
+          "explanation": "拖網會刮過海底，破壞珊瑚和許多海底生物的家。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "🕸️",
+          "label": "漁網易破"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🐟",
+          "label": "抓到小魚"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "🎨",
+          "label": "海水變色"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "鯨魚屬於魚類嗎？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "❌",
+          "label": "不是魚類",
+          "explanation": "鯨魚用肺呼吸，也會餵奶，所以是哺乳動物不是魚。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🐟",
+          "label": "是魚類"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "🤷",
+          "label": "有時候是"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "👶",
+          "label": "小時候是"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "目前哪一種人造垃圾因不易分解，正嚴重威脅著海洋生態？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "🛍️",
+          "label": "塑膠垃圾",
+          "explanation": "塑膠很難分解，海洋動物誤食後會生病甚至死亡。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "🍉",
+          "label": "廚餘殘渣"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🪵",
+          "label": "廢棄木材"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "🍾",
+          "label": "玻璃碎片"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "地球的自然資源是取之不盡的嗎？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "⏳",
+          "label": "資源有限",
+          "explanation": "自然資源用一點少一點，所以我們要珍惜使用。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "♾️",
+          "label": "永遠不完"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "📈",
+          "label": "自動變多"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "🤔",
+          "label": "取之不盡"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "人口增加對地球資源會造成什麼影響？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "🔋",
+          "label": "消耗更多",
+          "explanation": "人口越多，食物、水和電力需求也會增加。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "➕",
+          "label": "資源變多"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "➖",
+          "label": "完全沒影響"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "🌱",
+          "label": "環境變好"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "「資源回收」有什麼好處？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "🗑️",
+          "label": "減少垃圾",
+          "explanation": "回收能把舊物做成新物，減少垃圾也節省資源。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "💰",
+          "label": "增加收入"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "📺",
+          "label": "延長壽命"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "🌸",
+          "label": "美化街道"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "「地球一小時」活動主要呼籲大家做什麼？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🌒",
+          "label": "關燈一小時",
+          "explanation": "關燈一小時是在提醒大家節約用電、愛護地球。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "🍔",
+          "label": "大吃一頓"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "🏃",
+          "label": "去公園跑"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "📺",
+          "label": "一直看電視"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "我們可以如何減少對環境的衝擊？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🔌",
+          "label": "節約能源",
+          "explanation": "隨手關燈、少浪費能源，都能減少環境負擔。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "🏭",
+          "label": "增生產量"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "🌊",
+          "label": "轉移污染"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "🏝️",
+          "label": "開發人工島"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "為了讓後代子孫也能生存，我們應該追求什麼？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "🌱",
+          "label": "永續發展",
+          "explanation": "永續發展是現在好好生活，也保留資源給未來。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "🚜",
+          "label": "農業革命"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "🚀",
+          "label": "搬去外星"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "🛑",
+          "label": "停止生產"
+        }
+      ]
+    }
+  ]
+}

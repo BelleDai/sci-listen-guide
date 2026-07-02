@@ -1,0 +1,588 @@
+{
+  "episode_id": "216",
+  "category_name": "自然界裡的動物奇觀",
+  "name": "亞馬遜雨林的戴面具巨人：戰神大叔「角鵰」的狩獵傳奇與溫柔",
+  "knowledge": "角鵰生活在亞馬遜雨林，頭上冠羽像角；牠的面盤能收聲音，巨大利爪可捕捉樹上獵物。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "角鵰是世界上最強壯的猛禽，主要生活在哪裡？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "🌳",
+          "label": "亞馬遜雨林",
+          "explanation": "角鵰主要生活在南美洲的亞馬遜熱帶雨林。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "🦁",
+          "label": "非洲大草原"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "🏔️",
+          "label": "安地斯山脈"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "🌴",
+          "label": "菲律賓雨林"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "網友常誤解巨大的角鵰是什麼模樣？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "🚶‍♂️",
+          "label": "人扮的鳥",
+          "explanation": "角鵰體型大、正面表情特別，常被誤認像人扮的鳥。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "🧥",
+          "label": "皮外套怪鳥"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "🦸",
+          "label": "披大披風人"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🗿",
+          "label": "超兇猛模型"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "角鵰側面看起來很有威風，是因為頭上有什麼？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "👑",
+          "label": "豎起雙冠羽",
+          "explanation": "角鵰頭上的雙冠羽豎起時，看起來很有威風。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "🐃",
+          "label": "一對堅硬角"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "🧔",
+          "label": "長長金鬍鬚"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🔴",
+          "label": "發紅光眼睛"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "「角鵰」這個中文名字的由來，是因為牠頭上哪個部位長得很像堅硬的角？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "🪶",
+          "label": "豎起雙冠羽",
+          "explanation": "角鵰頭頂冠羽像角，因此中文名字有「角」。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "📌",
+          "label": "脖子下尖刺"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🦴",
+          "label": "眼睛旁骨頭"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "🐚",
+          "label": "鼻子上硬殼"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "角鵰從側邊看過去，像戴著頭盔的什麼？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "⚔️",
+          "label": "古希臘戰士",
+          "explanation": "角鵰側面冠羽像頭盔，因此被比喻成古希臘戰士。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "🏍️",
+          "label": "機車騎士"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🚒",
+          "label": "消防員"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "🤸",
+          "label": "體操運動員"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "當角鵰一轉過頭正對著你時，臉長得像什麼？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "🌝",
+          "label": "圓圓臉",
+          "explanation": "角鵰正面臉部圓而扁，所以被形容像大餅臉。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🗡️",
+          "label": "尖細的臉"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "👴",
+          "label": "滿是皺紋臉"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🧔",
+          "label": "長滿鬍渣臉"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "角鵰臉上那張被笑說像大叔的臉，稱為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "📡",
+          "label": "面盤",
+          "explanation": "角鵰臉上圓形構造叫面盤，能幫助牠捕獵。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "❄️",
+          "label": "散熱板"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "⛱️",
+          "label": "遮陽傘"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "🛡️",
+          "label": "防禦盾"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "角鵰臉上的「面盤」，具備什麼樣的功能？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "👂",
+          "label": "收集聲音",
+          "explanation": "面盤能集中聲音，幫助角鵰聽見獵物位置。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "🕶️",
+          "label": "阻刺眼光線"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "👻",
+          "label": "嚇唬他動物"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "☀️",
+          "label": "吸太陽能量"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "角鵰用面盤收集聲音的功能，和哪種動物相似？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "🦉",
+          "label": "貓頭鷹",
+          "explanation": "貓頭鷹也有面盤，可用來收集聲音找獵物。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "🦇",
+          "label": "蝙蝠"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🦒",
+          "label": "長頸鹿"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "🐤",
+          "label": "金絲雀"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "角鵰捕捉獵物時，最具破壞力的武器是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "🦅",
+          "label": "巨大的利爪",
+          "explanation": "角鵰利爪巨大又鋒利，是捕捉獵物的重要武器。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "🎗️",
+          "label": "長繩般尾巴"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "💪",
+          "label": "強壯的翅膀"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "🪡",
+          "label": "長長的尖嘴"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "角鵰腳上的後趾爪長度，超越了哪種大型猛獸？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "🐻",
+          "label": "北美棕熊",
+          "explanation": "角鵰後趾爪可達 10 到 13 公分，比棕熊爪更長。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "🦍",
+          "label": "非洲大猩猩"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "🦁",
+          "label": "非洲母獅子"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "🐅",
+          "label": "西伯利亞虎"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "角鵰不但爪子大，力量更驚人！牠爪子的驚人握力大約是哪種以咬合力出名的動物的將近兩倍？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "🐕",
+          "label": "羅威納犬",
+          "explanation": "角鵰爪握力約 500 psi，接近羅威納咬合力兩倍。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "🐆",
+          "label": "雨林中花豹"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🐊",
+          "label": "河裡的鱷魚"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "🦈",
+          "label": "海裡的鯊魚"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "角鵰平時最愛獵捕哪種類型的動物？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "🐒",
+          "label": "樹棲哺乳類",
+          "explanation": "角鵰常在樹冠層突襲樹棲哺乳類。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🐍",
+          "label": "地面各種蛇"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "🐦",
+          "label": "飛很快小鳥"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "🐹",
+          "label": "土撥與田鼠"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "哪種動物，是角鵰菜單上的最愛？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "🦥",
+          "label": "樹懶",
+          "explanation": "樹懶生活在樹上、移動慢，是角鵰常捕捉的獵物。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "🐰",
+          "label": "可愛小兔子"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🐍",
+          "label": "有毒的蟒蛇"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "🐆",
+          "label": "跑很快獵豹"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "角鵰是怎麼把沈重的樹懶從樹上帶走的？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "💪",
+          "label": "靠強大握力",
+          "explanation": "角鵰用巨爪和強大握力，把樹懶從樹上抓走。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "🪵",
+          "label": "咬斷樹枝掉"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "💥",
+          "label": "用翅膀撞落"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "🤝",
+          "label": "同伴齊合作"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "角鵰在巢穴餵食寶寶時，會有什麼舉動？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "🥩",
+          "label": "撕小塊餵食",
+          "explanation": "角鵰會把肉撕成小塊，再餵給幼鳥。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "😋",
+          "label": "嚼碎肉再餵"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "🍖",
+          "label": "整塊肉餵食"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "🏋️",
+          "label": "訓練其撕咬"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "剛出生的角鵰幼鳥，外表看起來是什麼模樣？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "🐣",
+          "label": "白色絨毛",
+          "explanation": "剛出生的角鵰幼鳥，全身覆蓋白色絨毛。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "🥚",
+          "label": "光禿小肉球"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "👾",
+          "label": "黑毛小怪獸"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "🍬",
+          "label": "小如雷根糖"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "為什麼角鵰在雨林的數量會岌岌可危？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🐢",
+          "label": "繁殖速度慢",
+          "explanation": "角鵰繁殖慢，每次通常只養大一隻幼鳥。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "🥩",
+          "label": "食物被殺光"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "🤒",
+          "label": "身體易生病"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "🌧️",
+          "label": "難適應氣候"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "人類砍樹將角鵰的森林切碎，被稱為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🪓",
+          "label": "棲地碎片化",
+          "explanation": "森林被切成不連續小塊，就是棲地碎片化。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "🗺️",
+          "label": "森林分段管"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "🏗️",
+          "label": "土地重開發"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "♻️",
+          "label": "生態重分布"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "根據調查，目前角鵰被歸類在哪種危險等級？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "⚠️",
+          "label": "易危物種",
+          "explanation": "角鵰棲地受破壞且繁殖慢，因此被列為易危物種。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "📈",
+          "label": "數量多動物"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "🐦",
+          "label": "隨處可見鳥"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "🛡️",
+          "label": "無生存危險"
+        }
+      ]
+    }
+  ]
+}

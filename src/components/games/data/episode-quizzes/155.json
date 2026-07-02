@@ -1,0 +1,588 @@
+{
+  "episode_id": "155",
+  "category_name": "侏羅紀生物遠征隊",
+  "name": "恐龍末日：解鎖6600萬年前的滅絕密碼",
+  "knowledge": "恐龍滅絕和火山爆發、小行星撞擊有關；微塵遮住陽光，植物死亡，食物鏈跟著崩潰。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "根據目前的科學共識，造成恐龍大滅絕的全球性災難大約發生在多久以前？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "☄️",
+          "label": "約6600萬年前",
+          "explanation": "恐龍大滅絕約發生在 6600 萬年前的白堊紀末。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "🧊",
+          "label": "百萬年前"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "🌍",
+          "label": "兩億年前"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "📜",
+          "label": "五千年前"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "在約 6600 萬年前小行星撞地球前，印度的超級火山爆發持續了多久？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "🌋",
+          "label": "幾十萬年",
+          "explanation": "德干暗色岩火山曾斷續噴發幾十萬年。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "💯",
+          "label": "噴發一百年"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "🗓️",
+          "label": "短短幾個月"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🔟",
+          "label": "噴發了十年"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "火山噴發時產生了大量哪一種氣體，像「大棉被」一樣讓地球溫度不斷升高？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "💨",
+          "label": "二氧化碳",
+          "explanation": "二氧化碳是溫室氣體，會讓地球溫度升高。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "🍃",
+          "label": "氧氣"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "🎈",
+          "label": "氫氣"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "♨️",
+          "label": "水蒸氣"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "火山噴發出來的硫化物飄到空氣中，跟雨水混合後會變成什麼，導致海洋和土地變酸？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "🌧️",
+          "label": "酸雨",
+          "explanation": "硫化物和雨水混合會形成酸雨，使環境變酸。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "🧊",
+          "label": "冰雹"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "❄️",
+          "label": "黑雪"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "🪨",
+          "label": "泥石流"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "造成恐龍滅絕大災難的「小行星」，它的直徑大約有多大？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "⛰️",
+          "label": "超過10公里",
+          "explanation": "造成災難的小行星直徑超過 10 公里。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "🏫",
+          "label": "像教室大"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🏙️",
+          "label": "如101高"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "🏀",
+          "label": "籃球場大"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "根據科學家的研究，這顆巨大的小行星撞擊地球的地點，大約位在現在的哪裡？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "🇲🇽",
+          "label": "尤加敦半島",
+          "explanation": "小行星撞在現今墨西哥的尤加敦半島附近。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🏔️",
+          "label": "喜馬拉雅山"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🏜️",
+          "label": "撒哈拉沙漠"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🌲",
+          "label": "亞馬遜雨林"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "小行星撞擊地球後，產生了什麼「大魔王」，遮住陽光長達 15 年，讓地球變冷？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "🌫️",
+          "label": "矽酸鹽微塵",
+          "explanation": "矽酸鹽微塵進入大氣，會長時間遮住陽光。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "🌋",
+          "label": "普通火山灰"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "☁️",
+          "label": "厚厚的烏雲"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "🌌",
+          "label": "太空暗物質"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "當陽光被微塵遮住長達 15 年後，地球的平均氣溫發生了什麼變化？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "❄️",
+          "label": "下降15度",
+          "explanation": "陽光被遮住後，地球平均氣溫大幅下降。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "🔥",
+          "label": "大升15度"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "📉",
+          "label": "微降兩三度"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "➖",
+          "label": "無明顯改變"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "陽光被遮蔽後，植物無法進行光合作用而大量枯死。請問哪一類恐龍會最先面臨餓死的危機？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "🌿",
+          "label": "植食性恐龍",
+          "explanation": "植物大量死亡後，吃植物的恐龍最先缺食物。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "🥩",
+          "label": "肉食性恐龍"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🍄",
+          "label": "雜食性恐龍"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "🐟",
+          "label": "海洋的魚龍"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "為什麼像暴龍這樣兇猛的「肉食性恐龍」，最後也無法逃過餓死的命運？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "🥩",
+          "label": "獵物餓死了",
+          "explanation": "草食恐龍減少後，肉食恐龍也會失去獵物。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "🌊",
+          "label": "獵物逃深海"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "⛄",
+          "label": "太冷難打獵"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "🔥",
+          "label": "大火擋視線"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "科學家在塔尼斯（Tanis）化石寶庫中，透過觀察哪一種動物骨頭上的「年輪」，推測出災難發生的季節？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "🐟",
+          "label": "魚類",
+          "explanation": "魚骨生長輪像年輪，可推測災難發生季節。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "🦖",
+          "label": "恐龍"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "🐦",
+          "label": "鳥類"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "🐊",
+          "label": "鱷魚"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "為什麼小行星撞擊發生在北半球的「春天」，對當時的動物來說是一場大災難？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "🍼",
+          "label": "繁殖季節",
+          "explanation": "春天是繁殖季，災難會重創幼小動物和族群。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "🔥",
+          "label": "易引發大火"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "❄️",
+          "label": "天氣本很冷"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "☠️",
+          "label": "植物帶毒性"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "在這場大滅絕災難中，哪一種類型的鳥類不幸跟著恐龍一起滅絕了？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "🦷",
+          "label": "有牙古鳥",
+          "explanation": "有牙古鳥多吃昆蟲或肉，食物減少後難以存活。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🦜",
+          "label": "鳥喙堅硬的"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "🐥",
+          "label": "體型迷你的"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "🦚",
+          "label": "羽毛鮮豔的"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "活下來的鳥類祖先，演化出了什麼看起來普通、卻在當時成為「超級保命裝備」的特徵？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "🐦",
+          "label": "無牙硬喙",
+          "explanation": "無牙硬喙能幫鳥類利用種子等食物求生。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "🦅",
+          "label": "飛高大翅膀"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🦉",
+          "label": "夜間大眼睛"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "🪶",
+          "label": "保暖厚羽毛"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "在大災難過後，植物大量死亡。「鳥喙」如何幫助這些鳥類在缺乏食物的環境中存活下來？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "🌱",
+          "label": "挖地下種子",
+          "explanation": "堅硬鳥喙能挖出地下種子，幫助鳥類活下來。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "🐟",
+          "label": "捉水裡的魚"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "🪨",
+          "label": "碎石中找鹽"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "⚔️",
+          "label": "當武器退敵"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "鱷魚和烏龜能夠撐過大災難，很大一部分原因是因為牠們屬於哪一類動物？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "🦎",
+          "label": "冷血動物",
+          "explanation": "冷血動物耗能較少，較能撐過食物短缺。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "🌡️",
+          "label": "恆溫動物"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "🐛",
+          "label": "無脊椎動物"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "🐁",
+          "label": "哺乳動物"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "鱷魚和烏龜在遇到環境惡劣時，會啟動什麼樣的「省電模式」來求生？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "🔋",
+          "label": "降低代謝",
+          "explanation": "降低代謝能減少能量消耗，幫助牠們撐過惡劣環境。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "💓",
+          "label": "心跳快取暖"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "🏊",
+          "label": "游泳吸養分"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "泥",
+          "label": "吃大量泥土"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "科學家在塔尼斯（Tanis）化石寶庫中，發現死去的魚鰓裡面卡了什麼奇怪的東西？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🔮",
+          "label": "玻璃微隕石",
+          "explanation": "玻璃微隕石來自撞擊熔化岩石後冷卻的小球。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "🌱",
+          "label": "未消化種子"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "🦴",
+          "label": "恐龍碎骨頭"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "泥",
+          "label": "火山灰泥塊"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "恐龍滅絕後，哪一類原本體型較小、被恐龍壓制的動物，獲得了大膽探索世界與演化的黃金機會？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🐁",
+          "label": "哺乳動物",
+          "explanation": "恐龍消失後，哺乳動物有更多空間和資源演化。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "🐸",
+          "label": "兩棲動物"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "🐍",
+          "label": "爬行動物"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "🐟",
+          "label": "海洋魚類"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "根據科學家的研究，現代在天上飛的鳥兒，其實是哪一種古生物沒有滅絕的直系後代？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "🦖",
+          "label": "恐龍",
+          "explanation": "現代鳥類是部分恐龍存活並演化出的後代。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "🦇",
+          "label": "翼龍"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "🍎",
+          "label": "古代蝙蝠"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "🦋",
+          "label": "大型昆蟲"
+        }
+      ]
+    }
+  ]
+}

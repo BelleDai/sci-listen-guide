@@ -1,0 +1,588 @@
+{
+  "episode_id": "s13",
+  "category_name": "探索無垠的宇宙",
+  "name": "獵戶座的消失右肩：參宿四爆炸倒數中？",
+  "knowledge": "參宿四是獵戶座的紅超巨星，體積巨大且已進入晚年；它曾因噴出塵埃而變暗，未來會超新星爆炸。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "參宿四這顆著名的恆星，位於冬季大星座「獵戶座」的哪一個部位？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "💪",
+          "label": "獵人的右肩",
+          "explanation": "參宿四位在獵戶座獵人的右肩位置。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "ベルト",
+          "label": "獵人的腰帶"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "🦶",
+          "label": "獵人的左腳"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "👤",
+          "label": "獵人的頭頂"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "參宿四呈現什麼顏色，代表它進入了老年期？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "🔴",
+          "label": "醒目橘紅色",
+          "explanation": "參宿四呈橘紅色，表示表面較冷且已進入晚年。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "🔵",
+          "label": "明亮的藍色"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "⚪",
+          "label": "純淨的白色"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🟢",
+          "label": "神祕深綠色"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "如果參宿四發生大爆炸，在地球白天看得到嗎？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "☀️",
+          "label": "白天也看得到",
+          "explanation": "參宿四若超新星爆炸，亮度可能白天也能看見。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "😎",
+          "label": "太陽太亮看不到"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "🔭",
+          "label": "需用高倍望遠鏡"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🌑",
+          "label": "日全食才看得到"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "參宿四距離地球大約有多遠？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "📏",
+          "label": "約 640 光年",
+          "explanation": "參宿四距離地球約 640 光年。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "💯",
+          "label": "一百光年"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🌕",
+          "label": "跟月亮一樣遠"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "1️⃣",
+          "label": "一光年"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "2019年參宿四突然變暗，科學家發現是因為？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "🌫️",
+          "label": "灰塵遮擋",
+          "explanation": "參宿四噴出塵埃遮住星光，所以一度看起來變暗。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "🥶",
+          "label": "表面溫度下降"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "😴",
+          "label": "進入恆星休眠期"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "💥",
+          "label": "被其他天體撞擊"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "美麗的「蟹狀星雲」是怎麼形成的？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "💥",
+          "label": "恆星爆炸殘骸",
+          "explanation": "蟹狀星雲是恆星超新星爆炸後留下的殘骸。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🌌",
+          "label": "星系碰撞產物"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🧊",
+          "label": "氣體雲收縮冷卻"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "☄️",
+          "label": "流星聚集而成"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "若把參宿四放在太陽位置，它會大到吞掉哪裡？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "🪐",
+          "label": "到木星軌道",
+          "explanation": "參宿四非常巨大，若在太陽位置可延伸到木星軌道。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "🤏",
+          "label": "吞掉水星"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "🌍",
+          "label": "剛好碰到地球"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "💯",
+          "label": "比太陽大一百倍"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "我們常說「人類是星塵做的」，是因為構成我們身體的許多元素來自？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "✨",
+          "label": "恆星爆炸",
+          "explanation": "人體許多元素來自恆星內部與爆炸後散出的物質。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "🌋",
+          "label": "地殼運動"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "☁️",
+          "label": "大氣層變化"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "🌊",
+          "label": "海洋中演化"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "獵戶座的「腰帶」是由幾顆亮星組成的？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "🌟",
+          "label": "三顆亮星",
+          "explanation": "獵戶座腰帶由三顆排成一直線的亮星組成。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "1️⃣",
+          "label": "一顆亮星"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "⚖️",
+          "label": "兩顆星對稱"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "⭕",
+          "label": "五顆星繞一圈"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "以前宋朝人看到的「客星」爆炸後，現在變成了什麼？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "🦀",
+          "label": "美麗蟹狀星雲",
+          "explanation": "宋朝客星是超新星爆炸，殘骸成為蟹狀星雲。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "🕳️",
+          "label": "神祕小黑洞"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "☄️",
+          "label": "閃亮長彗星"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "🌌",
+          "label": "遙遠仙女座"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "宋朝古籍如何稱呼 1054 年出現的爆炸恆星？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "🛸",
+          "label": "客星",
+          "explanation": "古人把突然出現又消失的亮星稱為客星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "👾",
+          "label": "閃爍妖怪星"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "🧹",
+          "label": "不吉利掃把星"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "🌠",
+          "label": "易學飛星"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "如果參宿四真的爆炸，好奇博士形容夜晚會出現什麼奇觀？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "🌕",
+          "label": "出現兩顆月亮",
+          "explanation": "參宿四若爆炸，夜空可能亮得像多一顆月亮。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "🌠",
+          "label": "滿天流星"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "☀️",
+          "label": "太陽提前升起"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "🙈",
+          "label": "星星全部消失"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "為什麼我們看到的參宿四可能「早已爆炸」？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "⏳",
+          "label": "光需要時間傳遞",
+          "explanation": "參宿四距離遠，光要約 640 年才傳到地球。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🐘",
+          "label": "體積過於巨大"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "🕳️",
+          "label": "躲在黑洞後面"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "☁️",
+          "label": "光被星雲吸收"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "如果參宿四爆炸，夜晚的亮度會變怎樣？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "💡",
+          "label": "比滿月還亮",
+          "explanation": "超新星爆發時，夜晚亮度可能比滿月更亮。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "🕯️",
+          "label": "只亮一點點"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "☀️",
+          "label": "全球像白天"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "😎",
+          "label": "完全無感覺"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "參宿四目前處於恆星生命的哪一個階段？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "👴",
+          "label": "瀕死紅超巨星",
+          "explanation": "參宿四是燃料將盡、接近生命末期的紅超巨星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "👶",
+          "label": "剛誕生的恆星"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "💪",
+          "label": "壯年期恆星"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "🪦",
+          "label": "熄滅的黑矮星"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "超新星爆炸就像宇宙的大廚房，主要負責製造什麼重要物質？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "🦴",
+          "label": "鈣鐵等重元素",
+          "explanation": "超新星爆炸能製造並散播鈣、鐵等重元素。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "💨",
+          "label": "生命所需的氧氣"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "⛽",
+          "label": "汽車需要汽油"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "🪨",
+          "label": "構成行星岩石"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "參宿四在「變暗事件」中，亮度跌到剩多少？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "📉",
+          "label": "剩三分之一",
+          "explanation": "2019 年參宿四變暗，亮度約只剩原本三分之一。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "🌗",
+          "label": "只剩一半"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "🙈",
+          "label": "幾乎看不見"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "🛑",
+          "label": "完全看不見"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "科學家發現參宿四在 2019 年變暗，幽默地形容它是在？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🗣️",
+          "label": "太空中打嗝",
+          "explanation": "科學家形容它噴出塵埃遮光，像在太空中打嗝。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "😴",
+          "label": "宇宙中睡覺"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "🙈",
+          "label": "在玩捉迷藏"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "🧥",
+          "label": "換上灰色大衣"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "參宿四表面凹凸不平，像生活中的什麼現象？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "♨️",
+          "label": "滾燙熱水冒泡",
+          "explanation": "參宿四表面不穩定，像熱水翻滾冒泡。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "🧊",
+          "label": "冰塊融化"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "🪞",
+          "label": "鏡子反射光線"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "🪨",
+          "label": "石頭風化"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "參宿四最後發生的爆炸，科學上稱為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "🎇",
+          "label": "超新星爆炸",
+          "explanation": "巨大恆星生命末期的大爆炸，稱為超新星爆炸。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "🌠",
+          "label": "流星雨大爆發"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "🕳️",
+          "label": "黑洞大坍縮"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "⚪",
+          "label": "白矮星大燃燒"
+        }
+      ]
+    }
+  ]
+}

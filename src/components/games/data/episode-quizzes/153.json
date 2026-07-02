@@ -1,0 +1,588 @@
+{
+  "episode_id": "153",
+  "category_name": "侏羅紀生物遠征隊",
+  "name": "雷克斯暴龍：陸地霸主的傳奇（上集）",
+  "knowledge": "暴龍咬合力強，粗壯牙齒能咬碎骨頭；牠視力、嗅覺和聽覺敏銳，是強大的掠食者。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "暴龍的正式學名縮寫，通常在科學文獻中被簡寫為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "🦖",
+          "label": "T-Rex",
+          "explanation": "T-Rex 是 Tyrannosaurus Rex 常見的縮寫。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "🅱️",
+          "label": "B-Rex"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "🇩",
+          "label": "D-Rex"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "🅿️",
+          "label": "P-Rex"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "暴龍的咬合力大約是現代鹹水鱷的幾倍？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "🐊",
+          "label": "四倍以上",
+          "explanation": "研究推測，暴龍咬合力可達鹹水鱷四倍以上。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "✌️",
+          "label": "只有兩倍"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "🔟",
+          "label": "十倍以上"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "⚖️",
+          "label": "一樣強"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "暴龍的牙齒長得又粗又壯，形狀最像哪種東西？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "🍌",
+          "label": "香蕉",
+          "explanation": "暴龍牙齒又粗又彎，形狀常被比喻像香蕉。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "🍎",
+          "label": "蘋果"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "🍉",
+          "label": "西瓜"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🍓",
+          "label": "草莓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "暴龍的牙齒主要功能是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "🦴",
+          "label": "粉碎骨頭",
+          "explanation": "暴龍牙齒粗壯，加上強大咬合力，能粉碎骨頭。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "🌿",
+          "label": "咬斷樹枝"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🥩",
+          "label": "切碎鮮肉"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "🪢",
+          "label": "固定獵物"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "暴龍眼睛的位置跟人類很像，是長在臉的哪裡？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "👀",
+          "label": "正前方",
+          "explanation": "暴龍眼睛朝前，能更清楚看見前方目標。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "↔️",
+          "label": "兩側"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "⬆️",
+          "label": "頭頂上"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "⬇️",
+          "label": "後腦勺"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "為什麼暴龍雙眼向前的構造對捕獵很重要？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "👓",
+          "label": "產生立體感",
+          "explanation": "雙眼朝前可產生立體視覺，判斷獵物距離。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🔭",
+          "label": "視野較廣"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "👻",
+          "label": "看起來嚇人"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🌃",
+          "label": "晚上方便看"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "科學家推測暴龍的視力比哪種現代猛獸還敏銳？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "🦅",
+          "label": "老鷹",
+          "explanation": "科學家推測，暴龍視力可能比老鷹還敏銳。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "🍎",
+          "label": "沙漠禿鷹"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "🦤",
+          "label": "草原鴕鳥"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "🐆",
+          "label": "夜晚獵豹"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "暴龍的鼻子靈敏程度可能跟哪種狗狗差不多？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "🐶",
+          "label": "米格魯",
+          "explanation": "暴龍嗅覺很靈敏，可能接近米格魯犬的程度。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "🐕",
+          "label": "吉娃娃"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "🐩",
+          "label": "紅貴賓"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "🐾",
+          "label": "博美犬"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "暴龍的耳朵特別擅長接收哪種聲音？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "🔊",
+          "label": "低頻聲音",
+          "explanation": "暴龍耳朵可能特別擅長接收低頻聲音。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "📢",
+          "label": "尖銳高音"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🎵",
+          "label": "節奏音樂"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "🐦",
+          "label": "清脆鳥叫"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "暴龍利用耳朵接收低頻音，主要是為了偷聽什麼？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "🐾",
+          "label": "獵物震動",
+          "explanation": "大型獵物走動會產生低頻震動，暴龍可用來偵測。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "💬",
+          "label": "同伴聊天"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "⛈️",
+          "label": "天上打雷"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "💧",
+          "label": "地底水聲"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "節目中把暴龍咬碎骨頭，形容得像哪種機器？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "🚜",
+          "label": "碎石機",
+          "explanation": "暴龍咬合力很強，能像碎石機一樣咬碎骨頭。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "🔪",
+          "label": "切牛排刀"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "🪚",
+          "label": "砍樹電鋸"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "🥤",
+          "label": "果汁機"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "暴龍在捕獵時像偵探一樣跟隨什麼線索？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "👃",
+          "label": "空氣的味道",
+          "explanation": "暴龍嗅覺靈敏，能跟著空氣中的味道找獵物。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "👣",
+          "label": "地上的腳印"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🎧",
+          "label": "聽音樂找"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "✨",
+          "label": "看天上星星"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "為什麼暴龍被稱為完美的「獵食機器」？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "⚔️",
+          "label": "感官和武器",
+          "explanation": "暴龍有強大牙齒，也有敏銳視覺、嗅覺和聽覺。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "💪",
+          "label": "體型最大"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "🧠",
+          "label": "群體智慧"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "🚀",
+          "label": "極速奔跑"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "暴龍嘴巴裡大約有多少顆堅固的牙齒？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "🦷",
+          "label": "約六十顆",
+          "explanation": "暴龍嘴裡大約有六十顆粗壯牙齒。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "✌️",
+          "label": "只有兩顆"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "💯",
+          "label": "超過百顆"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "🛑",
+          "label": "沒長牙齒"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "什麼科技幫助科學家研究暴龍的大腦結構？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "💻",
+          "label": "電腦斷層",
+          "explanation": "電腦斷層可不破壞化石，觀察暴龍腦部空間。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "🔦",
+          "label": "三維雷射"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "☢️",
+          "label": "核磁共振"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "📱",
+          "label": "超音波技術"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "哪種現代動物也有像暴龍一樣的沙囊？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "🐔",
+          "label": "雞或鴕鳥",
+          "explanation": "雞和鴕鳥有沙囊，可用小石頭幫助磨碎食物。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "🐠",
+          "label": "小金魚"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "🐕",
+          "label": "小狗狗"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "🦋",
+          "label": "蝴蝶"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "暴龍的咬合力據說可以壓扁什麼交通工具？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "🚗",
+          "label": "小汽車",
+          "explanation": "節目用小汽車形容暴龍咬合力非常強。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "🚲",
+          "label": "腳踏車"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "✈️",
+          "label": "大飛機"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "🚢",
+          "label": "航空母艦"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "暴龍咬碎骨頭可以吃到裡面什麼高熱量營養？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🍖",
+          "label": "骨髓",
+          "explanation": "骨髓藏在骨頭裡，含有高熱量營養。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "🥛",
+          "label": "鈣質"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "🥚",
+          "label": "膠原蛋白"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "🥩",
+          "label": "外部殘肉"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "節目中提到暴龍的嗅覺像米格魯和哪種鳥類？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🪶",
+          "label": "禿鷹",
+          "explanation": "禿鷹嗅覺靈敏，節目用它比喻暴龍鼻子。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "🐦",
+          "label": "麻雀"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "🦅",
+          "label": "老鷹"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "🍎",
+          "label": "啄木鳥"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "節目用什麼來比喻暴龍的「立體感」視覺？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "🕶️",
+          "label": "3D眼鏡",
+          "explanation": "3D 眼鏡能看出立體感，類似雙眼視覺效果。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "🔭",
+          "label": "望遠鏡看"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "🔍",
+          "label": "放大鏡看"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "😎",
+          "label": "太陽眼鏡"
+        }
+      ]
+    }
+  ]
+}

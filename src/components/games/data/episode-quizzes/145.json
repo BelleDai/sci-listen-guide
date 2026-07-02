@@ -1,0 +1,588 @@
+{
+  "episode_id": "145",
+  "category_name": "地心岩石考古隊",
+  "name": "地球的冰雪巨人：冰河的足跡與遺產",
+  "knowledge": "冰河會雕刻出 U 形谷、冰斗湖等地形，也保存大量淡水；冰芯能記錄古代氣候。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "冰河經過後，原本的V形山谷會變成什麼形狀？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "🧲",
+          "label": "U形谷",
+          "explanation": "冰河會磨寬山谷，使原本 V 形谷變成 U 形谷。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "⭕",
+          "label": "圓形Ｏ形"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "⚡",
+          "label": "Ｗ字形"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "〰️",
+          "label": "Ｚ字形"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "懸掛在主冰河谷上方的小山谷稱為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "🧗",
+          "label": "懸谷",
+          "explanation": "小冰河谷較淺，冰融化後會高掛在主谷旁，稱為懸谷。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "⛰️",
+          "label": "懸崖"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "🌉",
+          "label": "吊橋"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🕳️",
+          "label": "天坑"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "冰河融化後，原本凹下去的冰斗積水會變成什麼？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "🥣",
+          "label": "冰斗湖",
+          "explanation": "冰斗是凹地，冰雪融水積在裡面後會形成冰斗湖。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "🏊",
+          "label": "游泳池"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "♨️",
+          "label": "溫泉"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🌋",
+          "label": "火口湖"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "地球上大部分的淡水儲存在哪裡？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "🧊",
+          "label": "冰河",
+          "explanation": "地球大部分淡水凍在冰河和極地冰層中。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "🏞️",
+          "label": "河流"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🌊",
+          "label": "湖泊"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "💧",
+          "label": "地下水"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "冰河把巨大的石頭搬到很遠的地方，這種石頭叫什麼？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "🪨",
+          "label": "漂礫",
+          "explanation": "漂礫是被冰河搬到遠方的大石頭。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "☄️",
+          "label": "隕石"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🦇",
+          "label": "鐘乳石"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "🦴",
+          "label": "化石"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "科學家鑽取冰芯主要是為了研究什麼？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "📖",
+          "label": "古代氣候",
+          "explanation": "冰芯保存古代空氣泡泡，可用來研究過去氣候。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🦖",
+          "label": "尋找化石"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "⏱️",
+          "label": "測量速度"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "💎",
+          "label": "尋找礦物"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "如果全球暖化持續，冰河會發生什麼事？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "☀️",
+          "label": "融化消失",
+          "explanation": "全球暖化讓氣溫升高，冰河會逐漸融化消失。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "❄️",
+          "label": "更厚更長"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "🔮",
+          "label": "變成水晶"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "🌱",
+          "label": "長出植物"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "從懸谷流下來的水通常會形成什麼景觀？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "🌊",
+          "label": "懸谷瀑布",
+          "explanation": "懸谷位置較高，水流落入主谷時會形成瀑布。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "⛲",
+          "label": "懸崖湧泉"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "🥣",
+          "label": "深谷積水"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "🌿",
+          "label": "縱谷濕地"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "冰河移動時就像什麼巨大的機器？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "🚜",
+          "label": "推土機",
+          "explanation": "冰河移動慢但力量大，能像推土機改變山谷。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "🧹",
+          "label": "吸塵器"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🌀",
+          "label": "電風扇"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "🔥",
+          "label": "烤箱"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "科學家發現，地球上絕大部分的可用淡水資源是以什麼形式儲存？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "🧊",
+          "label": "固態冰層",
+          "explanation": "許多淡水以固態冰層形式，儲存在冰河和極地。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "💧",
+          "label": "地下水"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "🏞️",
+          "label": "高山湖泊"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "☁️",
+          "label": "水蒸氣"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "冰芯裡的什麼東西記錄了古代的空氣狀況？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "🫧",
+          "label": "封存氣泡",
+          "explanation": "冰芯中的氣泡封存古代空氣，可研究過去環境。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "🏖️",
+          "label": "微小沙粒"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "🍂",
+          "label": "冰凍樹葉"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "💧",
+          "label": "液態水滴"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "最近一次冰河時期大約是在什麼時候？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "❄️",
+          "label": "兩萬年前",
+          "explanation": "最近一次冰河時期約在兩萬年前，當時地球較冷。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "🦖",
+          "label": "恐龍時代"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🏰",
+          "label": "五百年前"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "🦍",
+          "label": "人類出現"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "現代地球上的冰雪覆蓋區域中，大約有多少比例是從上次冰河時期遺留至今？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "📊",
+          "label": "約三成",
+          "explanation": "約三成冰雪是上次冰河時期留下來的。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🤏",
+          "label": "百分之一"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "💧",
+          "label": "一成左右"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "🧊",
+          "label": "全部都是"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "南極冰層最厚的地方大約有幾公里？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "📏",
+          "label": "四公里",
+          "explanation": "南極冰層最厚處約四公里，厚度非常驚人。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "🏃",
+          "label": "一公里"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🚗",
+          "label": "十公里"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "💯",
+          "label": "一百公里"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "冰河融化後堆積在末端的石頭堆叫什麼？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "🧱",
+          "label": "終冰磧",
+          "explanation": "冰河融化後，末端堆積的石頭泥沙叫終冰磧。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "🏝️",
+          "label": "三角洲"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "🏞️",
+          "label": "沖積扇"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "🪨",
+          "label": "冰河岩"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "冰河在源頭挖出的碗狀凹地叫什麼？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "🥣",
+          "label": "冰斗",
+          "explanation": "冰河源頭挖出的碗狀凹地，稱為冰斗。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "🍲",
+          "label": "冰碗"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "🍺",
+          "label": "冰壺"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "🚰",
+          "label": "冰盆"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "為什麼冰河支流挖掘的山谷比主冰河淺？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "💪",
+          "label": "力量較小",
+          "explanation": "支流冰河較小、力量較弱，所以山谷挖得較淺。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "🏃",
+          "label": "移動很快"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "🪨",
+          "label": "岩石太硬"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "☀️",
+          "label": "較早融化"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "除了氣泡，冰芯裡還可能發現什麼來證明火山爆發？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🌋",
+          "label": "火山灰",
+          "explanation": "火山灰會被積雪封存，留在冰芯中作為爆發證據。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "🪨",
+          "label": "冷卻岩漿"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "🔥",
+          "label": "燃燒樹枝"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "💥",
+          "label": "二氧化碳"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "冰河被稱為地球的什麼庫？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🚰",
+          "label": "淡水水庫",
+          "explanation": "冰河儲存大量淡水，因此像地球的淡水水庫。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "🌿",
+          "label": "植物庫"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "🌱",
+          "label": "種子庫"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "🐟",
+          "label": "生物庫"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "主持人提到的漂礫通常在哪裡被發現？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "🏞️",
+          "label": "平原",
+          "explanation": "漂礫被冰河搬運到遠方，常出現在平原上。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "🏔️",
+          "label": "高山"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "🌊",
+          "label": "海底"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "🌋",
+          "label": "火山口"
+        }
+      ]
+    }
+  ]
+}

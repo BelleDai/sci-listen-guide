@@ -1,0 +1,588 @@
+{
+  "episode_id": "s25",
+  "category_name": "探索無垠的宇宙",
+  "name": "黑洞與白洞：光都逃不掉的宇宙怪獸與時空隧道",
+  "knowledge": "黑洞多由巨大恆星塌縮形成，重力強到連光都逃不出；白洞是理論中只出不進的天體，可能連到蟲洞。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "如果探險家不小心掉進黑洞，他的身體會發生什麼現象？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "🍝",
+          "label": "拉長成義大利麵",
+          "explanation": "黑洞重力差很大，會把物體拉長成麵條狀。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "🤏",
+          "label": "縮小成原子"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "📄",
+          "label": "扁得像張紙"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "🧊",
+          "label": "瞬間結凍成冰"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "黑洞的引力非常強大，強大到連什麼東西都逃不出來？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "⚡",
+          "label": "跑得最快的光",
+          "explanation": "黑洞重力極強，連速度最快的光也逃不掉。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "🚀",
+          "label": "超音速飛彈"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "⭐",
+          "label": "太陽系的恆星"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🧲",
+          "label": "重力感應器"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "物理學家發現有一種跟黑洞相反、只出不進的天體叫什麼？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "⚪",
+          "label": "閃亮的白洞",
+          "explanation": "白洞是理論中只噴出物質、不能進入的天體。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "🌀",
+          "label": "旋轉的星洞"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "🕳️",
+          "label": "靜止的空洞"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🌌",
+          "label": "反物質黑洞"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "太空船要繞著地球飛行而不掉下來，必須達到什麼速度？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "🚀",
+          "label": "第一宇宙速度",
+          "explanation": "第一宇宙速度讓太空船能繞地球不掉落。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "🌍",
+          "label": "地球自轉速度"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "☄️",
+          "label": "第二宇宙速度"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "☁️",
+          "label": "大氣逃脫速度"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "黑洞到底是怎麼形成的？科學家說它原本是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "⭐",
+          "label": "巨型恆星死後塌縮",
+          "explanation": "巨大恆星死亡後核心塌縮，可能形成黑洞。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "💥",
+          "label": "行星相互碰撞"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🎆",
+          "label": "宇宙爆炸後的殘留"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "👻",
+          "label": "暗物質不斷堆積"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "科學家可以透過黑洞吃東西時發出的哪種射線來發現它？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "💥",
+          "label": "能量強的X射線",
+          "explanation": "黑洞吸入氣體時會加熱，發出強烈X射線。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "📻",
+          "label": "微波輻射"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "💜",
+          "label": "紫外線光束"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "📡",
+          "label": "高頻率無線電"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "在科幻電影中，連接宇宙兩端的神祕捷徑被稱之為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "🐛",
+          "label": "神奇蟲洞",
+          "explanation": "蟲洞被想像成連接宇宙遠處的時空捷徑。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "⚡",
+          "label": "光速隧道"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "🌌",
+          "label": "時空裂縫"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "🚪",
+          "label": "星際走廊"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "住在我們銀河系中心位置的超級大黑洞叫什麼名字？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "🎯",
+          "label": "人馬座A*",
+          "explanation": "銀河系中心的超大質量黑洞叫人馬座A*。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "✨",
+          "label": "仙女座A*"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "🏹",
+          "label": "獵戶座黑洞"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "🦢",
+          "label": "天鵝座星雲"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "我們的太陽在變老之後，最後會變成什麼樣的星體？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "👴",
+          "label": "白矮星",
+          "explanation": "太陽質量不夠大，最後會成為白矮星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "🕳️",
+          "label": "中型黑洞"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🌀",
+          "label": "中子星"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "🔴",
+          "label": "紅超巨星"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "太空船可以利用哪種力量來幫忙節省燃料並加速前進？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "☄️",
+          "label": "行星的重力彈弓",
+          "explanation": "太空船可借行星重力改變速度與方向。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "💨",
+          "label": "太陽風推力"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "⚡",
+          "label": "宇宙射線推力"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "✨",
+          "label": "量子躍動力"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "人類在 2019 年拍到第一張黑洞照片，它位在哪個星系？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "🌌",
+          "label": "M87星系",
+          "explanation": "第一張黑洞照片拍到的是M87星系中心黑洞。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "🐎",
+          "label": "半人馬座星系"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "☁️",
+          "label": "大麥哲倫星系"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "🏹",
+          "label": "獵戶座旋臂"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "太空船如果想要飛往火星探險，必須達到哪種速度？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "🛸",
+          "label": "第二宇宙速度",
+          "explanation": "第二宇宙速度能讓太空船脫離地球引力。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "⭕",
+          "label": "第一宇宙速度"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🚀",
+          "label": "第三宇宙速度"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "☁️",
+          "label": "大氣穿透速度"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "黑洞中心那個密度無限大、體積卻無限小的點叫什麼？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "📍",
+          "label": "神祕奇異點",
+          "explanation": "奇異點是黑洞中心密度極高的理論位置。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🧲",
+          "label": "重力核心點"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "❄️",
+          "label": "絕對零度點"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "🕳️",
+          "label": "黑洞真空點"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "黑洞周圍有一圈高速旋轉、發光的雲團，它的名稱是？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "💿",
+          "label": "明亮的吸積盤",
+          "explanation": "氣體繞黑洞高速旋轉並發光，形成吸積盤。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "🔍",
+          "label": "引力透鏡環"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🛑",
+          "label": "事件視界層"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "☁️",
+          "label": "星系塵埃雲"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "太空船若想要「飛出太陽系」，必須達到哪種速度？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "🚀",
+          "label": "第三宇宙速度",
+          "explanation": "第三宇宙速度可讓太空船逃離太陽系。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "🥇",
+          "label": "第一宇宙速度"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "🛸",
+          "label": "第二宇宙速度"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "⚡",
+          "label": "第四宇宙速度"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "為什麼光也逃不出黑洞？是因為黑洞的逃脫速度？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "⚡",
+          "label": "超過了光速",
+          "explanation": "黑洞逃脫速度超過光速，所以光也無法逃出。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "🔊",
+          "label": "等於音速"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "🥇",
+          "label": "第一宇宙速度"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "♾️",
+          "label": "趨近於無限快"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "當恆星死掉後，重力讓星體向內縮小的現象叫什麼？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "🗜️",
+          "label": "重力塌縮",
+          "explanation": "恆星死亡後向內縮小的過程叫重力塌縮。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "💥",
+          "label": "超新星爆發"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "❄️",
+          "label": "核心冷卻"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "🤝",
+          "label": "星體聚合"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "黑洞邊界的「事件視界」是什麼意思？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🛑",
+          "label": "光也逃不出的邊界",
+          "explanation": "事件視界是跨過後連光也回不來的邊界。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "☁️",
+          "label": "黑洞最外層"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "⛲",
+          "label": "黑洞噴射流"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "💿",
+          "label": "吸積盤最內圈"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "為什麼探險家的身體進入黑洞會發生「麵條化」？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🍝",
+          "label": "一端受力比較大",
+          "explanation": "靠近黑洞的一端受力更大，身體會被拉長。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "🔥",
+          "label": "黑洞溫度太高"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "💨",
+          "label": "黑洞裡沒有空氣"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "🥶",
+          "label": "被黑洞凍結"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "科學家為了拍下黑洞照片，組成的虛擬望遠鏡有多大？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "🌍",
+          "label": "跟地球一樣大",
+          "explanation": "多座電波望遠鏡合作，等於地球大小的望遠鏡。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "🏟️",
+          "label": "跟一座足球場大"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "🗺️",
+          "label": "跟美國一樣大"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "☀️",
+          "label": "比太陽系大"
+        }
+      ]
+    }
+  ]
+}

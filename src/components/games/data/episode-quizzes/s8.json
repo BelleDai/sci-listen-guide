@@ -1,0 +1,588 @@
+{
+  "episode_id": "s8",
+  "category_name": "探索無垠的宇宙",
+  "name": "霓虹燈下的守望者：月球的真實面紗與未解之謎",
+  "knowledge": "月球是地球衛星，本身不發光，只反射太陽光；月球引力小、幾乎無空氣，表面有許多隕石坑。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "月球是地球的什麼？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "🌕",
+          "label": "衛星",
+          "explanation": "月球繞著地球運行，因此是地球的衛星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "☀️",
+          "label": "大太陽"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "☄️",
+          "label": "彗星"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "🌠",
+          "label": "流星"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "月球本身會發光嗎？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "☀️",
+          "label": "反射太陽光",
+          "explanation": "月球本身不發光，我們看到的是反射的太陽光。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "💡",
+          "label": "自己會發光"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "🔦",
+          "label": "上面裝了電"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🌍",
+          "label": "反射地球光"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "如果你在地球能跳 1 公尺高，在月球上大約能跳幾公尺？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "🦘",
+          "label": "6公尺",
+          "explanation": "月球引力約地球六分之一，所以能跳得更高。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "1️⃣",
+          "label": "1公尺"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "📏",
+          "label": "12公尺"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🚀",
+          "label": "20公尺"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "月球表面上有沒有空氣？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "🈳",
+          "label": "幾乎無空氣",
+          "explanation": "月球幾乎沒有大氣，也沒有可供呼吸的空氣。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "💨",
+          "label": "空氣充足"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🤏",
+          "label": "只有微量空"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "🎈",
+          "label": "只有氮氣"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "在月球上如果不戴無線電，聽得到別人說話嗎？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "🔇",
+          "label": "完全聽不到",
+          "explanation": "聲音需要空氣傳遞，月球無空氣所以聽不到喊聲。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "👂",
+          "label": "直接聽到"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🗣️",
+          "label": "大聲呼喊"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "〰️",
+          "label": "斷續不穩定"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "月球的引力大約是地球的幾分之幾？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "⚖️",
+          "label": "六分之一",
+          "explanation": "月球較小，引力約為地球的六分之一。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "2️⃣",
+          "label": "二分之一"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "4️⃣",
+          "label": "四分之一"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🔟",
+          "label": "十分之一"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "月亮剛升起時看起來比較大，主要是因為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "🧠",
+          "label": "視覺錯覺",
+          "explanation": "月亮靠近地平線時，大腦受周圍景物影響產生錯覺。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "🌕",
+          "label": "月亮變大"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "🌫️",
+          "label": "空氣造成折"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "🌊",
+          "label": "潮汐把月拉"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "月球表面坑坑洞洞的隕石坑是怎麼形成的？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "☄️",
+          "label": "隕石撞擊",
+          "explanation": "月球缺少大氣保護，隕石撞擊後留下坑洞。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "🌋",
+          "label": "古代火山噴"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "🌪️",
+          "label": "強風侵蝕形"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "🏔️",
+          "label": "板塊擠壓運"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "為什麼我們在地球上永遠看不到月球的背面？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "🔒",
+          "label": "被潮汐鎖定",
+          "explanation": "月球自轉和繞地時間相同，所以同一面總朝向地球。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "🌑",
+          "label": "背面太暗"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🪐",
+          "label": "被其他星球"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "🛑",
+          "label": "月球不自轉"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "世界上第一個踏上月球的人是誰？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "👨‍🚀",
+          "label": "阿姆斯壯",
+          "explanation": "阿姆斯壯是第一位踏上月球表面的人類。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "☀️",
+          "label": "阿波羅"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "🐇",
+          "label": "嫦娥一號"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "👸",
+          "label": "阿提米絲"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "月球白天受陽光照射時，表面溫度最高約幾度？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "🔥",
+          "label": "逾百度",
+          "explanation": "月球無大氣調節，白天表面可熱到超過 100 度。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "☀️",
+          "label": "像地夏天4"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "🥵",
+          "label": "非常熱50"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "🌋",
+          "label": "極度炎熱5"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "月球夜晚沒有陽光時，表面溫度大約會降到多低？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "🧊",
+          "label": "零下150度",
+          "explanation": "月球夜晚沒有陽光，表面溫度可降到約零下 150 度。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "❄️",
+          "label": "剛好到冰點"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🥶",
+          "label": "零下50度"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "⛄",
+          "label": "極凍零下3"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "月球上被稱為「月海」的深色區域其實是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "🪨",
+          "label": "平坦玄武岩",
+          "explanation": "月海不是海水，而是古代熔岩冷卻成的玄武岩平原。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🌊",
+          "label": "充滿水海洋"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "🏜️",
+          "label": "廣大沙漠"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "⛰️",
+          "label": "深不見底峽"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "當日蝕發生時，月球、地球、太陽的位置關係是？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "🌑",
+          "label": "月在日地之間",
+          "explanation": "日蝕時月球位在太陽和地球中間，擋住陽光。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "🌍",
+          "label": "月躲地球後"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "☀️",
+          "label": "月在太陽後"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "🎲",
+          "label": "三星球隨機"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "海水的「大潮」通常發生在農曆的什麼時候？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "🌊",
+          "label": "初一和十五",
+          "explanation": "初一和十五時日月引力較同向，容易形成大潮。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "🌙",
+          "label": "初七和初八"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "📅",
+          "label": "每個月二十"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "☀️",
+          "label": "每天都會發"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "人類第一次登陸月球的太空任務名稱是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "🚀",
+          "label": "阿波羅十一號",
+          "explanation": "阿波羅十一號在 1969 年成功載人登上月球。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "🛸",
+          "label": "神舟十一號"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "💪",
+          "label": "勇氣號任務"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "🐇",
+          "label": "嫦娥一號"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "月全蝕時月亮看起來是紅色的（血月），主要原因是？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "🩸",
+          "label": "大氣折射",
+          "explanation": "地球大氣折射紅光照到月球，使月全蝕呈紅色。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "🩹",
+          "label": "月表正流血"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "💥",
+          "label": "太陽突變紅"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "😵",
+          "label": "眼睛產生錯"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "以目前的科技，從地球坐火箭去月球大約要多久？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "⏳",
+          "label": "約三天",
+          "explanation": "地月距離約 38 萬公里，火箭飛去月球約需三天。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "1️⃣",
+          "label": "一天抵達"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "🗓️",
+          "label": "需要半個月"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "📅",
+          "label": "需要一年"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "為什麼我們在地球上永遠只看得到月球的同一面？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🔄",
+          "label": "自轉公轉同步",
+          "explanation": "月球自轉週期和公轉週期相同，所以總露同一面。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "🛑",
+          "label": "月球不自轉"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "🧲",
+          "label": "地球引力擋"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "🌑",
+          "label": "月背無陽光"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "未來的「阿提米絲計畫」最主要的長期目標是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "⛺",
+          "label": "建立長住基地",
+          "explanation": "阿提米絲計畫希望建立月球基地，支援長期探索。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "🔋",
+          "label": "採清潔能源"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "👽",
+          "label": "找外星足跡"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "🏌️",
+          "label": "推月離軌道"
+        }
+      ]
+    }
+  ]
+}

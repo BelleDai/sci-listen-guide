@@ -1,0 +1,588 @@
+{
+  "episode_id": "s3",
+  "category_name": "生活裡的物理好好玩",
+  "name": "宇宙的深海之音：聽見引力波的奧秘",
+  "knowledge": "愛因斯坦認為重物會讓時空彎曲；黑洞等巨大天體碰撞時，會產生像漣漪的引力波。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "牛頓看到什麼東西掉下來，聯想到萬有引力？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "🍎",
+          "label": "蘋果",
+          "explanation": "傳說牛頓看到蘋果落下，開始思考萬有引力。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "🍊",
+          "label": "黃橘子"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "🪨",
+          "label": "硬石頭"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "⚽",
+          "label": "皮大球"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "愛因斯坦把時空比喻成什麼東西？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "🛏️",
+          "label": "彈簧床",
+          "explanation": "彈簧床能比喻時空被重物壓彎的樣子。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "🛝",
+          "label": "溜滑梯"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "🏊",
+          "label": "游泳池"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🏟️",
+          "label": "大操場"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "什麼東西的引力大到連光都跑不出來？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "🕳️",
+          "label": "黑洞",
+          "explanation": "黑洞引力非常強，連光也難以逃出去。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "☀️",
+          "label": "太陽"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "🌍",
+          "label": "地球"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🌖",
+          "label": "月亮"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "引力波在宇宙中傳播，科學家將它比喻為何？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "🌊",
+          "label": "時空漣漪",
+          "explanation": "巨大天體碰撞會擾動時空，形成像漣漪的引力波。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "✨",
+          "label": "閃爍星光"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "💓",
+          "label": "宇宙心跳"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "🧲",
+          "label": "隱形拉力"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "科學家用什麼東西來比喻發射訊號的脈衝星？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "🗼",
+          "label": "宇宙燈塔",
+          "explanation": "脈衝星會規律發出訊號，因此像宇宙中的燈塔。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "🔦",
+          "label": "手電筒"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🪲",
+          "label": "螢火蟲"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "🕯️",
+          "label": "風中殘燭"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "哪一國的科學家觀測日全食驗證了相對論？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "🇬🇧",
+          "label": "英國",
+          "explanation": "英國科學家愛丁頓觀測日全食，驗證光會彎曲。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🇺🇸",
+          "label": "美國"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🇯🇵",
+          "label": "日本"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🇫🇷",
+          "label": "法國"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "LIGO 探測器聽到的引力波聲音像什麼？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "🐦",
+          "label": "啾聲",
+          "explanation": "LIGO 的引力波訊號轉成聲音後，像短短的啾聲。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "🌩️",
+          "label": "轟隆雷聲"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "⏱️",
+          "label": "時鐘滴答聲"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "🗣️",
+          "label": "人類說話聲"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "誰提出了萬有引力定律？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "👴",
+          "label": "牛頓",
+          "explanation": "牛頓提出萬有引力，說明物體會互相吸引。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "👨‍🔬",
+          "label": "愛因斯坦"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "🐒",
+          "label": "達爾文"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "💡",
+          "label": "愛迪生"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "誰提出了廣義相對論？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "👨‍🔬",
+          "label": "愛因斯坦",
+          "explanation": "愛因斯坦提出廣義相對論，解釋時空和引力。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "👴",
+          "label": "牛頓"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🔭",
+          "label": "哥白尼"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "🪐",
+          "label": "伽利略"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "如果時空彎曲了，光線經過時會發生什麼事？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "↩️",
+          "label": "光線會轉彎",
+          "explanation": "時空彎曲時，光線路徑也會跟著彎曲。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "🌈",
+          "label": "變換顏色"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "🛑",
+          "label": "慢慢停下"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "💨",
+          "label": "直接消失"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "牛頓公式無法準確解釋哪顆行星的奇特軌道？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "🪐",
+          "label": "水星",
+          "explanation": "水星軌道有細微偏差，牛頓公式無法完全解釋。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "🌍",
+          "label": "地球"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "🔴",
+          "label": "火星"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "🟠",
+          "label": "木星"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "引力並非一種力，而是時空什麼現象造成的？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "🕸️",
+          "label": "時空彎曲",
+          "explanation": "廣義相對論認為，引力來自時空幾何的彎曲。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "🌡️",
+          "label": "溫度變化"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🧲",
+          "label": "磁場吸引力"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "🔥",
+          "label": "摩擦力"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "探測引力波利用什麼長度變化？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "📏",
+          "label": "雷射路徑",
+          "explanation": "引力波會讓空間微變，造成雷射路徑長度改變。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "〰️",
+          "label": "彈簧長度"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "🍎",
+          "label": "尺刻度"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "🔊",
+          "label": "聲波長度"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "2023 年發現的背景引力波聽起來像什麼？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "🐝",
+          "label": "派對嗡嗡聲",
+          "explanation": "許多黑洞訊號混在一起，像派對中的低沉嗡嗡聲。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "🦅",
+          "label": "尖銳鳥叫聲"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "😮‍💨",
+          "label": "安靜喘息聲"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "🌩️",
+          "label": "下雨打雷聲"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "發出穩定訊號的脈衝星，其實是什麼星球？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "⭐",
+          "label": "中子星",
+          "explanation": "脈衝星是快速旋轉、規律發訊號的中子星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "☀️",
+          "label": "太陽恆星"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "🌍",
+          "label": "行星"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "☄️",
+          "label": "彗星"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "引力波通常要在什麼情況下才會被探測到？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "☄️",
+          "label": "巨物劇烈動",
+          "explanation": "黑洞等大質量天體劇烈運動時，較容易產生可測引力波。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "⏰",
+          "label": "隨時都會"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "💥",
+          "label": "行星撞地球"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "🌋",
+          "label": "火山爆發"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "愛因斯坦曾認為探測不到引力波，是因為？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "📉",
+          "label": "訊號太微弱",
+          "explanation": "引力波訊號極微弱，所以愛因斯坦認為很難探測。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "💰",
+          "label": "儀器太貴"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "🐒",
+          "label": "人類不聰明"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "❌",
+          "label": "不存在"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "在彈簧床放保齡球再丟玻璃珠，玻璃珠會？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🌀",
+          "label": "繞保齡球轉",
+          "explanation": "保齡球讓彈簧床凹陷，玻璃珠會沿凹陷繞行。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "➡️",
+          "label": "直直線前進"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "⬆️",
+          "label": "往天上飛"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "🛑",
+          "label": "不動"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "黑洞合併時消失的質量，最後轉換成了什麼？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🌊",
+          "label": "引力波",
+          "explanation": "黑洞合併少掉的質量，會轉成能量形成引力波。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "✨",
+          "label": "光能效應"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "⭐",
+          "label": "中子星"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "💥",
+          "label": "超新星爆炸"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "當引力波經過地球時，會造成空間發生什麼？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "📏",
+          "label": "空間微伸縮",
+          "explanation": "引力波經過時，空間會產生極微小的伸縮。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "⏩",
+          "label": "時間變快"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "🌡️",
+          "label": "氣溫變高"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "🪶",
+          "label": "重力消失"
+        }
+      ]
+    }
+  ]
+}

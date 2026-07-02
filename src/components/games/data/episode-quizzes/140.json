@@ -1,0 +1,588 @@
+{
+  "episode_id": "140",
+  "category_name": "地心岩石考古隊",
+  "name": "地球的雕塑師：風與水的鬼斧神工（上）",
+  "knowledge": "風和海浪會侵蝕岩石、搬運沙土；風積能形成沙丘，海浪也會改變海岸地形。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "在節目中，什麼力量被比喻為「地球專屬的雕刻大師」？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "🌬️",
+          "label": "風與海浪",
+          "explanation": "風和海浪會長時間侵蝕地表，因此像地球雕刻師。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "☀️",
+          "label": "陽光高溫"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "🌋",
+          "label": "地震火山"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "🌳",
+          "label": "植物動物"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "當風吹過空曠地區，將沙塵吹起並帶到別處，這現象稱為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "🌪️",
+          "label": "風蝕作用",
+          "explanation": "風把沙塵吹走並磨蝕地表，這叫風蝕作用。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "❄️",
+          "label": "風化作用"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "🏜️",
+          "label": "風積作用"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "♨️",
+          "label": "蒸發作用"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "在風蝕作用中，風的主要「工具」是什麼，能像鑿子一樣改變石頭？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "⏳",
+          "label": "細小沙粒",
+          "explanation": "風帶著細小沙粒摩擦岩石，像砂紙一樣改變石頭。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "💧",
+          "label": "落下雨水"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "☁️",
+          "label": "空中雲霧"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "⚡",
+          "label": "可怕閃電"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "美國拱門國家公園的天然石拱門，主要是經歷了何種過程才形成？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "🌬️",
+          "label": "風和水侵蝕",
+          "explanation": "風和水長期侵蝕岩石，才會慢慢形成天然拱門。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "🌊",
+          "label": "河流沖刷"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🌋",
+          "label": "火山爆發"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "☄️",
+          "label": "隕石撞擊"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "風把沙子帶到遠方後，因風力減弱而讓沙子掉落堆疊，稱為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "🏜️",
+          "label": "風積作用",
+          "explanation": "風力變弱時沙子落下堆積，這就叫風積作用。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "⬇️",
+          "label": "沉降作用"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🍎",
+          "label": "重力牽引"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "❄️",
+          "label": "風化作用"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "在沙漠中，風力長期堆積大量沙子，形成像小山一樣的地形叫什麼？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "⛰️",
+          "label": "沙丘",
+          "explanation": "風長期堆積沙子，會形成像小山一樣的沙丘。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🏝️",
+          "label": "海邊沙洲"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🏖️",
+          "label": "平坦沙灘"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🧱",
+          "label": "紅土岩石"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "關於「新月形沙丘」，下列哪一個特徵的描述是正確的？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "🌙",
+          "label": "順風尖角",
+          "explanation": "新月形沙丘的尖角會指向風吹去的方向。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "⬅️",
+          "label": "逆風尖角"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "🔄",
+          "label": "四方風吹"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "🌿",
+          "label": "生長植物"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "哪種沙丘因受到四面八方的風吹拂，而長出許多稜角且非常高大？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "⭐",
+          "label": "星狀沙丘",
+          "explanation": "星狀沙丘受多方向風吹拂，因此會長出許多尖角。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "🌙",
+          "label": "新月沙丘"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "➖",
+          "label": "橫向沙丘"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "〰️",
+          "label": "帶狀沙丘"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "如果表層土壤持續被強風吹走，可能會造成什麼嚴重的後果？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "🏜️",
+          "label": "變成沙漠",
+          "explanation": "表土被風吹走後，土地會變貧瘠，甚至沙漠化。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "🌊",
+          "label": "大水淹沒"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🍎",
+          "label": "土地肥沃"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "🌳",
+          "label": "樹木茂密"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "海浪日夜拍打海岸，導致岩石裂開甚至崩塌的過程，稱為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "🌊",
+          "label": "海岸侵蝕",
+          "explanation": "海浪反覆撞擊岩石，使海岸裂開崩塌，稱為海岸侵蝕。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "🏝️",
+          "label": "海岸沉積"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "⬇️",
+          "label": "地層下陷"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "💥",
+          "label": "板塊移動"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "海浪破壞海岸岩石時，除了水的衝擊力，還有什麼「武器」？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "🪨",
+          "label": "石頭沙子",
+          "explanation": "海浪會捲起石頭沙子撞擊海岸，加強侵蝕力量。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "🧂",
+          "label": "豐富鹽分"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "🐋",
+          "label": "大型魚類"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "♨️",
+          "label": "高溫空氣"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "海岸邊圓滑的「卵石」，原本可能是尖銳的碎石，如何變圓的？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "🌊",
+          "label": "互相摩擦",
+          "explanation": "碎石被海浪推動互相摩擦，久了就會變圓滑。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "🤖",
+          "label": "機器打磨"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🔥",
+          "label": "太陽融化"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "⬇️",
+          "label": "深海高壓"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "海邊常見的平緩「沙灘」，主要是由哪一種作用所形成的？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "🏖️",
+          "label": "沉積作用",
+          "explanation": "海浪把沙子搬到岸邊堆積，形成平緩沙灘。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "💥",
+          "label": "侵蝕作用"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "🌪️",
+          "label": "強風侵蝕"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "⚡",
+          "label": "地震粉碎"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "全球暖化導致海平面上升，對海岸線最容易造成什麼影響？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "📉",
+          "label": "陸地變少",
+          "explanation": "海平面上升會淹沒低窪海岸，使陸地面積變少。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "📈",
+          "label": "沙灘變寬"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🛑",
+          "label": "侵蝕停止"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "🌳",
+          "label": "植物茂密"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "為什麼海平面上升，會讓「海岸侵蝕」問題變得更嚴重？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "🌊",
+          "label": "侵襲內陸",
+          "explanation": "海水變高後，海浪能打到更內陸，加劇海岸侵蝕。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "🏋️",
+          "label": "海水變重"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "🧂",
+          "label": "鹽度改變"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "🦈",
+          "label": "掠食魚多"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "海岸邊大型的水泥消波塊（防波堤），主要功用是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "🛡️",
+          "label": "減緩衝擊",
+          "explanation": "消波塊能削弱海浪衝擊，保護岸邊土地和建築。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "🐟",
+          "label": "生物棲息"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "🏄",
+          "label": "方便衝浪"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "🧽",
+          "label": "淨化海水"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "地勢低窪的沿海地區，目前面臨最急迫的環境挑戰是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "🌊",
+          "label": "淹沒風險",
+          "explanation": "低窪海岸接近海平面，海水上升時最容易被淹沒。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "🏜️",
+          "label": "乾旱缺水"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "🌋",
+          "label": "火山爆發"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "🌑",
+          "label": "缺乏陽光"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "沙灘上的強風不斷把沙子往內陸吹，可能會形成什麼景觀？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "⛰️",
+          "label": "海岸沙丘",
+          "explanation": "海風吹動沙灘沙子往內陸堆積，就會形成海岸沙丘。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "🌊",
+          "label": "海蝕平臺"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "🕳️",
+          "label": "深海海溝"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "🐠",
+          "label": "廣大珊瑚礁"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "觀察風蝕與水力侵蝕雕刻地貌，通常會發現它們的時間尺度是？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "⏳",
+          "label": "百萬年",
+          "explanation": "風和海浪改變地貌很慢，常需要幾百萬年。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "⏱️",
+          "label": "幾小時"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "🌪️",
+          "label": "幾十年"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "🌊",
+          "label": "幾百年"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "為了保護海岸線而種植的「防風林」，植物需具備什麼特性？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "🌳",
+          "label": "耐鹽耐風",
+          "explanation": "海邊風強又有鹽分，防風林植物要能耐鹽耐風。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "🌸",
+          "label": "葉大花美"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "🌱",
+          "label": "根短長快"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "💧",
+          "label": "水分吸收快"
+        }
+      ]
+    }
+  ]
+}

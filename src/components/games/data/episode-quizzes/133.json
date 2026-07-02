@@ -1,0 +1,588 @@
+{
+  "episode_id": "133",
+  "category_name": "地心岩石考古隊",
+  "name": "小小礦物學家：鑽石、黃金與石頭的秘密大發現！",
+  "knowledge": "礦物組成岩石，常有規則晶體；莫氏硬度可比較礦物軟硬，鑽石最硬、滑石最軟。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "岩石主要是由什麼組成的？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "💎",
+          "label": "各種礦物",
+          "explanation": "岩石由不同礦物組成，所以主要成分是各種礦物。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "🟤",
+          "label": "乾淨泥土"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "🌱",
+          "label": "軟有機物"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "🧂",
+          "label": "海水鹽分"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "目前科學家已經辨識出的礦物大約有多少種？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "🔍",
+          "label": "超過五千種",
+          "explanation": "科學家已辨識出超過五千種礦物，並持續增加中。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "💯",
+          "label": "一百多種"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "🖐️",
+          "label": "約五萬種"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🌌",
+          "label": "上億多種"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "大部分礦物都有什麼樣的結構？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "🧊",
+          "label": "規則晶體",
+          "explanation": "多數礦物的原子排列整齊，因此會形成規則晶體。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "💧",
+          "label": "軟水液體"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "🌪️",
+          "label": "亂七八糟"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "☁️",
+          "label": "空氣氣體"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "由單一種元素組成的礦物叫做什麼？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "🥇",
+          "label": "天然元素",
+          "explanation": "只由單一元素組成的礦物，就叫天然元素。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "🤖",
+          "label": "人工元素"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🥣",
+          "label": "混雜合物"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "🧪",
+          "label": "化學合物"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "下列哪一種是「天然元素」礦物？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "🟡",
+          "label": "黃色硫磺",
+          "explanation": "硫磺只含一種元素，所以屬於天然元素礦物。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "🧊",
+          "label": "透明石英"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🔮",
+          "label": "七彩螢石"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "🪨",
+          "label": "白方解石"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "鉛筆芯裡面的主要成分石墨，跟哪種寶石其實是兄弟，都是碳組成的？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "💍",
+          "label": "鑽石",
+          "explanation": "石墨和鑽石都由碳組成，只是排列方式不同。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🔴",
+          "label": "紅寶石"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🔵",
+          "label": "藍寶石"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🟢",
+          "label": "翠綠翡翠"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "石英是由哪兩種元素組成的？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "🏖️",
+          "label": "矽和氧",
+          "explanation": "石英的主要成分是矽和氧，所以答案是矽和氧。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "🥇",
+          "label": "金和銀"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "⚫",
+          "label": "碳和氧"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "🦴",
+          "label": "鈣和氟"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "什麼是礦物的「硬度」？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "🛡️",
+          "label": "抵抗刮擦",
+          "explanation": "硬度是礦物抵抗刮傷的能力，越硬越不容易被刮。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "⚖️",
+          "label": "秤重重量"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "😋",
+          "label": "好不好吃"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "🎨",
+          "label": "顏色深淺"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "用來測量礦物硬度的量表叫做什麼？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "📏",
+          "label": "莫氏硬度",
+          "explanation": "莫氏硬度量表專門用來比較礦物的軟硬。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "📈",
+          "label": "芮氏規模"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "📊",
+          "label": "歐氏量表"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "📉",
+          "label": "諾氏壓力"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "在莫氏硬度量表中，最軟的礦物（硬度1）是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "🧴",
+          "label": "滑石",
+          "explanation": "滑石在莫氏硬度中是 1，代表它是最軟的礦物。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "💍",
+          "label": "閃亮鑽石"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "🧊",
+          "label": "透明石英"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "🪨",
+          "label": "白方解石"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "在莫氏硬度量表中，最硬的礦物（硬度10）是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "💎",
+          "label": "鑽石",
+          "explanation": "鑽石在莫氏硬度中是 10，是最硬的天然礦物。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "🧴",
+          "label": "軟軟滑石"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "🧊",
+          "label": "透明石英"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "🔴",
+          "label": "堅硬剛玉"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "我們的指甲大約可以刮傷哪種礦物？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "💅",
+          "label": "滑石",
+          "explanation": "指甲硬度約 2.5，比滑石硬，所以能刮傷滑石。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "💍",
+          "label": "硬鑽石"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🧊",
+          "label": "硬石英"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "🔴",
+          "label": "硬剛玉"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "莫氏硬度7號的石英，可以刮傷硬度4號的螢石嗎？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "✅",
+          "label": "可以刮傷",
+          "explanation": "石英硬度 7 比螢石 4 高，所以可以刮傷螢石。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "❌",
+          "label": "絕對不行"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "🎲",
+          "label": "要看運氣"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "🤷",
+          "label": "完全不知"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "鑽石的「絕對硬度」比剛玉（紅藍寶石）硬多少？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "🚀",
+          "label": "硬很多倍",
+          "explanation": "鑽石絕對硬度比剛玉高很多，不只是差一級。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "🤏",
+          "label": "只硬一點"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🤝",
+          "label": "一模一樣"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "🛋️",
+          "label": "比較柔軟"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "岩石從一種類型轉變為另一種類型的循環過程叫做？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "🔄",
+          "label": "岩石循環",
+          "explanation": "岩石會在不同類型間轉變，這個過程叫岩石循環。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "🌋",
+          "label": "地殼變動"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "⏳",
+          "label": "物質更迭"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "🗺️",
+          "label": "地質演化"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "火成岩在地表會因為什麼作用變成沉積物？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "🌬️",
+          "label": "風化侵蝕",
+          "explanation": "風化和侵蝕會把火成岩破壞成小碎屑。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "🌋",
+          "label": "高溫高壓"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "🔥",
+          "label": "融化岩漿"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "🤝",
+          "label": "黏土膠結"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "沉積岩被埋到深處受到高溫高壓會變成什麼？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "🗿",
+          "label": "變質岩",
+          "explanation": "沉積岩受高溫高壓改變後，就會成為變質岩。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "🔥",
+          "label": "火成岩"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "🍰",
+          "label": "沉積岩"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "🏖️",
+          "label": "軟沙子"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "如果變質岩溫度太高融化了，會變成什麼？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🌋",
+          "label": "岩漿",
+          "explanation": "變質岩溫度太高會融化，變成地下的岩漿。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "🛢️",
+          "label": "礦物油"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "💩",
+          "label": "軟沉積物"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "☁️",
+          "label": "高溫蒸氣"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "板塊「隱沒作用」會把岩石帶到哪裡？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🕳️",
+          "label": "地底深處",
+          "explanation": "隱沒作用會讓板塊往下沉，把岩石帶到地底深處。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "☁️",
+          "label": "高高天空"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "🌊",
+          "label": "大海面上"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "🌕",
+          "label": "遙遠月球"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "岩石循環說明了地球是什麼樣的行星？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "🌟",
+          "label": "充滿活力",
+          "explanation": "岩石不斷改變，說明地球內部仍充滿能量與活力。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "🛑",
+          "label": "持續變化"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "♾️",
+          "label": "取之不盡"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "🧊",
+          "label": "逐漸冷卻"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,588 @@
+{
+  "episode_id": "s4",
+  "category_name": "探索無垠的宇宙",
+  "name": "穹頂之外：從井底之蛙到930億光年",
+  "knowledge": "人類從天圓地方走向日心說；宇宙尺度極大，科學家用光年、望遠鏡和黑洞影像探索宇宙。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "古代中國人認為天和地的形狀分別像什麼？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "🌍",
+          "label": "天圓地方",
+          "explanation": "古人常想像天像圓蓋、地像方形平面。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "⭕",
+          "label": "天方地圓"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "🔴",
+          "label": "全部都是圓"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "🔲",
+          "label": "全部都是方"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "是誰提出地球繞著太陽轉的「日心說」？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "👨‍🔬",
+          "label": "哥白尼",
+          "explanation": "哥白尼提出日心說，認為地球繞著太陽轉。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "🗺️",
+          "label": "托勒密"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "🍎",
+          "label": "牛頓"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🥚",
+          "label": "盤古"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "伽利略用望遠鏡觀測時，發現木星旁邊有什麼？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "🔭",
+          "label": "四顆衛星",
+          "explanation": "伽利略發現四顆衛星繞木星轉，支持日心說。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "🌖",
+          "label": "兩顆月亮"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "👽",
+          "label": "外星人飛船"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🕳️",
+          "label": "黑洞"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "太陽的體積巨大，其內部大約能容納多少個地球？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "☀️",
+          "label": "130萬個",
+          "explanation": "太陽體積巨大，約可容納 130 萬個地球。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "🔟",
+          "label": "十個"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "💯",
+          "label": "一百個"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "📈",
+          "label": "兩千萬個"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "航海家 1 號從遠方拍下的地球照片，被稱為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "🔵",
+          "label": "暗淡藍點",
+          "explanation": "航海家 1 號遠望地球，地球像小小暗淡藍點。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "🔮",
+          "label": "藍色彈珠"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🌃",
+          "label": "暗夜深藍"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "🌕",
+          "label": "巨大月亮"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "在天文學中，「光走一年的距離」稱為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "✨",
+          "label": "光年",
+          "explanation": "光年是光走一年的距離，用來量宇宙遠距離。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "⚡",
+          "label": "光速"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "📏",
+          "label": "一萬公里"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🌌",
+          "label": "一億公尺"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "如果把太陽系比喻成一粒沙，銀河系大約有多大？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "🏖️",
+          "label": "一整片沙灘",
+          "explanation": "若太陽系像一粒沙，銀河系就像一整片沙灘。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "🏀",
+          "label": "像小籃球"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "🪑",
+          "label": "像大桌子"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "🏠",
+          "label": "像大房子"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "黑洞的照片看起來像什麼食物？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "🍩",
+          "label": "甜甜圈",
+          "explanation": "黑洞照片中央黑暗、外圈發亮，看起來像甜甜圈。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "🍕",
+          "label": "義大利披薩"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "🍟",
+          "label": "長條大薯條"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "🍔",
+          "label": "牛肉大漢堡"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "韋伯望遠鏡主要是利用哪種光來觀測宇宙？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "🔴",
+          "label": "紅外線",
+          "explanation": "韋伯望遠鏡用紅外線觀測，可看見被塵埃遮住的天體。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "🩻",
+          "label": "X光"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🕶️",
+          "label": "紫外線"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "🔫",
+          "label": "雷射光"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "在盤古開天的神話中，原本的宇宙看起來像什麼？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "🥚",
+          "label": "未孵化的蛋",
+          "explanation": "盤古神話中，宇宙最初像一顆未孵化的大蛋。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "📦",
+          "label": "巨大箱子"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "🍲",
+          "label": "熱熱一碗湯"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "🪨",
+          "label": "硬硬一顆石"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "為什麼古代人會直覺地認為「地球是宇宙中心」？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "🌅",
+          "label": "日月升落",
+          "explanation": "古人看見日月星辰移動，容易以為地球在中心。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "🌖",
+          "label": "地球有衛星"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "📜",
+          "label": "神明告知"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "😎",
+          "label": "直覺如此"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "天文學家托勒密提出的宇宙模型理論稱為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "🌎",
+          "label": "地心說",
+          "explanation": "地心說認為地球在中心，其他天體繞地球轉。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "☀️",
+          "label": "日心說"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "💥",
+          "label": "大爆炸理論"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "🐒",
+          "label": "生物演化論"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "光速非常驚人，請問光每秒鐘大約可以跑多遠？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "⚡",
+          "label": "三十萬公里",
+          "explanation": "光每秒約走三十萬公里，是非常快的速度。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🚗",
+          "label": "三百公里"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "🏃",
+          "label": "一百公里"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "🔊",
+          "label": "音速兩倍"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "根據科學觀測，我們銀河系的直徑跨度大約是多少？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "🌌",
+          "label": "十萬光年",
+          "explanation": "銀河系直徑約十萬光年，範圍非常巨大。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "💯",
+          "label": "一百光年"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "萬",
+          "label": "一萬光年"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "♾️",
+          "label": "900億光"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "為什麼要在太空放望遠鏡（如哈伯、韋伯）？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "🛡️",
+          "label": "避開大氣干擾",
+          "explanation": "太空望遠鏡避開大氣干擾，能看得更清楚。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "🔭",
+          "label": "距離星更近"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "🌃",
+          "label": "太空沒有光"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "🔋",
+          "label": "節省電力"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "事件視界望遠鏡（EHT）是如何達成與地球一樣大的觀測效果？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "📡",
+          "label": "全球鏡串聯",
+          "explanation": "EHT 串聯全球望遠鏡，形成像地球一樣大的觀測網。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "🔍",
+          "label": "造巨大鏡面"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "🚀",
+          "label": "太空中組裝"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "🧲",
+          "label": "利用地球引力"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "目前的「可觀測宇宙」直徑大約是多少光年？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "🌠",
+          "label": "九百億光年",
+          "explanation": "可觀測宇宙直徑約 930 億光年。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "🌌",
+          "label": "十萬光年"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "🌍",
+          "label": "13億光年"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "♾️",
+          "label": "無限遠距離"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "為什麼觀測早期星系時，我們必須使用紅外線望遠鏡？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🔍",
+          "label": "觀紅移穿塵",
+          "explanation": "早期星光會紅移成紅外線，紅外線也較能穿透塵埃。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "💡",
+          "label": "紅外線較亮"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "🔴",
+          "label": "星系紅咚咚"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "💰",
+          "label": "價格較便宜"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "古巴比倫人對宇宙的想像中，世界是什麼樣子的？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🌊",
+          "label": "海上大陸",
+          "explanation": "古巴比倫人想像世界是漂在海上的大陸。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "🥚",
+          "label": "一顆巨大蛋"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "🗺️",
+          "label": "無邊大平地"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "🧅",
+          "label": "一層層洋蔥"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "伽利略透過望遠鏡，發現銀河其實是由什麼組成的？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "⭐",
+          "label": "無數恆星",
+          "explanation": "伽利略用望遠鏡發現銀河由無數恆星組成。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "💨",
+          "label": "發光神秘氣"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "🌫️",
+          "label": "厚太空塵埃"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "🧊",
+          "label": "透明冰塊"
+        }
+      ]
+    }
+  ]
+}

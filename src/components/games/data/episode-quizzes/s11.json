@@ -1,0 +1,588 @@
+{
+  "episode_id": "s11",
+  "category_name": "探索無垠的宇宙",
+  "name": "宇宙深處的冰雪信使：解密太陽系的「時光膠囊」——彗星",
+  "knowledge": "彗星像含冰、塵埃和岩石的髒雪球；靠近太陽會拖出尾巴，也保存早期太陽系物質。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "彗星主要是由哪些物質組成的？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "🧊",
+          "label": "冰灰塵岩石",
+          "explanation": "彗星像髒雪球，主要含冰、灰塵和岩石。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "⚙️",
+          "label": "固態金屬"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "🔥",
+          "label": "巨大火球"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "☁️",
+          "label": "柔軟棉絮"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "在古代中國，彗星通常被稱為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "🧹",
+          "label": "掃帚星",
+          "explanation": "彗星有長尾巴，古人看起來像掃帚，所以叫掃帚星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "🍀",
+          "label": "幸運之星"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "🧭",
+          "label": "指北針星"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "👴",
+          "label": "長壽之星"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "科學家發現，彗星聞起來可能像什麼味道？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "🤢",
+          "label": "臭雞蛋味",
+          "explanation": "彗星含硫化氫等氣體，可能聞起來像臭雞蛋。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "🦨",
+          "label": "臭鼬毒氣味"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "🥩",
+          "label": "壞掉的烤肉味"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🍈",
+          "label": "榴槤的味道"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "彗星靠近太陽時，通常會出現幾條明顯的尾巴？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "✌️",
+          "label": "通常有兩條",
+          "explanation": "彗星常有塵埃尾和離子尾兩條明顯尾巴。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "1️⃣",
+          "label": "只有一條"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🔟",
+          "label": "大約有十條"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "❌",
+          "label": "沒有尾巴"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "美麗的「流星雨」是怎麼產生的？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "🌠",
+          "label": "經過彗星塵埃帶",
+          "explanation": "地球經過彗星留下的塵埃帶時，就會形成流星雨。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "🌕",
+          "label": "月球碎岩"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "☀️",
+          "label": "太陽黑子"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "🛰️",
+          "label": "衛星殘骸"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "人類歷史上第一次成功登陸彗星的任務叫什麼？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "🛰️",
+          "label": "羅塞塔任務",
+          "explanation": "羅塞塔號釋放菲萊登陸器，成功登陸彗星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🚀",
+          "label": "阿波羅計畫"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🛸",
+          "label": "航海家號"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "⭐",
+          "label": "星際旅者"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "1910年哈雷彗星接近地球時，當時的人們竟然瘋狂搶購什麼？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "😷",
+          "label": "防毒面具",
+          "explanation": "當時人們誤怕彗星毒氣，所以搶買防毒面具。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "🚀",
+          "label": "逃生火箭"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "🔭",
+          "label": "星際望遠鏡"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "☂️",
+          "label": "防輻射雨傘"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "為什麼彗星的尾巴總是「背對」太陽？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "🌬️",
+          "label": "被太陽風吹散",
+          "explanation": "太陽風會把彗星氣體和塵埃吹向背對太陽處。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "🔙",
+          "label": "彗星往後退"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "🚀",
+          "label": "火箭噴射推動"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "🌍",
+          "label": "地球引力拉扯"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "第一位星際訪客「奧陌陌」有什麼特別的地方？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "👽",
+          "label": "太陽系外來客",
+          "explanation": "奧陌陌的軌道顯示，它來自太陽系以外。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "⭕",
+          "label": "形狀很圓"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🔥",
+          "label": "表面極燙"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "💥",
+          "label": "正要撞擊地球"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "彗星被科學家稱為什麼樣的「膠囊」？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "⏳",
+          "label": "時光膠囊",
+          "explanation": "彗星保存早期太陽系物質，像太陽系時光膠囊。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "🔋",
+          "label": "能量膠囊"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "🚀",
+          "label": "太空膠囊"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "⛄",
+          "label": "冰雪球膠囊"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "1910年時，人們為什麼會對哈雷彗星感到恐慌？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "☠️",
+          "label": "怕彗星尾有毒",
+          "explanation": "當時人們誤以為哈雷彗星尾巴的毒氣會危害地球。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "💥",
+          "label": "怕撞地球"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "🌑",
+          "label": "怕遮太陽"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "🌊",
+          "label": "引發海嘯"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "彗星藍色的「離子尾」是由什麼組成的？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "⚡",
+          "label": "帶電的氣體離子",
+          "explanation": "離子尾由帶電氣體組成，常被太陽風吹直。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "💨",
+          "label": "細小的灰塵"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🧊",
+          "label": "結凍小冰塊"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "♨️",
+          "label": "大量水蒸氣"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "像哈雷彗星這種「短週期彗星」通常來自哪裡？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "🪐",
+          "label": "柯伊伯帶",
+          "explanation": "短週期彗星多來自海王星外的柯伊伯帶。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🔴",
+          "label": "火星附近"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "☀️",
+          "label": "太陽最中心"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "🌌",
+          "label": "銀河系中心"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "羅塞塔號探測的彗星（67P），外型看起來像什麼？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "🦆",
+          "label": "黃色小鴨",
+          "explanation": "67P 彗星形狀有頭有身體，看起來像黃色小鴨。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "🍩",
+          "label": "甜甜圈"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🚬",
+          "label": "一根雪茄"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "⛄",
+          "label": "髒雪球"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "為什麼說彗星可能與地球「生命起源」有關？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "🌱",
+          "label": "帶有氨基酸",
+          "explanation": "彗星含氨基酸等生命原料，可能曾帶到地球。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "🌊",
+          "label": "產生海洋"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "🏞️",
+          "label": "使土壤肥沃"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "♨️",
+          "label": "溫度溫暖舒適"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "歷史上的「通古斯大爆炸」推測可能是什麼造成的？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "💥",
+          "label": "彗星空中爆炸",
+          "explanation": "通古斯事件可能由彗星在空中解體爆炸造成。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "🕳️",
+          "label": "彗星撞擊地球"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "🌋",
+          "label": "火山大噴發"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "☀️",
+          "label": "太陽磁爆"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "彗星的「塵埃尾」看起來通常是什麼顏色和形狀？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "🌙",
+          "label": "彎曲黃白色",
+          "explanation": "塵埃尾反射陽光呈黃白色，形狀常較彎曲。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "📏",
+          "label": "筆直的藍色"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "⭕",
+          "label": "圓圈狀紅色"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "⚡",
+          "label": "閃電般綠色"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "菲萊登陸器在降落彗星表面時，發生了什麼意外？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🦘",
+          "label": "沒抓穩而彈跳",
+          "explanation": "菲萊因未固定好，在低重力彗星表面彈跳兩次。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "💥",
+          "label": "直接摔碎爆炸"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "🛸",
+          "label": "飛往別顆星球"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "🕳️",
+          "label": "掉進巨大黑洞"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "彗星的核心被一層像雲霧般的氣體包圍，這層構造被稱為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "💇",
+          "label": "彗髮",
+          "explanation": "彗髮是彗核周圍由氣體和塵埃形成的雲霧。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "👗",
+          "label": "彗衣"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "👑",
+          "label": "彗冠"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "☁️",
+          "label": "彗雲"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "彗星經過太陽附近時，為什麼亮度會大幅提升？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "🌫️",
+          "label": "冰塊昇華噴塵埃",
+          "explanation": "彗星靠近太陽時冰昇華並噴出塵埃，反射陽光變亮。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "🔥",
+          "label": "彗星燃燒"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "🔋",
+          "label": "吸收太陽熱能"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "☀️",
+          "label": "反射太陽光"
+        }
+      ]
+    }
+  ]
+}

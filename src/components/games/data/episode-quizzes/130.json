@@ -1,0 +1,591 @@
+{
+  "episode_id": "130",
+  "category_name": "地心岩石考古隊",
+  "name": "地球大寶箱：閃亮寶石與用不完的能量",
+  "title": "地球大寶箱：閃亮寶石與用不完的能量",
+  "prompt": "打開地球藏寶箱，找尋亮晶晶寶藏！",
+  "description": "地球就像一個超級大寶箱，裡面不僅有亮晶晶的寶石，還藏著遠古留下來的神奇能量！快來找找這些寶藏吧！",
+  "knowledge": "岩石藏著寶石，也保存石油、煤炭等能量；但化石燃料有限，改用再生能源更愛地球。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "岩石被比喻成「地球的什麼」？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "🦴",
+          "label": "骨頭",
+          "explanation": "岩石遍布地表和地底，像骨頭一樣支撐地球。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "🤚",
+          "label": "皮膚"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "💇",
+          "label": "頭髮"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "👀",
+          "label": "眼睛"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "岩石是由更小的什麼東西組成的？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "💎",
+          "label": "各種礦物",
+          "explanation": "岩石是由不同礦物組成，所以答案是各種礦物。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "🟤",
+          "label": "乾掉泥土"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "🦴",
+          "label": "遠古骨骸"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🌋",
+          "label": "凝固岩漿"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "製作花崗岩的材料「石英、長石、雲母」就像做蛋糕的什麼？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "🥚",
+          "label": "蛋糕材料",
+          "explanation": "石英、長石和雲母像蛋糕材料，混在一起形成花崗岩。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "🥣",
+          "label": "烤模"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "🥄",
+          "label": "打蛋器"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🎁",
+          "label": "包裝盒"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "寶石看起來特別閃亮，是因為師傅對它做了什麼？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "✂️",
+          "label": "打磨切割",
+          "explanation": "打磨切割能讓寶石反射更多光，所以看起來更閃亮。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "🖌️",
+          "label": "塗發光漆"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🧪",
+          "label": "泡神奇水"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "🔦",
+          "label": "照雷射光"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "世界上最硬、可以用來鑽孔的寶石是？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "💍",
+          "label": "鑽石",
+          "explanation": "鑽石是自然界最硬的物質，能做成鑽頭切硬物。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "🔵",
+          "label": "藍寶石"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🟢",
+          "label": "祖母綠"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "🪨",
+          "label": "亮石英"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "煤炭、石油和天然氣统稱為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "⛽",
+          "label": "化石燃料",
+          "explanation": "煤炭、石油和天然氣來自古代生物，所以叫化石燃料。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🪵",
+          "label": "遠古燃料"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🕳️",
+          "label": "地底燃料"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🌿",
+          "label": "天然燃料"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "化石燃料是怎麼形成的？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "🦖",
+          "label": "古代生物",
+          "explanation": "古代動植物被埋進地底，受高溫高壓後變成化石燃料。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "🌋",
+          "label": "火山爆發"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "☄️",
+          "label": "隕石撞擊"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "🏖️",
+          "label": "泥沙堆積"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "為什麼我們不應該一直用化石燃料？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "☁️",
+          "label": "溫室氣體",
+          "explanation": "燃燒化石燃料會產生溫室氣體，讓地球越來越熱。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "💥",
+          "label": "大地震"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "🧊",
+          "label": "海水變冷"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "🎈",
+          "label": "失去重力"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "哪一種能源是用「大風車」來發電的？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "🎐",
+          "label": "風力發電",
+          "explanation": "大風車被風吹動葉片，就能帶動機器產生電力。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "☀️",
+          "label": "太陽能"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "☢️",
+          "label": "核能"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "🌋",
+          "label": "地熱能"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "太陽能板是收集什麼來變成電？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "🌞",
+          "label": "太陽能",
+          "explanation": "太陽能板吸收陽光後，可以把光轉換成電。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "💨",
+          "label": "風的流動"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "🔥",
+          "label": "地底熱能"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "🌧️",
+          "label": "雨水衝力"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "利用地球內部核心的熱能來發電，叫做？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "♨️",
+          "label": "地熱發電",
+          "explanation": "地熱發電利用地底熱能，像岩漿的熱來產生電力。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "☢️",
+          "label": "核能發電"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "☀️",
+          "label": "太陽能電"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "🌊",
+          "label": "潮汐發電"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "聽說什麼東西甚至也可以變成「生質燃料」來發電？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "💩",
+          "label": "動物糞便",
+          "explanation": "動物糞便和廚餘會產生沼氣，收集後能用來發電。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "⚙️",
+          "label": "生鏽廢鐵"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🪨",
+          "label": "普通石頭"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "🍾",
+          "label": "廢玻璃瓶"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "水力發電通常會蓋什麼東西來收集水？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "🧱",
+          "label": "大水壩",
+          "explanation": "水壩能蓄水，讓水往下衝時推動機器發電。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🚰",
+          "label": "濾水廠"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "🐳",
+          "label": "深海水庫"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "🛢️",
+          "label": "儲水槽"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "什麼是「再生能源」？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "♾️",
+          "label": "可再生能源",
+          "explanation": "陽光、風和海浪會不斷補充，所以屬於再生能源。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "🛢️",
+          "label": "化石提煉"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "1️⃣",
+          "label": "只用一次"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "🗑️",
+          "label": "燃燒垃圾"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "如果不節約用電，地球的「能量罐頭」會？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "📉",
+          "label": "消耗殆盡",
+          "explanation": "煤炭和石油有限，不節約使用就可能被消耗殆盡。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "♻️",
+          "label": "回收補滿"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "☀️",
+          "label": "太陽補滿"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "✨",
+          "label": "變新能源"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "大海的什麼力量也可以拿來發電？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "🌊",
+          "label": "波浪潮汐",
+          "explanation": "波浪和潮汐都有水流力量，可以推動設備發電。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "🐟",
+          "label": "魚群游動"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "🎨",
+          "label": "海水顏色"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "🌋",
+          "label": "海底地震"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "為什麼鑽石會有不同的形狀？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "⚒️",
+          "label": "切割打磨",
+          "explanation": "鑽石原本形狀不規則，切割打磨後才會變成不同造型。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "🌲",
+          "label": "天然形狀"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "🔥",
+          "label": "高溫熔化"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "🗜️",
+          "label": "高壓擠壓"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "我們保護地球最好的方法之一是？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "♻️",
+          "label": "再生能源",
+          "explanation": "再生能源污染少，能減少溫室氣體、保護地球。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "🛢️",
+          "label": "挖化石"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "🪓",
+          "label": "砍樹種田"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "🏭",
+          "label": "多蓋工廠"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "英國黛安娜王妃的訂婚戒指，上面鑲嵌了哪一種寶石？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🔵",
+          "label": "藍寶石",
+          "explanation": "黛安娜王妃戒指鑲著藍寶石，它以美麗藍光聞名。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "🔴",
+          "label": "紅寶石"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "🟢",
+          "label": "祖母綠"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "💎",
+          "label": "大鑽石"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "人類最早獲取能量的方式是哪一種？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "🔥",
+          "label": "燃燒木柴",
+          "explanation": "早期人類靠燃燒木柴取暖、煮食，這是最早能量來源。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "⛏️",
+          "label": "開採煤炭"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "☀️",
+          "label": "太陽能"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "💨",
+          "label": "風力發電"
+        }
+      ]
+    }
+  ]
+}

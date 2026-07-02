@@ -43,7 +43,7 @@ export default async function EpisodeGamePage({ params }: EpisodeGamePageProps) 
     notFound();
   }
 
-  const episode = getEpisodeQuiz(episodeId);
+  const episode = await getEpisodeQuiz(episodeId);
   if (!episode) {
     notFound();
   }

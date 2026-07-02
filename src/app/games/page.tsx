@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 import EpisodeGamesList from '@/components/games/EpisodeGamesList';
-import type { StageCategory } from '@/components/games/core/episodeQuizzes';
+import { getEpisodeGameId, type StageCategory } from '@/components/games/core/episodeQuizzes';
 import stageCategories from '../../../public/stage_1_categories.json';
 
 export const metadata: Metadata = {
@@ -10,5 +10,13 @@ export const metadata: Metadata = {
 };
 
 export default function GamesPage() {
-  return <EpisodeGamesList categories={stageCategories as StageCategory[]} />;
+  const categoriesWithGameId = (stageCategories as StageCategory[]).map(category => ({
+    ...category,
+    episode: category.episode.map(ep => ({
+      ...ep,
+      gameId: getEpisodeGameId(ep.id)
+    }))
+  }));
+
+  return <EpisodeGamesList categories={categoriesWithGameId} />;
 }

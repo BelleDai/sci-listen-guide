@@ -1,0 +1,588 @@
+{
+  "episode_id": "s7",
+  "category_name": "探索無垠的宇宙",
+  "name": "恆星日記：揭開太陽系霸主的熾熱面紗",
+  "knowledge": "太陽約 50 億歲，靠核心核融合發光發熱；地球距離太陽適中，加上地軸傾斜形成四季。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "太陽大約已經幾歲了？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "🎂",
+          "label": "約50億歲",
+          "explanation": "太陽約 50 億歲，目前仍處在穩定發光的階段。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "💯",
+          "label": "100歲"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "萬",
+          "label": "1萬歲"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "🐣",
+          "label": "剛誕生不久"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "太陽產生能量的方式是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "💥",
+          "label": "核融合反應",
+          "explanation": "太陽在核心進行核融合，產生大量光和熱。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "🪵",
+          "label": "燃燒煤炭"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "🔥",
+          "label": "靠摩擦產生"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🧲",
+          "label": "吸收宇輻射"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "如果我們把太陽剖開，它的結構能分成幾層？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "🧅",
+          "label": "六層",
+          "explanation": "太陽從核心到日冕，主要可分成六層。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "1️⃣",
+          "label": "只有一點點"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "3️⃣",
+          "label": "少少三大層"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "💯",
+          "label": "多達一百層"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "太陽黑子在太陽表面看起來為什麼是黑色的？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "😎",
+          "label": "溫度較低",
+          "explanation": "太陽黑子比周圍溫度低，所以對比下看起來較暗。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "🌪️",
+          "label": "太陽有風暴"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "☄️",
+          "label": "被彗星撞擊"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "🕳️",
+          "label": "那是小星系"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "地球會出現春夏秋冬四季變化的主要原因是？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "🍂",
+          "label": "地軸斜公轉",
+          "explanation": "地球地軸傾斜並繞太陽公轉，造成四季變化。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "📏",
+          "label": "隨日距離改"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🌡️",
+          "label": "太陽熱度變"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "🌑",
+          "label": "月擋住日光"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "太陽系中體積最大的行星是哪一顆？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "🪐",
+          "label": "木星",
+          "explanation": "木星是太陽系體積最大的行星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🌍",
+          "label": "地球"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🔴",
+          "label": "火星"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🪨",
+          "label": "水星"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "太陽發出的光傳到地球大約需要多久時間？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "⏱️",
+          "label": "8分鐘",
+          "explanation": "太陽光從太陽到地球，大約需要 8 分鐘。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "1️⃣",
+          "label": "只要1秒鐘"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "🕰️",
+          "label": "1小時"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "📅",
+          "label": "1年"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "太陽的體積非常大，大約可以裝進多少個地球？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "🌍",
+          "label": "約130萬個",
+          "explanation": "太陽體積很大，約能容納 130 萬個地球。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "🔟",
+          "label": "10個"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "💯",
+          "label": "100個"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "萬",
+          "label": "1萬個"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "哪一顆行星離太陽最近，而且白天跟晚上的溫差非常大？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "🌡️",
+          "label": "水星",
+          "explanation": "水星離太陽最近，白天夜晚溫差非常大。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "✨",
+          "label": "金星"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🌍",
+          "label": "地球"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "🔵",
+          "label": "海王星"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "金星為什麼表面溫度極高，還會下強酸雨？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "🌧️",
+          "label": "強溫室效應",
+          "explanation": "金星大氣溫室效應強，熱量難散出，表面很熱。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "☀️",
+          "label": "離太陽最近"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "🌋",
+          "label": "到處都是活"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "🔥",
+          "label": "星球正在燃"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "太陽在恆星分類中，屬於哪一種類型？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "🟡",
+          "label": "黃矮星",
+          "explanation": "太陽是中等大小、發黃白光的恆星，稱為黃矮星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "🔴",
+          "label": "紅巨星"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "⚪",
+          "label": "白矮星"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "⭐",
+          "label": "中子星"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "太陽核心是產生能量的地方，科學家估計那裡的溫度高達多少？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "🔥",
+          "label": "一千五百度",
+          "explanation": "太陽核心約 1500 萬度，足以進行核融合。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "🌡️",
+          "label": "表面6千度"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "📈",
+          "label": "10萬度"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "💥",
+          "label": "超過1億度"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "太陽大氣層的最外層，且溫度高達100萬度的是哪一層？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "👑",
+          "label": "日冕層",
+          "explanation": "日冕是太陽最外層大氣，溫度可達百萬度。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "💡",
+          "label": "光球層"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "🔴",
+          "label": "色球層"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "♨️",
+          "label": "對流層"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "地球與太陽的距離大約是多少公里，這被稱為完美的距離？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "📏",
+          "label": "1.5億公里",
+          "explanation": "地球離太陽約 1.5 億公里，讓液態水能存在。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "百",
+          "label": "100萬公"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🔟",
+          "label": "10億公里"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "2️⃣",
+          "label": "20億公里"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "歷史上著名的「卡林頓事件」是指發生了什麼現象？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "⚡",
+          "label": "強烈太陽風暴",
+          "explanation": "卡林頓事件是強烈太陽風暴影響地球科技的事件。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "☀️",
+          "label": "天上有九個"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "🌑",
+          "label": "日被月遮住"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "☄️",
+          "label": "小行星撞擊"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "天文學說的「適居帶」（金髮女孩區域）主要是指什麼區域？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "💧",
+          "label": "能有液態水",
+          "explanation": "適居帶溫度適中，可能讓液態水存在。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "💨",
+          "label": "氧氣非常充"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "🍔",
+          "label": "有很多食物"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "👽",
+          "label": "沒有可怕外"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "如果有一天太陽突然消失了，地球會變成什麼樣子？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "❄️",
+          "label": "漆黑且寒冷",
+          "explanation": "太陽消失後，地球會失去光和熱，變得黑暗寒冷。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "😎",
+          "label": "變暗但溫度"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "🙈",
+          "label": "只會看不見"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "🌕",
+          "label": "月會發出強"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "天王星在太陽系中，有什麼與眾不同的特別之處？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🛌",
+          "label": "躺著自轉",
+          "explanation": "天王星自轉軸傾斜很大，幾乎像躺著轉。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "🐘",
+          "label": "它是體積最"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "📏",
+          "label": "它是離日最"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "🌪️",
+          "label": "有大紅斑風"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "宇宙中最漂亮的時尚達人，帶著美麗的呼拉圈的行星是誰?",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🪐",
+          "label": "土星",
+          "explanation": "土星有明顯光環，像戴著巨大的呼拉圈。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "🔴",
+          "label": "火星"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "✨",
+          "label": "金星"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "🪨",
+          "label": "水星"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "太陽目前正值壯年，科學家預估它還剩下大約多少壽命？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "⏳",
+          "label": "50億年",
+          "explanation": "科學家估計，太陽還能穩定發光約 50 億年。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "1️⃣",
+          "label": "1億年"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "💯",
+          "label": "100億年"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "萬",
+          "label": "再1萬年"
+        }
+      ]
+    }
+  ]
+}

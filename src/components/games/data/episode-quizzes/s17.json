@@ -1,0 +1,588 @@
+{
+  "episode_id": "s17",
+  "category_name": "探索無垠的宇宙",
+  "name": "太陽還能活多久？中年大叔的星際危機",
+  "knowledge": "太陽約46億歲，正值壯年；未來會膨脹成紅巨星，最後留下白矮星。黃金多來自中子星相撞。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "如果把太陽的一生比喻為 100 歲，現在 46 億歲的太陽正處於哪個階段？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "🧔",
+          "label": "活力壯年人",
+          "explanation": "太陽壽命約100億年，46億歲像壯年人。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "👶",
+          "label": "剛出生嬰兒"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "👴",
+          "label": "退休的老人"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "🥚",
+          "label": "肚子裡小胚胎"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "大約 50 億年後，太陽的能量用完會變身成哪種天體？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "🎈",
+          "label": "紅巨星",
+          "explanation": "太陽燃料變少後會膨脹，成為巨大的紅巨星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "🕳️",
+          "label": "黑洞"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "⚪",
+          "label": "黑矮星"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🌌",
+          "label": "散狀星雲"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "當太陽變大成為紅巨星時，哪兩顆行星最先被它「吞掉」？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "🪐",
+          "label": "水星和金星",
+          "explanation": "水星和金星離太陽最近，會最先被膨脹吞沒。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "🌍",
+          "label": "木星和土星"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "❄️",
+          "label": "天王星"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🌑",
+          "label": "冥王星"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "科學家發現，地球上的「黃金」最早是怎麼在宇宙中產生的？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "💥",
+          "label": "中子星相撞",
+          "explanation": "中子星相撞會產生並散出黃金等重元素。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "🔥",
+          "label": "恆星核融合"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🎆",
+          "label": "超新星大爆炸"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "☄️",
+          "label": "彗星撞擊帶來"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "恆星誕生的「星雲」，常被科學家形容為什麼地方？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "👶",
+          "label": "星星的育嬰房",
+          "explanation": "星雲含氣體和塵埃，能聚集形成新恆星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "👴",
+          "label": "退休養老院"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🐂",
+          "label": "星星牧場"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "🕳️",
+          "label": "光之囚房"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "太陽老去後，外層氣體散去，最後留下的高密度核心叫什麼？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "⚪",
+          "label": "白矮星",
+          "explanation": "太陽外層散去後，剩下高密度核心白矮星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🪨",
+          "label": "中子星"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🔴",
+          "label": "紅矮星"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🕳️",
+          "label": "黑洞"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "「昴宿星團」在日文中稱為 Subaru，這是哪種產品的商標圖案？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "🚗",
+          "label": "汽車品牌",
+          "explanation": "Subaru 是速霸陸汽車，商標是昴宿星團。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "📱",
+          "label": "智慧型手機"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "💻",
+          "label": "筆記型電腦"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "🥤",
+          "label": "運動飲料"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "太陽大約每隔幾年，會進入一次脾氣暴躁的「活動極大期」？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "📅",
+          "label": "11年一次",
+          "explanation": "太陽活動約11年一循環，極大期會更活躍。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "🗓️",
+          "label": "每隔一個月"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "💯",
+          "label": "每一百年"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "🧘",
+          "label": "脾氣很穩定"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "韋伯望遠鏡發現的 JuMBOs 流浪星球，它們的大小跟誰差不多？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "🪐",
+          "label": "木星",
+          "explanation": "JuMBOs 是流浪行星，大小大約像木星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "💍",
+          "label": "土星"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🌍",
+          "label": "地球"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "🔴",
+          "label": "火星"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "太陽發脾氣時噴出的強烈光芒，正式名稱是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "⚡",
+          "label": "太陽閃焰",
+          "explanation": "太陽表面突然爆出強光，稱為太陽閃焰。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "🤧",
+          "label": "太陽哈啾"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "🔥",
+          "label": "太陽光熱浪"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "🌪️",
+          "label": "太陽電風暴"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "科學家預測，太陽變熱後大約再過多久會「煮開」地球的海水？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "♨️",
+          "label": "10億年後",
+          "explanation": "太陽會越來越亮，約10億年後海水可能蒸發。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "🌅",
+          "label": "明天下午"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "💯",
+          "label": "100億年後"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "❄️",
+          "label": "永遠不會發生"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "太陽表面長得像「青春痘」，且溫度較低的黑色斑點叫什麼？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "⚫",
+          "label": "太陽黑子",
+          "explanation": "太陽黑子是表面較冷、看起來較暗的區域。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "🕳️",
+          "label": "太陽黑洞"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "◼️",
+          "label": "太陽黑體"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "👻",
+          "label": "太陽暗物質"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "太陽噴出的高能粒子撞擊地球磁場時，會在兩極產生什麼奇景？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "🌌",
+          "label": "五彩繽紛極光",
+          "explanation": "太陽粒子撞進地球磁場，會在兩極形成極光。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🌈",
+          "label": "彩虹瀑布"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "✨",
+          "label": "亮晶晶流星雨"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "🫧",
+          "label": "巨大彩色泡泡"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "太陽老後脫下的氣體衣服，在宇宙中形成的彩色雲氣叫什麼？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "🌈",
+          "label": "行星狀星雲",
+          "explanation": "太陽外層氣體散開後，會形成行星狀星雲。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "💥",
+          "label": "超新星大爆炸"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🌑",
+          "label": "暗星雲"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "🪞",
+          "label": "鏡狀星體"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "白矮星的密度極高，一小匙物質的重量大約等於什麼？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "🐘",
+          "label": "一頭非洲象",
+          "explanation": "白矮星密度極高，一小匙就可能重如大象。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "🚚",
+          "label": "一輛卡車"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "✈️",
+          "label": "一架飛機"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "🏢",
+          "label": "台北101"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "如果地球最後沒被太陽吞掉，它最可能的命運被形容為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "🥔",
+          "label": "烤乾的馬鈴薯",
+          "explanation": "若沒被吞掉，地球也會被高熱烤乾。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "🧊",
+          "label": "巨大冰球"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "🌌",
+          "label": "美麗星雲"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "💥",
+          "label": "中子星"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "為什麼我們的太陽，最後不會變成恐怖的「黑洞」？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "⚖️",
+          "label": "質量不夠大",
+          "explanation": "太陽質量不夠大，死亡後不會塌縮成黑洞。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "🌡️",
+          "label": "溫度不夠高"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "⏱️",
+          "label": "時間不夠長"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "📏",
+          "label": "離銀河中心太遠"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "太陽變成「紅巨星」後，它的表面溫度會發生什麼變化？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "📉",
+          "label": "比現在低",
+          "explanation": "紅巨星表面變大，表面溫度會比現在低。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "🔥",
+          "label": "變得更高溫"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "🧊",
+          "label": "結成厚厚的冰"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "0️⃣",
+          "label": "變成零度"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "當太陽演化成最後的「白矮星」階段，它的大小會變得跟誰差不多？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🌍",
+          "label": "地球",
+          "explanation": "太陽剩下的白矮星核心，大小約像地球。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "🌌",
+          "label": "木星"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "⛰️",
+          "label": "台北市"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "🪐",
+          "label": "土星"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "科學家觀測到太陽進入了「第 25 週期」，這代表太陽正處於什麼狀態？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "😡",
+          "label": "脾氣暴躁期",
+          "explanation": "第25週期代表太陽活動變強，黑子與閃焰增多。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "😴",
+          "label": "平靜休息期"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "💥",
+          "label": "將爆炸的末期"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "🧊",
+          "label": "冰封的寒冬"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,588 @@
+{
+  "episode_id": "136",
+  "category_name": "氣象魔法與地球防衛隊",
+  "name": "時空穿越者：如果地球沒有溫室氣體？",
+  "knowledge": "颱風和颶風都是熱帶氣旋，靠溫暖海水增強；中心是颱風眼，旁邊眼牆風雨最強。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "颱風和颶風有什麼關係？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "👬",
+          "label": "同一類風暴",
+          "explanation": "颱風和颶風都是熱帶氣旋，只是發生地區不同、名字不同。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "🙅‍♂️",
+          "label": "完全不同"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "🌧️",
+          "label": "一風一雨"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "⚔️",
+          "label": "是死對頭"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "如果你住在美國，你會怎麼稱呼這種熱帶氣旋？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "🌪️",
+          "label": "颶風",
+          "explanation": "在大西洋和東太平洋，這種熱帶氣旋稱為颶風。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "🌀",
+          "label": "叫颱風"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "🍃",
+          "label": "叫微風"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🌪️",
+          "label": "叫龍捲風"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "颱風最一開始是什麼變來的？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "👶",
+          "label": "熱帶低壓",
+          "explanation": "熱帶低壓吸收海洋能量變強後，才會發展成颱風。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "🛑",
+          "label": "滯留鋒面"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "❄️",
+          "label": "溫帶氣旋"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🏔️",
+          "label": "熱帶高壓"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "颱風長大需要吃什麼能量點心？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "♨️",
+          "label": "海水熱能",
+          "explanation": "溫暖海水提供熱和水氣，是颱風變強的能量來源。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "⚡",
+          "label": "雷雲能量"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🛹",
+          "label": "地表摩擦"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "🔥",
+          "label": "大氣底部"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "當風速達到每小時多少公里以上，才算是正式的颶風？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "🏎️",
+          "label": "120公里",
+          "explanation": "風速達每小時約 120 公里以上，才算正式颶風。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "🚶‍♂️",
+          "label": "10公里"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🛵",
+          "label": "61公里"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "🚀",
+          "label": "1000公里"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "科學隊長形容「眼牆」的結構像什麼？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "🏟️",
+          "label": "圓形競技場",
+          "explanation": "眼牆圍住颱風眼，形狀像高高的圓形競技場。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "☁️",
+          "label": "棉花糖雲"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "毯",
+          "label": "平坦地毯"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🧱",
+          "label": "層層積木"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "颱風眼裡面的天氣通常怎麼樣？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "☀️",
+          "label": "風平浪靜",
+          "explanation": "颱風眼內空氣下沉、雲少，所以通常較平靜。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "⛈️",
+          "label": "狂風暴雨"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "❄️",
+          "label": "降下大雪"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "🔊",
+          "label": "噪音很吵"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "包圍在颱風眼外面，風雨最強、最危險的那一圈叫做什麼？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "🧱",
+          "label": "眼牆",
+          "explanation": "眼牆包圍颱風眼，是風雨最強也最危險的區域。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "☁️",
+          "label": "白色雲牆"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "🌀",
+          "label": "螺旋雨帶"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "⭕",
+          "label": "核心環流"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "科學家估計一個颱風釋放的總能量，大約等於多少顆原子彈？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "💥",
+          "label": "一萬顆",
+          "explanation": "颱風能量很大，幾天內可相當於約一萬顆原子彈。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "🧨",
+          "label": "只有1顆"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "💣",
+          "label": "只有10顆"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "🧨",
+          "label": "大約百顆"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "大型颶風的直徑可能超過多少公里？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "📏",
+          "label": "1000公里",
+          "explanation": "大型颶風直徑可超過 1000 公里，範圍非常廣。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "📐",
+          "label": "10公里"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "📏",
+          "label": "100公里"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "📏",
+          "label": "只有1公里"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "在台灣，我們通常透過什麼圖來觀察颱風的位置？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "🛰️",
+          "label": "衛星雲圖",
+          "explanation": "衛星雲圖能從太空拍雲系，幫我們看颱風位置。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "📡",
+          "label": "雷達回波"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "🗺️",
+          "label": "地面天氣"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "📈",
+          "label": "等壓線圖"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "颶風眼裡面的空氣是怎麼流動的？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "⬇️",
+          "label": "往下沉降",
+          "explanation": "颱風眼裡空氣往下沉，所以雲會散開、天氣較平靜。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "⬆️",
+          "label": "往上升起"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "⬅️",
+          "label": "往左邊跑"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "➡️",
+          "label": "往右邊跑"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "以前的飛行員為什麼要開飛機進颶風眼？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "📊",
+          "label": "探測數據",
+          "explanation": "飛行員進颶風眼，是為了測量風速、氣壓等資料。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🎢",
+          "label": "為了去玩"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "☔",
+          "label": "為了躲雨"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "🤷",
+          "label": "因為迷路"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "從颱風中心向外延伸出來長長的雲帶叫做什麼？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "🌀",
+          "label": "螺旋雨帶",
+          "explanation": "颱風外圍一條條旋轉雲帶，就叫螺旋雨帶。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "⚡",
+          "label": "雷雨雲帶"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "⭕",
+          "label": "外圍環流"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "🌊",
+          "label": "急流雲帶"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "颶風 (Hurricane) 這個名字可能源自哪個文化的神？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "🌩️",
+          "label": "風暴之神",
+          "explanation": "Hurricane 可能源自加勒比海文化中的風暴之神。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "🦅",
+          "label": "埃及風神"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "⚡",
+          "label": "北歐雷神"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "👹",
+          "label": "希臘怪獸"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "下列哪一個不是熱帶氣旋的稱呼？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "🌪️",
+          "label": "龍捲風",
+          "explanation": "龍捲風是漏斗狀強風，不是熱帶氣旋的名稱。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "🌀",
+          "label": "叫做颱風"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "🌪️",
+          "label": "叫做颶風"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "🌬️",
+          "label": "台語風颱"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "為什麼颱風眼裡面沒有雲？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "⬇️",
+          "label": "空氣下沉",
+          "explanation": "空氣下沉會變暖，使小水滴蒸發，所以颱風眼少雲。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "😋",
+          "label": "雲被吃掉"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "🥵",
+          "label": "因為怕熱"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "😴",
+          "label": "雲去睡覺"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "一個成熟的颱風，結構像什麼？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🍰",
+          "label": "旋轉蛋糕",
+          "explanation": "成熟颱風有颱風眼、眼牆和雨帶，像旋轉蛋糕。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "🍎",
+          "label": "一顆蘋果"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "🐍",
+          "label": "一條長蛇"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "📖",
+          "label": "一本厚書"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "颱風是地球上最具______的天氣系統之一？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "💥",
+          "label": "破壞力強",
+          "explanation": "颱風有狂風、暴雨和大浪，所以破壞力很強。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "🎲",
+          "label": "不可預測"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "🎢",
+          "label": "高度不穩"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "🌧️",
+          "label": "廣泛降雨"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "為什麼颱風靠近時，家裡的門窗要貼膠帶？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "🪟",
+          "label": "增加韌度",
+          "explanation": "貼膠帶能增加玻璃韌度，破裂時較不易四散傷人。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "☔",
+          "label": "防雨水滲"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "🕶️",
+          "label": "擋太陽光"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "🦟",
+          "label": "防蚊蟲飛"
+        }
+      ]
+    }
+  ]
+}

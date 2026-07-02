@@ -1,0 +1,588 @@
+{
+  "episode_id": "s5",
+  "category_name": "探索無垠的宇宙",
+  "name": "宇宙身世之謎：從一百五十億年前的那場「火球」說起",
+  "knowledge": "宇宙約在 138 億年前開始膨脹；銀河系像發光圓盤，太陽系位在其中一條旋臂上。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "根據目前的宇宙演化理論，宇宙大約是在多久以前的「大爆炸」中誕生的？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "💥",
+          "label": "138億年前",
+          "explanation": "科學家推算，宇宙約在 138 億年前開始演化。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "🔟",
+          "label": "十億年前"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "🌍",
+          "label": "46億年前"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "📅",
+          "label": "昨天誕生"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "宇宙誕生的那一刻，科學家稱為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "🌋",
+          "label": "宇宙大爆炸",
+          "explanation": "宇宙誕生與早期快速膨脹，被稱為宇宙大爆炸。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "🎯",
+          "label": "萬物起始點"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "🔄",
+          "label": "時空大重合"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "💨",
+          "label": "原始大噴發"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "我們居住的銀河系，形狀看起來像什麼？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "🛸",
+          "label": "發光圓盤",
+          "explanation": "銀河系像發光圓盤，並有旋臂向外延伸。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "🦀",
+          "label": "一隻螃蟹"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "🍙",
+          "label": "三角形飯糰"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🥖",
+          "label": "長條麵包"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "太陽系位在銀河系的哪一個位置？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "🌀",
+          "label": "旋臂邊緣",
+          "explanation": "太陽系位在銀河系圓盤的一條旋臂上，離中心較遠。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "🌃",
+          "label": "繁華中心區"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🥚",
+          "label": "銀河外圍殼"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "🕳️",
+          "label": "漆黑黑洞旁"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "宇宙現在正在發生什麼樣的變化？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "🎈",
+          "label": "不斷膨脹",
+          "explanation": "觀測顯示，宇宙仍像氣球一樣持續膨脹。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "🤏",
+          "label": "變得越來越"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🛑",
+          "label": "完全靜止"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "💿",
+          "label": "變成大圓盤"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "太空中的星雲主要是由什麼組成的？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "🌫️",
+          "label": "灰塵和氣體",
+          "explanation": "星雲主要由宇宙中的氣體和塵埃組成。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🪨",
+          "label": "堅硬碎石"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "💨",
+          "label": "甲烷氣體"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🧊",
+          "label": "冰涼冰塊"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "哪一個星雲的外型長得最像馬的頭？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "🐴",
+          "label": "馬頭星雲",
+          "explanation": "馬頭星雲外形像馬頭，因此得到這個名字。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "🏹",
+          "label": "獵戶座星雲"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "🌹",
+          "label": "玫瑰星雲"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "🦄",
+          "label": "天馬座星雲"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "太陽系繞行銀河系一圈，大約需要花多少時間？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "⏱️",
+          "label": "二億年",
+          "explanation": "太陽系繞銀河系一圈約需二億年，稱為銀河年。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "📅",
+          "label": "一年"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "萬",
+          "label": "一萬年"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "♾️",
+          "label": "一百億年"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "誰是距離我們最近的大型星系鄰居？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "🌌",
+          "label": "仙女座星系",
+          "explanation": "仙女座星系是離銀河系最近的大型星系。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "☁️",
+          "label": "大麥哲倫"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🍎",
+          "label": "小麥哲倫"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "🔺",
+          "label": "三角座星系"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "昴宿星團（七姊妹星團）屬於哪一種星團？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "✨",
+          "label": "疏散星團",
+          "explanation": "昴宿星團的恆星較分散，屬於疏散星團。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "🧶",
+          "label": "球狀星團"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "🐴",
+          "label": "馬頭星雲"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "🌫️",
+          "label": "散狀星雲"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "在大爆炸剛發生時，宇宙的溫度是怎麼樣的？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "🔥",
+          "label": "極度高溫",
+          "explanation": "大爆炸初期宇宙非常熱，像極高溫火球。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "❄️",
+          "label": "非常寒冷"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "☕",
+          "label": "溫暖舒適"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "😐",
+          "label": "跟平常一樣"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "根據哈伯定律，距離我們越遠的星系，移動速度會？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "🚀",
+          "label": "越來越快",
+          "explanation": "哈伯定律指出，越遠的星系遠離速度越快。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "🐢",
+          "label": "越來越慢"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "⚖️",
+          "label": "速度都一樣"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "🛑",
+          "label": "慢慢停下來"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "為什麼我們看不到某些距離非常遙遠的星系？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "💨",
+          "label": "遠離過快",
+          "explanation": "太遠的星系因宇宙膨脹遠離太快，光難以到達我們。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🕳️",
+          "label": "被黑洞吸走"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "👻",
+          "label": "星系漸漸消"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "☁️",
+          "label": "雲氣遮住視"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "科學家估計，我們的太陽與行星系統大約是在多久以前開始形成的？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "🌍",
+          "label": "46億年前",
+          "explanation": "太陽系約在 46 億年前，由氣體和塵埃聚集形成。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "🌌",
+          "label": "一百億年前"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🦖",
+          "label": "恐龍出現時"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "📜",
+          "label": "幾千年以前"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "蟹狀星雲是哪一種天文現象留下的殘骸？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "💥",
+          "label": "超新星爆炸",
+          "explanation": "蟹狀星雲是恆星超新星爆炸後留下的殘骸。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "✨",
+          "label": "星剛剛誕生"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "🕳️",
+          "label": "黑洞碰撞"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "☄️",
+          "label": "彗星撞擊星"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "球狀星團通常由什麼樣的恆星組成？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "🔴",
+          "label": "年老恆星",
+          "explanation": "球狀星團多由年老恆星聚集而成。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "🔵",
+          "label": "年輕藍色星"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "🐣",
+          "label": "剛剛誕生星"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "⏳",
+          "label": "快要形成星"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "未來仙女座星系和銀河系碰撞時，星系之間會？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "👻",
+          "label": "互相穿過",
+          "explanation": "星系內恆星距離很遠，碰撞時多半會互相穿過。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "💥",
+          "label": "全部撞得粉"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "🧲",
+          "label": "強力黏一起"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "💨",
+          "label": "爆炸後消失"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "宇宙中最古老、最豐富的元素是哪兩種？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🎈",
+          "label": "氫和氦",
+          "explanation": "大爆炸早期形成氫和氦，它們也是宇宙中最多的元素。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "💨",
+          "label": "氧和碳"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "💰",
+          "label": "金和銀"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "🧲",
+          "label": "鐵和銅"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "為什麼暗星雲看起來是黑色的？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🕶️",
+          "label": "遮擋星光",
+          "explanation": "暗星雲含濃密塵埃，會擋住後方星光。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "🕳️",
+          "label": "它是個小黑"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "🌃",
+          "label": "那邊正在過"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "🔥",
+          "label": "它被燒焦了"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "上一次太陽系運行到目前位置時，地球上誰是霸主？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "🦖",
+          "label": "巨大恐龍",
+          "explanation": "太陽繞銀河一圈約二億年，上次此處時恐龍仍稱霸。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "🧍",
+          "label": "聰明人類"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "🪲",
+          "label": "古老三葉蟲"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "🦠",
+          "label": "微小細菌"
+        }
+      ]
+    }
+  ]
+}

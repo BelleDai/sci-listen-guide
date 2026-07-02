@@ -1,0 +1,588 @@
+{
+  "episode_id": "138",
+  "category_name": "氣象魔法與地球防衛隊",
+  "name": "地球上的水：水滴偵探的奇幻旅程！",
+  "knowledge": "水會蒸發成雲，再降雨回地面；地球大多數水在海洋，地下水和冰河也保存淡水。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "地球上絕大部分的水（約97%）都在哪裡？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "🌊",
+          "label": "海洋",
+          "explanation": "地球約 97% 的水在海洋，所以海洋是最大水庫。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "🏞️",
+          "label": "彎曲河流"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "🛶",
+          "label": "平靜湖泊"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "🎢",
+          "label": "歡樂遊樂園"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "水變成水蒸氣飛上天的過程叫做什麼？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "♨️",
+          "label": "蒸發",
+          "explanation": "水受熱變成水蒸氣飛上天空，這個過程叫蒸發。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "❄️",
+          "label": "遇冷凝結"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "🌧️",
+          "label": "降下雨水"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🏊‍♂️",
+          "label": "快樂游泳"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "天上的雲朵主要是由什麼物質組成的？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "💧",
+          "label": "水滴冰晶",
+          "explanation": "雲是許多小水滴或冰晶聚在空中形成的。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "💨",
+          "label": "灰塵煙霧"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "♨️",
+          "label": "純水蒸氣"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "⬜",
+          "label": "二氧化碳"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "全世界流量最大的河流是哪一條？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "🌳",
+          "label": "亞馬遜河",
+          "explanation": "亞馬遜河水量最大，所以是世界流量最大的河流。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "🐪",
+          "label": "埃及尼羅河"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🐉",
+          "label": "亞洲長江"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "🇺🇸",
+          "label": "密西西比河"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "俄羅斯的貝加爾湖有什麼特別的地方？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "🥇",
+          "label": "淡水量第一",
+          "explanation": "貝加爾湖很深，儲存的淡水量是世界第一。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "📏",
+          "label": "面積最大"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🧂",
+          "label": "鹽度最高"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "🏖️",
+          "label": "沙灘最長"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "火山噴發後留下的火山口積水形成的湖叫做什麼？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "🌋",
+          "label": "火山口湖",
+          "explanation": "火山口積水後會形成湖泊，所以叫火山口湖。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "♨️",
+          "label": "冒泡地熱湖"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🔥",
+          "label": "滾燙熔岩湖"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🧱",
+          "label": "堵塞堰塞湖"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "「冰斗湖」通常是怎麼形成的？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "🥄",
+          "label": "冰河挖洞",
+          "explanation": "冰河挖出的凹地積水後，就會形成冰斗湖。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "💥",
+          "label": "板塊擠壓"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "⛲",
+          "label": "地下水噴發"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "☄️",
+          "label": "隕石撞擊"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "有些藏在地底深處或冰河裡的水滴，完成一次循環可能要花多久？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "⏳",
+          "label": "4萬年",
+          "explanation": "藏在地下或冰河裡的水，可能要 4 萬年才完成循環。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "🗓️",
+          "label": "短短9天"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "📅",
+          "label": "剛好1年"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "⏱️",
+          "label": "快速1小時"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "我們平常喝的水，除了來自河流湖泊，還可能來自哪裡？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "🕳️",
+          "label": "地下水",
+          "explanation": "地下水藏在土壤和岩石縫裡，也能抽上來飲用。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "🌊",
+          "label": "鹹鹹深海"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🌿",
+          "label": "植物分泌"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "☁️",
+          "label": "空中水蒸氣"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "水文循環的動力主要來自誰的熱情幫忙？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "☀️",
+          "label": "太陽",
+          "explanation": "太陽提供熱量讓水蒸發，是水文循環的主要動力。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "🌙",
+          "label": "發光月亮"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "⭐",
+          "label": "閃爍星星"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "🌬️",
+          "label": "大颱風"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "水蒸氣在高空變冷，變回小水滴的過程叫做什麼？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "❄️",
+          "label": "遇冷凝結",
+          "explanation": "水蒸氣遇冷變回小水滴，這個過程叫凝結。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "♨️",
+          "label": "受熱蒸發"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "🌧️",
+          "label": "降下雨水"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "🧊",
+          "label": "結成硬冰"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "地殼板塊運動造成的湖泊叫做什麼？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "⚡",
+          "label": "斷層湖",
+          "explanation": "板塊拉扯讓地面裂開或下陷，積水後形成斷層湖。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "🌋",
+          "label": "破火山口"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🥄",
+          "label": "冰河冰斗"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "🏗️",
+          "label": "人工建造"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "水在地球表面、地底與大氣之間不斷移動的旅程稱為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "🔄",
+          "label": "水文循環",
+          "explanation": "水在海洋、陸地和天空間移動，稱為水文循環。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🌬️",
+          "label": "大氣環流"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "⚖️",
+          "label": "生態平衡"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "⚡",
+          "label": "能量傳遞"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "台灣的日月潭是什麼類型的湖泊？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "🏗️",
+          "label": "擴建湖泊",
+          "explanation": "日月潭原是天然湖泊，後來人工擴建成更大的湖泊。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "🌲",
+          "label": "完全天然"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🧱",
+          "label": "完全人工"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "🌋",
+          "label": "火山湖"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "陸地上的河流經過漫長的流動後，最終大多會匯集到哪裡？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "🌊",
+          "label": "海洋",
+          "explanation": "河水一路往低處流，最後大多會匯入海洋。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "🪨",
+          "label": "地底岩層"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "🗻",
+          "label": "高山冰川"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "☁️",
+          "label": "空中雲朵"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "高山上的雪堆積久了會變成什麼？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "🧊",
+          "label": "冰河",
+          "explanation": "高山積雪長期不融化，被壓緊後會形成冰河。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "🪨",
+          "label": "堅硬岩石"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "❄️",
+          "label": "永久凍土"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "🕳️",
+          "label": "地下水層"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "為什麼海水嚐起來是鹹的？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "🧂",
+          "label": "沖刷礦物",
+          "explanation": "雨水沖刷岩石礦物，把鹽分帶進海裡，海水就變鹹。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "🐟",
+          "label": "生物排泄"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "🌋",
+          "label": "火山灰燼"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "♨️",
+          "label": "蒸發殘留"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "水蒸氣能不能幫地球調節溫度？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🌡️",
+          "label": "調節保溫",
+          "explanation": "水蒸氣能保留熱量，像毯子一樣幫地球調節溫度。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "🥶",
+          "label": "絕對不行"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "🤷",
+          "label": "有時候能"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "🧊",
+          "label": "只會變冷"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "水從雲掉下來變成雨或雪的過程叫什麼？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🌧️",
+          "label": "降水",
+          "explanation": "雨、雪或冰雹從雲中落下，都稱為降水。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "🎈",
+          "label": "飛升上天"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "♨️",
+          "label": "受熱蒸發"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "❄️",
+          "label": "遇冷凝結"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "在自然環境中，水通常以哪三種形態同時存在？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "🧊",
+          "label": "固液氣三態",
+          "explanation": "水可以是固態冰、液態水，也可以是氣態水蒸氣。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "🧪",
+          "label": "酸中鹼性"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "⚖️",
+          "label": "輕重純水"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "🧂",
+          "label": "淡鹹汙水"
+        }
+      ]
+    }
+  ]
+}

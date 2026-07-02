@@ -1,0 +1,588 @@
+{
+  "episode_id": "215",
+  "category_name": "自然界裡的動物奇觀",
+  "name": "天空的紅心與海上的強盜：解密軍艦鳥的極限生存術",
+  "knowledge": "軍艦鳥羽毛不防水，必須擅長長時間飛行；雄鳥會鼓起紅喉囊求偶，也常搶其他鳥的魚。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "雄性軍艦鳥胸前最明顯的特徵是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "🎈",
+          "label": "紅色大喉囊",
+          "explanation": "雄性軍艦鳥喉下有鮮紅喉囊，是明顯特徵。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "🟡",
+          "label": "黃色大喉囊"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "🪶",
+          "label": "保暖厚絨毛"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "💧",
+          "label": "防水黑羽毛"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "雄性軍艦鳥鼓起「紅色氣球」是為了什麼？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "❤️",
+          "label": "吸引雌鳥",
+          "explanation": "雄鳥鼓起紅喉囊，是為了在求偶時吸引雌鳥。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "😡",
+          "label": "威嚇敵人"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "💧",
+          "label": "儲存水分"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🛟",
+          "label": "當救生圈"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "雄性軍艦鳥用翅膀拍打喉囊時，會發出什麼聲音？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "🥁",
+          "label": "咚咚聲",
+          "explanation": "雄鳥拍打鼓起的喉囊，會發出咚咚聲吸引雌鳥。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "📢",
+          "label": "尖銳鳴叫"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "🪇",
+          "label": "沙沙沙鈴"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🔔",
+          "label": "清脆敲擊"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "雌性軍艦鳥挑選伴侶的主要標準是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "💖",
+          "label": "喉囊紅又大",
+          "explanation": "喉囊越紅越大、聲音越響，越容易吸引雌鳥。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "🚀",
+          "label": "飛最高快"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🪶",
+          "label": "羽毛最黑"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "🐟",
+          "label": "搶最多魚"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "軍艦鳥雖然是海鳥，卻有什麼致命的弱點？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "💧",
+          "label": "羽毛不防水",
+          "explanation": "軍艦鳥羽毛不防水，碰水後會吸水變重。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "🦴",
+          "label": "骨頭太重"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "👓",
+          "label": "晚上看不見"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "🤢",
+          "label": "無法消化魚"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "如果軍艦鳥不小心掉進海裡，會發生什麼事？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "☠️",
+          "label": "吸水沉下去",
+          "explanation": "羽毛吸水變重後，軍艦鳥難以重新起飛。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🐧",
+          "label": "像企鵝潛水"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🎈",
+          "label": "浮起來呼吸"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🚀",
+          "label": "輕鬆飛起來"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "軍艦鳥的骨頭有什麼特徵，能幫助牠減輕重量？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "🦴",
+          "label": "高度中空化",
+          "explanation": "中空骨頭能減輕體重，幫助軍艦鳥長時間飛行。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "🧈",
+          "label": "充滿油脂"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "🍎",
+          "label": "全是軟骨"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "🤏",
+          "label": "體積特別小"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "軍艦鳥全身的骨頭重量，其實比什麼還輕？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "🪶",
+          "label": "全身羽毛",
+          "explanation": "軍艦鳥骨頭很輕，重量甚至比全身羽毛還少。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "🦤",
+          "label": "巨大鳥喙"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "🎈",
+          "label": "胸前紅喉囊"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "🧠",
+          "label": "大腦的重量"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "軍艦鳥利用哪種力量在空中盤旋而不用拍翅膀？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "🌬️",
+          "label": "上升熱氣流",
+          "explanation": "軍艦鳥會利用上升熱氣流滑翔，減少拍翅力氣。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "💨",
+          "label": "海面強風"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🧲",
+          "label": "地球磁場"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "❄️",
+          "label": "雲層冷氣流"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "軍艦鳥有一個聽起來很兇的綽號是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "🏴‍☠️",
+          "label": "海上強盜",
+          "explanation": "軍艦鳥會搶其他海鳥的食物，因此被叫海上強盜。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "👮",
+          "label": "天空巡邏者"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "🥷",
+          "label": "黑夜刺客"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "⛈️",
+          "label": "暴風雨之王"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "軍艦鳥為什麼有時會搶奪別人的食物？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "❌",
+          "label": "不能下水",
+          "explanation": "軍艦鳥不能下水捕魚，所以有時會搶其他鳥的食物。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "短",
+          "label": "鳥喙太短"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "😋",
+          "label": "搶來的較好"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "😎",
+          "label": "單純愛炫技"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "軍艦鳥大部分的食物是怎麼捕捉到的？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "🐟",
+          "label": "貼海抓魚",
+          "explanation": "軍艦鳥會貼近海面，趁飛魚跳出水時捕捉。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "🏖️",
+          "label": "海灘撿死魚"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🤿",
+          "label": "潛入水下抓"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "🌿",
+          "label": "吃水面海草"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "軍艦鳥在長途飛行時，是如何睡覺的？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "🧠",
+          "label": "半腦睡眠",
+          "explanation": "軍艦鳥能讓半邊大腦休息，另一半保持飛行警覺。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🌊",
+          "label": "降落海面睡"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "☕",
+          "label": "飛行不用睡"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "⛵",
+          "label": "停在船杆睡"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "軍艦鳥的「單半球睡眠」是指什麼狀態？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "👀",
+          "label": "半睡半清醒",
+          "explanation": "單半球睡眠是半邊大腦休息、半邊保持清醒。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "👻",
+          "label": "夢遊飛行"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🌍",
+          "label": "南北輪流醒"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "⏱️",
+          "label": "短暫秒睡"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "軍艦鳥在長途飛行中，平均一天只睡多久？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "⏱️",
+          "label": "約四十分鐘",
+          "explanation": "研究發現，軍艦鳥長途飛行時一天約睡四十分鐘。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "🛌",
+          "label": "大約八小時"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "🛋️",
+          "label": "大約四小時"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "⚡",
+          "label": "大約五分鐘"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "軍艦鳥利用什麼當作「自然的電梯」飛向高空？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "☁️",
+          "label": "上升氣流",
+          "explanation": "上升氣流能把軍艦鳥帶往高空，像自然電梯。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "🌀",
+          "label": "海面強颱風"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "✈️",
+          "label": "高空噴射流"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "⬇️",
+          "label": "島嶼下降流"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "軍艦鳥為了演化出頂尖飛行能力，犧牲了什麼？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "🚫",
+          "label": "防水與潛水",
+          "explanation": "為了輕巧飛行，軍艦鳥犧牲了防水和潛水能力。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "🏃",
+          "label": "快速奔跑"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "🦉",
+          "label": "夜間看東西"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "🦈",
+          "label": "吃大型魚類"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "軍艦鳥最高大約可以飛到多高？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🏔️",
+          "label": "四千公尺",
+          "explanation": "軍艦鳥能飛到約四千公尺高空，飛行能力很強。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "🏢",
+          "label": "五百公尺"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "✈️",
+          "label": "一萬公尺"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "🚀",
+          "label": "兩萬公尺"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "科學家發現軍艦鳥的睡眠秘密，是使用了什麼儀器？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🧢",
+          "label": "腦波感測器",
+          "explanation": "科學家用腦波感測器，記錄軍艦鳥飛行時睡眠。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "🔭",
+          "label": "望遠鏡"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "🐾",
+          "label": "爪子追蹤器"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "📡",
+          "label": "回聲定位"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "雄性軍艦鳥求偶時，喉囊會如何變化來吸引雌鳥？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "🎈",
+          "label": "充氣變大",
+          "explanation": "雄鳥求偶時會把紅喉囊充氣變大來吸引雌鳥。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "🔥",
+          "label": "發紅色火光"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "🩷",
+          "label": "變粉紅愛心"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "🍂",
+          "label": "脫落換新的"
+        }
+      ]
+    }
+  ]
+}

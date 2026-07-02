@@ -1,0 +1,588 @@
+{
+  "episode_id": "s16",
+  "category_name": "探索無垠的宇宙",
+  "name": "我們又要登陸月球了？阿提米絲計畫與月球新大陸",
+  "knowledge": "月亮很遠，會讓人以為它跟著走；阿提米絲計畫要去月球南極找水冰，供飲水、氧氣與燃料。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "為什麼我們坐在行駛的車子裡，會覺得月亮一直跟著走？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "🧠",
+          "label": "大腦的視覺錯覺",
+          "explanation": "月亮太遠，方向變化小，大腦誤以為它跟著走。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "🏃",
+          "label": "月亮跟著車子"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "🤏",
+          "label": "月亮與地球靠近"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "☁️",
+          "label": "雲不停推月亮"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "目前的「阿提米絲計畫」預計將太空人送往月球哪裡？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "🧊",
+          "label": "月球南極",
+          "explanation": "月球南極暗坑可能有水冰，所以是登陸目標。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "🌑",
+          "label": "月球背面"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "🔥",
+          "label": "最熱月球赤道"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🌊",
+          "label": "寧靜海"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "月球上的「水冰」對未來的太空探險為什麼非常珍貴？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "⛽",
+          "label": "能轉為氧氣",
+          "explanation": "水冰可供飲水，也能分解成氧氣與燃料。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "⛏️",
+          "label": "提煉稀有礦物"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "🥶",
+          "label": "月球基地降溫"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🌱",
+          "label": "土地變肥沃"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "阿提米絲在希臘神話中，除了是月亮女神還是阿波羅的？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "👩",
+          "label": "雙胞胎姊姊",
+          "explanation": "神話中阿提米絲是阿波羅的雙胞胎姊姊。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "👧",
+          "label": "雙胞胎妹妹"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "💨",
+          "label": "風神表姊"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "🌊",
+          "label": "海神媽媽"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "地球與月亮的距離，大約可以塞進多少個地球？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "🌍",
+          "label": "30個",
+          "explanation": "地月距離約38萬公里，可排下約30個地球。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "🔟",
+          "label": "10個"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "💯",
+          "label": "100個"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "3️⃣",
+          "label": "3個"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "卡通裡常在彎月缺口處畫星星，這在科學上有什麼錯誤？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "🚫",
+          "label": "不會有星星",
+          "explanation": "月亮是實心球，暗的缺口仍會擋住星星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "☀️",
+          "label": "應該畫白色"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🎨",
+          "label": "顏色畫錯"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🤏",
+          "label": "太小畫不出來"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "「月球門戶」在太空計畫中，主要扮演什麼樣的角色？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "🚉",
+          "label": "繞月的太空站",
+          "explanation": "月球門戶繞月運行，讓太空人轉乘登月。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "🚪",
+          "label": "通往月球的門"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "🏞️",
+          "label": "月球第一城市"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "🚇",
+          "label": "通往地心隧道"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "為什麼月亮剛升起時看起來特別大？科學家稱之為？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "🌄",
+          "label": "大腦的視覺錯覺",
+          "explanation": "地平線景物讓大腦比較錯誤，覺得月亮變大。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "📏",
+          "label": "月亮升起時較大"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "🔍",
+          "label": "大氣層放大效應"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "🎈",
+          "label": "月球膨脹"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "科學隊長開玩笑說月亮是個「跟蹤狂」，是因為坐車時有什麼感覺？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "🚗",
+          "label": "月亮一直跟隨",
+          "explanation": "坐車時月亮方向幾乎不變，所以像跟著車走。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "✨",
+          "label": "月亮移動很快"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "📡",
+          "label": "月亮在車上裝了雷達"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "💨",
+          "label": "月亮在後面推著車子"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "中國載人登月飛船取名為「夢舟」，這個名字代表什麼？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "⛵",
+          "label": "載著人類夢想",
+          "explanation": "夢舟象徵載著人類登月夢想前往太空。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "😴",
+          "label": "很會作夢的船"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "🎁",
+          "label": "載送禮物的船"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "👻",
+          "label": "透明太空船"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "月球與地球之間的平均距離大約是多少公里？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "📏",
+          "label": "38萬公里",
+          "explanation": "地球到月球平均約38萬公里，非常遙遠。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "🚗",
+          "label": "10萬公里"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "🚀",
+          "label": "100萬公里"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "🛸",
+          "label": "50萬公里"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "如果要把水分解成氧氣和氫氣燃料，需要用到什麼技術？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "⚡",
+          "label": "電解法",
+          "explanation": "電解能把水分成氧氣和氫氣燃料。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "🔥",
+          "label": "直接加熱法"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "❄️",
+          "label": "冷卻結晶法"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "🗜️",
+          "label": "壓力擠壓法"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "在月球南極，因為太陽斜射的角度，會看到什麼奇觀？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "👤",
+          "label": "影子拉得超長",
+          "explanation": "月球南極太陽角度低，影子會被拉長。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🌗",
+          "label": "半月型太陽"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "♨️",
+          "label": "地底熱泉"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "👻",
+          "label": "完全沒影子"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "太空人去月球表面前，為什麼要先在「月球門戶」轉機？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "🚀",
+          "label": "換乘小型飛船",
+          "explanation": "月球門戶可讓太空人換乘小飛船降落。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "🎫",
+          "label": "買門票進場"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🛏️",
+          "label": "稍作休息"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "🔧",
+          "label": "保養太空船"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "如果我們站在月球上看地球，會看見什麼現象？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "🌖",
+          "label": "地球有圓有缺",
+          "explanation": "從月球看地球，也會因陽光角度出現圓缺。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "🌈",
+          "label": "彩虹般的地球"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "🔴",
+          "label": "地球是紅色"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "🙈",
+          "label": "看不到太陽光"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "因為「潮汐鎖定」，在月球上看地球，地球的位置會？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "📌",
+          "label": "固定不動",
+          "explanation": "月球同一面朝地球，所以地球位置幾乎固定。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "🌅",
+          "label": "會東升西落"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "🌀",
+          "label": "會高速旋轉"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "🦘",
+          "label": "不斷前後跳動"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "阿提米絲計畫預計在哪一年，讓太空人重新踏上月球？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "📅",
+          "label": "2026年",
+          "explanation": "這題的阿提米絲登月目標年份是2026年。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "⏳",
+          "label": "2023年"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "🗓️",
+          "label": "2027年"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "🕰️",
+          "label": "2050年"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "「超級月亮」發生時月亮看起來比較大，是因為它運行到？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🌕",
+          "label": "月球到近地點",
+          "explanation": "月球到近地點時距離較近，看起來較大。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "🧲",
+          "label": "引力拉大月球"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "📏",
+          "label": "地球放大鏡效應"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "🔭",
+          "label": "月球到遠地點"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "在月球南極，為什麼任何東西的「影子」都會被拉得超級長？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "☀️",
+          "label": "太陽位置低",
+          "explanation": "太陽很低時光線斜照，影子就會特別長。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "🏋️",
+          "label": "月球重力太大"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "📐",
+          "label": "傾斜的南極地面"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "💨",
+          "label": "影子速度飛快"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "「阿提米絲計畫」與以前阿波羅計畫相比，最大的不同目標是？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "🏠",
+          "label": "長住於月球上",
+          "explanation": "阿提米絲重點是建立基地，讓人能長住月球。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "🪨",
+          "label": "撿更多礦石"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "👽",
+          "label": "尋找外星人"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "🏃",
+          "label": "月球舉辦活動"
+        }
+      ]
+    }
+  ]
+}

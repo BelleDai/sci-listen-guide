@@ -1,0 +1,588 @@
+{
+  "episode_id": "s21",
+  "category_name": "探索無垠的宇宙",
+  "name": "宇宙的第一道光：從大霹靂到黑暗時代",
+  "knowledge": "宇宙約138億年前誕生，早期曾快速暴脹；放晴後仍沒有星星，直到第一代恆星點亮黑暗時代。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "科學家算出宇宙大約是在多久以前誕生的？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "🌌",
+          "label": "138億年前",
+          "explanation": "科學家推算宇宙約在138億年前誕生。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "🌍",
+          "label": "46億年前"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "🦖",
+          "label": "1萬年前"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "♾️",
+          "label": "20億年前"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "科學家發現「宇宙最初的光」時，一開始以為雜訊是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "🐦",
+          "label": "天線上鴿子糞便",
+          "explanation": "雜訊一開始被誤認為天線髒污造成。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "☀️",
+          "label": "太陽風的干擾"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "📻",
+          "label": "無線電波"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🔧",
+          "label": "儀器零件壞掉"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "宇宙「第一代恆星」和現在的太陽相比，有什麼特色？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "⭐",
+          "label": "體積大且成分純",
+          "explanation": "第一代恆星主要由氫和氦組成，體積很大。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "🤏",
+          "label": "體積小且壽命長"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "🪨",
+          "label": "有大量鐵與碳"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🧱",
+          "label": "由岩石組成"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "在宇宙剛誕生的「暴脹」時期，發生了什麼事？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "🎈",
+          "label": "宇宙瞬間變大",
+          "explanation": "暴脹是宇宙早期在極短時間快速變大。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "💥",
+          "label": "發生劇烈爆炸"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🕳️",
+          "label": "縮成一個黑洞"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "💧",
+          "label": "充滿了液態氮"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "宇宙「放晴」之後，為什麼會進入很長的「黑暗時代」？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "🌑",
+          "label": "還沒有星星",
+          "explanation": "放晴後還沒有星星，因此宇宙仍很黑暗。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "☁️",
+          "label": "光被星雲遮住"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🕳️",
+          "label": "被黑洞吸走"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "🤏",
+          "label": "宇宙當時還太小"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "宇宙早期的「正粒子」與「反粒子」碰到，會發生什麼？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "💥",
+          "label": "抵消變成能量",
+          "explanation": "正反粒子相遇會湮滅，轉變成能量。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "⚛️",
+          "label": "結合成原子核"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🪐",
+          "label": "更大的物質"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🧲",
+          "label": "互相排斥彈開"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "韋伯太空望遠鏡的主要任務是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "🔭",
+          "label": "找第一代恆星",
+          "explanation": "韋伯望遠鏡能看遠古星光，尋找第一代恆星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "👽",
+          "label": "找外星人基地"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "🌕",
+          "label": "測量月球距離"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "🔴",
+          "label": "拍攝火星表面"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "當宇宙「第一顆星星」發光後，最大的改變是？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "💡",
+          "label": "結束黑暗時代",
+          "explanation": "第一批星星發光後，宇宙黑暗時代才結束。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "🥶",
+          "label": "宇宙變得很冷"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "🕳️",
+          "label": "所有光消失"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "🔥",
+          "label": "氧氣被燒光"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "大霹靂之後過了多久，宇宙才終於「放晴」？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "🌤️",
+          "label": "38萬年",
+          "explanation": "約38萬年後宇宙冷卻，光才能自由前進。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "⏱️",
+          "label": "3分鐘"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🌍",
+          "label": "46億年"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "💯",
+          "label": "100億年"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "第一代恆星爆炸後，灑出了哪些組成身體的元素？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "⚛️",
+          "label": "碳、氧和鐵",
+          "explanation": "第一代恆星爆炸，散出碳、氧、鐵等元素。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "🎈",
+          "label": "大量的氫"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "👑",
+          "label": "黃金與白銀"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "⛰️",
+          "label": "泥土與岩石"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "當宇宙降溫到 3000 度時，調皮的電子發生了什麼事？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "🤝",
+          "label": "和原子核合成原子",
+          "explanation": "宇宙降溫後，電子和原子核結合成原子。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "💧",
+          "label": "變成水滴"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "💨",
+          "label": "化為宇宙塵埃"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "🚀",
+          "label": "能量太強爆炸"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "宇宙「放晴」之前，為什麼看起來白茫茫的？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "🌫️",
+          "label": "電子會撞飛光子",
+          "explanation": "放晴前電子很多，會把光子撞來撞去。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "♨️",
+          "label": "宇宙充滿水蒸氣"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🌌",
+          "label": "充滿宇宙塵埃"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "☀️",
+          "label": "恆星的光太強"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "科學家用什麼設備，發現了宇宙神祕的微波訊號？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "📡",
+          "label": "巨大號角型天線",
+          "explanation": "科學家用號角型天線發現宇宙微波背景。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🔭",
+          "label": "光學天文望遠鏡"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "📡",
+          "label": "氣象觀測雷達"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "🛰️",
+          "label": "人造衛星接收器"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "第一代恆星被稱為「很純淨」，是因為它們由什麼組成？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "🎈",
+          "label": "氫氣與氦氣",
+          "explanation": "第一代恆星形成時，宇宙主要只有氫和氦。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "👑",
+          "label": "純度極高的黃金"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🧊",
+          "label": "凍結的冰塊"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "💨",
+          "label": "純淨的氧氣"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "「暴脹理論」解釋了為什麼宇宙在每個方向看起來都很？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "📏",
+          "label": "均勻且平滑",
+          "explanation": "暴脹把早期宇宙快速拉大，變得更均勻。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "✨",
+          "label": "閃亮且巨大"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "🌀",
+          "label": "擁擠且混亂"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "🌑",
+          "label": "黑暗且冰冷"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "人類現在能感受到最明顯的時空維度有幾個？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "⏱️",
+          "label": "四維時空",
+          "explanation": "我們能感受三個空間方向和一個時間方向。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "📐",
+          "label": "2個空間維度"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "立方",
+          "label": "3個空間維度"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "⏳",
+          "label": "只有時間維度"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "為什麼說我們都是「來自星星的孩子」？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "✨",
+          "label": "身體元素來自恆星",
+          "explanation": "身體中的碳、鐵等元素來自恆星爆炸。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "🚀",
+          "label": "人住在恆星上面"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "☄️",
+          "label": "生命起源於流星"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "👻",
+          "label": "靈魂是星光做的"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "如果正反粒子大戰的結果「一樣多」，宇宙會變成怎樣？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🚫",
+          "label": "剩能量沒有物質",
+          "explanation": "正反粒子若一樣多，會全變能量而無物質。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "🌌",
+          "label": "充滿星系"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "🕳️",
+          "label": "巨大的黑洞"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "⏸️",
+          "label": "時間會停止"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "宇宙最初的熱光，為什麼現在變得很微弱且冰冷？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "〰️",
+          "label": "宇宙持續膨脹",
+          "explanation": "宇宙膨脹拉長光波，使熱光變成微弱冷光。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "⭐",
+          "label": "能量被恆星吸收"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "🕳️",
+          "label": "光在真空散失"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "🧱",
+          "label": "被暗物質擋住"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "天文學家說的「第三星族星」是指什麼？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "🌟",
+          "label": "第一代恆星",
+          "explanation": "第三星族星其實指宇宙最早形成的第一代恆星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "👶",
+          "label": "剛形成的星星"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "🔩",
+          "label": "有重金屬的星"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "💥",
+          "label": "變成超新星的星"
+        }
+      ]
+    }
+  ]
+}

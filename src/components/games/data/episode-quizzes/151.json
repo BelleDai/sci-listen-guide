@@ -1,0 +1,588 @@
+{
+  "episode_id": "151",
+  "category_name": "侏羅紀生物遠征隊",
+  "name": "恐龍時代：地球霸主的興衰（上）",
+  "knowledge": "恐龍外表很多樣，有些有羽毛；牠們有不同生存本領，也可能會築巢、照顧幼龍。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "恐龍在地球上大約統治了長達多久的時間？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "⏳",
+          "label": "一億六千萬年",
+          "explanation": "恐龍統治地球超過一億六千萬年，時間非常長。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "🕰️",
+          "label": "大約數百萬"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "📅",
+          "label": "僅數千萬年"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "🌍",
+          "label": "超過十億年"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "最新的科學發現指出，恐龍的外表可能和早期想像的形象有何不同？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "🎨",
+          "label": "色彩斑斕",
+          "explanation": "化石證據顯示，有些恐龍可能有彩色羽毛。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "🦎",
+          "label": "單調灰綠色"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "🐟",
+          "label": "像魚類鱗片"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "👻",
+          "label": "完全透明的"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "科學家主要根據恐龍身體哪個部位，將牠們分成兩大家族？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "🦴",
+          "label": "骨盆構造",
+          "explanation": "科學家依骨盆構造，把恐龍分成兩大家族。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "💀",
+          "label": "頭骨的形狀"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "🐾",
+          "label": "前後腳長度"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🦷",
+          "label": "牙齒排列"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "「蜥臀目」恐龍的名稱由來，是因為牠們的骨盆長得像哪種動物？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "🦎",
+          "label": "蜥蜴",
+          "explanation": "蜥臀目的骨盆形狀像蜥蜴，因此得到這個名稱。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "🦅",
+          "label": "鳥類"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🐊",
+          "label": "鱷魚"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "🐢",
+          "label": "烏龜"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "令人意想不到的是，現代鳥類的祖先是由哪類恐龍演化而來的？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "🦖",
+          "label": "獸腳類",
+          "explanation": "現代鳥類是由蜥臀目中的獸腳類恐龍演化而來。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "🦤",
+          "label": "鳥臀目"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🦇",
+          "label": "翼龍目"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "🐬",
+          "label": "魚龍目"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "「蜥臀目」的蜥腳類恐龍（如腕龍）通常有什麼特徵？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "🦕",
+          "label": "長脖吃植物",
+          "explanation": "蜥腳類多有長脖子、四腳行走，主要吃植物。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🍗",
+          "label": "體小肉食性"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🦏",
+          "label": "兩腳站立"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🦈",
+          "label": "在水裡抓魚"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "科學家推測「巴塔哥巨龍」的體重，大約相當於幾隻非洲大象？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "🐘",
+          "label": "十幾隻大象",
+          "explanation": "巴塔哥巨龍體型巨大，體重約等於十幾隻非洲象。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "✌️",
+          "label": "兩隻"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "👌",
+          "label": "三十隻"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "🖐️",
+          "label": "五十隻"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "肉食性的「獸腳類」恐龍（如暴龍），主要是用幾隻腳來走路？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "🏃",
+          "label": "兩腳行走",
+          "explanation": "獸腳類恐龍主要用兩條強壯後腿行走和奔跑。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "🐕",
+          "label": "四隻腳走路"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "🦇",
+          "label": "在天上飛"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "🐛",
+          "label": "在地上爬"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "關於暴龍幼年時期的模樣，現代古生物學家提出的新推測是？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "🪶",
+          "label": "幼龍有羽毛",
+          "explanation": "科學家推測，小暴龍可能有羽毛幫助保暖。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "🛡️",
+          "label": "覆蓋硬甲"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🦖",
+          "label": "有雙大手"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "🐟",
+          "label": "有魚鰓"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "體型可能比暴龍還長的「棘龍」，有哪一項特別的生存本領？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "🐟",
+          "label": "游泳抓魚",
+          "explanation": "棘龍身體適合在水中活動，可能會游泳抓魚。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "🦅",
+          "label": "空中滑翔"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "🕳️",
+          "label": "挖洞居住"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "🦎",
+          "label": "像變色龍"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "大多數的「鳥臀目」恐龍，牠們的主食是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "🌿",
+          "label": "各種植物",
+          "explanation": "多數鳥臀目恐龍是草食性，主要吃各種植物。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "🐭",
+          "label": "小哺乳動物"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "🦋",
+          "label": "昆蟲"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "🦐",
+          "label": "魚類"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "像坦克車一樣的「甲龍」，背上擁有什麼防禦裝備？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "🛡️",
+          "label": "骨板盔甲",
+          "explanation": "甲龍背上有堅硬骨板，能保護身體不易受傷。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "💉",
+          "label": "有毒的尖刺"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🎨",
+          "label": "可變色皮膚"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "👑",
+          "label": "嚇人的骨冠"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "當甲龍遇到攻擊時，牠會使用尾巴末端的什麼武器來防禦？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "🔨",
+          "label": "尾巴骨槌",
+          "explanation": "甲龍尾端有骨槌，遇到敵人時可揮動防禦。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🗡️",
+          "label": "鋒利的骨刺"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "💦",
+          "label": "噴毒液腺體"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "➰",
+          "label": "長鞭細尾巴"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "我們熟知的「劍龍」，牠的背部有什麼非常明顯的特徵？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "🪁",
+          "label": "菱形骨板",
+          "explanation": "劍龍背上有一排明顯的菱形骨板。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "⛵",
+          "label": "巨型背帆"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🦄",
+          "label": "長尖角"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "🥚",
+          "label": "大圓頭"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "北方盾龍「背深腹淺」的顏色搭配，主要能發揮什麼作用？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "🥷",
+          "label": "有助躲藏",
+          "explanation": "背深腹淺能減少陰影差異，幫助北方盾龍躲藏。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "❤️",
+          "label": "吸引異性"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "☀️",
+          "label": "吸熱保溫"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "☠️",
+          "label": "警告有毒"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "三角龍頭上大大的「頸盾」，除了防禦外可能還有什麼功能？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "🎀",
+          "label": "吸引同伴",
+          "explanation": "三角龍頸盾除了防禦，也可能用來吸引同伴。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "🐪",
+          "label": "存食物水分"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "⛏️",
+          "label": "挖樹根"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "🛶",
+          "label": "划船用"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "厚頭龍的頭頂骨頭很厚，牠們可能用來做什麼？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "💥",
+          "label": "互撞爭地盤",
+          "explanation": "厚頭龍頭骨很厚，可能用來互撞爭地盤。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "🌰",
+          "label": "撬開堅果"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "🤿",
+          "label": "水裡呼吸"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "🍔",
+          "label": "存脂肪"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "科學家為什麼會推測「鴨嘴龍」是一種群居動物？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "👣",
+          "label": "腳印和巢穴",
+          "explanation": "大量腳印和巢穴聚在一起，顯示鴨嘴龍可能群居。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "👯",
+          "label": "成對化石"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "🏗️",
+          "label": "骨骼支撐"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "🏰",
+          "label": "防禦城牆"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "「慈母龍」這個名字的由來，是發現了牠們的什麼行為？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🍼",
+          "label": "照顧幼龍",
+          "explanation": "慈母龍化石顯示，牠們可能會築巢照顧幼龍。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "🐁",
+          "label": "體型超級大"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "🍂",
+          "label": "只吃落葉"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "👶",
+          "label": "收養小恐龍"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "電影中聰明的「迅猛龍」，真實樣貌可能覆蓋著什麼？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "🐔",
+          "label": "羽毛",
+          "explanation": "化石研究推測，真實迅猛龍身上可能覆蓋羽毛。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "🐊",
+          "label": "硬骨質鱗片"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "🐌",
+          "label": "滑溜的黏液"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "🥓",
+          "label": "厚實脂肪層"
+        }
+      ]
+    }
+  ]
+}

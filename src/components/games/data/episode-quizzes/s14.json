@@ -1,0 +1,588 @@
+{
+  "episode_id": "s14",
+  "category_name": "探索無垠的宇宙",
+  "name": "燃燒的紅色戰神：從「西鄉星」傳說到火星殖民夢",
+  "knowledge": "火星因含鐵礦物生鏽而呈紅色；運河傳說來自翻譯誤會，探測器證明它滿是隕石坑。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "在漆黑的夜空中，我們看到的火星通常是什麼顏色？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "🔴",
+          "label": "醒目橘紅色",
+          "explanation": "火星含生鏽鐵質，所以看起來橘紅明亮。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "🔵",
+          "label": "明亮冰藍色"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "🟢",
+          "label": "活力翠綠色"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "🟣",
+          "label": "神祕的紫色"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "為什麼火星表面看起來紅紅的，像個生鏽的鐵球？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "🪨",
+          "label": "表面生鏽",
+          "explanation": "火星岩石含鐵，生鏽後讓地表變紅。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "💨",
+          "label": "表面發紅光"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "🌱",
+          "label": "有紅色植物"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🌋",
+          "label": "噴出紅色岩漿"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "當「火星衝」發生時，地球的位置在哪裡？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "🌍",
+          "label": "太陽火星中間",
+          "explanation": "火星衝時，地球正好在太陽與火星中間。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "☀️",
+          "label": "在太陽後面"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "🔙",
+          "label": "在火星背後"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🌕",
+          "label": "跟月球相疊"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "百年前的富豪羅威爾蓋天文台，是為了在火星找什麼？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "👽",
+          "label": "火星人造運河",
+          "explanation": "羅威爾以為火星線條是火星人挖的運河。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "💰",
+          "label": "黃金礦脈"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "💨",
+          "label": "甲烷"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "☄️",
+          "label": "墜落的隕石"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "1938年美國發生大恐慌，是因為廣播播了什麼內容？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "📻",
+          "label": "火星人入侵",
+          "explanation": "廣播把火星人入侵演得像新聞，嚇到聽眾。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "🛸",
+          "label": "外星飛船降落"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🦖",
+          "label": "火星怪獸入侵"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "💥",
+          "label": "火星爆炸"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "哪一個探測器拍的照片，證明火星上沒有外星城市？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "🛰️",
+          "label": "水手4號",
+          "explanation": "水手4號拍到隕石坑，證明沒有外星城市。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🚀",
+          "label": "阿波羅11號"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🔭",
+          "label": "哈伯望遠鏡"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "👁️",
+          "label": "羅威爾望遠鏡"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "目前正在火星表面執行任務的「機器人」叫什麼名字？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "🤖",
+          "label": "好奇與毅力號",
+          "explanation": "好奇號與毅力號正在火星上探測岩石。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "🚀",
+          "label": "航海家一號"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "🌕",
+          "label": "阿波羅11號"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "🛸",
+          "label": "探路者先鋒號"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "歷史上大家會誤會火星有運河，最初的原因是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "📖",
+          "label": "翻譯產生誤會",
+          "explanation": "原意是水道，翻成運河才讓人誤會。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "🌊",
+          "label": "觀測有河床"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "🌪️",
+          "label": "望遠鏡看錯了"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "🌑",
+          "label": "衛星造成陰影"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "在日本傳說中，變亮的火星被當作是哪位英雄的靈魂？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "⚔️",
+          "label": "西鄉隆盛",
+          "explanation": "西鄉隆盛過世時火星變亮，被傳成他的靈魂。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "🗡️",
+          "label": "織田信長"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🤺",
+          "label": "宮本武藏"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "🏯",
+          "label": "德川家康"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "地球大約隔多久會「超車」火星一次，又稱為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "🚀",
+          "label": "火星衝",
+          "explanation": "地球約每兩年多超車火星一次，叫火星衝。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "🤝",
+          "label": "火星合"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "🔙",
+          "label": "火星逆行"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "🌟",
+          "label": "火星大接近"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "義大利天文學家說的詞「Canali」，原意是指什麼？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "💧",
+          "label": "天然的水道",
+          "explanation": "Canali 原指天然水道，不是人造運河。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "🌉",
+          "label": "人造的水路"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "🍝",
+          "label": "義大利麵"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "✨",
+          "label": "星星之河"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "因為軌道路線的影響，火星「大接近」時會發生什麼變化？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "💡",
+          "label": "比平常亮很多",
+          "explanation": "大接近時火星離地球近，看起來更大更亮。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "⚪",
+          "label": "亮度微變白"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🌸",
+          "label": "反射粉紅光芒"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "☀️",
+          "label": "比太陽還亮"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "羅威爾認為火星人挖運河，最主要是為了什麼？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "🌱",
+          "label": "引導冰水灌溉",
+          "explanation": "羅威爾認為運河是引冰水灌溉求生用的。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🏊",
+          "label": "辦游泳比賽"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "🛸",
+          "label": "建立星際船隊"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "🐟",
+          "label": "運河裡養魚"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "因為「運河」翻譯的錯誤，當時人們對火星有什麼感覺？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "😱",
+          "label": "害怕外星人",
+          "explanation": "人們以為火星有高科技生命，所以害怕入侵。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "♨️",
+          "label": "火星很溫暖"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "💰",
+          "label": "想去有黃金"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "💧",
+          "label": "火星上有水"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "毅力號目前在火星採集岩石樣本，最後的目標是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "🔬",
+          "label": "送回地球研究",
+          "explanation": "毅力號收集岩石，目標是未來送回地球研究。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "⛽",
+          "label": "提煉太空船燃料"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "⚖️",
+          "label": "測試火星地質"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "🧱",
+          "label": "用石頭蓋基地"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "現在的火星探測車像偵探一樣，主要在尋找什麼？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "🦠",
+          "label": "古老微生物",
+          "explanation": "火星以前有水，可能留下古老微生物痕跡。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "👽",
+          "label": "尋找火星人"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "💎",
+          "label": "地下隱藏寶藏"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "🌉",
+          "label": "火星人造運河"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "未來人類如果移民火星，在火星上可能會住在哪裡？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "🏠",
+          "label": "巨大的圓頂基地",
+          "explanation": "火星空氣稀薄，人類需住在有保護的圓頂基地。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "🧊",
+          "label": "涼爽地下室"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "🥬",
+          "label": "溫室蔬菜園"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "🌋",
+          "label": "火山口旁邊"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "火星繞太陽的軌道是什麼形狀，導致它與地球距離變化大？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "⭕",
+          "label": "較扁的橢圓形",
+          "explanation": "火星軌道較扁，所以與地球距離變化大。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "❤️",
+          "label": "可愛心形"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "🔲",
+          "label": "正方形跑道"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "🔺",
+          "label": "尖銳三角形"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "毅力號探索的「傑澤羅隕石坑」，幾十億年前曾是什麼樣子？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🏞️",
+          "label": "大型湖泊",
+          "explanation": "傑澤羅隕石坑過去有河流，可能曾是湖泊。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "🌋",
+          "label": "火山噴發"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "🏜️",
+          "label": "廣大沙漠"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "🌲",
+          "label": "茂密森林"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "如果要讓人類在火星長期生活，必須建立什麼樣的基礎設施？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "🏙️",
+          "label": "自給自足城市",
+          "explanation": "火星太遠，長住必須自己造水、種菜和發電。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "🛡️",
+          "label": "阻擋輻射保護"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "📡",
+          "label": "跟地球通訊"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "🚄",
+          "label": "往返宇宙的鐵路"
+        }
+      ]
+    }
+  ]
+}

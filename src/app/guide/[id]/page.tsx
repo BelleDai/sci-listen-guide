@@ -2,6 +2,7 @@ import { getAllPublishedEpisodes, parseFirestoreFields, PROJECT_ID, FIRESTORE_UR
 import EpisodeView, { EpisodeData } from "@/components/episode/EpisodeView";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
+import { getEpisodeGameId } from "@/components/games/core/episodeQuizzes";
 
 // Dynamic static generation
 export async function generateStaticParams() {
@@ -120,5 +121,7 @@ export default async function EpisodePage(props: { params: Promise<{ id: string 
   // We need to pass the search index to EpisodeView so it can pass it to Header.
   // We should update EpisodeView to accept `searchIndex`.
 
-  return <EpisodeView episodeData={episodeData} searchIndex={searchIndex} />;
+  const gameId = getEpisodeGameId(params.id);
+
+  return <EpisodeView episodeData={episodeData} searchIndex={searchIndex} gameId={gameId} />;
 }

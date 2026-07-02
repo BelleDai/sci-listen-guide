@@ -1,0 +1,588 @@
+{
+  "episode_id": "s19",
+  "category_name": "探索無垠的宇宙",
+  "name": "當天空在燃燒：極光、太陽風暴與魁北克大停電",
+  "knowledge": "極光來自太陽帶電粒子撞擊大氣；強烈太陽風暴會干擾電網與通訊，1989年魁北克曾大停電。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "極光最常出現哪一種顏色？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "🟢",
+          "label": "綠色",
+          "explanation": "氧原子被激發後，常讓極光呈現綠色。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "🖤",
+          "label": "黑色"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "🟣",
+          "label": "深紫色"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "👻",
+          "label": "透明看不見"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "極光是太陽吹出的什麼粒子撞擊大氣層產生的？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "💨",
+          "label": "帶電太陽風粒子",
+          "explanation": "太陽風帶電粒子撞擊大氣，會激發出極光。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "☁️",
+          "label": "二氧化碳"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "🪨",
+          "label": "太空塵埃"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🌕",
+          "label": "月光"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "極光在高空中看起來，最像什麼東西在飄動？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "🎀",
+          "label": "跳舞般絲帶",
+          "explanation": "極光常呈長條光帶，在天空像絲帶飄動。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "🪨",
+          "label": "一顆顆石頭"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "🥢",
+          "label": "舞動的棍子"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🌧️",
+          "label": "像積雨雲"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "1989 年強烈的太陽風暴，造成哪一個地區大停電？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "🇨🇦",
+          "label": "加拿大魁北克",
+          "explanation": "1989年太陽風暴干擾電網，使魁北克停電。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "🗽",
+          "label": "美國紐約市"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🌮",
+          "label": "墨西哥小鎮"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "🧊",
+          "label": "格陵蘭冰原"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "為了預防太陽風暴的危害，科學家要擔任什麼預報員？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "📡",
+          "label": "宇宙天氣預報",
+          "explanation": "科學家預報太陽風暴，像預報宇宙天氣。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "🌊",
+          "label": "海底水壓預報"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🌋",
+          "label": "地震災害預報"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "🚗",
+          "label": "下班交通預報"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "當太陽黑子消失很久的「蒙德極小期」，會讓地球？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "❄️",
+          "label": "進入小冰河期",
+          "explanation": "蒙德極小期太陽活動弱，地球進入較冷時期。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🔥",
+          "label": "變得很熱"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "⛈️",
+          "label": "每天下大雷雨"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "☀️",
+          "label": "沒有季節變化"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "太陽大氣層最外面、溫度超高的一層叫什麼？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "☀️",
+          "label": "日冕",
+          "explanation": "日冕是太陽最外層大氣，稀薄但溫度很高。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "💡",
+          "label": "光球層"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "🌈",
+          "label": "彩色球層"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "🔥",
+          "label": "核子層"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "「氦氣」這個名字，是來自哪一位希臘神明？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "🏛️",
+          "label": "太陽神海利歐斯",
+          "explanation": "氦先在太陽光中發現，名字來自太陽神。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "🌊",
+          "label": "海神波賽頓"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "⚡",
+          "label": "眾神之王宙斯"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "🏹",
+          "label": "愛神邱比特"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "太陽黑子看起來黑黑的，主要原因是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "⚫",
+          "label": "溫度比旁邊低",
+          "explanation": "黑子比周圍溫度低，所以看起來較暗。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "🧹",
+          "label": "那裡被弄髒"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🔥",
+          "label": "溫度超級高"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "🕳️",
+          "label": "那是個深洞"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "太陽磁場被扭轉時，科學家形容它像在扭轉什麼？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "〰️",
+          "label": "扭轉大橡皮筋",
+          "explanation": "太陽磁場扭曲累積能量，像扭緊橡皮筋。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "🏋️",
+          "label": "扭轉大鐵桿"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "🥟",
+          "label": "揉捏白色麵糊"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "🪶",
+          "label": "吹拂細長羽毛"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "極光通常出現在離地面大約多高的高空？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "✈️",
+          "label": "一百到三百公里",
+          "explanation": "極光多在離地100到200公里的高空發生。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "🗼",
+          "label": "離地一公里"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "🏔️",
+          "label": "離地十公里"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "🚀",
+          "label": "大氣層之外"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "神奇的「日冕加熱問題」，是指日冕溫度高達多少？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "🔥",
+          "label": "一百萬度以上",
+          "explanation": "日冕比太陽表面熱，可高達一百萬度以上。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "♨️",
+          "label": "大約一百度"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🌡️",
+          "label": "六千度以上"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "💥",
+          "label": "跟核心一樣熱"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "太陽閃焰發出的粒子，最快多久會影響地球通訊？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "⏱️",
+          "label": "約八分鐘後",
+          "explanation": "太陽光到地球約8分鐘，閃焰影響也很快到。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🌍",
+          "label": "馬上感應到"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "🗓️",
+          "label": "需要一個月"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "🛡️",
+          "label": "完全不影響"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "從太空站往下看，極光看起來是什麼樣子？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "⭕",
+          "label": "環繞極區發光圈",
+          "explanation": "從太空看，極光常像環繞極區的發光圈。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "✨",
+          "label": "閃爍小亮點"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🗼",
+          "label": "垂直的光柱"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "🌈",
+          "label": "彩虹河流"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "少見的「紅色」極光，通常出現在大氣層哪裡？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "🎈",
+          "label": "200公里以上",
+          "explanation": "紅色極光多出現在200公里以上的稀薄高空。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "🌳",
+          "label": "十公里底下"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "☁️",
+          "label": "中間五十公里"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "🌧️",
+          "label": "藏在雲朵裡"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "太陽表面突然大爆發（打噴嚏）的科學名稱是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "💥",
+          "label": "太陽閃焰",
+          "explanation": "太陽磁場突然釋放能量，就會產生太陽閃焰。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "🚿",
+          "label": "太陽噴流"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "🥵",
+          "label": "太陽熱浪"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "💃",
+          "label": "太陽磁場舞"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "我們肉眼看到、發出強光的太陽表面層叫什麼？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "💡",
+          "label": "光球層",
+          "explanation": "我們看到的明亮太陽表面，稱為光球層。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "☀️",
+          "label": "日冕層"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "🌈",
+          "label": "色球層"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "🔴",
+          "label": "核心層"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "為什麼極光通常出現在南北極，而不在赤道出現？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🧲",
+          "label": "順著地球磁場移動",
+          "explanation": "地球磁場把帶電粒子引導到南北極。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "⛄",
+          "label": "極區雪比較多"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "🥶",
+          "label": "極區比較寒冷"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "🌕",
+          "label": "極區離月球近"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "太陽活動週期的規律，大約幾年循環一次？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "📅",
+          "label": "11 年",
+          "explanation": "太陽活動約每11年從平靜到活躍再循環。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "👶",
+          "label": "1 年"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "👨",
+          "label": "30 年"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "👴",
+          "label": "100 年"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "1989 年魁北克停電，是因為太陽粒子引發了什麼？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "⚡",
+          "label": "地磁感應電流",
+          "explanation": "太陽風暴擾動磁場，在電網中引發感應電流。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "🌪️",
+          "label": "強風吹倒電塔"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "❄️",
+          "label": "電網過載"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "💥",
+          "label": "大氣壓驟變"
+        }
+      ]
+    }
+  ]
+}

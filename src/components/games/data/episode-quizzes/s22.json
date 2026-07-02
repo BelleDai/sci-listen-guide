@@ -1,0 +1,588 @@
+{
+  "episode_id": "s22",
+  "category_name": "探索無垠的宇宙",
+  "name": "宇宙的95%是隱形的？暗物質與暗能量的祕密",
+  "knowledge": "可見物質不到宇宙5%；暗物質用重力拉住星系，暗能量則讓宇宙加速膨脹，兩者約佔95%。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "如果把宇宙比喻成一塊大蛋糕，看得見的物質大約佔了多少？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "🍰",
+          "label": "不到5%",
+          "explanation": "星星、行星和人類等可見物質不到宇宙5%。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "💯",
+          "label": "全部"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "🌗",
+          "label": "佔一半"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "🌕",
+          "label": "佔九成"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "被稱為「幽靈膠水」的暗物質，在宇宙中主要扮演什麼角色？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "🕸️",
+          "label": "靠重力黏住星系",
+          "explanation": "暗物質有重力，能幫忙把星系聚在一起。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "💨",
+          "label": "把星系推向遠方"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "💡",
+          "label": "照亮黑暗的宇宙"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🕳️",
+          "label": "製造強大的黑洞"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "神祕的「暗能量」對我們的宇宙產生了什麼影響？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "💥",
+          "label": "讓宇宙加速膨脹",
+          "explanation": "暗能量讓宇宙膨脹速度越來越快。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "🛑",
+          "label": "讓宇宙靜止不動"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "🤏",
+          "label": "讓宇宙慢慢縮小"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "✨",
+          "label": "讓宇宙變換形狀"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "愛因斯坦曾說他一生中「最大的錯誤」，與哪個科學概念有關？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "✏️",
+          "label": "加入宇宙常數",
+          "explanation": "他加入宇宙常數，後來曾認為這是錯誤。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "📖",
+          "label": "發表相對論"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🍎",
+          "label": "發現萬有引力"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "💣",
+          "label": "發明原子彈"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "既然暗物質是隱形的，科學家是利用什麼現象來發現它的？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "🔍",
+          "label": "重力透鏡效應",
+          "explanation": "暗物質重力會彎曲光線，形成重力透鏡。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "🔬",
+          "label": "超強力顯微鏡"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🔭",
+          "label": "太空望遠鏡直視"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "🎧",
+          "label": "捕捉它的聲音"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "在整個宇宙的總成分中，神祕的「暗能量」大約佔了多少比例？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "🔋",
+          "label": "68%",
+          "explanation": "暗能量約佔宇宙68%，比例最大。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🤏",
+          "label": "只有 1%"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🍰",
+          "label": "5%"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🚫",
+          "label": "沒有暗能量"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "好奇博士將星系掛在暗物質網上的樣子，生動地比喻成什麼？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "🍢",
+          "label": "一串烤肉串",
+          "explanation": "星系沿暗物質網排列，像串在一起的烤肉。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "🍉",
+          "label": "一個大西瓜"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "🍿",
+          "label": "飛散的爆米花"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "🍫",
+          "label": "融化的巧克力"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "科學家在 1998 年透過觀測星星爆炸，發現宇宙正在發生什麼事？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "🎈",
+          "label": "宇宙越脹越快",
+          "explanation": "超新星觀測顯示，宇宙膨脹正在加速。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "🛑",
+          "label": "宇宙停止長大"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "🤏",
+          "label": "宇宙開始縮小"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "❄️",
+          "label": "宇宙正在冷卻"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "愛因斯坦當年覺得是「大錯誤」的推力公式，後來變成了什麼？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "🔮",
+          "label": "神準的預言",
+          "explanation": "宇宙常數後來可用來解釋暗能量的推力。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "🗑️",
+          "label": "沒用的垃圾"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "📝",
+          "label": "小學生的作業"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "🗞️",
+          "label": "過時的廢紙"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "暗物質與暗能量合稱宇宙的「暗面」，它們總共佔了宇宙大約多少？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "👻",
+          "label": "95%",
+          "explanation": "暗物質約27%、暗能量約68%，合計約95%。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "🤏",
+          "label": "10%"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "🐜",
+          "label": "不到 1%"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "🌗",
+          "label": "一半"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "在宇宙總成分中，扮演「幽靈膠水」的暗物質大約佔了多少？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "🌌",
+          "label": "27%",
+          "explanation": "暗物質約佔宇宙27%，比可見物質多很多。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "🍰",
+          "label": "大約 5%"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "🔋",
+          "label": "68%"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "🌕",
+          "label": "90%"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "當光線經過宇宙中的大質量物體時，會發生什麼神奇的變化？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "〰️",
+          "label": "光的路徑會彎曲",
+          "explanation": "大質量物體會彎曲空間，使光線路徑彎曲。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "👻",
+          "label": "光線會消失"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🌈",
+          "label": "光線會變彩色"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "🪞",
+          "label": "光線會彈回來"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "科學家在測量宇宙膨脹速度時，把什麼當作「宇宙的尺」？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "📏",
+          "label": "Ia型超新星",
+          "explanation": "Ia型超新星亮度穩定，可當宇宙距離尺。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🔥",
+          "label": "太陽的熱度"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "🌑",
+          "label": "月亮的影子"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "🌈",
+          "label": "長長的彩虹"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "愛因斯坦當初在公式中加入推力，主要是希望宇宙能如何？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "🛑",
+          "label": "保持穩定不動",
+          "explanation": "他加入推力，是想讓宇宙保持靜止穩定。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "💥",
+          "label": "炸成無數碎片"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🏃",
+          "label": "跑得越來越快"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "🧊",
+          "label": "變成正方形"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "根據 DESI 設備的最新觀測，暗能量的力量可能有什麼特性？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "⏱️",
+          "label": "會隨時間改變",
+          "explanation": "這題的觀測線索指出，暗能量可能會改變。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "🧲",
+          "label": "像巨大的磁鐵"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "🕳️",
+          "label": "吸收所有光線"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "🌍",
+          "label": "只在地球附近"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "科學家常用什麼被壓凹來形容重力造成的空間彎曲？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "🛏️",
+          "label": "拉平的彈簧床",
+          "explanation": "重物會壓凹彈簧床，像重力彎曲空間。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "🪵",
+          "label": "厚實的木板"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "🪣",
+          "label": "裝滿水的木桶"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "☁️",
+          "label": "柔軟的棉花"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "如果暗能量強到將宇宙所有原子都撕碎，這種結局稱為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "⚡",
+          "label": "大撕裂",
+          "explanation": "暗能量若越來越強，可能撕裂所有物質。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "🕳️",
+          "label": "大坍塌"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "❄️",
+          "label": "大凍結"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "💥",
+          "label": "大破碎"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "關於暗物質與光的關係，下列哪一項符合它「不與電磁力作用」的特徵？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🚫",
+          "label": "不發光也不反光",
+          "explanation": "暗物質不發光也不反光，所以望遠鏡看不到。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "🧲",
+          "label": "會被磁鐵吸引"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "🔋",
+          "label": "如電池般帶電"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "🌈",
+          "label": "產生七彩光芒"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "如果宇宙最後走向「大凍結」結局，宇宙最終會變成什麼樣子？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "❄️",
+          "label": "又冷又黑暗",
+          "explanation": "宇宙若持續膨脹，最後會變得寒冷黑暗。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "🔥",
+          "label": "到處都是火焰"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "🧊",
+          "label": "變成大冰球"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "💥",
+          "label": "回到爆炸的原點"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "愛丁頓在 1919 年觀測日全食，主要是為了證實愛因斯坦哪項預言？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "☀️",
+          "label": "星光因重力彎曲",
+          "explanation": "日全食觀測證明星光會被太陽重力彎曲。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "🧀",
+          "label": "月亮有沒有洞"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "💧",
+          "label": "火星上有水冰"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "💨",
+          "label": "太空沒有空氣"
+        }
+      ]
+    }
+  ]
+}

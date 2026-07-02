@@ -1,8 +1,11 @@
+import 'server-only';
+
 import { createElement } from 'react';
 import { toTreasureHunterScene } from './adapters';
 import type { GameId, GameScene } from './types';
 import type { QuestionAnswerInput, QuestionInput } from './questionInput';
-import episodeQuizData from '../data/episodeQuizzes.json';
+import { EPISODE_QUIZ_GAME_IDS } from './episodeQuizIndex.generated';
+import { loadStandardizedEpisodeQuiz } from './episodeQuizLoaders.generated';
 
 export type EpisodeQuizGameId = Extract<GameId, 'colorful-balloons' | 'golden-coins' | 'treasure-hunter'>;
 
@@ -10,6 +13,7 @@ export type StageEpisode = {
   id: string;
   name: string;
   emoji: string;
+  gameId?: EpisodeQuizGameId;
 };
 
 export type StageCategory = {
@@ -33,7 +37,7 @@ export type EpisodeQuizFile = {
   quizzes: EpisodeQuiz[];
 };
 
-type StandardizedEpisodeQuizFile = Omit<EpisodeQuizFile, 'episodeId' | 'categoryName' | 'gameId'> & {
+export type StandardizedEpisodeQuizFile = Omit<EpisodeQuizFile, 'episodeId' | 'categoryName' | 'gameId'> & {
   episode_id: string;
   category_name: string;
   gameId?: EpisodeQuizGameId;
@@ -62,16 +66,6 @@ const EPISODE_BG_COLORS = [
 ];
 
 const gameIds: EpisodeQuizGameId[] = ['colorful-balloons', 'golden-coins', 'treasure-hunter'];
-const rawEpisodeQuizFiles = episodeQuizData as unknown as StandardizedEpisodeQuizFile[];
-
-export const episodeQuizFiles: EpisodeQuizFile[] = rawEpisodeQuizFiles.map((episode, index) => ({
-  ...episode,
-  episodeId: episode.episode_id,
-  categoryName: episode.category_name,
-  gameId: gameIds[index % gameIds.length],
-}));
-
-const episodeQuizFileById = new Map(episodeQuizFiles.map((episode) => [episode.episodeId, episode]));
 
 function stableHash(value: string) {
   let hash = 0;
@@ -82,11 +76,22 @@ function stableHash(value: string) {
 }
 
 export function getEpisodeGameId(episodeId: string): EpisodeQuizGameId {
-  return episodeQuizFileById.get(episodeId)?.gameId ?? gameIds[stableHash(episodeId) % gameIds.length];
+  return EPISODE_QUIZ_GAME_IDS[episodeId as keyof typeof EPISODE_QUIZ_GAME_IDS] ?? gameIds[stableHash(episodeId) % gameIds.length];
 }
 
-export function getEpisodeQuiz(episodeId: string) {
-  return episodeQuizFileById.get(episodeId);
+export async function getEpisodeQuiz(episodeId: string): Promise<EpisodeQuizFile | null> {
+  const episode = await loadStandardizedEpisodeQuiz(episodeId);
+
+  if (!episode) {
+    return null;
+  }
+
+  return {
+    ...episode,
+    episodeId: episode.episode_id,
+    categoryName: episode.category_name,
+    gameId: episode.gameId ?? getEpisodeGameId(episodeId),
+  };
 }
 
 function getEpisodeBgColor(episodeId: string) {

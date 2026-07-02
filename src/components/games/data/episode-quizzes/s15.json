@@ -1,0 +1,588 @@
+{
+  "episode_id": "s15",
+  "category_name": "探索無垠的宇宙",
+  "name": "地球防衛隊：如何阻止小行星撞地球？",
+  "knowledge": "巨大隕石曾造成恐龍滅絕；現在科學家監測近地天體，也研究撞偏或慢慢推走小行星。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "科學家普遍認為，造成 6600 萬年前恐龍滅絕的主因是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "🦕",
+          "label": "大隕石撞擊",
+          "explanation": "6600萬年前大隕石撞地球，造成恐龍滅絕。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "🏜️",
+          "label": "嚴重的乾旱"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "🌋",
+          "label": "長期火山噴發"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "🥶",
+          "label": "全球氣溫劇降"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "在太陽系中，最多小行星聚集在哪兩顆行星之間？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "🪐",
+          "label": "火星",
+          "explanation": "火星與木星之間有小行星帶，聚集許多岩石。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "🔥",
+          "label": "水星"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "🌕",
+          "label": "地球"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "☀️",
+          "label": "太陽"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "科學家提議用哪種方法，像太空帆船一樣推走小行星？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "⛵",
+          "label": "光壓推太陽帆",
+          "explanation": "太陽光有光壓，可推太陽帆慢慢改變軌道。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "⚡",
+          "label": "雷射光照射"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "🧲",
+          "label": "用引力牽引"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🛸",
+          "label": "太空船撞擠"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "哪一個太空任務在 2022 年成功撞偏了小行星的方向？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "🚀",
+          "label": "DART撞擊任務",
+          "explanation": "DART 用太空船撞擊小行星，成功改變方向。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "🌕",
+          "label": "阿波羅 11 號"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🤖",
+          "label": "好奇號"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "⭐",
+          "label": "旅行者一號"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "「太空警衛」（Spaceguard）這群人的主要工作是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "🔭",
+          "label": "監測附近天體",
+          "explanation": "太空警衛用望遠鏡尋找靠近地球的天體。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "👽",
+          "label": "接收外星人訊息"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🔧",
+          "label": "修理人造衛星"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "☀️",
+          "label": "預測太陽磁爆"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "除了外太空的岩石，還有哪種人造物會造成撞擊威脅？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "🛰️",
+          "label": "報廢衛星與火箭",
+          "explanation": "報廢衛星和火箭會變太空垃圾，也可能撞擊。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "📡",
+          "label": "人造衛星訊號"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🌕",
+          "label": "月球生活用品"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🚀",
+          "label": "火星探測器"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "日本的「隼鳥號」探測器，曾經在哪裡成功採集到砂石樣本？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "🦅",
+          "label": "系川小行星",
+          "explanation": "隼鳥號曾在系川小行星採樣並帶回地球。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "🔴",
+          "label": "火星表面"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "🌑",
+          "label": "月亮中心點"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "🪐",
+          "label": "木星大氣層"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "為什麼我們不能隨便發射核彈把小行星炸掉？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "💥",
+          "label": "碎塊如散彈撞地球",
+          "explanation": "炸碎後會變成許多碎塊，可能一起撞地球。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "🌌",
+          "label": "太空上不能爆炸"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "☢️",
+          "label": "形成嚴重輻射"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "💨",
+          "label": "引發強烈衝擊波"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "1908 年發生巨大的「通古斯大爆炸」是在哪一個國家？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "🌲",
+          "label": "俄羅斯森林",
+          "explanation": "通古斯爆炸發生在俄羅斯森林上空。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "🌽",
+          "label": "美國農田裡"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "⛰️",
+          "label": "中國山區裡"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "🦜",
+          "label": "巴西雨林裡"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "當彗星靠近太陽時，外觀上跟小行星有什麼最大的不同？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "☄️",
+          "label": "拖著尾巴",
+          "explanation": "彗星含冰，靠近太陽會噴氣形成尾巴。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "🐘",
+          "label": "比較大"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "🌈",
+          "label": "會發光"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "🧊",
+          "label": "是正方形"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "「太陽帆」是利用什麼力量來慢慢推動小行星？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "☀️",
+          "label": "日光產生壓力",
+          "explanation": "太陽光有光壓，照在帆上能慢慢推動小行星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "💨",
+          "label": "外太空強風"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "🛹",
+          "label": "行星間摩擦"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "🧲",
+          "label": "地球磁場互斥"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "如果發現小行星要撞地球，除了太陽帆船，還能怎麼做？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "🚀",
+          "label": "用火箭引擎推走",
+          "explanation": "裝上火箭引擎可推改小行星的飛行方向。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "💥",
+          "label": "派太空船撞擊"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🕸️",
+          "label": "發射大網子"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "💣",
+          "label": "用核彈炸掉"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "像「穀神星」這種長得很大、圓圓的小行星，被分類為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "🌑",
+          "label": "較小矮行星",
+          "explanation": "穀神星夠大又近圓形，因此被分類為矮行星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🪨",
+          "label": "巨大太空碎片"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "🌟",
+          "label": "發光恆星"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "☄️",
+          "label": "冰凍彗星"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "2013 年俄羅斯發生小行星掉落事件，為什麼造成許多人受傷？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "🪟",
+          "label": "衝擊波震碎玻璃",
+          "explanation": "小行星空爆產生衝擊波，震碎玻璃造成受傷。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "🤕",
+          "label": "石頭砸傷人"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🔥",
+          "label": "引起森林大火"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "🌊",
+          "label": "引發巨大海嘯"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "如果要成功推開威脅地球的小行星，科學家認為最重要的條件是？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "⏱️",
+          "label": "提早發現",
+          "explanation": "越早發現，就有時間把小行星慢慢推偏。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "🚀",
+          "label": "準備強力飛彈"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "🌍",
+          "label": "改變地球轉速"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "🧮",
+          "label": "算出準確軌跡"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "科學家為什麼把小行星形容成「宇宙子彈」？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "💨",
+          "label": "飛行速度極快",
+          "explanation": "小行星速度極快，撞擊時像巨大的宇宙子彈。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "💯",
+          "label": "數量很多"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "🪨",
+          "label": "非常堅硬"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "💥",
+          "label": "造成巨大破壞"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "讓恐龍滅絕的那顆小行星，科學家推算它大約有多大？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "⛰️",
+          "label": "十公里寬",
+          "explanation": "那顆小行星約十公里寬，撞擊威力非常大。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "🏟️",
+          "label": "操場大小"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "📏",
+          "label": "一公里寬"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "🌍",
+          "label": "跟地球一樣大"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "除了美國，哪一個亞洲國家的太空警衛協會也非常認真在監視天體？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🇯🇵",
+          "label": "日本",
+          "explanation": "日本也有組織用望遠鏡監視危險天體。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "🇹🇼",
+          "label": "台灣"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "🇮🇳",
+          "label": "印度"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "🇸🇬",
+          "label": "新加坡"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "如果太空垃圾撞壞衛星並產生更多碎片，這種連鎖反應稱為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "💥",
+          "label": "凱斯勒現象",
+          "explanation": "太空垃圾連續碰撞、碎片越來越多叫凱斯勒現象。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "🧱",
+          "label": "星際骨牌效應"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "🦋",
+          "label": "蝴蝶效應鍊"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "📖",
+          "label": "凱因斯理論"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "根據科學統計，一個人類被小行星撞上的機率大約是多少？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "✈️",
+          "label": "如飛機失事",
+          "explanation": "統計上，被小行星撞上的機率和飛機失事相近。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "💰",
+          "label": "比中頭彩還難"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "👻",
+          "label": "半夜遇到雷擊"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "0️⃣",
+          "label": "趨近於零"
+        }
+      ]
+    }
+  ]
+}

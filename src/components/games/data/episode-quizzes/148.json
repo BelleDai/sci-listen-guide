@@ -1,0 +1,588 @@
+{
+  "episode_id": "148",
+  "category_name": "侏羅紀生物遠征隊",
+  "name": "地球生命的史詩：從混沌到繁盛",
+  "knowledge": "早期地球很炙熱，後來形成海洋；生命可能從海中開始，生物會因環境慢慢演化。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "科學隊長提到，地球寶寶大約是在多久以前誕生的？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "🎂",
+          "label": "45億年前",
+          "explanation": "地球約在 45 億年前形成，所以答案是 45 億年前。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "📆",
+          "label": "4千萬年"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "🌊",
+          "label": "38億年前"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "🌌",
+          "label": "百億年前"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "剛誕生時的早期地球，表面看起來最像是什麼樣子？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "🌋",
+          "label": "滾燙熔岩",
+          "explanation": "早期地球非常熱，表面有許多火山和熔岩。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "🌊",
+          "label": "廣闊海洋"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "🌲",
+          "label": "綠色森林"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🧊",
+          "label": "厚厚冰層"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "科學家推測，地球上最早的生命可能起源於哪裡？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "💧",
+          "label": "海洋中",
+          "explanation": "科學家推測，最早生命可能在溫暖海洋中出現。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "🪨",
+          "label": "乾燥岩縫"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "☁️",
+          "label": "高空氣層"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🔥",
+          "label": "火山內部"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "被稱為「小英雄」的藍綠菌，對地球最大的貢獻是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "🫧",
+          "label": "製造出氧氣",
+          "explanation": "藍綠菌能做光合作用，製造地球大氣中的氧氣。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "☠️",
+          "label": "吸收毒氣"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "✨",
+          "label": "讓海水清澈"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "🪨",
+          "label": "分解岩石"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "在澳洲可以看見的「疊層石」，是古代哪種生物留下的痕跡？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "🦠",
+          "label": "藍綠菌",
+          "explanation": "疊層石是藍綠菌一層層堆疊後留下的痕跡。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "🐟",
+          "label": "魚群"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🦖",
+          "label": "恐龍"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "🌿",
+          "label": "海生植物"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "達爾文發現加拉巴哥群島上的小鳥，嘴巴形狀都不一樣，主要的原因是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "🍴",
+          "label": "吃不同食物",
+          "explanation": "不同食物需要不同嘴形，鳥嘴因此逐漸演化。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🐦",
+          "label": "找同伴"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🌋",
+          "label": "火山污染"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🌬️",
+          "label": "抵擋強風"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "當工廠變多、樹皮被燻黑後，英國的樺尺蛾變成什麼顏色，才比較不容易被鳥類發現？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "🖤",
+          "label": "和樹皮相近",
+          "explanation": "樹皮變黑後，深色樺尺蛾較不容易被鳥發現。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "🤍",
+          "label": "斑點淺色"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "🍃",
+          "label": "綠色樹葉"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "✨",
+          "label": "亮白色反光"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "根據科學隊長的說法，地球上最早的生命具備什麼樣被稱為「超能力」的特徵？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "🧬",
+          "label": "複製出自己",
+          "explanation": "生命能複製自己，才能產生下一代並延續下去。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "🦅",
+          "label": "在天上飛"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "🔥",
+          "label": "吸收地熱"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "⚡",
+          "label": "瞬間移動"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "地球上第一個細胞的構造，最像是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "🛡️",
+          "label": "有細胞膜",
+          "explanation": "細胞外有細胞膜，能保護裡面的物質。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "🪨",
+          "label": "堅硬方塊"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🐣",
+          "label": "沒有外殼"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "🐘",
+          "label": "巨大細胞"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "剛誕生的地球本來是一顆燙燙的火球，後來廣闊的海洋是怎麼出現的？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "🌧️",
+          "label": "降下暴雨",
+          "explanation": "地球冷卻後，水蒸氣凝結成雨，累積成海洋。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "🧊",
+          "label": "冰河融化"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "☄️",
+          "label": "隕石帶來水"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "⛲",
+          "label": "地下湧泉"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "在大約38億年前的海洋中，是什麼現象像魔法棒一樣，把神秘材料組合成奇妙小東西？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "⚡",
+          "label": "巨大閃電",
+          "explanation": "閃電提供能量，可能讓海中化學物質組合起來。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "🌋",
+          "label": "海底火山"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "☀️",
+          "label": "溫暖陽光"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "☄️",
+          "label": "隕石撞擊"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "藍綠菌是利用什麼來進行「光合作用」的？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "☀️",
+          "label": "陽光與二氧化碳",
+          "explanation": "藍綠菌利用陽光和二氧化碳，製造自己的養分。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "🌋",
+          "label": "地熱火山灰"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🧂",
+          "label": "分解鹽分"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "🦠",
+          "label": "吞吃小細胞"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "科學隊長推測，地球上最早的小細胞，可能是靠吃什麼長大的？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "🧪",
+          "label": "海中化學物",
+          "explanation": "早期細胞可能吸收海水中的化學物質來生長。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🌿",
+          "label": "小海藻"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "🦗",
+          "label": "小昆蟲"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "🏖️",
+          "label": "細沙粒"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "生物在進行「演化」時，繁衍下一代通常會發生什麼重要的事情？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "🧬",
+          "label": "後代有差異",
+          "explanation": "後代和父母有些差異，這些差異是演化的基礎。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "👯",
+          "label": "和父母一樣"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🌟",
+          "label": "全新物種"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "😋",
+          "label": "食量變大"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "科學隊長提到的「天擇」是什麼意思？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "🌍",
+          "label": "適者生存",
+          "explanation": "天擇指較能適應環境的生物，更容易活下來。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "🏠",
+          "label": "動物找新家"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "💪",
+          "label": "天天變強"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "🌧️",
+          "label": "天氣變化"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "達爾文叔叔在哪個地方發現了因為演化而改變嘴巴形狀的小鳥？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "🏝️",
+          "label": "加拉巴哥群島",
+          "explanation": "達爾文在加拉巴哥群島觀察到不同嘴形的小鳥。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "🗺️",
+          "label": "馬達加斯加"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "🌋",
+          "label": "夏威夷群島"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "🐠",
+          "label": "大堡礁海域"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "根據科學隊長的介紹，有些聰明的小鳥演化出什麼特別的覓食技巧？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "🌿",
+          "label": "用樹枝挖蟲",
+          "explanation": "有些鳥會把樹枝當工具，挖出樹洞裡的昆蟲。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "🐟",
+          "label": "潛水抓魚類"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "🌰",
+          "label": "高空摔堅果"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "🐍",
+          "label": "噴毒液麻痺"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "如果環境發生了巨大的改變，原本擁有生存優勢的生物可能會面臨什麼情況？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "⚠️",
+          "label": "優勢失效",
+          "explanation": "環境改變後，原本有利的特徵可能不再適合。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "🧬",
+          "label": "長出新器官"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "🛡️",
+          "label": "完全不影響"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "🌍",
+          "label": "改變大環境"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "在地球剛誕生、還是一顆燙燙的熔岩球時，外面包圍著什麼東西？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "☠️",
+          "label": "有毒氣體",
+          "explanation": "早期大氣含許多火山氣體，並不適合人類呼吸。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "🌬️",
+          "label": "純氧氣"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "🧊",
+          "label": "厚冰晶雲"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "💧",
+          "label": "乾淨水蒸氣"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "早期天空中不斷掉下來的小行星和隕石，雖然撞擊很可怕，但對地球有什麼幫助？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "☄️",
+          "label": "生命的材料",
+          "explanation": "隕石可能帶來形成生命所需的基本化學材料。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "❄️",
+          "label": "讓地球降溫"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "🌊",
+          "label": "撞出大海"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "🦖",
+          "label": "消滅恐龍"
+        }
+      ]
+    }
+  ]
+}

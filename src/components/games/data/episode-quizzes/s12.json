@@ -1,0 +1,588 @@
+{
+  "episode_id": "s12",
+  "category_name": "探索無垠的宇宙",
+  "name": "毀滅倒數：如果4公里寬的彗星撞上地球？",
+  "knowledge": "大型天體撞擊會產生閃光、衝擊波與大量灰塵，可能造成撞擊冬天；科學家正研究撞偏小行星的方法。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "如果直徑4公里的彗星撞擊地球，天空最先會出現什麼？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "💥",
+          "label": "耀眼的閃光",
+          "explanation": "高速撞擊會釋放巨大能量，首先出現耀眼閃光。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "🍬",
+          "label": "彩色糖果雨"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "🌈",
+          "label": "漂亮大彩虹"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "🌑",
+          "label": "天空變黑"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "彗星撞擊產生的「全球烤箱效應」，會讓地表溫度上升到大約幾度？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "🌡️",
+          "label": "約200度",
+          "explanation": "撞擊拋出的物質重返大氣，可能讓地表升到約 200 度。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "☀️",
+          "label": "30度如夏天"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "♨️",
+          "label": "沸水的100度"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🔥",
+          "label": "高達一千度"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "為什麼撞擊發生後，地球會進入寒冷的「撞擊冬天」？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "❄️",
+          "label": "灰塵遮擋陽光",
+          "explanation": "撞擊揚起灰塵遮住陽光，地球會變冷進入撞擊冬天。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "🌑",
+          "label": "光突然消失"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "🚀",
+          "label": "離太陽變遠了"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🌊",
+          "label": "冰山全融化"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "哪一顆彗星曾撞擊木星，讓人類科學家大吃一驚？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "🪐",
+          "label": "舒梅克李維九號",
+          "explanation": "舒梅克李維九號曾在 1994 年撞擊木星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "☄️",
+          "label": "名雷彗星"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "✨",
+          "label": "紫金山阿特拉斯"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "🚀",
+          "label": "阿波羅彗星"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "NASA的DART任務是用什麼方法來保護地球？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "🚀",
+          "label": "太空船撞偏",
+          "explanation": "DART 用太空船撞擊小行星，測試改變軌道的方法。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "⚡",
+          "label": "Gamma射線燒毀"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🕸️",
+          "label": "太空架設大網"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "✈️",
+          "label": "用噴射機拉開"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "科學家認為恐龍最有可能是因為什麼原因滅絕的？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "🦕",
+          "label": "小行星撞擊",
+          "explanation": "科學家認為恐龍滅絕與大型小行星撞擊有關。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🦠",
+          "label": "嚴重傳染病"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🌋",
+          "label": "火山大規模"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🥶",
+          "label": "地球冰河期"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "如果彗星即將撞擊地球，哪裡可能是比較安全的躲藏地點？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "🕳️",
+          "label": "地底深處",
+          "explanation": "地底深處能避開高溫、衝擊波和大量灰塵。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "🏢",
+          "label": "堅固大樓"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "🌊",
+          "label": "馬里亞納海溝"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "🧥",
+          "label": "穿上厚衣服"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "彗星撞擊時產生的「衝擊波」威力像什麼？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "💨",
+          "label": "超音速空氣牆",
+          "explanation": "衝擊波像高速空氣牆，能造成強大破壞。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "⛈️",
+          "label": "強大雷陣雨"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "🌊",
+          "label": "像海嘯的水牆"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "🌋",
+          "label": "火山噴發岩漿"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "撞擊造成的「撞擊冬天」大約會持續多久？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "⏳",
+          "label": "好幾年",
+          "explanation": "撞擊灰塵可能停留多年，使陽光不足、植物難生長。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "⏱️",
+          "label": "幾分鐘"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "📅",
+          "label": "好幾天"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "💯",
+          "label": "大約一百年"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "人類比恐龍幸運、能預防撞擊災難的原因是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "🧠",
+          "label": "科學太空計畫",
+          "explanation": "人類有觀測和太空任務，可提早發現並嘗試防範。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "🤝",
+          "label": "人類懂得團結"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "벙",
+          "label": "防空洞技術佳"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "🌡️",
+          "label": "有溫室效應"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "造成「烤箱效應」的主要原因是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "🔥",
+          "label": "碎片重返大氣",
+          "explanation": "撞擊碎片重返大氣時摩擦生熱，造成烤箱效應。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "💨",
+          "label": "引發衝擊波"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "🌋",
+          "label": "火山大噴發"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "🌌",
+          "label": "大氣層破洞"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "在彗星撞擊的一瞬間，地面的岩石會發生什麼變化？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "🌫️",
+          "label": "高溫蒸發氣化",
+          "explanation": "撞擊能量極大，地面岩石會被高溫氣化。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "🏖️",
+          "label": "碎成細小沙粒"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🧊",
+          "label": "結冰變大冰塊"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "泥",
+          "label": "變成爛泥巴"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "舒梅克-李維九號彗星在木星上留下的「疤痕」有多大？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "🌍",
+          "label": "比地球還大",
+          "explanation": "舒梅克李維九號在木星留下比地球還大的撞擊痕。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🏙️",
+          "label": "台北市一樣大"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "🌕",
+          "label": "月亮一樣大"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "🪐",
+          "label": "木星一樣大"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "科學家想用核彈攔截彗星，主要原理是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "☢️",
+          "label": "熱能改變軌道",
+          "explanation": "核爆熱能可讓表面物質噴出，推動彗星改變軌道。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "💥",
+          "label": "將彗星炸粉碎"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "⚔️",
+          "label": "直接消滅彗星"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "🧊",
+          "label": "凍結在太空中"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "「重力牽引機」是如何改變彗星飛行軌道的？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "🧲",
+          "label": "利用萬有引力",
+          "explanation": "重力牽引機靠太空船引力，慢慢拉偏彗星軌道。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "〰️",
+          "label": "用隱形繩子拉"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "🧲",
+          "label": "用超大磁鐵吸"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "💨",
+          "label": "用強力風扇吹"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "「真空隧道效應」是指彗星在什麼地方留下的瞬間空洞？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "🌪️",
+          "label": "刺穿大氣層",
+          "explanation": "高速彗星穿過大氣時，可能短暫留下真空空洞。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "⛰️",
+          "label": "高山炸成平地"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "🌊",
+          "label": "深海中的水道"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "🕳️",
+          "label": "宇宙黑洞"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "撞擊產生的「熱浪」傳播速度大約多快？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "⚡",
+          "label": "跟光速一樣",
+          "explanation": "撞擊熱輻射以光速傳播，所以熱浪非常快抵達。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "🔊",
+          "label": "跟聲音一樣"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "💨",
+          "label": "跟強風一樣"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "🏃",
+          "label": "跟跑步一樣"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "根據動能公式，彗星的破壞力跟什麼的平方成正比？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🚀",
+          "label": "飛行的速度",
+          "explanation": "動能和速度平方成正比，速度越快破壞力越大。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "⚖️",
+          "label": "彗星的重量"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "📦",
+          "label": "彗星的體積"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "🌡️",
+          "label": "環境的溫度"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "除了強力撞擊，還有什麼「溫和」的方法可以改變彗星軌道？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🛸",
+          "label": "重力牽引力",
+          "explanation": "太空船可用微小引力長時間牽引，慢慢改變軌道。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "💨",
+          "label": "強風吹偏彗星"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "🪞",
+          "label": "架設反射鏡"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "❄️",
+          "label": "噴冰降溫降速"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "為什麼在彗星鑽洞埋核彈，在現實中可能不是好主意？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "💥",
+          "label": "產生碎塊更危險",
+          "explanation": "炸碎彗星可能產生更多碎塊，反而增加撞擊風險。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "鑽",
+          "label": "硬度高難鑽洞"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "💰",
+          "label": "核彈成本昂貴"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "💣",
+          "label": "引發連鎖爆炸"
+        }
+      ]
+    }
+  ]
+}

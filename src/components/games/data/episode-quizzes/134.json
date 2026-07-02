@@ -1,0 +1,588 @@
+{
+  "episode_id": "134",
+  "category_name": "氣象魔法與地球防衛隊",
+  "name": "天氣魔法師：是誰在天空發脾氣？",
+  "knowledge": "太陽加熱地球，造成氣壓和風；冷暖空氣相遇會形成鋒面，也可能帶來雨和雷。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "「天氣」和「氣候」有什麼不一樣？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "☀️",
+          "label": "短期與長期",
+          "explanation": "天氣是短時間變化，氣候是長時間的平均狀態。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "🌧️",
+          "label": "地區差異"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "⚖️",
+          "label": "完全一樣"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "🎭",
+          "label": "看心情定"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "地球能量的主要來源是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "🌞",
+          "label": "太陽",
+          "explanation": "太陽提供熱量和光，是地球天氣能量的主要來源。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "🌙",
+          "label": "溫柔月亮"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "🌟",
+          "label": "閃爍星星"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🌋",
+          "label": "噴發火山"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "熱空氣會怎麼樣？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "🎈",
+          "label": "上升成低壓",
+          "explanation": "熱空氣較輕會上升，地面附近就形成低氣壓。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "⚓",
+          "label": "下沉高壓"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "🧊",
+          "label": "結冰不動"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🛑",
+          "label": "完全靜止"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "冷空氣會怎麼樣？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "📉",
+          "label": "下沉成高壓",
+          "explanation": "冷空氣較重會下沉，壓在地面形成高氣壓。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "🎈",
+          "label": "上升低壓"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🌫️",
+          "label": "蒸發消失"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "🔥",
+          "label": "燃燒發熱"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "下列哪一個「不是」構成颱風形成的必要條件？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "🏝️",
+          "label": "溫暖陸地",
+          "explanation": "颱風需要溫暖海水提供能量，不是在溫暖陸地形成。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "🌊",
+          "label": "溫暖海洋"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🌪️",
+          "label": "強低氣壓"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "🌍",
+          "label": "地球轉圈"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "夏天陸地比海洋熱，空氣上升形成什麼系統？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "🌡️",
+          "label": "低壓系統",
+          "explanation": "陸地受熱後空氣上升，因此會形成低壓系統。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🧊",
+          "label": "高壓系統"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🏔️",
+          "label": "冰河系統"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🕳️",
+          "label": "真空系統"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "冷氣團和暖氣團相遇的交界面叫做什麼？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "⚔️",
+          "label": "鋒面",
+          "explanation": "冷暖氣團相遇的交界面，就叫做鋒面。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "➖",
+          "label": "交界線條"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "🗺️",
+          "label": "氣候地帶"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "🧱",
+          "label": "巨大壓力"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "當冷氣團快速推擠暖氣團，會形成什麼鋒面？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "🥶",
+          "label": "冷鋒",
+          "explanation": "冷氣團快速推擠暖氣團時，就會形成冷鋒。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "🥵",
+          "label": "溫暖暖鋒"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "🛑",
+          "label": "滯留不動"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "⛓️",
+          "label": "囚錮狀態"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "冷鋒過境通常會帶來什麼樣的天氣？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "⛈️",
+          "label": "劇烈雷雨",
+          "explanation": "冷鋒移動快，常帶來打雷、閃電和急雨。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "☀️",
+          "label": "晴空萬里"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🌧️",
+          "label": "毛毛細雨"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "❄️",
+          "label": "降下大雪"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "暖鋒是怎麼移動的？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "🐢",
+          "label": "緩慢爬升",
+          "explanation": "暖空氣沿冷空氣上方慢慢爬升，所以暖鋒移動較慢。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "🐆",
+          "label": "快速衝刺"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "🛑",
+          "label": "原地不動"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "⏪",
+          "label": "倒退著走"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "當冷氣團和暖氣團勢力相當，僵持不下的時候，會形成什麼鋒面？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "🤝",
+          "label": "滯留鋒",
+          "explanation": "冷暖氣團勢力相當、停在原地時，就會形成滯留鋒。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "🥶",
+          "label": "強勢冷鋒"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "🥵",
+          "label": "強勢暖鋒"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "⛓️",
+          "label": "囚錮狀態"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "台灣的梅雨季節跟哪種鋒面有關？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "☔",
+          "label": "滯留鋒",
+          "explanation": "梅雨常和滯留鋒有關，鋒面停留會帶來連續降雨。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "🥶",
+          "label": "寒流冷鋒"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🥵",
+          "label": "熱氣暖鋒"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "🌀",
+          "label": "強烈颱風"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "會隨著季節改變吹送方向的風，叫做什麼？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "🌬️",
+          "label": "季風",
+          "explanation": "季風會隨季節改變方向，夏天和冬天吹法不同。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🌀",
+          "label": "颱風"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "🌪️",
+          "label": "龍捲風"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "🍃",
+          "label": "微風"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "古時候的人會觀察什麼來預測天氣？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "🦉",
+          "label": "雲和動物",
+          "explanation": "古人會看雲形和動物行為，推測接下來的天氣。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "📖",
+          "label": "農民曆"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🔭",
+          "label": "看星象"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "🌡️",
+          "label": "土壤溫度"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "為什麼夏天的季風會帶來很多雨水？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "🌊",
+          "label": "海洋帶水氣",
+          "explanation": "夏季風從海洋帶來水氣，進入陸地後容易下雨。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "🌡️",
+          "label": "陸地很熱"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "⚡",
+          "label": "午後雷雨"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "⚓",
+          "label": "高壓籠罩"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "颱風（颶風）是在哪裡形成的？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "🌊",
+          "label": "溫暖海洋",
+          "explanation": "颱風需要溫暖海水和水氣，所以多在熱帶海洋形成。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "🏔️",
+          "label": "寒冷陸地"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "⛰️",
+          "label": "崇高山上"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "🏜️",
+          "label": "乾燥沙漠"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "颱風中心最平靜的區域叫做什麼？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "👁️",
+          "label": "颱風眼",
+          "explanation": "颱風中心較平靜，這個區域就叫做颱風眼。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "👄",
+          "label": "颱風之嘴"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "🖐️",
+          "label": "颱風之手"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "🦶",
+          "label": "颱風之腳"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "颱風眼周圍的區域通常天氣如何？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🌪️",
+          "label": "風雨最強",
+          "explanation": "颱風眼周圍的眼牆最猛烈，常有強風豪雨。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "😌",
+          "label": "風平浪靜"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "☀️",
+          "label": "出大太陽"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "🌌",
+          "label": "沒有空氣"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "在西北太平洋地區，我們稱這種熱帶氣旋為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🌀",
+          "label": "颱風",
+          "explanation": "西北太平洋的熱帶氣旋，在台灣附近稱為颱風。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "🌪️",
+          "label": "強大颶風"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "🍃",
+          "label": "輕快旋風"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "🌪️",
+          "label": "龍捲怪風"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "看到氣象預報有颱風要來，我們應該怎麼做？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "🔦",
+          "label": "準備物資",
+          "explanation": "颱風前先準備水、食物和手電筒，才能安全應對。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "🧹",
+          "label": "去清排水"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "✂️",
+          "label": "去剪樹木"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "🌊",
+          "label": "去看長浪"
+        }
+      ]
+    }
+  ]
+}

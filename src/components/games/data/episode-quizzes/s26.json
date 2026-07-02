@@ -1,0 +1,588 @@
+{
+  "episode_id": "s26",
+  "category_name": "探索無垠的宇宙",
+  "name": "追不到的光！宇宙中最快的速度可以被超越嗎？",
+  "knowledge": "光在真空中每秒約跑30萬公里，而且速度不會因觀察者改變；相對論與GPS校正都和光速有關。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "大約 400 年前，是哪一位科學家最早嘗試測量光速？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "🔭",
+          "label": "伽利略",
+          "explanation": "伽利略很早嘗試用燈光測量光速。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "🍎",
+          "label": "牛頓"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "🧠",
+          "label": "愛因斯坦"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "💡",
+          "label": "愛迪生"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "光在真空中跑得非常快，大約一秒鐘能跑多少公里？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "⚡",
+          "label": "30萬公里",
+          "explanation": "真空中的光速約每秒30萬公里。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "🚗",
+          "label": "十公里"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "✈️",
+          "label": "一萬公里"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🚀",
+          "label": "三千公里"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "伽利略在測量光速時，使用的是什麼工具來傳遞信號？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "🏮",
+          "label": "有蓋煤油燈",
+          "explanation": "伽利略用有蓋煤油燈開合來傳光信號。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "🪞",
+          "label": "大型反射鏡"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "🔭",
+          "label": "自製望遠鏡"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "⛲",
+          "label": "精密水鐘"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "光的速度非常快，一秒鐘大約可以繞地球幾圈半？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "🌍",
+          "label": "7 圈半",
+          "explanation": "光速很快，一秒約可繞地球七圈半。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "⭕",
+          "label": "1 圈"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🌪️",
+          "label": "100 圈"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "🌙",
+          "label": "半圈"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "科學家以前曾假設有一種「光的游泳池」介質，那叫什麼？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "🌊",
+          "label": "以太",
+          "explanation": "古人曾假想以太是讓光傳播的介質。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "📶",
+          "label": "電磁波"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "👻",
+          "label": "暗物質"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "☁️",
+          "label": "宇宙塵埃"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "邁克生和莫立的實驗證明，光的速度有什麼特性？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "📏",
+          "label": "永遠固定不變",
+          "explanation": "實驗顯示光速不會因觀察者移動而改變。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🚀",
+          "label": "越跑越快"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🐢",
+          "label": "越跑越慢"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🌧️",
+          "label": "隨天氣改變"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "如果 GPS 導航不考慮光速與時間的相對關係，會發生什麼事？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "📍",
+          "label": "定位產生大誤差",
+          "explanation": "GPS 必須校正相對論時間差，否則定位會偏。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "🗺️",
+          "label": "地圖無法更新"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "📶",
+          "label": "訊號完全中斷"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "☄️",
+          "label": "衛星會掉下來"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "光纖網路能快速傳遞資訊，是利用光在玻璃中？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "🪞",
+          "label": "不斷反射前進",
+          "explanation": "光在光纖玻璃內不斷反射，傳送訊號。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "🕳️",
+          "label": "拼命鑽地洞"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "🚶",
+          "label": "慢慢散步"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "🤏",
+          "label": "自動縮小"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "伽利略當年測量光速失敗，最主要的真正原因是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "⏱️",
+          "label": "光速快人反應不及",
+          "explanation": "光速太快，人類反應時間無法精準測出。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "😴",
+          "label": "助手反應慢"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "⛰️",
+          "label": "山太高爬不上去"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "🕯️",
+          "label": "燈太暗看不清"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "愛因斯坦根據「光速不變」原理，提出了什麼理論？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "🧠",
+          "label": "相對論",
+          "explanation": "愛因斯坦由光速不變發展出相對論。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "🐒",
+          "label": "進化論"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "🍎",
+          "label": "萬有引力"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "🌍",
+          "label": "地心引力"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "人腦從看到光到指揮手做出反應，平均反應時間需要多久？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "⏳",
+          "label": "0.2 秒",
+          "explanation": "人腦反應約0.2秒，遠比光速慢很多。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "⚡",
+          "label": "0.01秒"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "🕰️",
+          "label": "10 秒"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "⏱️",
+          "label": "0 秒"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "光跑過實驗中兩座山的距離（1.5 公里）約需多久？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "⚡",
+          "label": "百萬分之一秒",
+          "explanation": "光速太快，跑1.5公里只需百萬分之幾秒。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "⏱️",
+          "label": "1 秒鐘"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "⏳",
+          "label": "0.2 秒"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "🕰️",
+          "label": "10 分鐘"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "邁克生莫立實驗在科學史上被稱為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "🏆",
+          "label": "最成功的失敗",
+          "explanation": "實驗沒找到以太，卻推動光速不變的發現。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "☠️",
+          "label": "最危險的實驗"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "🧮",
+          "label": "最精密的計算"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "💡",
+          "label": "最偉大的發明"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "根據相對論，GPS 衛星上面的時間會發生什麼變化？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "🕰️",
+          "label": "比地面慢一點",
+          "explanation": "衛星速度快，依相對論時間會比地面慢一點。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "⏱️",
+          "label": "跟地面一樣快"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🚀",
+          "label": "比地面快很多"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "⏪",
+          "label": "會倒退走"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "在「慢光」實驗中，科學家讓光速變得跟什麼一樣慢？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "🚲",
+          "label": "騎腳踏車",
+          "explanation": "慢光實驗讓光在特殊介質中慢到像騎車。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "✈️",
+          "label": "戰鬥機"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "🐜",
+          "label": "螞蟻爬行"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "🚶",
+          "label": "走路"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "愛因斯坦將量子糾纏的瞬間感應現象，稱為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "👻",
+          "label": "鬼魅般超距作用",
+          "explanation": "愛因斯坦用這句話形容量子糾纏的遠距關聯。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "⚡",
+          "label": "宇宙閃電"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "💥",
+          "label": "量子大爆發"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "🎩",
+          "label": "魔法傳音筒"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "伽利略自製的「接力時計」工具是利用什麼原理？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "⛲",
+          "label": "噴水水鐘",
+          "explanation": "水鐘用流出水量來估算經過的時間。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "⏳",
+          "label": "沙漏計時"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "🕰️",
+          "label": "鐘擺計時"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "☀️",
+          "label": "太陽日晷"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "如果「慢光」技術成熟，未來可能製作出什麼產品？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "💾",
+          "label": "光的記憶體",
+          "explanation": "慢光若能控制光，可用來發展光記憶體。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "🔦",
+          "label": "不熄滅手電筒"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "💡",
+          "label": "發光二極體"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "🔫",
+          "label": "光波雷射槍"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "太陽光傳到地球約需 8 分鐘，這代表我們看到的太陽是？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "☀️",
+          "label": "8分鐘前的太陽",
+          "explanation": "太陽光到地球約8分鐘，所以看到的是過去。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "👀",
+          "label": "現在的太陽"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "📅",
+          "label": "明天的太陽"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "🕰️",
+          "label": "1小時前的太陽"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "了解光速對人類探索宇宙最重要的意義是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "🧱",
+          "label": "理解時空的基本",
+          "explanation": "光速是理解時間、空間與宇宙規律的基準。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "📶",
+          "label": "提升網路速度"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "🌍",
+          "label": "測量地球大小"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "🔫",
+          "label": "製造強力雷射"
+        }
+      ]
+    }
+  ]
+}

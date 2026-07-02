@@ -1,0 +1,588 @@
+{
+  "episode_id": "152",
+  "category_name": "侏羅紀生物遠征隊",
+  "name": "恐恐龍時代：地球霸主的興衰（中）",
+  "knowledge": "恐龍腿在身體下方，能支撐巨大體型；古大陸分裂後，各地恐龍逐漸演化出不同樣貌。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "根據目前的科學研究，恐龍在地球上的統治時間大約橫跨了多久？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "⏳",
+          "label": "整個中生代",
+          "explanation": "恐龍主要生活在整個中生代，時間橫跨三個紀。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "☄️",
+          "label": "白堊紀晚期"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "🐒",
+          "label": "新生代初期"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "🦐",
+          "label": "寒武紀晚期"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "「溫血引擎」這比喻是指恐龍具有哪種特性？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "🔥",
+          "label": "自行產熱",
+          "explanation": "溫血引擎指恐龍可能能產熱，維持身體活力。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "☀️",
+          "label": "需要曬太陽"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "❤️",
+          "label": "心跳超級大"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🏎️",
+          "label": "跑得像汽車"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "恐龍的腳長在身體的哪個位置，幫助撐起巨大的體型？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "🦵",
+          "label": "身體正下方",
+          "explanation": "恐龍腿在身體正下方，像柱子一樣支撐體重。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "↔️",
+          "label": "身體的兩側"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "📏",
+          "label": "前短後腳長"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🦏",
+          "label": "腹部支撐"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "科學家在恐龍化石中發現的什麼線索，類似樹木的年輪？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "⭕",
+          "label": "骨頭生長環",
+          "explanation": "骨頭生長環像年輪，可記錄恐龍成長速度。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "🦴",
+          "label": "骨髓的空腔"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🦷",
+          "label": "牙齒的磨損"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "🐍",
+          "label": "鱗片的紋路"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "從生長環中科學家發現恐龍小時候的生長速度？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "🚀",
+          "label": "快速生長",
+          "explanation": "生長環顯示，有些小恐龍成長速度很快。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "🐍",
+          "label": "不斷地脫皮"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🐢",
+          "label": "非常慢"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "🍔",
+          "label": "據食物而定"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "風神翼龍站起來的高度可能比哪種現代動物還要高？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "🦒",
+          "label": "長頸鹿",
+          "explanation": "風神翼龍站立時很高，可能比長頸鹿還高。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🐘",
+          "label": "大象"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🦁",
+          "label": "獅子"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🦤",
+          "label": "鴕鳥"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "翼龍的翅膀主要是由什麼構造組成的？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "🦇",
+          "label": "手指連皮膜",
+          "explanation": "翼龍翅膀由延長手指和皮膜組成，不是羽毛。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "🪶",
+          "label": "密集的羽毛"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "🐟",
+          "label": "堅硬的鱗片"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "🦴",
+          "label": "中空的骨骼"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "滄龍生活在什麼環境，是當時的超級掠食者？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "🌊",
+          "label": "史前海洋",
+          "explanation": "滄龍生活在史前海洋，是當時強大的掠食者。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "🌲",
+          "label": "茂密大森林"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "🏜️",
+          "label": "乾燥的沙漠"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "⛰️",
+          "label": "懸崖洞穴裡"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "蛇頸龍最明顯的外觀特徵是？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "🦕",
+          "label": "脖子非常長",
+          "explanation": "蛇頸龍最明顯的特徵，是非常長的脖子。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "🦷",
+          "label": "大頭和利齒"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🪁",
+          "label": "背上有骨板"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "🗡️",
+          "label": "尾端有尖刺"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "翼龍、蛇頸龍、滄龍在科學分類上「不算是」恐龍對嗎？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "❌",
+          "label": "都不算恐龍",
+          "explanation": "牠們和恐龍同時代，但分類上不是恐龍。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "⭕",
+          "label": "全是恐龍"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "🦅",
+          "label": "只有翼龍是"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "🐊",
+          "label": "只有滄龍是"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "翼龍翅膀的皮膜主要是靠哪根手指頭支撐的？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "🖐️",
+          "label": "第四指",
+          "explanation": "翼龍的第四根手指很長，用來支撐翅膀皮膜。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "👍",
+          "label": "強壯大拇指"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "👆",
+          "label": "靈活的食指"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "🖕",
+          "label": "退化的中指"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "翼龍身體表面覆蓋著一種毛茸茸的構造，稱為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "🧶",
+          "label": "纖毛",
+          "explanation": "翼龍身上的纖毛可幫助保溫，不是鳥類羽毛。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "🐍",
+          "label": "細小鱗片"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🕊️",
+          "label": "鳥類羽毛"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "🛡️",
+          "label": "硬質角質"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "風神翼龍是利用哪種方式起飛的？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "🐸",
+          "label": "前肢彈射",
+          "explanation": "風神翼龍可能用強壯前肢把身體彈起起飛。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🦅",
+          "label": "像鳥拍翅膀"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "🧗",
+          "label": "從懸崖跳下"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "🏄",
+          "label": "水面上助跑"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "地球所有陸地曾經全部黏在一起的超級大陸叫什麼名字？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "🌍",
+          "label": "盤古大陸",
+          "explanation": "盤古大陸是古代所有陸地連在一起的超大陸。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "🌎",
+          "label": "勞亞古陸"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🌏",
+          "label": "岡瓦那古陸"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "🗺️",
+          "label": "歐亞大陸"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "盤古大陸的最中間部分，氣候通常會變得很？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "🏜️",
+          "label": "乾燥像沙漠",
+          "explanation": "大陸中心離海遠，濕氣難到達，所以較乾燥。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "🌧️",
+          "label": "濕潤多雨水"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "🌴",
+          "label": "溫暖且宜人"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "🏔️",
+          "label": "被冰雪覆蓋"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "盤古大陸後來因為什麼力量而開始分裂和移動？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "🧩",
+          "label": "板塊運動",
+          "explanation": "地殼板塊慢慢移動，使盤古大陸分裂。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "🌋",
+          "label": "火山的推力"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "☄️",
+          "label": "隕石的影響"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "🌀",
+          "label": "強颱風侵襲"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "大陸分裂使氣候變得濕潤，形成了什麼效應？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "🌡️",
+          "label": "侏羅紀溫室",
+          "explanation": "大陸分裂後海水進入，氣候變得較濕暖。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "🧊",
+          "label": "極地冰帽"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "🏜️",
+          "label": "沙漠化擴張"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "📉",
+          "label": "海平面下降"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "為什麼地理隔離被稱為演化的「加速器」？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🧬",
+          "label": "促進多樣化",
+          "explanation": "生物被分隔到不同地方，會各自適應並演化。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "🏎️",
+          "label": "讓恐龍跑快"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "⏩",
+          "label": "讓大陸變快"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "📏",
+          "label": "長得更快"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "暴龍和南方巨獸龍長得不太一樣，主要是因為？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🗺️",
+          "label": "地理隔離",
+          "explanation": "大陸分開造成隔離，讓恐龍各自演化出差異。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "🍖",
+          "label": "吃東西不同"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "⚔️",
+          "label": "在同林競爭"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "🦅",
+          "label": "一種鳥演化"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "在極地發現恐龍化石，證明了恐龍可能具有什麼能力？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "❄️",
+          "label": "在寒地生存",
+          "explanation": "極地化石顯示，有些恐龍能適應寒冷環境。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "🌴",
+          "label": "遷徙到熱帶"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "😴",
+          "label": "長時間冬眠"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "🤿",
+          "label": "潛深海避寒"
+        }
+      ]
+    }
+  ]
+}

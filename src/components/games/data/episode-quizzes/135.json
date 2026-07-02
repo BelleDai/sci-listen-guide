@@ -1,0 +1,588 @@
+{
+  "episode_id": "135",
+  "category_name": "氣象魔法與地球防衛隊",
+  "name": "天空中的變形金剛：雲朵、雨滴與龍捲風的奇幻旅程",
+  "knowledge": "雲由小水滴或冰晶組成；積雨雲可能帶來雷電、冰雹，強烈旋轉還會形成龍捲風。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "下列哪一種不屬於「降水」？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "🌫️",
+          "label": "地面的霧",
+          "explanation": "霧是地面附近的小水滴，沒有從天空落下，所以不算降水。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "🌧️",
+          "label": "下落的雨"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "❄️",
+          "label": "飄落的雪"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "🧊",
+          "label": "砸下的雹"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "雲是由什麼組成的？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "💧",
+          "label": "水滴冰晶",
+          "explanation": "雲是許多小水滴或冰晶聚在空中形成的。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "💨",
+          "label": "白色煙霧"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "🧶",
+          "label": "細小纖維"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "♨️",
+          "label": "透明蒸氣"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "大氣中哪一種東西像人一樣，高矮胖瘦長得都不一樣？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "❄️",
+          "label": "雪花",
+          "explanation": "雪花形成時溫度和濕度不同，所以每片形狀都不一樣。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "☁️",
+          "label": "雲朵"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "💧",
+          "label": "雨滴"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🧊",
+          "label": "冰雹"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "哪一位科學家被稱為「雪花人」，拍了幾千張雪花照片？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "📷",
+          "label": "本特利先生",
+          "explanation": "本特利用照片研究雪花，因此被稱為「雪花人」。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "👨‍🔬",
+          "label": "愛因斯坦"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🍎",
+          "label": "牛頓"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "💡",
+          "label": "愛迪生"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "冰雹通常是在哪種雲裡面形成的？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "⛈️",
+          "label": "積雨雲",
+          "explanation": "積雨雲裡有強上升氣流，能讓冰塊長大成冰雹。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "☁️",
+          "label": "輕柔卷雲"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🌫️",
+          "label": "扁平層雲"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "🌧️",
+          "label": "灰色高層雲"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "霧其實就是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "☁️",
+          "label": "地上的雲",
+          "explanation": "霧和雲都由小水滴組成，只是霧貼近地面。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🔥",
+          "label": "失火的煙"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "😷",
+          "label": "髒髒空氣"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🧙",
+          "label": "神仙法術"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "哪一種雲長得像棉花糖或城堡，一塊一塊的？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "☁️",
+          "label": "積雲",
+          "explanation": "積雲白白一團，外形像棉花糖或小城堡。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "🌫️",
+          "label": "扁平層雲"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "🪶",
+          "label": "絲狀卷雲"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "🌧️",
+          "label": "灰色雨層雲"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "哪一種雲長得像羽毛或頭髮，住在很高的地方？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "🪶",
+          "label": "卷雲",
+          "explanation": "卷雲在高空形成，常呈現羽毛般一絲一絲的形狀。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "☁️",
+          "label": "胖胖積雲"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "🌫️",
+          "label": "扁平層雲"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "⛈️",
+          "label": "黑色積雨雲"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "哪一種雲像灰色的被子把天空蓋住？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "🌫️",
+          "label": "層雲",
+          "explanation": "層雲像灰色毯子鋪滿天空，常讓天色變陰。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "☁️",
+          "label": "胖胖積雲"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🪶",
+          "label": "一絲一絲"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "⛈️",
+          "label": "黑色積雨雲"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "風是因為空氣從哪裡跑到哪裡？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "🌬️",
+          "label": "高壓到低壓",
+          "explanation": "空氣會從高氣壓流向低氣壓，流動時就形成風。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "🛑",
+          "label": "低壓到高壓"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "⬅️",
+          "label": "左邊到右邊"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "⬇️",
+          "label": "上面到下面"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "氣壓差越大，風會怎麼樣？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "🌪️",
+          "label": "風越強",
+          "explanation": "氣壓差越大，空氣流動越快，所以風也越強。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "🍃",
+          "label": "風越弱"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "🛑",
+          "label": "保持不變"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "🌫️",
+          "label": "消失無蹤"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "龍捲風通常是從哪種雲伸下來的？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "⛈️",
+          "label": "積雨雲",
+          "explanation": "龍捲風常從積雨雲伸下，因為裡面有強烈旋轉氣流。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "🪶",
+          "label": "絲狀卷雲"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🌫️",
+          "label": "扁平層雲"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "🌫️",
+          "label": "地面霧氣"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "龍捲風的形狀像什麼？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "🌪️",
+          "label": "漏斗形狀",
+          "explanation": "龍捲風上寬下窄，外形很像從雲伸下來的漏斗。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "⬜",
+          "label": "四正方形"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "🔺",
+          "label": "尖三角形"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "⭕",
+          "label": "圓形球體"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "雲層裡之所以會閃電，是因為冰晶和水滴發生了什麼事？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "⚡",
+          "label": "摩擦碰撞",
+          "explanation": "冰晶和水滴摩擦碰撞會累積靜電，放電時就是閃電。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "💧",
+          "label": "水滴變重"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🌬️",
+          "label": "空氣對流"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "♨️",
+          "label": "冰晶融化"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "聽到雷聲是因為閃電讓空氣怎麼樣？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "💥",
+          "label": "受熱膨脹",
+          "explanation": "閃電讓空氣快速受熱膨脹，震動後就變成雷聲。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "☁️",
+          "label": "雲層相撞"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "🧪",
+          "label": "化學反應"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "🧊",
+          "label": "遇冷收縮"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "哪裡有著名的「龍捲風走廊」？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "🇺🇸",
+          "label": "美國中部",
+          "explanation": "美國中部冷暖空氣常相遇，因此容易出現龍捲風。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "🇹🇼",
+          "label": "台灣島"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "🇯🇵",
+          "label": "日本群島"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "🇦🇶",
+          "label": "寒冷南極"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "如果在極低溫的雲層中，原本的小水滴會轉變成什麼？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "❄️",
+          "label": "固態冰晶",
+          "explanation": "低溫會讓小水滴結冰，變成固態冰晶。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "🌫️",
+          "label": "液態霧氣"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "🧊",
+          "label": "大型冰雹"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "♨️",
+          "label": "高溫蒸氣"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "大氣中的冰雹主要是怎麼形成的？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🎢",
+          "label": "反覆結冰",
+          "explanation": "小冰塊在積雨雲中反覆結冰變大，太重就落下成冰雹。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "❄️",
+          "label": "高空凝固"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "☁️",
+          "label": "被雲擠扁"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "💧",
+          "label": "被冷空氣凍"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "如果龍捲風快要來了，應該怎麼辦？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🏠",
+          "label": "躲進建築物",
+          "explanation": "龍捲風很危險，躲進堅固建築物比較安全。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "🪟",
+          "label": "在窗邊看"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "🏃",
+          "label": "往高處跑"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "🏃‍♂️",
+          "label": "順風奔跑"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "雲為什麼不會整塊掉下來？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "🌬️",
+          "label": "氣流托住",
+          "explanation": "小水滴很輕，又有上升氣流托住，所以雲不會整塊掉下。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "🧲",
+          "label": "壓力吸住"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "🎈",
+          "label": "重量極輕"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "⛵",
+          "label": "產生浮力"
+        }
+      ]
+    }
+  ]
+}

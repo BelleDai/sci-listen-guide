@@ -1,0 +1,588 @@
+{
+  "episode_id": "s18",
+  "category_name": "探索無垠的宇宙",
+  "name": "我們不孤單？在太陽系跟宇宙找外星人",
+  "knowledge": "科學家在冰衛星地下海洋尋找生命，也用無線電向宇宙送訊息；目前還沒有發現外星生命。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "目前科學家已經發現外星人存在的證據了嗎？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "❌",
+          "label": "還沒發現",
+          "explanation": "目前科學研究還沒有找到外星生命證據。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "🪐",
+          "label": "土衛二上有蹤跡"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "📞",
+          "label": "收到外星訊號"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "👽",
+          "label": "有火星人照片"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "木衛二離太陽很遠，為什麼地底下會有液態海洋？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "🔥",
+          "label": "擠壓摩擦生熱",
+          "explanation": "木星引力擠壓木衛二，摩擦生熱融出海洋。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "☢️",
+          "label": "放射性元素加熱"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "☀️",
+          "label": "太陽風加熱"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🌡️",
+          "label": "溫室效應生熱"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "「阿雷西博訊息」是用什麼方式傳給外星人的？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "📻",
+          "label": "無線電訊號",
+          "explanation": "阿雷西博訊息是用無線電波送向宇宙。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "⚡",
+          "label": "高能雷射脈衝"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "📀",
+          "label": "金唱片"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "💡",
+          "label": "規律的光線"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "離我們太陽系最近的恆星鄰居叫什麼名字？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "⭐",
+          "label": "比鄰星",
+          "explanation": "比鄰星位在半人馬座，是離太陽最近的恆星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "✨",
+          "label": "天狼星"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🧭",
+          "label": "北極星"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "🌌",
+          "label": "牛郎星"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "哪一顆衛星會像鯨魚一樣，從南極噴出水蒸氣？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "🐳",
+          "label": "土衛二",
+          "explanation": "土衛二南極裂縫會把水蒸氣噴到太空。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "🌕",
+          "label": "月球"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🔴",
+          "label": "火星"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "💨",
+          "label": "海王星"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "科學家尋找外星生命時，覺得最重要的東西是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "💧",
+          "label": "液態水",
+          "explanation": "地球生命需要水，所以液態水是找生命重點。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🛡️",
+          "label": "磁場保護"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🧬",
+          "label": "有機分子"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "💨",
+          "label": "充足的氧氣"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "「搜尋地外文明計畫」的主要任務是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "🎧",
+          "label": "監聽宇宙訊號",
+          "explanation": "SETI 監聽宇宙電波，尋找不自然訊號。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "⚔️",
+          "label": "訓練太空戰士"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "🏢",
+          "label": "建立外星基地"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "📞",
+          "label": "聯繫外星人"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "用光速傳訊息到最近的「比鄰星」要花多久？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "⏱️",
+          "label": "需要4年多",
+          "explanation": "比鄰星距離約4光年，光也要走4年多。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "⚡",
+          "label": "只要1秒鐘"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "⏳",
+          "label": "需要10分"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "🕰️",
+          "label": "需要逾一萬"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "阿雷西博訊息用點陣圖跟外星人介紹了什麼？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "🧬",
+          "label": "人類外型與DNA",
+          "explanation": "訊息用點陣圖介紹人類外型與DNA。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "🗺️",
+          "label": "行星座標"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🚀",
+          "label": "飛船構造"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "🌍",
+          "label": "地球位置"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "在太陽系之外，繞著其他恆星跑的行星叫什麼？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "🪐",
+          "label": "系外行星",
+          "explanation": "繞其他恆星運行的行星，稱為系外行星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "🚶",
+          "label": "流浪的行星"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "💥",
+          "label": "中子星"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "🎈",
+          "label": "紅巨星"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "卡西尼號在土衛二（恩克拉多斯）拍到了什麼驚喜？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "⛲",
+          "label": "南極有噴泉",
+          "explanation": "卡西尼號拍到土衛二南極噴出水氣和冰晶。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "🌊",
+          "label": "溫暖海洋"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "🏛️",
+          "label": "外星城市遺址"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "🌋",
+          "label": "岩漿噴發"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "好奇博士把適合居住的「適居帶」比喻成什麼？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "🥩",
+          "label": "黃金烤肉區",
+          "explanation": "適居帶距離恆星剛好，液態水較能存在。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "🏝️",
+          "label": "宇宙綠洲區"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "⛺",
+          "label": "星際避風港"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "🔥",
+          "label": "恆星加熱帶"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "「潮汐加熱」的原理，像是在揉捏什麼東西？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "🧶",
+          "label": "黏土球",
+          "explanation": "潮汐加熱像揉黏土，拉扯會讓內部變熱。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🍡",
+          "label": "火烤棉花糖"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "🥚",
+          "label": "水煮雞蛋"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "🎈",
+          "label": "氫氣球"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "科學家最期待在木衛二（歐羅巴）的冰層下發現？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "🌊",
+          "label": "地下海洋",
+          "explanation": "木衛二冰殼下可能藏著全球性的地下海洋。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "🪨",
+          "label": "固態的鐵鎳"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🌋",
+          "label": "密集火山群"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "🧊",
+          "label": "厚實乾冰層"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "土衛六（泰坦）的表面，除了大氣層還有什麼？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "🏞️",
+          "label": "液態甲烷湖泊",
+          "explanation": "土衛六表面有湖泊，但液體主要是甲烷。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "🌧️",
+          "label": "流動液態水"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "🌋",
+          "label": "高溫熔岩"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "☔",
+          "label": "劇烈硫酸雨"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "未來計畫建造的 SKA「平方公里陣列」望遠鏡，能展現什麼強大的能力？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "📡",
+          "label": "偵測微弱無線電",
+          "explanation": "SKA 天線陣列很靈敏，可偵測微弱無線電。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "🕳️",
+          "label": "觀測黑洞視界"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "⚡",
+          "label": "攔截遠方訊號"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "👻",
+          "label": "追蹤暗物質"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "尋找行星大氣中代表生命的線索，稱為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "🔬",
+          "label": "生物標記",
+          "explanation": "大氣中的特殊氣體線索，稱為生物標記。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "🌈",
+          "label": "光譜吸收率"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "⚡",
+          "label": "大氣電離"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "🌘",
+          "label": "恆星遮蔽效應"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "自 1990 年代首顆系外行星確認以來，目前科學家已確認的數量約？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🌌",
+          "label": "超過 4,000 顆",
+          "explanation": "望遠鏡已確認許多系外行星，數量超過4000顆。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "🔟",
+          "label": "10 顆"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "💯",
+          "label": "100 顆"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "💰",
+          "label": "一百萬顆"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "卡爾薩根提醒我們，人類都是住在什麼上面的宇宙公民？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🚀",
+          "label": "地球號太空船",
+          "explanation": "薩根把地球比成太空船，提醒人類一起守護。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "🧰",
+          "label": "巨大保險箱"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "💡",
+          "label": "閃亮大燈泡"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "🏠",
+          "label": "安全的避難所"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "用光速與最近的比鄰星進行一來一回的訊息傳遞，大約要花多久？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "⏳",
+          "label": "需要八年半",
+          "explanation": "比鄰星約4光年外，訊息來回需約八年半。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "⏱️",
+          "label": "只要四年多"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "🗓️",
+          "label": "十二年"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "🕰️",
+          "label": "至少需要二"
+        }
+      ]
+    }
+  ]
+}

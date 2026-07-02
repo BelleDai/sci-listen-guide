@@ -1,0 +1,588 @@
+{
+  "episode_id": "s24",
+  "category_name": "探索無垠的宇宙",
+  "name": "你的身體裡有個微型宇宙？細胞與星系的奇妙連結",
+  "knowledge": "人體約有數十兆細胞，和銀河系恆星數量很像；星系沿暗物質骨架排列，形成像海綿的宇宙網。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "銀河系從上方看下去呈現優美的風車旋轉狀，這屬於哪種星系？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "🌀",
+          "label": "螺旋星系",
+          "explanation": "銀河系有旋臂，外型像旋轉風車。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "🥚",
+          "label": "橢圓星系"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "☁️",
+          "label": "不規則星系"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "🧊",
+          "label": "方狀星系"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "宇宙中目前觀測到的星系總數量，大約有多少個？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "🌌",
+          "label": "大約幾千億個",
+          "explanation": "這題答案指可觀測宇宙約有幾千億個星系。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "🔟",
+          "label": "不到十個"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "💯",
+          "label": "約一百萬個"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🪐",
+          "label": "跟行星數量一樣"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "如果從側面觀察銀河系，它的外型最像哪一種點心？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "🥞",
+          "label": "扁扁的銅鑼燒",
+          "explanation": "銀河系側面中間鼓、外圍扁，像銅鑼燒。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "🐙",
+          "label": "圓圓的章魚燒"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "🍰",
+          "label": "方方的蜂蜜蛋糕"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🍡",
+          "label": "軟綿的大麻糬"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "我們居住的太陽系，位於銀河系中的哪一個位置？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "🌍",
+          "label": "獵戶旋臂的邊緣",
+          "explanation": "太陽系位在銀河系邊緣附近的獵戶旋臂。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "🎯",
+          "label": "最中心點位置"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "🕳️",
+          "label": "中心的黑洞裡"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "⭕",
+          "label": "最外圍的一圈"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "哪一種星系長得圓圓胖胖，且住著很多年老的恆星？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "🥚",
+          "label": "橢圓星系",
+          "explanation": "橢圓星系圓胖，常有許多年老恆星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "🌀",
+          "label": "螺旋星系"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "☁️",
+          "label": "不規則星系"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "🧊",
+          "label": "正方形星系"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "星系在宇宙中的分佈並非隨機，其結構最像哪一種東西？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "🧽",
+          "label": "充滿洞的海綿",
+          "explanation": "星系沿宇宙網分布，空洞很多，像海綿。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "💂‍♂️",
+          "label": "排隊整齊的士兵"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🎳",
+          "label": "實心的鋼鐵球"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "⚫",
+          "label": "散落的圍棋"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "宇宙中有一種看不見的力量負責支撐星系生長，它是？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "👻",
+          "label": "神祕的暗物質",
+          "explanation": "暗物質用重力聚集物質，幫助星系成長。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "⭐",
+          "label": "發光的恆星"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "☄️",
+          "label": "高速移動的彗星"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "☁️",
+          "label": "太空中的氣雲"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "為什麼科學家會說太空望遠鏡就像是一台「時光機」？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "⏱️",
+          "label": "看見過去的星光",
+          "explanation": "遠方星光要很久才到，望遠鏡看到的是過去。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "🔮",
+          "label": "可以預測未來"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "🎂",
+          "label": "測量星星的年齡"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "⏳",
+          "label": "讓時間變慢"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "我們呼吸所需的氧氣，最初是在宇宙中的哪裡製造出來的？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "⚛️",
+          "label": "恆星內部的核反應",
+          "explanation": "氧等元素在恆星內部核反應中製造出來。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "☀️",
+          "label": "太陽系形成時"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "🌍",
+          "label": "地球大氣層"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "☄️",
+          "label": "冰凍的彗星"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "宇宙中許多星系會靠在一起，這種集合被稱為什麼？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "🏘️",
+          "label": "星系群或星系團",
+          "explanation": "許多星系靠重力聚在一起，稱為星系群或星系團。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "🕸️",
+          "label": "星系絲狀結構"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "🎯",
+          "label": "星系中心核球"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "☁️",
+          "label": "星際雲氣團"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "如果要橫跨整個銀河系大圓盤，直徑大約是多少光年？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "📏",
+          "label": "10萬光年",
+          "explanation": "銀河系盤面直徑約10萬光年，非常寬廣。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "🚗",
+          "label": "十光年"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "🌌",
+          "label": "十萬光年"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "🚶",
+          "label": "一光年"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "在「本星系群」這個星系社區裡，大約住了多少個鄰居？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "🏘️",
+          "label": "50多個",
+          "explanation": "本星系群包含銀河系和約50多個鄰近星系。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "✌️",
+          "label": "剛好2個"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🏙️",
+          "label": "超過十萬個"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "☝️",
+          "label": "沒有鄰居"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "包含數千個星系的巨大繁華地區，我們家附近的叫做？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "🏙️",
+          "label": "室女座星系團",
+          "explanation": "室女座星系團包含數千個星系，離我們較近。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "🌌",
+          "label": "半人馬座星系"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "☁️",
+          "label": "獵戶座星雲"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "🫧",
+          "label": "本地泡結構"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "太陽距離銀河系中心那個鼓起來的「核球」大約多遠？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "🚀",
+          "label": "2.8 萬光年",
+          "explanation": "太陽離銀河系中心約2.8萬光年。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "🎯",
+          "label": "就在中心點"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🌌",
+          "label": "10萬光年"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "🚗",
+          "label": "10公里"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "太陽系在銀河系中不停移動，它每秒的前進速度大約是？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "⚡",
+          "label": "240公里",
+          "explanation": "太陽系繞銀河中心移動，速度約每秒240公里。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "🚗",
+          "label": "10公里"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "☄️",
+          "label": "30公里"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "⚡",
+          "label": "30萬公里"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "韋伯太空望遠鏡拍到的「寶寶星系」，有什麼驚人的特點？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "😲",
+          "label": "巨大且成熟",
+          "explanation": "韋伯看到早期星系，竟已顯得巨大又成熟。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "🪨",
+          "label": "像小石頭"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "💡",
+          "label": "全部不發光"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "🥞",
+          "label": "像扁平的餅"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "哪一種力量正讓星系間的距離越拉越遠，讓宇宙不斷膨脹？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "💥",
+          "label": "神祕的暗能量",
+          "explanation": "暗能量讓宇宙膨脹，使星系距離越來越遠。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "🧲",
+          "label": "強大的磁吸力"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "💨",
+          "label": "太陽散發熱風"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "🕳️",
+          "label": "黑洞吸引力"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "規模比「星系團」還要巨大、等級更高的宇宙結構是？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "🌌",
+          "label": "超星系團",
+          "explanation": "多個星系團聚成更大結構，稱為超星系團。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "🕳️",
+          "label": "超大黑洞區"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "🏗️",
+          "label": "星系巨型結構"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "🌀",
+          "label": "銀河總集體"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "根據「宇宙考古學」研究，宇宙大約是在多久以前誕生的？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🕰️",
+          "label": "138億年",
+          "explanation": "天文觀測推算宇宙約在138億年前誕生。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "🦕",
+          "label": "10萬年前"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "🌍",
+          "label": "46億年前"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "🐟",
+          "label": "3億多年前"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "暗物質在宇宙中的分佈，最像建築物中的哪一個部分？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "🏗️",
+          "label": "鋼筋骨架",
+          "explanation": "暗物質像骨架，用重力支撐星系分布。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "🏠",
+          "label": "屋頂的瓦片"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "🧱",
+          "label": "外牆磁磚"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "🛋️",
+          "label": "家具裝潢"
+        }
+      ]
+    }
+  ]
+}

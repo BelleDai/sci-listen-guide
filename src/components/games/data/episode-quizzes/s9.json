@@ -1,0 +1,588 @@
+{
+  "episode_id": "s9",
+  "category_name": "探索無垠的宇宙",
+  "name": "夜空中的假星星：人造衛星的神秘面紗",
+  "knowledge": "人造衛星靠高速繞地飛行，不會直接掉落；它們能幫助導航、氣象觀測、通訊，也會產生太空垃圾。",
+  "quizzes": [
+    {
+      "id": "q1",
+      "question": "為什麼人造衛星在太空中運轉，不會掉回地球？",
+      "correctAnswers": [
+        {
+          "id": "q1-correct-1",
+          "icon": "🚀",
+          "label": "飛速夠快",
+          "explanation": "衛星速度夠快，會一邊下落一邊繞地球飛行。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q1-wrong-1",
+          "icon": "🔥",
+          "label": "有強大引力"
+        },
+        {
+          "id": "q1-wrong-2",
+          "icon": "🎈",
+          "label": "它是浮在空"
+        },
+        {
+          "id": "q1-wrong-3",
+          "icon": "🧲",
+          "label": "被地磁場鎖"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "世界上第一顆人造衛星「史普尼克一號」是哪個國家發射的？",
+      "correctAnswers": [
+        {
+          "id": "q2-correct-1",
+          "icon": "🇷🇺",
+          "label": "蘇聯",
+          "explanation": "史普尼克一號由蘇聯在 1957 年發射升空。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q2-wrong-1",
+          "icon": "🇺🇸",
+          "label": "美國"
+        },
+        {
+          "id": "q2-wrong-2",
+          "icon": "🇹🇼",
+          "label": "台灣"
+        },
+        {
+          "id": "q2-wrong-3",
+          "icon": "🇯🇵",
+          "label": "日本"
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "在人類之前，第一隻被送上太空的動物是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q3-correct-1",
+          "icon": "🐶",
+          "label": "小狗萊卡",
+          "explanation": "第一隻上太空的動物是蘇聯送上去的小狗萊卡。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q3-wrong-1",
+          "icon": "🐒",
+          "label": "愛爬樹猴子"
+        },
+        {
+          "id": "q3-wrong-2",
+          "icon": "🐰",
+          "label": "長耳朵兔子"
+        },
+        {
+          "id": "q3-wrong-3",
+          "icon": "🐱",
+          "label": "愛撒嬌貓咪"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "如果在夜空看到一個「不會閃爍」且持續移動的亮點，那通常是？",
+      "correctAnswers": [
+        {
+          "id": "q4-correct-1",
+          "icon": "🛰️",
+          "label": "人造衛星",
+          "explanation": "衛星反射陽光，常像不閃爍且慢慢移動的亮點。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q4-wrong-1",
+          "icon": "✈️",
+          "label": "翱翔高空飛"
+        },
+        {
+          "id": "q4-wrong-2",
+          "icon": "☄️",
+          "label": "劃過天空流"
+        },
+        {
+          "id": "q4-wrong-3",
+          "icon": "⭐",
+          "label": "會發光恆星"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "「地球同步衛星」繞地球運行一圈需要花多少時間？",
+      "correctAnswers": [
+        {
+          "id": "q5-correct-1",
+          "icon": "⏱️",
+          "label": "24小時",
+          "explanation": "同步衛星繞地一圈約 24 小時，和地球自轉相同。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q5-wrong-1",
+          "icon": "1️⃣",
+          "label": "一小時"
+        },
+        {
+          "id": "q5-wrong-2",
+          "icon": "🕛",
+          "label": "十二小時"
+        },
+        {
+          "id": "q5-wrong-3",
+          "icon": "📅",
+          "label": "需要一整年"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "我們手機常用的地圖導航（GPS）是靠什麼運作的？",
+      "correctAnswers": [
+        {
+          "id": "q6-correct-1",
+          "icon": "📱",
+          "label": "衛星訊號",
+          "explanation": "GPS 透過多顆衛星訊號，計算手機所在位置。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q6-wrong-1",
+          "icon": "🔌",
+          "label": "跨國光纖電"
+        },
+        {
+          "id": "q6-wrong-2",
+          "icon": "🗼",
+          "label": "地面手機基"
+        },
+        {
+          "id": "q6-wrong-3",
+          "icon": "🧲",
+          "label": "地球磁場"
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "台灣第一顆完全自主研發的光學遙測衛星是？",
+      "correctAnswers": [
+        {
+          "id": "q7-correct-1",
+          "icon": "🇹🇼",
+          "label": "福衛五號",
+          "explanation": "福衛五號是台灣自主研發的光學遙測衛星。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q7-wrong-1",
+          "icon": "1️⃣",
+          "label": "福衛一號"
+        },
+        {
+          "id": "q7-wrong-2",
+          "icon": "2️⃣",
+          "label": "福衛二號"
+        },
+        {
+          "id": "q7-wrong-3",
+          "icon": "🚀",
+          "label": "阿波羅號"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "氣象衛星在日常生活中，主要幫助我們觀察什麼？",
+      "correctAnswers": [
+        {
+          "id": "q8-correct-1",
+          "icon": "☁️",
+          "label": "雲層與氣候",
+          "explanation": "氣象衛星觀察雲層、颱風和天氣變化。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q8-wrong-1",
+          "icon": "🐟",
+          "label": "深海裡魚群"
+        },
+        {
+          "id": "q8-wrong-2",
+          "icon": "💎",
+          "label": "地底下礦物"
+        },
+        {
+          "id": "q8-wrong-3",
+          "icon": "💨",
+          "label": "監測空氣品"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "question": "為什麼人造衛星的外殼常常包著一層金色的薄膜？",
+      "correctAnswers": [
+        {
+          "id": "q9-correct-1",
+          "icon": "🛡️",
+          "label": "隔熱防輻射",
+          "explanation": "金色薄膜能隔熱並防輻射，保護衛星儀器。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q9-wrong-1",
+          "icon": "💰",
+          "label": "展現國家經"
+        },
+        {
+          "id": "q9-wrong-2",
+          "icon": "☀️",
+          "label": "預防日磁爆"
+        },
+        {
+          "id": "q9-wrong-3",
+          "icon": "⚡",
+          "label": "金屬傳導性"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "所謂的「太空垃圾」是指什麼？",
+      "correctAnswers": [
+        {
+          "id": "q10-correct-1",
+          "icon": "🗑️",
+          "label": "廢棄衛星碎片",
+          "explanation": "壞掉衛星和火箭碎片留在軌道上，就是太空垃圾。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q10-wrong-1",
+          "icon": "🍌",
+          "label": "太空人丟垃圾"
+        },
+        {
+          "id": "q10-wrong-2",
+          "icon": "💩",
+          "label": "太空人排泄物"
+        },
+        {
+          "id": "q10-wrong-3",
+          "icon": "✨",
+          "label": "宇宙星塵"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "要讓衛星繞著地球飛而不掉下來，發射速度大約要達到多少？",
+      "correctAnswers": [
+        {
+          "id": "q11-correct-1",
+          "icon": "⚡",
+          "label": "每秒7.9公里",
+          "explanation": "第一宇宙速度約每秒 7.9 公里，可讓衛星繞地飛行。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q11-wrong-1",
+          "icon": "🚶",
+          "label": "秒1km"
+        },
+        {
+          "id": "q11-wrong-2",
+          "icon": "🚗",
+          "label": "時100k"
+        },
+        {
+          "id": "q11-wrong-3",
+          "icon": "✨",
+          "label": "必須達到光"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "同步衛星看起來像是在天空定住不動，主要原因是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q12-correct-1",
+          "icon": "🔄",
+          "label": "與地球自轉同步",
+          "explanation": "同步衛星繞地週期和地球自轉一樣，所以位置看似固定。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q12-wrong-1",
+          "icon": "🛑",
+          "label": "它其實沒在動"
+        },
+        {
+          "id": "q12-wrong-2",
+          "icon": "🧲",
+          "label": "地球磁場鎖定"
+        },
+        {
+          "id": "q12-wrong-3",
+          "icon": "🐢",
+          "label": "飛行速度極快"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "「繞極衛星」的飛行軌道主要是如何運行的？",
+      "correctAnswers": [
+        {
+          "id": "q13-correct-1",
+          "icon": "🌍",
+          "label": "飛越南北極",
+          "explanation": "繞極衛星飛越南北極，可隨地球自轉觀測全球。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q13-wrong-1",
+          "icon": "〰️",
+          "label": "沿著赤道飛"
+        },
+        {
+          "id": "q13-wrong-2",
+          "icon": "🌕",
+          "label": "繞著月飛行"
+        },
+        {
+          "id": "q13-wrong-3",
+          "icon": "🎲",
+          "label": "太空隨機移動"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "如果衛星在軌道上的速度變慢了，會發生什麼事？",
+      "correctAnswers": [
+        {
+          "id": "q14-correct-1",
+          "icon": "⬇️",
+          "label": "被地球拉下來",
+          "explanation": "衛星速度太慢會被地球引力拉低，可能墜入大氣層。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q14-wrong-1",
+          "icon": "🚀",
+          "label": "飛向遙遠太空"
+        },
+        {
+          "id": "q14-wrong-2",
+          "icon": "🛑",
+          "label": "在原地停止"
+        },
+        {
+          "id": "q14-wrong-3",
+          "icon": "☄️",
+          "label": "變成流星"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "台灣最新的「獵風者」衛星，主要用來測量什麼數據？",
+      "correctAnswers": [
+        {
+          "id": "q15-correct-1",
+          "icon": "🌬️",
+          "label": "海面風速",
+          "explanation": "獵風者可測量海面風速，幫助颱風預測。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q15-wrong-1",
+          "icon": "🌋",
+          "label": "地面地震強"
+        },
+        {
+          "id": "q15-wrong-2",
+          "icon": "🌡️",
+          "label": "空氣熱度"
+        },
+        {
+          "id": "q15-wrong-3",
+          "icon": "🌧️",
+          "label": "降雨量多少"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "著名的「牛頓大砲」思考實驗，是在解釋哪種科學原理？",
+      "correctAnswers": [
+        {
+          "id": "q16-correct-1",
+          "icon": "🚀",
+          "label": "高速進入軌道",
+          "explanation": "牛頓大砲說明速度夠快的物體能繞地球運行。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q16-wrong-1",
+          "icon": "💥",
+          "label": "大砲射程遠"
+        },
+        {
+          "id": "q16-wrong-2",
+          "icon": "🎈",
+          "label": "地心引力消失"
+        },
+        {
+          "id": "q16-wrong-3",
+          "icon": "💨",
+          "label": "空氣阻力強"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "「凱斯勒效應」描述的是太空垃圾產生的什麼可怕現象？",
+      "correctAnswers": [
+        {
+          "id": "q17-correct-1",
+          "icon": "💥",
+          "label": "連鎖碰撞",
+          "explanation": "太空垃圾碰撞會產生更多碎片，引發連鎖碰撞。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q17-wrong-1",
+          "icon": "⬇️",
+          "label": "衛星掉進地球"
+        },
+        {
+          "id": "q17-wrong-2",
+          "icon": "🔌",
+          "label": "訊號斷線"
+        },
+        {
+          "id": "q17-wrong-3",
+          "icon": "☀️",
+          "label": "強大太陽風暴"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "我們能收看國外運動賽事的現場轉播，主要是靠哪種衛星？",
+      "correctAnswers": [
+        {
+          "id": "q18-correct-1",
+          "icon": "📺",
+          "label": "通訊衛星",
+          "explanation": "通訊衛星能轉傳訊號，讓遠方節目傳到各地。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q18-wrong-1",
+          "icon": "💎",
+          "label": "資源衛星"
+        },
+        {
+          "id": "q18-wrong-2",
+          "icon": "📍",
+          "label": "導航衛星"
+        },
+        {
+          "id": "q18-wrong-3",
+          "icon": "☁️",
+          "label": "氣象衛星"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "衛星通常是搭乘什麼工具進入太空軌道的？",
+      "correctAnswers": [
+        {
+          "id": "q19-correct-1",
+          "icon": "🚀",
+          "label": "大型火箭",
+          "explanation": "衛星通常搭乘火箭升空，再被送入軌道。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q19-wrong-1",
+          "icon": "✈️",
+          "label": "超音速飛機"
+        },
+        {
+          "id": "q19-wrong-2",
+          "icon": "🎈",
+          "label": "大型氫氣球"
+        },
+        {
+          "id": "q19-wrong-3",
+          "icon": "🛩️",
+          "label": "噴射戰鬥機"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "人造衛星在太空長期運作，主要的電力來源是什麼？",
+      "correctAnswers": [
+        {
+          "id": "q20-correct-1",
+          "icon": "☀️",
+          "label": "太陽能板",
+          "explanation": "衛星多用太陽能板吸收陽光，轉換成電力。"
+        }
+      ],
+      "wrongAnswers": [
+        {
+          "id": "q20-wrong-1",
+          "icon": "🔌",
+          "label": "長長電源線"
+        },
+        {
+          "id": "q20-wrong-2",
+          "icon": "☢️",
+          "label": "核能發電機"
+        },
+        {
+          "id": "q20-wrong-3",
+          "icon": "🌬️",
+          "label": "大型風力發"
+        }
+      ]
+    }
+  ]
+}

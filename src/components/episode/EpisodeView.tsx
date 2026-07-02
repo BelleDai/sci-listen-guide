@@ -19,7 +19,6 @@ import { useTTS } from "@/hooks/useTTS";
 import { AuthDialog } from "@/components/auth/AuthDialog";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { GAME_METADATA } from "@/components/games/core/gameMetadata";
-import { getEpisodeGameId } from "@/components/games/core/episodeQuizzes";
 import { trackEpisodeStep, trackEpisodeCompleted, trackEpisodeLanded } from "@/lib/analytics";
 
 const TOTAL = 4;
@@ -177,9 +176,10 @@ export interface EpisodeData {
 interface EpisodeViewProps {
   episodeData: EpisodeData;
   searchIndex?: { id: string; title: string }[];
+  gameId: string;
 }
 
-const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
+const EpisodeView = ({ episodeData, searchIndex = [], gameId }: EpisodeViewProps) => {
   const [step, setStep] = useState(1);
   const [celebrated, setCelebrated] = useState(false);
   const [isFamilyAnswerOpened, setIsFamilyAnswerOpened] = useState(false);
@@ -557,8 +557,7 @@ const EpisodeView = ({ episodeData, searchIndex = [] }: EpisodeViewProps) => {
           emoji="🎖️"
         >
           {(() => {
-            const gameId = getEpisodeGameId(episodeData.id);
-            const gameMeta = GAME_METADATA[gameId];
+            const gameMeta = GAME_METADATA[gameId as keyof typeof GAME_METADATA];
 
             return (
               <div
