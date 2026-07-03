@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-07-02T01:45:14.972Z",
-  "count": 240,
+  "updatedAt": "2026-07-03T04:41:55.012Z",
+  "count": 241,
   "episodes": [
+    {
+      "id": "cmqxms1fu035w01x4eiu3b42f",
+      "title": "沙漠裡的綠色巨人：索諾蘭的生存奇蹟｜EP.235",
+      "firstoryLink": "https://open.firstory.me/story/cmqxms1fu035w01x4eiu3b42f",
+      "pubDate": "Wed, 01 Jul 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/uzX00vE0tFuZmxqmpY7SM.jpg",
+      "duration": 593,
+      "spotifyLink": "https://open.spotify.com/episode/3nW2IoYY2p1XVrSMZP3pJa",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000774559488"
+    },
     {
       "id": "cmqxmocb1027101xehu1h4jxf",
       "title": "光影魔術師：揭開光線折射與反射的驚奇秘密！｜EP.81",
