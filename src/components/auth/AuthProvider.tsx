@@ -19,6 +19,7 @@ import {
 } from "react";
 
 import { auth } from "@/lib/firebase/client";
+import { getBrowserAuthEnvironment } from "@/lib/browserAuthEnvironment";
 import {
   clearCompletedRecords,
   GAME_COMPLETIONS_UPDATED_EVENT,
@@ -99,6 +100,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const signInWithGoogle = useCallback(async () => {
     const provider = new GoogleAuthProvider();
     provider.setCustomParameters({ prompt: "select_account" });
+
+    const browserEnvironment = getBrowserAuthEnvironment();
+    if (browserEnvironment.isEmbeddedBrowser) {
+      throw new Error("Google sign-in is blocked in embedded browsers.");
+    }
+
     const credential = await signInWithPopup(auth, provider);
     const additionalUserInfo = getAdditionalUserInfo(credential);
     setUser(credential.user);

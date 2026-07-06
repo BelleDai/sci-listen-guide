@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { LogIn } from "lucide-react";
+import { Copy, ExternalLink, LogIn } from "lucide-react";
 
 import { useAuth } from "@/components/auth/AuthProvider";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
+import { toast } from "@/components/ui/use-toast";
+import { getBrowserAuthEnvironment, type BrowserAuthEnvironment } from "@/lib/browserAuthEnvironment";
 import {
   Dialog,
   DialogContent,
@@ -29,16 +31,28 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
   const [signingIn, setSigningIn] = useState(false);
   const [savingPreference, setSavingPreference] = useState(false);
   const [showNewUserPreference, setShowNewUserPreference] = useState(false);
+  const [showExternalBrowserHelp, setShowExternalBrowserHelp] = useState(false);
+  const [browserEnvironment, setBrowserEnvironment] = useState<BrowserAuthEnvironment | null>(null);
 
   const resetDialogState = () => {
     setMarketingOptIn(false);
     setShowNewUserPreference(false);
+    setShowExternalBrowserHelp(false);
   };
 
   const handleGoogleSignIn = async () => {
+    const nextBrowserEnvironment = getBrowserAuthEnvironment();
+    setBrowserEnvironment(nextBrowserEnvironment);
+
+    if (nextBrowserEnvironment.isEmbeddedBrowser) {
+      setShowExternalBrowserHelp(true);
+      return;
+    }
+
     setSigningIn(true);
     try {
       const result = await signInWithGoogle();
+
       if (result.isNewUserProfile) {
         setShowNewUserPreference(true);
       } else {
@@ -49,6 +63,37 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
       console.warn("Unable to sign in with Google.", error);
     } finally {
       setSigningIn(false);
+    }
+  };
+
+  const handleOpenExternalBrowser = () => {
+    const nextBrowserEnvironment = browserEnvironment ?? getBrowserAuthEnvironment();
+    setBrowserEnvironment(nextBrowserEnvironment);
+
+    if (nextBrowserEnvironment.chromeIntentUrl) {
+      window.location.href = nextBrowserEnvironment.chromeIntentUrl;
+      return;
+    }
+
+    void handleCopyLink();
+  };
+
+  const handleCopyLink = async () => {
+    const nextBrowserEnvironment = browserEnvironment ?? getBrowserAuthEnvironment();
+    setBrowserEnvironment(nextBrowserEnvironment);
+
+    try {
+      await navigator.clipboard.writeText(nextBrowserEnvironment.externalGoogleSignInUrl);
+      toast({
+        title: "已複製連結",
+        description: "請貼到 Chrome 或 Safari 後再登入。",
+      });
+    } catch (error) {
+      console.warn("Unable to copy page URL.", error);
+      toast({
+        title: "請手動複製連結",
+        description: nextBrowserEnvironment.externalGoogleSignInUrl,
+      });
     }
   };
 
@@ -83,7 +128,7 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
                 要收到活動通知嗎？
               </DialogTitle>
               <DialogDescription className="text-sm font-bold leading-6 text-white/75">
-                這個選項只會在第一次登入時詢問。不勾選也可以玩遊戲。
+                第一次登入才會詢問，不勾選也可以玩。
               </DialogDescription>
             </DialogHeader>
 
@@ -93,7 +138,7 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
                 onCheckedChange={(checked) => setMarketingOptIn(checked === true)}
                 className="mt-1 border-cyan-100/60 data-[state=checked]:bg-cyan-300 data-[state=checked]:text-slate-950"
               />
-              <span>我願意收到未來活動或電子報通知。</span>
+              <span>收到活動或電子報通知。</span>
             </label>
 
             <Button
@@ -105,6 +150,40 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
               {savingPreference ? "儲存中..." : "完成"}
             </Button>
           </>
+        ) : showExternalBrowserHelp ? (
+          <>
+            <DialogHeader>
+              <DialogTitle className="text-2xl font-black text-cyan-50">
+                請用瀏覽器開啟
+              </DialogTitle>
+              <DialogDescription className="text-sm font-bold leading-6 text-white/75">
+                App 內的瀏覽器不能登入 Google。請改用 Chrome 或 Safari。
+              </DialogDescription>
+            </DialogHeader>
+
+            <div className="space-y-3">
+              {browserEnvironment?.chromeIntentUrl ? (
+                <Button
+                  type="button"
+                  onClick={handleOpenExternalBrowser}
+                  className="h-12 w-full rounded-full text-base font-black"
+                >
+                  <ExternalLink className="h-5 w-5" />
+                  用外部瀏覽器開啟
+                </Button>
+              ) : null}
+
+              <Button
+                type="button"
+                variant="secondary"
+                onClick={() => void handleCopyLink()}
+                className="h-12 w-full rounded-full text-base font-black"
+              >
+                <Copy className="h-5 w-5" />
+                複製連結
+              </Button>
+            </div>
+          </>
         ) : (
           <>
             <DialogHeader>
@@ -112,7 +191,7 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
                 登入後開始玩
               </DialogTitle>
               <DialogDescription className="text-sm font-bold leading-6 text-white/75">
-                登入後，我們會幫你保存徽章和星星。下次回來時，可以接著玩。
+                保存徽章和星星，下次接著玩。
               </DialogDescription>
             </DialogHeader>
 
