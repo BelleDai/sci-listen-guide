@@ -92,6 +92,7 @@ function GoogleAuthStarter() {
 
     try {
       const provider = new GoogleAuthProvider();
+      provider.setCustomParameters({ prompt: "select_account" });
       await signInWithRedirect(auth, provider);
     } catch (error) {
       console.warn("Unable to start Google redirect sign in.", error);

@@ -7,7 +7,10 @@ import { useAuth } from "@/components/auth/AuthProvider";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "@/components/ui/use-toast";
-import { getBrowserAuthEnvironment, type BrowserAuthEnvironment } from "@/lib/browserAuthEnvironment";
+import {
+  getBrowserAuthEnvironment,
+  type BrowserAuthEnvironment,
+} from "@/lib/browserAuthEnvironment";
 import {
   Dialog,
   DialogContent,
@@ -21,8 +24,23 @@ type AuthDialogProps = {
   onOpenChange: (open: boolean) => void;
 };
 
+function getAuthErrorCode(error: unknown) {
+  return typeof error === "object" && error && "code" in error
+    ? String(error.code)
+    : "";
+}
+
+function shouldUseRedirectFallback(error: unknown) {
+  const code = getAuthErrorCode(error);
+  return (
+    code === "auth/popup-blocked" ||
+    code === "auth/cancelled-popup-request" ||
+    code.includes("api-key-not-valid")
+  );
+}
+
 function getSignInErrorMessage(error: unknown) {
-  const code = typeof error === "object" && error && "code" in error ? String(error.code) : "";
+  const code = getAuthErrorCode(error);
 
   if (code === "auth/popup-closed-by-user") {
     return "登入視窗已關閉，請再試一次。";
@@ -30,6 +48,10 @@ function getSignInErrorMessage(error: unknown) {
 
   if (code === "auth/popup-blocked" || code === "auth/cancelled-popup-request") {
     return "瀏覽器擋下登入視窗，請允許彈出視窗後再試一次。";
+  }
+
+  if (code.includes("api-key-not-valid")) {
+    return "登入視窗暫時無法使用，請改用頁面登入。";
   }
 
   return "無法開啟 Google 登入，請稍後再試。";
@@ -46,14 +68,19 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
   const [savingPreference, setSavingPreference] = useState(false);
   const [showNewUserPreference, setShowNewUserPreference] = useState(false);
   const [showExternalBrowserHelp, setShowExternalBrowserHelp] = useState(false);
-  const [browserEnvironment, setBrowserEnvironment] = useState<BrowserAuthEnvironment | null>(null);
+  const [browserEnvironment, setBrowserEnvironment] =
+    useState<BrowserAuthEnvironment | null>(null);
   const [errorMessage, setErrorMessage] = useState("");
 
   const resetDialogState = () => {
-    setMarketingOptIn(false);
+    setMarketingOptIn(true);
     setShowNewUserPreference(false);
     setShowExternalBrowserHelp(false);
     setErrorMessage("");
+  };
+
+  const startRedirectSignIn = (environment: BrowserAuthEnvironment) => {
+    window.location.href = environment.externalGoogleSignInUrl;
   };
 
   const handleGoogleSignIn = async () => {
@@ -78,6 +105,12 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
       }
     } catch (error) {
       console.warn("Unable to sign in with Google.", error);
+
+      if (shouldUseRedirectFallback(error)) {
+        startRedirectSignIn(nextBrowserEnvironment);
+        return;
+      }
+
       setErrorMessage(getSignInErrorMessage(error));
     } finally {
       setSigningIn(false);
@@ -85,7 +118,8 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
   };
 
   const handleOpenExternalBrowser = () => {
-    const nextBrowserEnvironment = browserEnvironment ?? getBrowserAuthEnvironment();
+    const nextBrowserEnvironment =
+      browserEnvironment ?? getBrowserAuthEnvironment();
     setBrowserEnvironment(nextBrowserEnvironment);
 
     if (nextBrowserEnvironment.chromeIntentUrl) {
@@ -97,14 +131,17 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
   };
 
   const handleCopyLink = async () => {
-    const nextBrowserEnvironment = browserEnvironment ?? getBrowserAuthEnvironment();
+    const nextBrowserEnvironment =
+      browserEnvironment ?? getBrowserAuthEnvironment();
     setBrowserEnvironment(nextBrowserEnvironment);
 
     try {
-      await navigator.clipboard.writeText(nextBrowserEnvironment.externalGoogleSignInUrl);
+      await navigator.clipboard.writeText(
+        nextBrowserEnvironment.externalGoogleSignInUrl,
+      );
       toast({
-        title: "已複製連結",
-        description: "請貼到 Chrome 或 Safari 後再登入。",
+        title: "連結已複製",
+        description: "請貼到 Chrome 或 Safari 開啟後登入。",
       });
     } catch (error) {
       console.warn("Unable to copy page URL.", error);
@@ -153,7 +190,9 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
             <label className="flex items-start gap-3 rounded-2xl border border-white/15 bg-white/10 p-3 text-left text-sm font-bold leading-6 text-white/85">
               <Checkbox
                 checked={marketingOptIn}
-                onCheckedChange={(checked) => setMarketingOptIn(checked === true)}
+                onCheckedChange={(checked) =>
+                  setMarketingOptIn(checked === true)
+                }
                 className="mt-1 border-cyan-100/60 data-[state=checked]:bg-cyan-300 data-[state=checked]:text-slate-950"
               />
               <span>收到活動或電子報通知。</span>

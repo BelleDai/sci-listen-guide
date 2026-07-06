@@ -158,7 +158,7 @@ export default function LearningPathSection() {
                       className="h-4 w-4 shrink-0 text-white/45 transition-transform duration-300 group-hover:translate-x-1 md:hidden"
                     />
                   </div>
-                  <p className="mt-1 line-clamp-2 text-xs font-normal leading-5 text-white/65 sm:text-sm sm:leading-6 md:mt-3 md:line-clamp-none md:text-base md:leading-7 md:text-white/70">
+                  <p className="mt-1 line-clamp-2 text-sm font-normal leading-5 text-white/65 sm:text-sm sm:leading-6 md:mt-3 md:line-clamp-none md:text-base md:leading-7 md:text-white/70">
                     {step.description}
                   </p>
 

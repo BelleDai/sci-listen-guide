@@ -163,7 +163,7 @@ export default async function Home() {
                 return (
                   <div
                     key={item.gameId}
-                    className="group relative min-h-[132px] overflow-hidden rounded-2xl p-4 leading-7 transition duration-200 hover:-translate-y-1 sm:p-5"
+                    className="group relative md:min-h-[132px] overflow-hidden rounded-2xl p-4 leading-7 transition duration-200 hover:-translate-y-1 sm:p-5"
                     style={meta.cardStyle}
                   >
                     <div className="absolute -right-7 -top-7 h-24 w-24 rounded-full bg-white/10 blur-2xl transition group-hover:bg-white/15" />
@@ -180,7 +180,7 @@ export default async function Home() {
                       </span>
                       <span>
                         <span className="block text-base font-semibold text-white sm:text-lg">{meta.label}</span>
-                        <span className="mt-1 block text-sm font-normal leading-6 text-white/78 sm:text-base sm:leading-7">
+                        <span className="mt-1 block text-sm font-normal leading-6 text-white/78 sm:text-base sm:leading-7 text-white/75">
                           {item.description}
                         </span>
                       </span>
@@ -188,7 +188,7 @@ export default async function Home() {
                   </div>
                 );
               })}
-              <div className="group relative min-h-[132px] overflow-hidden rounded-2xl border border-secondary/35 bg-gradient-to-br from-card/95 to-secondary/15 p-4 leading-7 shadow-[0_0_18px_hsl(var(--secondary)/0.18),inset_0_-3px_8px_rgba(0,0,0,0.35)] transition duration-200 hover:-translate-y-1 sm:p-5">
+              <div className="group relative md:min-h-[132px] overflow-hidden rounded-2xl border border-secondary/35 bg-gradient-to-br from-card/95 to-secondary/15 p-4 leading-7 shadow-[0_0_18px_hsl(var(--secondary)/0.18),inset_0_-3px_8px_rgba(0,0,0,0.35)] transition duration-200 hover:-translate-y-1 sm:p-5">
                 <div className="absolute -right-7 -top-7 h-24 w-24 rounded-full bg-secondary/15 blur-2xl transition group-hover:bg-secondary/20" />
                 <div className="absolute bottom-3 right-4 text-5xl opacity-10 transition group-hover:scale-110 group-hover:opacity-15" aria-hidden="true">
                   🏅
@@ -202,7 +202,7 @@ export default async function Home() {
                   </span>
                   <span>
                     <span className="block text-base font-semibold text-white sm:text-lg">徽章與進度</span>
-                    <span className="mt-1 block text-sm font-normal leading-6 text-white/78 sm:text-base sm:leading-7">
+                    <span className="mt-1 block text-sm font-normal leading-6 text-white/78 sm:text-base sm:leading-7 text-white/75">
                       完成關卡後，看見自己的成長。
                     </span>
                   </span>
