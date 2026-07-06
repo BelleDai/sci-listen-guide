@@ -4,16 +4,20 @@ import { getApps, initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
+const sameDomainAuthHosts = new Set([
+  "sci-listen-guide.firebaseapp.com",
+  "sci-listen-guide.web.app",
+  "sci-listen-guide--staging-gx8s5kyl.web.app",
+  "xn--5usa33m461dd8g.app",
+]);
+
 function getAuthDomain() {
   const configuredAuthDomain = process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN;
 
   if (typeof window === "undefined") return configuredAuthDomain;
 
   const currentHost = window.location.hostname;
-  const isFirebaseHostingDomain =
-    currentHost.endsWith(".web.app") || currentHost.endsWith(".firebaseapp.com");
-
-  return isFirebaseHostingDomain ? currentHost : configuredAuthDomain;
+  return sameDomainAuthHosts.has(currentHost) ? currentHost : configuredAuthDomain;
 }
 
 const firebaseConfig = {

@@ -21,6 +21,20 @@ type AuthDialogProps = {
   onOpenChange: (open: boolean) => void;
 };
 
+function getSignInErrorMessage(error: unknown) {
+  const code = typeof error === "object" && error && "code" in error ? String(error.code) : "";
+
+  if (code === "auth/popup-closed-by-user") {
+    return "登入視窗已關閉，請再試一次。";
+  }
+
+  if (code === "auth/popup-blocked" || code === "auth/cancelled-popup-request") {
+    return "瀏覽器擋下登入視窗，請允許彈出視窗後再試一次。";
+  }
+
+  return "無法開啟 Google 登入，請稍後再試。";
+}
+
 export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
   const {
     loading,
@@ -33,16 +47,19 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
   const [showNewUserPreference, setShowNewUserPreference] = useState(false);
   const [showExternalBrowserHelp, setShowExternalBrowserHelp] = useState(false);
   const [browserEnvironment, setBrowserEnvironment] = useState<BrowserAuthEnvironment | null>(null);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const resetDialogState = () => {
     setMarketingOptIn(false);
     setShowNewUserPreference(false);
     setShowExternalBrowserHelp(false);
+    setErrorMessage("");
   };
 
   const handleGoogleSignIn = async () => {
     const nextBrowserEnvironment = getBrowserAuthEnvironment();
     setBrowserEnvironment(nextBrowserEnvironment);
+    setErrorMessage("");
 
     if (nextBrowserEnvironment.isEmbeddedBrowser) {
       setShowExternalBrowserHelp(true);
@@ -61,6 +78,7 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
       }
     } catch (error) {
       console.warn("Unable to sign in with Google.", error);
+      setErrorMessage(getSignInErrorMessage(error));
     } finally {
       setSigningIn(false);
     }
@@ -204,6 +222,11 @@ export function AuthDialog({ open, onOpenChange }: AuthDialogProps) {
               <LogIn className="h-5 w-5" />
               {signingIn ? "登入中..." : "使用 Google 登入"}
             </Button>
+            {errorMessage ? (
+              <p className="rounded-xl border border-red-300/30 bg-red-500/10 p-3 text-sm font-bold leading-6 text-red-100">
+                {errorMessage}
+              </p>
+            ) : null}
           </>
         )}
       </DialogContent>
