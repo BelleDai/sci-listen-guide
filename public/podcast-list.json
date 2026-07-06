@@ -1,7 +1,47 @@
 {
-  "updatedAt": "2026-06-29T01:48:30.984Z",
-  "count": 238,
+  "updatedAt": "2026-07-06T05:09:40.449Z",
+  "count": 242,
   "episodes": [
+    {
+      "id": "cmr7u8v4c046l01t6fwhj7fz1",
+      "title": "泡泡彩虹與雷射英雄：光影精靈的捉迷藏大賽！｜EP.82",
+      "firstoryLink": "https://open.firstory.me/story/cmr7u8v4c046l01t6fwhj7fz1",
+      "pubDate": "Sat, 04 Jul 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/RBQp8qBAxmxVHUbtKSsj4.jpg",
+      "duration": 667,
+      "spotifyLink": "https://open.spotify.com/episode/5HSZanZI5eAzpn5BBAKeFg",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000775565679"
+    },
+    {
+      "id": "cmqxms1fu035w01x4eiu3b42f",
+      "title": "沙漠裡的綠色巨人：索諾蘭的生存奇蹟｜EP.235",
+      "firstoryLink": "https://open.firstory.me/story/cmqxms1fu035w01x4eiu3b42f",
+      "pubDate": "Wed, 01 Jul 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/uzX00vE0tFuZmxqmpY7SM.jpg",
+      "duration": 593,
+      "spotifyLink": "https://open.spotify.com/episode/3nW2IoYY2p1XVrSMZP3pJa",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000774559488"
+    },
+    {
+      "id": "cmqxmocb1027101xehu1h4jxf",
+      "title": "光影魔術師：揭開光線折射與反射的驚奇秘密！｜EP.81",
+      "firstoryLink": "https://open.firstory.me/story/cmqxmocb1027101xehu1h4jxf",
+      "pubDate": "Tue, 30 Jun 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/GSy_H2odojTlebL6acpqn.jpg",
+      "duration": 603,
+      "spotifyLink": "https://open.spotify.com/episode/5JpSfphMNCT0RESCQRqFY1",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000775070645"
+    },
+    {
+      "id": "cmqxmjv1b1avg01yvdjd25afc",
+      "title": "地球的氣候大怒神！聖嬰與反聖嬰現象的科學奧秘｜VIP.17",
+      "firstoryLink": "https://open.firstory.me/story/cmqxmjv1b1avg01yvdjd25afc",
+      "pubDate": "Sun, 28 Jun 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/PUjOUjzz7jFT1hboDElOY.jpg",
+      "duration": 1211,
+      "spotifyLink": "https://open.spotify.com/episode/4vO5kkGcJrDmFX5XDup9lK",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000774559175"
+    },
     {
       "id": "cmqxmg426026c01xegvg8465v",
       "title": "宇宙偵探找找看：GPS如何從兩萬公里的太空找到你？｜EP.80",
