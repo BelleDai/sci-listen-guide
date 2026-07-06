@@ -30,6 +30,16 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
+const missingFirebaseConfigKeys = Object.entries(firebaseConfig)
+  .filter(([key, value]) => key !== "measurementId" && !value)
+  .map(([key]) => key);
+
+if (missingFirebaseConfigKeys.length > 0) {
+  console.error(
+    `Missing Firebase config: ${missingFirebaseConfigKeys.join(", ")}. Check NEXT_PUBLIC_FIREBASE_* build env vars.`,
+  );
+}
+
 export const firebaseApp = getApps().length
   ? getApps()[0]
   : initializeApp(firebaseConfig);

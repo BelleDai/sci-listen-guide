@@ -13,7 +13,7 @@
     "link-existing": "tsx scripts/link-existing-episodes.ts",
     "update-links": "tsx scripts/update-podcast-links.ts",
     "deploy:staging": "npm run build && npx firebase-tools hosting:channel:deploy staging",
-    "deploy:prod": "npx firebase-tools deploy --only hosting"
+    "deploy:prod": "npm run build && npx firebase-tools deploy --only hosting"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
