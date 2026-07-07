@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-07-06T12:39:37.445Z",
-  "count": 242,
+  "updatedAt": "2026-07-07T04:49:11.280Z",
+  "count": 243,
   "episodes": [
+    {
+      "id": "cmr7ud86905k601v5hma6hsxn",
+      "title": "沙漠晝夜與不喝水的奇蹟：從南極到火星的極限挑戰｜EP.236",
+      "firstoryLink": "https://open.firstory.me/story/cmr7ud86905k601v5hma6hsxn",
+      "pubDate": "Sun, 05 Jul 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/Ek72LhfJBZm8Z5_k7qb2T.jpg",
+      "duration": 1171,
+      "spotifyLink": "https://open.spotify.com/episode/5U1ICFuGXPXIx6NgOPlKoG",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000775523120"
+    },
     {
       "id": "cmr7u8v4c046l01t6fwhj7fz1",
       "title": "泡泡彩虹與雷射英雄：光影精靈的捉迷藏大賽！｜EP.82",
