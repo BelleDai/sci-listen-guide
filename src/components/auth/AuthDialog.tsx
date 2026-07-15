@@ -34,8 +34,7 @@ function shouldUseRedirectFallback(error: unknown) {
   const code = getAuthErrorCode(error);
   return (
     code === "auth/popup-blocked" ||
-    code === "auth/cancelled-popup-request" ||
-    code.includes("api-key-not-valid")
+    code === "auth/cancelled-popup-request"
   );
 }
 
@@ -51,7 +50,7 @@ function getSignInErrorMessage(error: unknown) {
   }
 
   if (code.includes("api-key-not-valid")) {
-    return "登入視窗暫時無法使用，請改用頁面登入。";
+    return "Google 登入設定有誤，請稍後再試。";
   }
 
   return "無法開啟 Google 登入，請稍後再試。";
