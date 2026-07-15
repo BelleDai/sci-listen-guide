@@ -1,7 +1,57 @@
 {
-  "updatedAt": "2026-07-06T12:39:37.445Z",
-  "count": 242,
+  "updatedAt": "2026-07-15T03:58:20.299Z",
+  "count": 247,
   "episodes": [
+    {
+      "id": "cmrho086k0ewc01u89baq6biv",
+      "title": "雨林裡的生存遊戲：潛入亞馬遜的神祕水陸世界｜EP.237",
+      "firstoryLink": "https://open.firstory.me/story/cmrho086k0ewc01u89baq6biv",
+      "pubDate": "Sun, 12 Jul 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/S9k7tbzVmffEU9Iwap9gB.jpg",
+      "duration": 1293,
+      "spotifyLink": "https://open.spotify.com/episode/5YYbW0i1NeQDHQSXHW74pz",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000776457988"
+    },
+    {
+      "id": "cmrhnv8dm0eue01u8a05ddo0b",
+      "title": "宇宙大眼睛的超強眼鏡：雷射假星星與地下合體遊戲！｜EP.84",
+      "firstoryLink": "https://open.firstory.me/story/cmrhnv8dm0eue01u8a05ddo0b",
+      "pubDate": "Sat, 11 Jul 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/FNUi3Sn-5eNh32U-hIeGU.jpg",
+      "duration": 497,
+      "spotifyLink": "https://open.spotify.com/episode/5RfueB0DiFFoLJoLVIS0c2",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000776504846"
+    },
+    {
+      "id": "cmr7v7hab04cw01t6copj2xkb",
+      "title": "微米世界的極限生存大師：水熊蟲的假死超能力｜VIP.18",
+      "firstoryLink": "https://open.firstory.me/story/cmr7v7hab04cw01t6copj2xkb",
+      "pubDate": "Wed, 08 Jul 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/rnSJ4EiHxvUHND_fP_r_f.jpg",
+      "duration": 1105,
+      "spotifyLink": "https://open.spotify.com/episode/2mxiAogwiVcxFAHVwwohdv",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000775524331"
+    },
+    {
+      "id": "cmr7ul7c0041h01xg8fdq2w6j",
+      "title": "宇宙大眼睛：智利甚大望遠鏡VLT 尋寶記！｜EP.83",
+      "firstoryLink": "https://open.firstory.me/story/cmr7ul7c0041h01xg8fdq2w6j",
+      "pubDate": "Tue, 07 Jul 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/zi_iHsPxHRPNxkfI-TQsT.jpg",
+      "duration": 708,
+      "spotifyLink": "https://open.spotify.com/episode/1xinLxB6oNuXUbdmH6HmKF",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000776031842"
+    },
+    {
+      "id": "cmr7ud86905k601v5hma6hsxn",
+      "title": "沙漠晝夜與不喝水的奇蹟：從南極到火星的極限挑戰｜EP.236",
+      "firstoryLink": "https://open.firstory.me/story/cmr7ud86905k601v5hma6hsxn",
+      "pubDate": "Sun, 05 Jul 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/Ek72LhfJBZm8Z5_k7qb2T.jpg",
+      "duration": 1171,
+      "spotifyLink": "https://open.spotify.com/episode/5U1ICFuGXPXIx6NgOPlKoG",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000775523120"
+    },
     {
       "id": "cmr7u8v4c046l01t6fwhj7fz1",
       "title": "泡泡彩虹與雷射英雄：光影精靈的捉迷藏大賽！｜EP.82",
