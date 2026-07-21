@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-07-20T04:36:32.622Z",
-  "count": 250,
+  "updatedAt": "2026-07-21T04:15:57.147Z",
+  "count": 251,
   "episodes": [
     {
       "id": "cmrsk94ac01sc01ulgbnc18v0",
@@ -11,6 +11,16 @@
       "duration": 1320,
       "spotifyLink": "https://open.spotify.com/episode/1Ti5iwG1AgBDOVEBrZPR4g",
       "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000777486149"
+    },
+    {
+      "id": "cmrt2hbew0eh501ulbp1w6xrg",
+      "title": "雲端上的空中城市：探索亞馬遜樹冠層｜EP.238",
+      "firstoryLink": "https://open.firstory.me/story/cmrt2hbew0eh501ulbp1w6xrg",
+      "pubDate": "Sun, 19 Jul 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/WlYJtz4hZFuV9v0rPEeK-.jpg",
+      "duration": 704,
+      "spotifyLink": "https://open.spotify.com/episode/7BOXcEoteQtVfF0cyPLtKB",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000777538198"
     },
     {
       "id": "cmrhod4yq0fc701vofymo2emg",
