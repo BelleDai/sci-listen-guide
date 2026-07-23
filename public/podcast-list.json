@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-07-22T04:17:15.171Z",
-  "count": 251,
+  "updatedAt": "2026-07-23T04:15:28.937Z",
+  "count": 252,
   "episodes": [
+    {
+      "id": "cmrt2cpig0dzz01uldpgw7btm",
+      "title": "聲音變變變：救護車的變音術與樂器的唱歌方法｜EP.86",
+      "firstoryLink": "https://open.firstory.me/story/cmrt2cpig0dzz01uldpgw7btm",
+      "pubDate": "Tue, 21 Jul 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/mfq12MBE-fsVeiPQrv5c4.jpg",
+      "duration": 526,
+      "spotifyLink": "https://open.spotify.com/episode/0WBvMWG3rXfkxyGfzB7aQb",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000777940839"
+    },
     {
       "id": "cmrsk94ac01sc01ulgbnc18v0",
       "title": "海洋中的呆萌巨獸：翻車魚的奇特構造、日光浴之謎與驚人的跨赤道旅行｜P.20",
