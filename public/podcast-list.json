@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-07-26T04:26:54.464Z",
-  "count": 253,
+  "updatedAt": "2026-07-27T01:44:03.323Z",
+  "count": 254,
   "episodes": [
+    {
+      "id": "cmryohz7u0oj701w81bwzbgs8",
+      "title": "熱的魔法師：小精靈的能量派對｜EP.87",
+      "firstoryLink": "https://open.firstory.me/story/cmryohz7u0oj701w81bwzbgs8",
+      "pubDate": "Sat, 25 Jul 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/N3dRhqYrsbOrCJfRY9SuO.jpg",
+      "duration": 515,
+      "spotifyLink": "https://open.spotify.com/episode/1hxgWAGvdGWVo26E1VXPe8",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000778455519"
+    },
     {
       "id": "cmrt2oqcn0dh301upfmp6gzgr",
       "title": "非洲莽原生存戰：與巨獸共舞的抗旱奇蹟｜EP.239",
