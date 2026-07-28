@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-07-27T04:37:04.218Z",
-  "count": 254,
+  "updatedAt": "2026-07-28T02:50:27.046Z",
+  "count": 255,
   "episodes": [
+    {
+      "id": "cmryornuc06qe01yxatpt3w2u",
+      "title": "莽原動物生存法則：地表最快掠食與地下微型帝國｜EP.240",
+      "firstoryLink": "https://open.firstory.me/story/cmryornuc06qe01yxatpt3w2u",
+      "pubDate": "Sun, 26 Jul 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/hRC9MohjNUurPNWK5Vnx8.jpg",
+      "duration": 1216,
+      "spotifyLink": "https://open.spotify.com/episode/39em0Aq8bOBEJO2WI3ZsPB",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000778170321"
+    },
     {
       "id": "cmryohz7u0oj701w81bwzbgs8",
       "title": "熱的魔法師：小精靈的能量派對｜EP.87",
