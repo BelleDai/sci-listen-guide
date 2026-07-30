@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-07-29T04:04:37.718Z",
-  "count": 255,
+  "updatedAt": "2026-07-30T03:56:23.797Z",
+  "count": 256,
   "episodes": [
+    {
+      "id": "cmryokos806oc01yxfley8y1l",
+      "title": "熱能大冒險：熱與溫度的神祕差別｜EP.88",
+      "firstoryLink": "https://open.firstory.me/story/cmryokos806oc01yxfley8y1l",
+      "pubDate": "Tue, 28 Jul 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/mgwkMBVA9V5DtKMM3wJFN.jpg",
+      "duration": 640,
+      "spotifyLink": "https://open.spotify.com/episode/2zwDGKeUOSw18eKaux2HMv",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000778994178"
+    },
     {
       "id": "cmryornuc06qe01yxatpt3w2u",
       "title": "莽原動物生存法則：地表最快掠食與地下微型帝國｜EP.240",
