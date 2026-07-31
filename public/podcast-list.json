@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-07-30T03:56:23.797Z",
-  "count": 256,
+  "updatedAt": "2026-07-31T02:17:18.082Z",
+  "count": 257,
   "episodes": [
+    {
+      "id": "cmryovp2q0mxb01tg1c5x82nt",
+      "title": "蓋在海底的超級萬里長城：大堡礁與珊瑚蟲的建築大揭秘｜EP.241",
+      "firstoryLink": "https://open.firstory.me/story/cmryovp2q0mxb01tg1c5x82nt",
+      "pubDate": "Wed, 29 Jul 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/5CjjULXYJMlRe4LT5gpC7.jpg",
+      "duration": 1105,
+      "spotifyLink": "https://open.spotify.com/episode/6dQQJkMjrnnLH682GisyX0",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000778170557"
+    },
     {
       "id": "cmryokos806oc01yxfley8y1l",
       "title": "熱能大冒險：熱與溫度的神祕差別｜EP.88",
