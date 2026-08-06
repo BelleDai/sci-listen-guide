@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-08-05T03:59:19.240Z",
-  "count": 259,
+  "updatedAt": "2026-08-06T04:04:24.656Z",
+  "count": 260,
   "episodes": [
+    {
+      "id": "cmsbtug6j0wgo01xf3uvc11x1",
+      "title": "電的魔法探險：電子小精靈的奇幻跑道｜EP.89",
+      "firstoryLink": "https://open.firstory.me/story/cmsbtug6j0wgo01xf3uvc11x1",
+      "pubDate": "Tue, 04 Aug 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/2huHgt6ItZ0yXJbtOPT-j.jpg",
+      "duration": 492,
+      "spotifyLink": "https://open.spotify.com/episode/3iO9Zok706NWqcsWKBUTn1",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000780134498"
+    },
     {
       "id": "cmsbtpgn60w7c01st4h4z72s7",
       "title": "泡澡泡出靈感的瘋狂發明家（下）：搬動地球的槓桿、神話武器與現代科技奇蹟｜C22",
