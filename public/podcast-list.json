@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-08-09T03:03:18.740Z",
-  "count": 261,
+  "updatedAt": "2026-08-10T03:12:55.203Z",
+  "count": 262,
   "episodes": [
+    {
+      "id": "cmsl6dmaw1zwn01z63cpih5bw",
+      "title": "電的魔法探險：電子小精靈的奇幻跑道｜EP.90",
+      "firstoryLink": "https://open.firstory.me/story/cmsl6dmaw1zwn01z63cpih5bw",
+      "pubDate": "Sat, 08 Aug 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/u1GOoUBt2M2lJ9OgHWIoL.jpg",
+      "duration": 573,
+      "spotifyLink": "https://open.spotify.com/episode/5spvzYXSsxSUcMkgB6uo8M",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000781295874"
+    },
     {
       "id": "cmsbtl0cc0x2l01vw2ema8lhg",
       "title": "海洋裡的熱帶雨林：探索珊瑚礁裡的極限求生大戰｜EP.242",
