@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-08-10T03:12:55.203Z",
-  "count": 262,
+  "updatedAt": "2026-08-11T03:05:30.089Z",
+  "count": 263,
   "episodes": [
+    {
+      "id": "cmsl6hxxy1wz501yq4uq2g6vn",
+      "title": "被老師打最低分的論文，最後得了諾貝爾獎！斯萬特．阿瑞尼斯的科學逆襲故事｜VIP.23",
+      "firstoryLink": "https://open.firstory.me/story/cmsl6hxxy1wz501yq4uq2g6vn",
+      "pubDate": "Sun, 09 Aug 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/0MTh6I4FWDb2DT1HdgRtg.jpg",
+      "duration": 1114,
+      "spotifyLink": "https://open.spotify.com/episode/59H0HdPQC1zVFXCvBmZlxF",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000781142903"
+    },
     {
       "id": "cmsl6dmaw1zwn01z63cpih5bw",
       "title": "電的魔法探險：電子小精靈的奇幻跑道｜EP.90",
