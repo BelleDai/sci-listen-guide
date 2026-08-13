@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-08-12T03:24:21.724Z",
-  "count": 263,
+  "updatedAt": "2026-08-13T03:28:14.545Z",
+  "count": 264,
   "episodes": [
+    {
+      "id": "cmsl6mp6p1zy301z60vovfupl",
+      "title": "電力小精靈的大冒險：電力從哪裡來？｜EP.91",
+      "firstoryLink": "https://open.firstory.me/story/cmsl6mp6p1zy301z60vovfupl",
+      "pubDate": "Tue, 11 Aug 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/weIhRpCdEXcDM5EMTwZWy.jpg",
+      "duration": 529,
+      "spotifyLink": "https://open.spotify.com/episode/3rEoCqKjW7ZIqr1Y5GxY74",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000783029365"
+    },
     {
       "id": "cmsl6hxxy1wz501yq4uq2g6vn",
       "title": "被老師打最低分的論文，最後得了諾貝爾獎！斯萬特．阿瑞尼斯的科學逆襲故事｜VIP.23",
