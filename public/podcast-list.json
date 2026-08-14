@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-08-13T03:28:14.545Z",
-  "count": 264,
+  "updatedAt": "2026-08-14T03:26:04.734Z",
+  "count": 265,
   "episodes": [
+    {
+      "id": "cmsl6qif21zye01z6atlmbtwl",
+      "title": "荒漠裡的變形金剛：兩千歲不死的超級麵包樹｜EP.243",
+      "firstoryLink": "https://open.firstory.me/story/cmsl6qif21zye01z6atlmbtwl",
+      "pubDate": "Wed, 12 Aug 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/_vjgVGtF9sAgzFrOzZ3kh.jpg",
+      "duration": 1011,
+      "spotifyLink": "https://open.spotify.com/episode/48KoTdh3FaVcBiSHjivGwF",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000781143317"
+    },
     {
       "id": "cmsl6mp6p1zy301z60vovfupl",
       "title": "電力小精靈的大冒險：電力從哪裡來？｜EP.91",
