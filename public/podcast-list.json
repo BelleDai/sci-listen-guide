@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-08-31T06:34:47.575Z",
-  "count": 274,
+  "updatedAt": "2026-09-01T06:00:18.690Z",
+  "count": 275,
   "episodes": [
+    {
+      "id": "cmtfjjvml1dcq01wyejojf92o",
+      "title": "聽粉點播｜摩天大樓的抗震防風魔法：台北101的深根地基、巨型鋼骨與金色風阻尼球｜VIP.28",
+      "firstoryLink": "https://open.firstory.me/story/cmtfjjvml1dcq01wyejojf92o",
+      "pubDate": "Sun, 30 Aug 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/AAlfTyvQmdr7l-HSAP3fw.jpg",
+      "duration": 1367,
+      "spotifyLink": "https://open.spotify.com/episode/1LYOxQQh37KinyJtIb6kRK",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000786775645"
+    },
     {
       "id": "cmtfikiy7024n01xv82u3605o",
       "title": "太陽系專輯｜水星與金星：冰火煉獄與酸雨女王｜EP.107",
