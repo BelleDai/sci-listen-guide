@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-09-02T05:23:09.974Z",
-  "count": 275,
+  "updatedAt": "2026-09-03T05:27:47.861Z",
+  "count": 276,
   "episodes": [
+    {
+      "id": "cmtfjnot702gw01xv906d6wbf",
+      "title": "太陽系專輯｜地球 vs 火星：藍色水球與紅色沙漠的超級PK｜EP.108",
+      "firstoryLink": "https://open.firstory.me/story/cmtfjnot702gw01xv906d6wbf",
+      "pubDate": "Tue, 01 Sep 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/lUY9qqTmYpejGAjpjgarn.jpg",
+      "duration": 1214,
+      "spotifyLink": "https://open.spotify.com/episode/4DtW1lgEJTMYcEIWizdtxJ",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000787520338"
+    },
     {
       "id": "cmtfjjvml1dcq01wyejojf92o",
       "title": "聽粉點播｜摩天大樓的抗震防風魔法：台北101的深根地基、巨型鋼骨與金色風阻尼球｜VIP.28",
