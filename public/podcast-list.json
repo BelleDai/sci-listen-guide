@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-09-09T05:41:59.244Z",
-  "count": 279,
+  "updatedAt": "2026-09-10T05:33:31.184Z",
+  "count": 280,
   "episodes": [
+    {
+      "id": "cmtptd5qv0ds901uy5bed3rti",
+      "title": "太陽系專輯｜天王星 vs 海王星：躺平哥與暴風弟的冰凍對決｜EP.110",
+      "firstoryLink": "https://open.firstory.me/story/cmtptd5qv0ds901uy5bed3rti",
+      "pubDate": "Tue, 08 Sep 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/4_kNGT1YfZZ_dj4I11zSB.jpg",
+      "duration": 1354,
+      "spotifyLink": "https://open.spotify.com/episode/6mIAiQuS0IyQ16M9Es3EQP",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000788753515"
+    },
     {
       "id": "cmtpt72xx0drd01uyhxj53tv1",
       "title": "閃耀的黃金活寶石：仰望星空的滾糞蟲｜EP.246",
@@ -174,13 +184,13 @@
     },
     {
       "id": "cmsl6dmaw1zwn01z63cpih5bw",
-      "title": "電的魔法探險：電子小精靈的奇幻跑道｜EP.90",
+      "title": "靜電英雄與閃電：大自然的電力派對｜EP.90",
       "firstoryLink": "https://open.firstory.me/story/cmsl6dmaw1zwn01z63cpih5bw",
       "pubDate": "Sat, 08 Aug 2026 22:00:00 GMT",
       "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/NnQQOAyj7PrHBKJtwTL6J.jpg",
       "duration": 573,
       "spotifyLink": "https://open.spotify.com/episode/5spvzYXSsxSUcMkgB6uo8M",
-      "applePodcastLink": "https://podcasts.apple.com/podcast/id1812447277?i=1000781295874"
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000781295874"
     },
     {
       "id": "cmsbtl0cc0x2l01vw2ema8lhg",
