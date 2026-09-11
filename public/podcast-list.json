@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-09-10T05:33:31.184Z",
-  "count": 280,
+  "updatedAt": "2026-09-11T05:34:09.726Z",
+  "count": 281,
   "episodes": [
+    {
+      "id": "cmtqorkdg004i01w68ttdfcmr",
+      "title": "聽粉點播｜科學家專輯｜拿自己身體當實驗的瘋狂醫學天才：維爾納．福斯曼與心導管技術的生死冒險｜VIP.29",
+      "firstoryLink": "https://open.firstory.me/story/cmtqorkdg004i01w68ttdfcmr",
+      "pubDate": "Wed, 09 Sep 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/7w_SIKacMEaf6xl-V1Rl_.jpg",
+      "duration": 893,
+      "spotifyLink": "https://open.spotify.com/episode/1jszLFgbPmZx4t7p8e2B8H",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000788228350"
+    },
     {
       "id": "cmtptd5qv0ds901uy5bed3rti",
       "title": "太陽系專輯｜天王星 vs 海王星：躺平哥與暴風弟的冰凍對決｜EP.110",
