@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-09-13T05:36:15.944Z",
-  "count": 281,
+  "updatedAt": "2026-09-14T05:41:02.513Z",
+  "count": 282,
   "episodes": [
+    {
+      "id": "cmtztm263001i01tbhgp119aj",
+      "title": "太陽系專輯｜宇宙大廚師：太陽的火熱廚房冒險｜EP.103",
+      "firstoryLink": "https://open.firstory.me/story/cmtztm263001i01tbhgp119aj",
+      "pubDate": "Sat, 12 Sep 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/b7qZQwyFQ612s7WO4zUIF.jpg",
+      "duration": 1002,
+      "spotifyLink": "https://open.spotify.com/episode/6Wgvt8WUbOCCRw3uHKgijW",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000789385812"
+    },
     {
       "id": "cmtqorkdg004i01w68ttdfcmr",
       "title": "聽粉點播｜科學家專輯｜拿自己身體當實驗的瘋狂醫學天才：維爾納．福斯曼與心導管技術的生死冒險｜VIP.29",
