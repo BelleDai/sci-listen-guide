@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-09-16T05:36:48.829Z",
-  "count": 284,
+  "updatedAt": "2026-09-17T05:42:49.016Z",
+  "count": 285,
   "episodes": [
+    {
+      "id": "cmtztpng4001z01tbelxph0z2",
+      "title": "太陽系專輯｜太陽的壞脾氣：雀斑、噴嚏與極光之舞｜EP.104",
+      "firstoryLink": "https://open.firstory.fm/story/cmtztpng4001z01tbelxph0z2",
+      "pubDate": "Tue, 15 Sep 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/lIJ4wdJGulbHonCZXhC_X.jpg",
+      "duration": 913,
+      "spotifyLink": "https://open.spotify.com/episode/0AUlaSPe4nlT2IIv3aWL9K",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000790171164"
+    },
     {
       "id": "cmu258v930am901wz5um6bz5c",
       "title": "☀️ 衝進上百萬度的恆星煉獄！人類史上最快飛行器：帕克太陽探測器如何觸摸太陽？",
