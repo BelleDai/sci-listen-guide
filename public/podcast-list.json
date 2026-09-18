@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-09-17T05:42:49.016Z",
-  "count": 285,
+  "updatedAt": "2026-09-18T05:31:10.311Z",
+  "count": 286,
   "episodes": [
+    {
+      "id": "cmtzu9ac90tls01tpcwu1bq3c",
+      "title": "草原上的微型摩天樓：解密非洲白蟻丘的呼吸奇蹟｜EP.247",
+      "firstoryLink": "https://open.firstory.fm/story/cmtzu9ac90tls01tpcwu1bq3c",
+      "pubDate": "Wed, 16 Sep 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/Kx9Ei5zUVQxwnzyCYM6Y2.jpg",
+      "duration": 1314,
+      "spotifyLink": "https://open.spotify.com/episode/2Zk7wECNiT39Ba5F7qBTJM",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000789336961"
+    },
     {
       "id": "cmtztpng4001z01tbelxph0z2",
       "title": "太陽系專輯｜太陽的壞脾氣：雀斑、噴嚏與極光之舞｜EP.104",
