@@ -1,0 +1,120 @@
+name: Prune Podcast Episodes
+
+on:
+  workflow_dispatch:
+    inputs:
+      apply_changes:
+        description: "Delete stale Firestore docs, upsert missing Firstory docs, and commit podcast-list.json"
+        required: true
+        type: boolean
+        default: false
+      update_platform_links:
+        description: "After upserting missing docs, refresh Apple Podcasts and Spotify links"
+        required: true
+        type: boolean
+        default: true
+      min_current_count:
+        description: "Abort if Firstory current episode count is below this number"
+        required: true
+        type: string
+        default: "100"
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+permissions:
+  contents: write
+
+jobs:
+  prune:
+    name: Prune stale podcastEpisodes
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Install Playwright Chromium
+        run: npx playwright install chromium --with-deps
+
+      - name: Set up Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
+        run: |
+          echo "$FIREBASE_SERVICE_ACCOUNT_KEY" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> $GITHUB_ENV
+
+      - name: Type check
+        run: npx tsc --noEmit
+
+      - name: Dry-run Firstory vs Firestore comparison
+        env:
+          NEXT_PUBLIC_FIREBASE_PROJECT_ID: sci-listen-guide
+        run: |
+          npx tsx scripts/prune-podcast-episodes.ts --min-current-count=${{ inputs.min_current_count }}
+
+      - name: Delete stale podcastEpisodes
+        if: ${{ inputs.apply_changes }}
+        env:
+          NEXT_PUBLIC_FIREBASE_PROJECT_ID: sci-listen-guide
+        run: |
+          npx tsx scripts/prune-podcast-episodes.ts --confirm-delete --min-current-count=${{ inputs.min_current_count }}
+
+      - name: Upsert current Firstory episodes missing from Firestore
+        if: ${{ inputs.apply_changes }}
+        env:
+          NEXT_PUBLIC_FIREBASE_PROJECT_ID: sci-listen-guide
+        run: |
+          npx tsx scripts/prune-podcast-episodes.ts --confirm-upsert-missing --min-current-count=${{ inputs.min_current_count }}
+
+      - name: Regenerate podcast-list.json from Firestore
+        if: ${{ inputs.apply_changes }}
+        env:
+          NEXT_PUBLIC_FIREBASE_PROJECT_ID: sci-listen-guide
+          GENERATE_JSON_ONLY: "true"
+        run: npx tsx scripts/sync-podcast-rss.ts
+
+      - name: Update Apple and Spotify links
+        if: ${{ inputs.apply_changes && inputs.update_platform_links }}
+        env:
+          NEXT_PUBLIC_FIREBASE_PROJECT_ID: sci-listen-guide
+        run: npm run update-links
+
+      - name: Regenerate podcast-list.json after link updates
+        if: ${{ inputs.apply_changes && inputs.update_platform_links }}
+        env:
+          NEXT_PUBLIC_FIREBASE_PROJECT_ID: sci-listen-guide
+          GENERATE_JSON_ONLY: "true"
+        run: npx tsx scripts/sync-podcast-rss.ts
+
+      - name: Final consistency check
+        if: ${{ inputs.apply_changes }}
+        env:
+          NEXT_PUBLIC_FIREBASE_PROJECT_ID: sci-listen-guide
+        run: |
+          npx tsx scripts/prune-podcast-episodes.ts --min-current-count=${{ inputs.min_current_count }}
+
+      - name: Commit podcast-list.json changes
+        if: ${{ inputs.apply_changes }}
+        run: |
+          if git diff --quiet -- public/podcast-list.json; then
+            echo "podcast-list.json is already up to date."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/podcast-list.json
+          git commit -m "chore: prune podcast episode list"
+          git pull --rebase origin ${{ github.ref_name }}
+          git push origin HEAD:${{ github.ref_name }}
