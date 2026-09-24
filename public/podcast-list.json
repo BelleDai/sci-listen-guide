@@ -1,7 +1,27 @@
 {
-  "updatedAt": "2026-09-23T05:28:53.423Z",
-  "count": 190,
+  "updatedAt": "2026-09-24T05:47:44.249Z",
+  "count": 192,
   "episodes": [
+    {
+      "id": "cmu7xunqf09nx01x913q3h0ch",
+      "title": "太陽系衝鋒號(下)：氣體巨人的奇幻國度｜EP.106",
+      "firstoryLink": "https://open.firstory.fm/story/cmu7xunqf09nx01x913q3h0ch",
+      "pubDate": "Tue, 22 Sep 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/79dG2RXuLfqW25xWwXTQn.jpg",
+      "duration": 1222,
+      "spotifyLink": "https://open.spotify.com/episode/2XBcncBPaqGcP1Q2Is3xT6",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000791356695"
+    },
+    {
+      "id": "cmudxtyzm00bo01u64z3tavg7",
+      "title": "科學好好聽實驗室｜🌪️ 讓孩子親手召喚強風、啟動地震，揭開摩天大樓的秘密！",
+      "firstoryLink": "https://open.firstory.fm/story/cmudxtyzm00bo01u64z3tavg7",
+      "pubDate": "Tue, 22 Sep 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/n_2qYYMXeYML1vk9dfgAv.jpg",
+      "duration": 1398,
+      "spotifyLink": "https://open.spotify.com/episode/4r3S0WVNjDQRDDovk3WWvf",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000791265602"
+    },
     {
       "id": "cmu8eswmj0q6c01z38vmggmnf",
       "title": "從孤僻宅男到瘋狂暴徒：蝗蟲變身真相與科技圍剿戰｜EP.248",
@@ -140,7 +160,7 @@
       "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/AAlfTyvQmdr7l-HSAP3fw.jpg",
       "duration": 1367,
       "spotifyLink": "https://open.spotify.com/episode/1LYOxQQh37KinyJtIb6kRK",
-      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000786775645"
+      "applePodcastLink": "https://podcasts.apple.com/podcast/id1812447277?i=1000786775645"
     },
     {
       "id": "cmtfikiy7024n01xv82u3605o",
