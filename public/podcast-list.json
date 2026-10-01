@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-09-30T06:17:36.328Z",
-  "count": 195,
+  "updatedAt": "2026-10-01T06:48:01.283Z",
+  "count": 196,
   "episodes": [
+    {
+      "id": "cmulaerr8004x01v8hpw0gkim",
+      "title": "月亮變變變！為什麼月亮會變臉？｜EP.112",
+      "firstoryLink": "https://open.firstory.fm/story/cmulaerr8004x01v8hpw0gkim",
+      "pubDate": "Tue, 29 Sep 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/sAa6Wf5i9D3PftjYWH15B.jpg",
+      "duration": 1520,
+      "spotifyLink": "https://open.spotify.com/episode/3tEpyqQdZMjOfRm1Ph77pL",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000792466212"
+    },
     {
       "id": "cmul8rrko09bp01uz40acfm0a",
       "title": "荒野中的無聲死神：揭秘非洲岩蟒的隱秘生活與狂野本能｜EP.249",
