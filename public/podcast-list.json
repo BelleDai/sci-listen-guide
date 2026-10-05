@@ -1,7 +1,27 @@
 {
-  "updatedAt": "2026-10-04T06:38:01.849Z",
-  "count": 197,
+  "updatedAt": "2026-10-05T06:31:56.490Z",
+  "count": 199,
   "episodes": [
+    {
+      "id": "cmut6rylg05wx01tofu5ng9ha",
+      "title": "太空先鋒部隊：機器人探險家與最強火箭的祕密地圖｜EP.113",
+      "firstoryLink": "https://open.firstory.fm/story/cmut6rylg05wx01tofu5ng9ha",
+      "pubDate": "Sat, 03 Oct 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/E0eyqTpkoIuqflO0R2RNS.jpg",
+      "duration": 919,
+      "spotifyLink": "https://open.spotify.com/episode/138FoKQfB5u8zqmxDfpXO9",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000793147104"
+    },
+    {
+      "id": "cmutwxwof07bm01v16rteccxq",
+      "title": "科學好好聽實驗室｜3D 太陽系邊聽邊玩正式啟航！✨🪐",
+      "firstoryLink": "https://open.firstory.fm/story/cmutwxwof07bm01v16rteccxq",
+      "pubDate": "Sat, 03 Oct 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/di1kMMlv-ATXexTPxNYzv.jpg",
+      "duration": 231,
+      "spotifyLink": "https://open.spotify.com/episode/7zYV2xiCuJxnpwkbbtHGiF",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000793107060"
+    },
     {
       "id": "cmulaj2bv005j01v8f0ye2jwp",
       "title": "揭開海洋幽靈的面紗：在海床上飛翔的魟魚戰士｜EP.250",
