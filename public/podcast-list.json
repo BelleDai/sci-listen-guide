@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-10-07T06:49:31.442Z",
-  "count": 201,
+  "updatedAt": "2026-10-08T06:59:14.706Z",
+  "count": 202,
   "episodes": [
+    {
+      "id": "cmut7fxdu05v801v1fovqayq6",
+      "title": "陸地重裝坦克：犀牛的史前傳說與科技救援行動｜EP.251",
+      "firstoryLink": "https://open.firstory.fm/story/cmut7fxdu05v801v1fovqayq6",
+      "pubDate": "Tue, 06 Oct 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/Yx9fXKRKZknsh1Cd174gg.jpg",
+      "duration": 874,
+      "spotifyLink": "https://open.spotify.com/episode/07Xdfw6ZIyPyDCHQFcPNdq",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000793041597"
+    },
     {
       "id": "cmut7k17406ex01tm5vbyh49m",
       "title": "太空軌道生活指南：星圖座標、無重力挑戰與神奇人造衛星｜EP.114",
