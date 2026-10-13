@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-10-12T06:54:23.386Z",
-  "count": 203,
+  "updatedAt": "2026-10-13T07:20:12.131Z",
+  "count": 204,
   "episodes": [
+    {
+      "id": "cmv3sbfrh080z01wx380x8fg9",
+      "title": "魔術般的熱量大搬家：冷氣如何把房間變冰箱？暖氣如何從冰雪中榨出熱能？｜VIP. 32",
+      "firstoryLink": "https://open.firstory.fm/story/cmv3sbfrh080z01wx380x8fg9",
+      "pubDate": "Sun, 11 Oct 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/x2X5vTSqPeaTPneQVvjBW.jpg",
+      "duration": 988,
+      "spotifyLink": "https://open.spotify.com/episode/16KTTwaTwPVOGe9X6DKOTq",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000795254039"
+    },
     {
       "id": "cmv3s8fzh00o901vsd8ny74tq",
       "title": "星空藏寶圖：從巨石陣到哈伯望遠鏡的天文奇幻旅程｜EP.115",
