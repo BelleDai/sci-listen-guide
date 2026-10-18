@@ -3,6 +3,7 @@
 import { useSyncExternalStore } from "react";
 import Link from "next/link";
 import { BookOpen, ChevronRight, Gamepad2, Lightbulb } from "lucide-react";
+import FloatingDecor from "@/components/home/FloatingDecor";
 import { GAME_METADATA } from "@/components/games/core/gameMetadata";
 import type { EpisodeQuizGameId } from "@/components/games/core/episodeQuizzes";
 import { getTaipeiDateKey, pickDaily } from "@/lib/daily-pick";
@@ -10,7 +11,7 @@ import { getGuideEpisodeLabel, getPodcastDisplayTitle } from "@/lib/podcast";
 import { trackLearningResourceClick } from "@/lib/analytics";
 
 export type ResourceGuide = { id: string; title: string; cover: string };
-export type ResourceGameStage = { id: string; name: string; emoji: string; category: string };
+export type ResourceGameStage = { id: string; name: string; emoji: string };
 export type ResourceGameGroup = { gameId: EpisodeQuizGameId; stages: ResourceGameStage[] };
 
 const DAILY_GUIDE_COUNT = 3;
@@ -58,8 +59,9 @@ export default function LearningResourcesSection({ guides, gameGroups }: Props) 
     <section
       id="resources"
       aria-labelledby="resources-heading"
-      className="scroll-mt-28 md:scroll-mt-20 px-4 py-10 sm:py-14"
+      className="section-band section-band-indigo relative isolate scroll-mt-28 md:scroll-mt-20 px-4 py-10 sm:py-14"
     >
+      <FloatingDecor variant="section" count={10} />
       <div className="mx-auto w-full max-w-5xl">
         <div className="mb-7 max-w-2xl">
           <p className="mb-2 text-xs font-bold tracking-[0.18em] text-accent/80">KEEP EXPLORING</p>
@@ -78,7 +80,6 @@ export default function LearningResourcesSection({ guides, gameGroups }: Props) 
             <h3 className="flex items-center gap-2 text-lg font-bold text-white sm:text-xl">
               <BookOpen className="h-5 w-5 text-accent" aria-hidden="true" />
               今日科普伴讀
-              <span className="text-xs font-medium text-white/55 sm:text-sm">每天換 3 篇</span>
             </h3>
             <button
               type="button"
@@ -100,7 +101,7 @@ export default function LearningResourcesSection({ guides, gameGroups }: Props) 
                     <Link
                       href={`/guide/${guide.id}`}
                       onClick={() => trackLearningResourceClick("guide", guide.id, index + 1)}
-                      className="group flex h-full overflow-hidden rounded-2xl border border-white/12 bg-[#1e1c2a]/80 transition hover:-translate-y-1 hover:border-accent/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:flex-col"
+                      className="group flex h-full overflow-hidden rounded-2xl border border-white/12 bg-[#1e1c2a] transition hover:-translate-y-1 hover:border-accent/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:flex-col"
                     >
                       <div className="aspect-square w-28 flex-shrink-0 overflow-hidden bg-white/10 sm:aspect-[4/3] sm:w-full">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -136,7 +137,6 @@ export default function LearningResourcesSection({ guides, gameGroups }: Props) 
             <h3 className="flex items-center gap-2 text-lg font-bold text-white sm:text-xl">
               <Gamepad2 className="h-5 w-5 text-accent" aria-hidden="true" />
               今日挑戰關卡
-              <span className="text-xs font-medium text-white/55 sm:text-sm">登入後保存徽章與進度</span>
             </h3>
             <Link
               href="/games"
@@ -171,8 +171,7 @@ export default function LearningResourcesSection({ guides, gameGroups }: Props) 
                         <span className="text-sm font-semibold text-white/85">{meta.label}</span>
                       </span>
                       <span className="min-w-0">
-                        <span className="block text-xs text-white/60">{stage.category}</span>
-                        <span className="mt-1 line-clamp-2 block text-base font-semibold leading-snug text-white">
+                        <span className="line-clamp-2 block text-base font-semibold leading-snug text-white">
                           <span aria-hidden="true">{stage.emoji} </span>
                           {stage.name}
                         </span>

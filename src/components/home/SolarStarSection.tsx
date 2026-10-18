@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ArrowUpRight, Play, Sparkles } from "lucide-react";
+import FloatingDecor from "@/components/home/FloatingDecor";
 import { YouTubeIcon } from "@/components/home/PlatformIcons";
 import type { ExternalLink, SolarVideo } from "@/lib/home-content";
 import { trackOutboundClick, trackSolarVideoPlay } from "@/lib/analytics";
@@ -52,8 +53,9 @@ export default function SolarStarSection({ title, description, moreLink, videos 
     <section
       id="solar"
       aria-labelledby="solar-heading"
-      className="scroll-mt-28 md:scroll-mt-20 bg-black/10 px-4 py-10 shadow-[inset_0_4px_24px_rgba(0,0,0,0.4)] sm:py-14"
+      className="section-band section-band-space relative isolate scroll-mt-28 md:scroll-mt-20 px-4 py-10 sm:py-14"
     >
+      <FloatingDecor variant="section" iconSet="space" count={10} />
       <div className="mx-auto w-full max-w-5xl">
         <div className="mb-6 flex flex-col gap-3 sm:mb-7 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl">
@@ -141,8 +143,8 @@ export default function SolarStarSection({ title, description, moreLink, videos 
                         aria-pressed={isActive}
                         className={`flex w-full items-center gap-3 rounded-2xl border p-3 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                           isActive
-                            ? "border-secondary/50 bg-secondary/10"
-                            : "border-white/12 bg-white/[0.05] hover:border-white/30"
+                            ? "border-secondary/50 bg-[#29251c]"
+                            : "border-white/12 bg-[#121624] hover:border-white/30"
                         }`}
                       >
                         <span className="relative h-20 w-14 flex-shrink-0 overflow-hidden rounded-lg bg-black">

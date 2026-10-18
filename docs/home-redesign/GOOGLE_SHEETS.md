@@ -1,6 +1,6 @@
 # 首頁內容 × Google Sheets 使用說明
 
-用一份 Google 試算表管理首頁的 **Hero 精選卡片**、**互動科學探索館作品**、**Solar Star 影片**，不需要改程式碼。
+用一份 Google 試算表管理首頁的 **Hero 精選卡片**、**互動實驗室作品**、**Solar Star 影片**，不需要改程式碼。
 
 ```
 Google 試算表 ──(每天 09:00 自動／手動觸發)──▶ GitHub Actions 驗證 ──▶ src/content/home/*.json ──▶ 重新部署網站
@@ -64,7 +64,7 @@ Google 試算表 ──(每天 09:00 自動／手動觸發)──▶ GitHub Acti
 | status | ✔ | `published`（上架）或 `draft`（下架） |
 | sortOrder | ✔ | 數字，小的排前面 |
 
-### `labs`（互動科學探索館）
+### `labs`（互動實驗室）
 
 | 欄位 | 必填 | 說明 |
 |---|---|---|
@@ -80,7 +80,7 @@ Google 試算表 ──(每天 09:00 自動／手動觸發)──▶ GitHub Acti
 
 首頁最多顯示幾個精選作品，由 `src/content/home/labs.json` 的 `maxFeatured`（2–4）決定。
 
-### `solar_videos`（Solar Star 影片；第 1 支為主影片，最多 4 支）
+### `solar_videos`（Solar Star 影片；sortOrder 最小的為主影片，其餘列在旁邊切換）
 
 | 欄位 | 必填 | 說明 |
 |---|---|---|
@@ -98,8 +98,8 @@ Google 試算表 ──(每天 09:00 自動／手動觸發)──▶ GitHub Acti
 下列文字較少變動，仍直接編輯 repo 中的 JSON（改完需要 commit）：
 
 - Hero 標語、介紹文字、按鈕、自動輪播秒數：`src/content/home/hero.json`
-- 探索館「看全部作品」連結、精選上限：`src/content/home/labs.json`
-- Solar Star 區塊標題、說明、YouTube 連結：`src/content/home/solar-star.json`
+- 互動實驗室「看全部互動作品」連結、精選上限：`src/content/home/labs.json`
+- Solar Star 區塊標題、說明、YouTube 連結、首頁最多顯示幾支（`maxVideos`，目前 5）：`src/content/home/solar-star.json`
 - 品牌故事、背書、角色圖：`src/content/home/brand.json`
 - Podcast 平台、Footer、社群連結：`src/content/site-links.json`
 

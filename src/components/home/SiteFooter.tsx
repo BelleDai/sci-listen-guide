@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Mail } from "lucide-react";
+import FloatingDecor from "@/components/home/FloatingDecor";
 import { PLATFORM_STYLES, YouTubeIcon } from "@/components/home/PlatformIcons";
 import type { SiteLinks } from "@/lib/home-content";
 import { trackOutboundClick } from "@/lib/analytics";
@@ -39,7 +40,8 @@ export default function SiteFooter({ links }: { links: SiteLinks }) {
   const featuredPlatforms = links.podcastPlatforms.filter((platform) => platform.featured);
 
   return (
-    <footer className="border-t border-white/10 bg-black/25 px-4 pb-10 pt-10 sm:pt-12">
+    <footer className="section-band section-band-footer relative isolate px-4 pb-10 pt-10 sm:pt-12">
+      <FloatingDecor variant="section" count={5} />
       <div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <div className="sm:col-span-2 lg:col-span-1">
           <div className="flex items-center gap-2.5">

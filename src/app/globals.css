@@ -43,6 +43,13 @@ All colors MUST be HSL.
     --shadow-card: 0 8px 30px -8px hsl(222 80% 4% / 0.6);
     --gradient-primary: linear-gradient(135deg, hsl(1 100% 73%), hsl(42 100% 66%));
     --gradient-accent: linear-gradient(135deg, hsl(198 71% 58%), hsl(174 70% 55%));
+
+    /* 首頁區塊色帶：相鄰區塊交替，讓段落分界清楚（保留深色品牌調性） */
+    --section-purple: 250 26% 14%;      /* 品牌深紫：Podcast */
+    --section-teal: 204 42% 11%;        /* 深藍綠：探索館、品牌區 */
+    --section-space: 230 48% 5%;        /* 深空黑：Solar Star */
+    --section-indigo: 236 30% 15%;      /* 靛紫：學習資源 */
+    --section-footer: 228 40% 4%;
   }
 }
 
@@ -77,3 +84,15 @@ All colors MUST be HSL.
   .markdown-body ul { @apply list-disc pl-6 space-y-2; }
   .markdown-body strong { @apply text-secondary; }
 }
+
+/* 首頁區塊色帶：半透明讓背景裝飾隱約可見；上緣細線強化分界。
+   放在 @layer 之外，避免 Tailwind 依內容掃描結果把未偵測到的 class 清除 */
+.section-band {
+  border-top: 1px solid hsl(0 0% 100% / 0.08);
+  box-shadow: inset 0 18px 32px -24px rgba(0, 0, 0, 0.6);
+}
+.section-band-purple { background-color: hsl(var(--section-purple) / 0.92); }
+.section-band-teal { background-color: hsl(var(--section-teal) / 0.92); }
+.section-band-space { background-color: hsl(var(--section-space) / 0.94); }
+.section-band-indigo { background-color: hsl(var(--section-indigo) / 0.92); }
+.section-band-footer { background-color: hsl(var(--section-footer) / 0.96); }

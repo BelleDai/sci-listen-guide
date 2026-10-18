@@ -1,8 +1,8 @@
 {
-  "eyebrow": "聽科學・讀科學・玩科學",
-  "tagline": "永遠對世界抱持好奇心",
-  "taglineHighlight": "好奇心",
-  "intro": "從一段精彩的 Podcast 故事開始，陪孩子讀科普、玩闖關。微觀世界、恐龍海洋、地球宇宙，都變成孩子聽得懂、想再探索的知識旅行。",
+  "eyebrow": "",
+  "tagline": "聽故事、讀科普、玩中學",
+  "taglineHighlight": "玩中學",
+  "intro": "微觀世界、恐龍海洋、地球宇宙，科學好好聽把包羅萬象的主題變成孩子聽得懂、想再探索的知識旅行。",
   "primaryCta": {
     "label": "開始收聽 Podcast",
     "href": "#podcast"
@@ -29,7 +29,7 @@
     },
     {
       "id": "solar-system-lab",
-      "label": "互動科學",
+      "label": "互動實驗室",
       "title": "太陽系探索室",
       "description": "動動手指，一起探索八大行星、自轉公轉與衛星的祕密。",
       "image": "/home/labs/solar-system.webp",

@@ -9,7 +9,7 @@ export default function BrandSection({ content }: { content: BrandContent }) {
     <section
       id="about"
       aria-labelledby="about-heading"
-      className="scroll-mt-28 md:scroll-mt-20 border-t border-white/10 bg-black/10 px-4 py-10 sm:py-14"
+      className="section-band section-band-teal scroll-mt-28 md:scroll-mt-20 px-4 py-10 sm:py-14"
     >
       <div className="mx-auto grid w-full max-w-5xl grid-cols-1 items-center gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-10">
         <div className="relative mx-auto flex w-full max-w-md justify-center lg:max-w-none">

@@ -31,7 +31,7 @@ const GAME_ORDER: EpisodeQuizGameId[] = ["colorful-balloons", "golden-coins", "t
 
 const homeNavItems: HeaderNavItem[] = [
   { label: "Podcast", href: "#podcast" },
-  { label: "探索館", href: "#explore" },
+  { label: "實驗室", href: "#explore" },
   { label: "Solar Star", href: "#solar" },
   { label: "學習資源", href: "#resources" },
   { label: "關於", href: "#about" },
@@ -44,7 +44,6 @@ function getGameGroups(): ResourceGameGroup[] {
       id: episode.id,
       name: episode.name,
       emoji: episode.emoji,
-      category: category.category_name,
       gameId: getEpisodeGameId(episode.id),
     }))
   );
@@ -52,7 +51,7 @@ function getGameGroups(): ResourceGameGroup[] {
     gameId,
     stages: stages
       .filter((stage) => stage.gameId === gameId)
-      .map(({ id, name, emoji, category }) => ({ id, name, emoji, category })),
+      .map(({ id, name, emoji }) => ({ id, name, emoji })),
   })).filter((group) => group.stages.length > 0);
 }
 
@@ -98,7 +97,7 @@ export default async function Home() {
           platforms={siteLinks.podcastPlatforms}
         />
 
-        {/* 03｜互動科學探索館 */}
+        {/* 03｜互動實驗室 */}
         <InteractiveLabsSection labs={featuredLabs.items} moreLink={featuredLabs.moreLink} />
 
         {/* 04｜Solar Star */}

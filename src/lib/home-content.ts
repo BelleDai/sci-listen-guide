@@ -34,9 +34,6 @@ export type {
   SolarVideo,
 } from "@/lib/home-content-schema";
 
-/** 主影片 1 支＋可切換 3 支 */
-export const MAX_SOLAR_VIDEOS = 4;
-
 export type HeroCard = {
   id: string;
   label: string;
@@ -83,10 +80,14 @@ export function getFeaturedLabs(): { items: LabItem[]; moreLink?: ExternalLink }
   };
 }
 
-/** Solar Star 已上架影片，依 sortOrder 取前 4 支 */
+/** Solar Star 已上架影片，依 sortOrder 取前 maxVideos 支 */
 export function getSolarStarContent() {
-  const content = parseContent(solarStarContentSchema, solarStarJson, "src/content/home/solar-star.json");
-  return { ...content, videos: byPublishedAndOrder(content.videos).slice(0, MAX_SOLAR_VIDEOS) };
+  const { maxVideos, videos, ...content } = parseContent(
+    solarStarContentSchema,
+    solarStarJson,
+    "src/content/home/solar-star.json"
+  );
+  return { ...content, videos: byPublishedAndOrder(videos).slice(0, maxVideos) };
 }
 
 /**

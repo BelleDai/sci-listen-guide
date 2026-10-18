@@ -23,7 +23,7 @@ export default function InteractiveLabsSection({ labs, moreLink }: Props) {
     <section
       id="explore"
       aria-labelledby="explore-heading"
-      className="scroll-mt-28 md:scroll-mt-20 px-4 py-10 sm:py-14"
+      className="section-band section-band-teal scroll-mt-28 md:scroll-mt-20 px-4 py-10 sm:py-14"
     >
       <div className="mx-auto w-full max-w-5xl">
         <div className="mb-6 flex flex-col gap-3 sm:mb-7 sm:flex-row sm:items-end sm:justify-between">
@@ -31,10 +31,10 @@ export default function InteractiveLabsSection({ labs, moreLink }: Props) {
             <p className="mb-2 text-xs font-bold tracking-[0.18em] text-accent/80">INTERACTIVE LAB</p>
             <h2 id="explore-heading" className="flex items-center gap-2 text-2xl font-extrabold text-white sm:text-3xl">
               <FlaskConical className="h-6 w-6 text-secondary" aria-hidden="true" />
-              互動科學探索館
+              互動實驗室
             </h2>
             <p className="mt-3 text-base leading-7 text-white/75 sm:text-lg sm:leading-8">
-              看見科學、動手操作科學，動動手指發現世界更多不可思議。
+              邊聽 Podcast，邊動手玩科學
             </p>
           </div>
           {moreLink && (

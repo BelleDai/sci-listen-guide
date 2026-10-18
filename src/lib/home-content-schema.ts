@@ -137,6 +137,8 @@ export const solarStarContentSchema = z.object({
   title: z.string().min(1),
   description: z.string().min(1),
   moreLink: externalLinkSchema.optional(),
+  /** 首頁最多顯示幾支（第 1 支為主影片，其餘列在旁邊切換） */
+  maxVideos: z.number().int().min(1).max(8).default(4),
   videos: uniqueIds(solarVideoSchema),
 });
 

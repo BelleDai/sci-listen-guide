@@ -5,6 +5,7 @@
     "label": "到 YouTube 看更多",
     "href": "https://www.youtube.com/@tarohuangtw/shorts"
   },
+  "maxVideos": 5,
   "videos": [
     {
       "id": "sun-gravity-ring",
@@ -26,6 +27,20 @@
       "title": "金星登場",
       "status": "published",
       "sortOrder": 3
+    },
+    {
+      "id": "earth",
+      "youtubeId": "LhP-Z3JDCsU",
+      "title": "地球登場",
+      "status": "published",
+      "sortOrder": 4
+    },
+    {
+      "id": "mars",
+      "youtubeId": "eXHniP8kSAQ",
+      "title": "火星登場",
+      "status": "published",
+      "sortOrder": 5
     }
   ]
 }
