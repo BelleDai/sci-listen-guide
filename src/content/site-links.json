@@ -1,0 +1,28 @@
+{
+  "podcastPlatforms": [
+    {
+      "id": "apple_podcasts",
+      "label": "Apple Podcasts",
+      "href": "https://podcasts.apple.com/tw/podcast/%E7%A7%91%E5%AD%B8%E5%A5%BD%E5%A5%BD%E8%81%BD/id1812447277",
+      "featured": true
+    },
+    {
+      "id": "spotify",
+      "label": "Spotify",
+      "href": "https://open.spotify.com/show/1eyISRdcgDTwZqIqrP1qKv",
+      "featured": true
+    },
+    {
+      "id": "youtube",
+      "label": "YouTube",
+      "href": "https://www.youtube.com/playlist?list=PLLMTd7kOjc2Xb4GtG8oRF9amKathXcnEK",
+      "featured": false
+    },
+    {
+      "id": "kkbox",
+      "label": "KKBOX",
+      "href": "https://podcast.kkbox.com/tw/channel/KkRvjF8kret9SG5Nbf",
+      "featured": false
+    }
+  ]
+}

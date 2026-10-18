@@ -43,14 +43,18 @@ function searchResultFilter(value: string, search: string, keywords?: string[]):
   return defaultFilter(value, search, keywords);
 }
 
+export type HeaderNavItem = { label: string; href: string };
+
 interface Props {
   episodes?: SearchIndexItem[];
   step?: number;
   total?: number;
   onJump?: (n: number) => void;
+  /** 首頁區塊導覽；伴讀頁不傳，維持原本樣式 */
+  navItems?: HeaderNavItem[];
 }
 
-const Header = ({ episodes = [], step, total, onJump }: Props) => {
+const Header = ({ episodes = [], step, total, onJump, navItems }: Props) => {
   const [searchOpen, setSearchOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [podcastList, setPodcastList] = useState<PodcastListItem[]>([]);
@@ -142,10 +146,22 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
   };
 
   const hasStepper = step !== undefined && total !== undefined && onJump !== undefined;
+  const hasNav = navItems !== undefined && navItems.length > 0;
+
+  const navLinks = (className: string) =>
+    navItems?.map((item) => (
+      <a
+        key={item.href}
+        href={item.href}
+        className={`whitespace-nowrap rounded-full font-medium text-white/80 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${className}`}
+      >
+        {item.label}
+      </a>
+    ));
 
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-card/70 border-b border-border/60">
-      <div className="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between gap-3 relative">
+      <div className={`${hasNav ? "max-w-5xl" : "max-w-3xl"} mx-auto px-4 py-3 flex items-center justify-between gap-3 relative`}>
         {/* Left: Brand = home */}
         <button
           onClick={goHome}
@@ -162,6 +178,13 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
             {hasStepper && (<span className="hidden sm:inline font-extrabold text-accent text-base leading-none">科普伴讀</span>)}
           </span>
         </button>
+
+        {/* Center: 首頁區塊導覽（桌機） */}
+        {hasNav && (
+          <nav aria-label="首頁區塊" className="hidden md:flex items-center gap-1 flex-1 justify-center">
+            {navLinks("px-3 py-1.5 text-sm")}
+          </nav>
+        )}
 
         {/* Right: Search + Stepper */}
         <div className="flex items-center gap-3 flex-shrink-0" ref={searchContainerRef}>
@@ -336,6 +359,15 @@ const Header = ({ episodes = [], step, total, onJump }: Props) => {
           )}
         </div>
       </div>
+
+      {/* 首頁區塊導覽（手機） */}
+      {hasNav && (
+        <nav aria-label="首頁區塊" className="md:hidden border-t border-white/10">
+          <div className="flex items-center justify-around gap-1 overflow-x-auto px-2 py-1">
+            {navLinks("px-3 py-2 text-sm")}
+          </div>
+        </nav>
+      )}
     </header>
   );
 };

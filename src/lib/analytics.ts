@@ -69,6 +69,37 @@ export const trackOutboundClick = (platform: string, source: string) =>
     outbound_source: source, // e.g. "player_launch" | "home" | "footer"
   });
 
+/**
+ * Called when user clicks a listen link of a specific episode on the home page.
+ * Note: an outbound click is NOT a confirmed listen / follow.
+ */
+export const trackPodcastEpisodeClick = (params: {
+  episodeId: string;
+  episodeTitle: string;
+  platform: string;
+  source: string; // "home_latest" | "home_search"
+}) =>
+  trackEvent("podcast_episode_click", {
+    podcast_episode_id: params.episodeId,
+    podcast_episode_title: params.episodeTitle,
+    podcast_platform: params.platform,
+    click_source: params.source,
+  });
+
+/** Called when user clicks a show-level follow link (Apple Podcasts, Spotify, YouTube, KKBOX) */
+export const trackPodcastPlatformClick = (platform: string, source: string) =>
+  trackEvent("podcast_platform_click", {
+    podcast_platform: platform,
+    click_source: source, // "home_podcast_section"
+  });
+
+/** Called when user clicks a hero featured card on the home page */
+export const trackHeroCardClick = (cardId: string, position: number) =>
+  trackEvent("hero_card_click", {
+    hero_card_id: cardId,
+    hero_card_position: position,
+  });
+
 /** Called when TTS is triggered anywhere (e.g. SpeakLine, GlossaryCard, Auto-speak) */
 export const trackTTSPlay = (contentType: string, episodeId: string) =>
   trackEvent("tts_play", {

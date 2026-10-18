@@ -1,29 +1,33 @@
-import HomeListenPlatforms from "@/components/home/HomeListenPlatforms";
-import LatestPodcastTopFive from "@/components/home/LatestPodcastTopFive";
 import LatestEpisodesCarousel from "@/components/home/LatestEpisodesCarousel";
-import Header from "@/components/episode/Header";
+import Header, { type HeaderNavItem } from "@/components/episode/Header";
 import Footer from "@/components/episode/Footer";
 import { GAME_METADATA } from "@/components/games/core/gameMetadata";
 import { getAllPublishedEpisodes } from "@/lib/episodes";
+import { getHeroContent, getPodcastPlatforms, resolveHeroCards } from "@/lib/home-content";
+import { sortPodcastEpisodesByDate } from "@/lib/podcast";
 import type { PodcastListItem } from "@/types/podcast-list";
 import Link from "next/link";
 import {
   BookOpen,
-  Gamepad2,
   GraduationCap,
-  Headphones,
   PlayCircle,
   ShieldCheck,
-  Sparkles,
   Star,
   ThumbsUp,
 } from "lucide-react";
 import FloatingDecor from "@/components/home/FloatingDecor";
+import HeroSection from "@/components/home/HeroSection";
+import PodcastSection from "@/components/home/PodcastSection";
 import podcastList from "../../public/podcast-list.json";
-import ClientHeroButton from "@/components/episode/ClientHeroButton";
-import LearningPathSection from "@/components/home/LearningPathSection";
 
+const LATEST_PODCAST_COUNT = 5;
 
+const homeNavItems: HeaderNavItem[] = [
+  { label: "Podcast", href: "#podcast" },
+  { label: "科普伴讀", href: "#latest-guides" },
+  { label: "遊戲基地", href: "#game-intro-section" },
+  { label: "關於我們", href: "#about" },
+];
 
 const gameHighlights = [
   {
@@ -54,58 +58,34 @@ export default async function Home() {
     .sort((a, b) => new Date(b.pubDate as string).getTime() - new Date(a.pubDate as string).getTime())
     .slice(0, 5)
     .map(({ id, Title, Cover }) => ({ id, Title, Cover }));
-  const latestPodcastTopFive = [...(podcastList.episodes as PodcastListItem[])]
-    .sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime())
-    .slice(0, 5);
+  const latestPodcastEpisodes = sortPodcastEpisodesByDate(podcastList.episodes as PodcastListItem[]).slice(
+    0,
+    LATEST_PODCAST_COUNT
+  );
+  const guideByGuid = Object.fromEntries(
+    searchIndex.flatMap((ep) => (ep.firstoryGuid ? [[ep.firstoryGuid, ep.id]] : []))
+  );
+
+  const heroContent = getHeroContent();
+  const heroCards = resolveHeroCards(heroContent, latestPodcastEpisodes[0]);
 
   return (
     <>
-      <Header episodes={searchIndex} />
+      <Header episodes={searchIndex} navItems={homeNavItems} />
       <FloatingDecor count={20} />
       <main className="text-foreground min-h-screen">
-        <section className="px-4 pb-10 pt-7 sm:pb-14 sm:pt-10">
-          <div className="mx-auto grid max-w-5xl items-center gap-7 lg:grid-cols-[0.95fr_1.05fr] lg:gap-10">
-            <div className="text-center lg:text-left">
+        {/* 01｜Hero */}
+        <HeroSection content={heroContent} cards={heroCards} />
 
-              <h1 className="text-4xl font-black leading-[1.08] text-white text-stroke-dark sm:text-5xl lg:text-[3.35rem]">
-                聽故事、讀科普、<span className="inline-block whitespace-nowrap text-secondary">玩中學</span>
-              </h1>
+        {/* 02｜Podcast */}
+        <PodcastSection
+          latestEpisodes={latestPodcastEpisodes}
+          guideByGuid={guideByGuid}
+          platforms={getPodcastPlatforms()}
+        />
 
-              <p className="mx-auto mt-4 max-w-xl text-base font-normal leading-7 text-white/75 sm:text-lg sm:leading-8 lg:mx-0">
-                微觀世界、恐龍海洋、地球宇宙，科學好好聽把包羅萬象的主題變成孩子聽得懂、想再探索的知識旅行。
-              </p>
-
-              <div className="mt-6 flex flex-row items-center justify-center gap-3 lg:justify-start">
-                <ClientHeroButton />
-                <Link
-                  href="/games"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-accent/45 bg-accent/15 px-6 py-3.5 text-base font-medium text-white/90 transition hover:border-accent hover:bg-accent/25 hover:text-white sm:w-auto"
-                >
-                  <Gamepad2 className="h-5 w-5" />
-                  <div><span className="hidden sm:inline">前往</span>遊戲基地</div>
-                </Link>
-              </div>
-            </div>
-
-            <div className="relative mx-auto w-full max-w-md sm:max-w-lg lg:max-w-none">
-              <div className="absolute -inset-2 rounded-[2rem] bg-accent/10 blur-2xl" aria-hidden="true" />
-              <div className="relative overflow-hidden">
-                <img
-                  src="/hero-science-learning.webp"
-                  alt="兩位孩子在科學學習基地中聽 Podcast、閱讀科普伴讀並玩闖關遊戲"
-                  className="aspect-video w-full rounded-[1.25rem] object-contain"
-                  loading="eager"
-                  fetchPriority="high"
-                  decoding="async"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <LearningPathSection />
-
-        <section id="latest-guides" className="scroll-mt-20 px-4 py-10 sm:py-14">
+        {/* 以下為改版前的區塊，Phase 2–3 會依序替換為探索館、Solar Star、學習資源與品牌區 */}
+        <section id="latest-guides" className="scroll-mt-28 md:scroll-mt-20 px-4 py-10 sm:py-14">
           <div className="mx-auto mb-7 max-w-5xl sm:mb-8">
             <h2 className="flex items-center gap-2 text-2xl font-extrabold text-white sm:text-3xl">
               <BookOpen className="h-6 w-6 text-secondary" />
@@ -121,20 +101,7 @@ export default async function Home() {
           )}
         </section>
 
-        <section id="listen-platforms" className="scroll-mt-20 bg-black/10 px-4 py-10 shadow-[inset_0_4px_24px_rgba(0,0,0,0.4)] sm:py-14">
-          <div className="mx-auto w-full max-w-5xl">
-            <div className="mb-7 max-w-2xl space-y-3 sm:mb-8">
-              <h2 className="flex items-center gap-2 text-2xl font-extrabold text-white sm:text-3xl">
-                <Headphones className="h-6 w-6 text-secondary" />
-                全系列 200+ 集故事聽翻天
-              </h2>
-            </div>
-            <HomeListenPlatforms />
-            <LatestPodcastTopFive episodes={latestPodcastTopFive} />
-          </div>
-        </section>
-
-        <section id="game-intro-section" className="border-y border-white/10 bg-black/10 px-4 py-10 shadow-[inset_0_4px_24px_rgba(0,0,0,0.26)] sm:py-14">
+        <section id="game-intro-section" className="scroll-mt-28 md:scroll-mt-20 border-y border-white/10 bg-black/10 px-4 py-10 shadow-[inset_0_4px_24px_rgba(0,0,0,0.26)] sm:py-14">
           <div className="mx-auto grid max-w-5xl items-center gap-7 lg:grid-cols-[0.86fr_1.14fr] lg:gap-8">
             <div>
               <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-secondary/25 bg-secondary/15 px-3 py-1 text-sm font-semibold text-secondary/90">
@@ -216,7 +183,7 @@ export default async function Home() {
             Group 3: Brand Story
         ========================================= */}
         <div className="flex flex-col gap-8 py-10 sm:gap-10 sm:py-14">
-          <section className="mx-auto w-full max-w-5xl px-4">
+          <section id="about" className="mx-auto w-full max-w-5xl scroll-mt-28 px-4 md:scroll-mt-20">
             <div
               className="rounded-3xl p-6 sm:p-8 backdrop-blur-xl border border-white/10 shadow-[var(--shadow-card)] relative overflow-hidden"
               style={{ backgroundColor: "rgba(52, 49, 76, 0.82)" }}
