@@ -23,7 +23,7 @@ export default function InteractiveLabsSection({ labs, moreLink }: Props) {
     <section
       id="explore"
       aria-labelledby="explore-heading"
-      className="section-band section-band-teal scroll-mt-28 md:scroll-mt-20 px-4 py-10 sm:py-14"
+      className="section-band section-band-teal scroll-mt-20 px-4 py-10 sm:py-14"
     >
       <div className="mx-auto w-full max-w-5xl">
         <div className="mb-6 flex flex-col gap-3 sm:mb-7 sm:flex-row sm:items-end sm:justify-between">

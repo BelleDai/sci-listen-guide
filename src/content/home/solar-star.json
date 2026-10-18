@@ -1,5 +1,5 @@
 {
-  "title": "Solar Star｜太陽系小劇場",
+  "title": "太陽系小劇場",
   "description": "太陽系的角色們有個性、也有笑點，用短短一分鐘看懂宇宙裡的科學。",
   "moreLink": {
     "label": "到 YouTube 看更多",
@@ -10,35 +10,35 @@
     {
       "id": "sun-gravity-ring",
       "youtubeId": "XeCH146efZQ",
-      "title": "太陽神出場八軌重力之環",
+      "title": "我是赫利俄斯，太陽",
       "status": "published",
       "sortOrder": 1
     },
     {
       "id": "mercury",
       "youtubeId": "WnCBiijAyRU",
-      "title": "水星登場",
+      "title": "我是赫密斯，水星",
       "status": "published",
       "sortOrder": 2
     },
     {
       "id": "venus",
       "youtubeId": "nvMsgQK2K3w",
-      "title": "金星登場",
+      "title": "我是阿芙蘿黛蒂，金星",
       "status": "published",
       "sortOrder": 3
     },
     {
       "id": "earth",
       "youtubeId": "LhP-Z3JDCsU",
-      "title": "地球登場",
+      "title": "我是蓋亞，地球",
       "status": "published",
       "sortOrder": 4
     },
     {
       "id": "mars",
       "youtubeId": "eXHniP8kSAQ",
-      "title": "火星登場",
+      "title": "我是阿瑞斯，火星",
       "status": "published",
       "sortOrder": 5
     }

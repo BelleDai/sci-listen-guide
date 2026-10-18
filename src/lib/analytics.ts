@@ -108,12 +108,21 @@ export const trackInteractiveLabClick = (labId: string, labTitle: string, positi
     lab_position: position,
   });
 
-/** Called when user starts a Solar Star video (the YouTube player loads only after this click) */
-export const trackSolarVideoPlay = (youtubeId: string, videoTitle: string, position: number) =>
+/**
+ * Called when a Solar Star video starts: by a click (the YouTube player loads only after it),
+ * or automatically after the previous video ended.
+ */
+export const trackSolarVideoPlay = (
+  youtubeId: string,
+  videoTitle: string,
+  position: number,
+  trigger: "click" | "autoplay_next"
+) =>
   trackEvent("solar_video_play", {
     video_id: youtubeId,
     video_title: videoTitle,
     video_position: position,
+    play_trigger: trigger,
   });
 
 /** Called when user opens a daily guide or game stage from the home learning-resources section */

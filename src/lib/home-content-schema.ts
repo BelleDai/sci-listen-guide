@@ -50,8 +50,11 @@ export const latestPodcastHeroCardSchema = manualHeroCardSchema.extend({
 export const heroContentSchema = z.object({
   eyebrow: z.string(),
   tagline: z.string().min(1),
-  taglineHighlight: z.string().optional(),
+  /** 標題中以黃色強調的字，可填一段文字或多個字 */
+  taglineHighlight: z.union([z.string(), z.array(z.string().min(1))]).optional(),
   intro: z.string().min(1),
+  /** false 時隱藏主／次按鈕（按鈕文字與連結保留，改回 true 即可恢復） */
+  showCtas: z.boolean().default(true),
   primaryCta: ctaSchema,
   secondaryCta: ctaSchema,
   highlights: z.array(z.string().min(1)).max(4),

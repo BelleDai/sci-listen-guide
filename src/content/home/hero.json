@@ -1,8 +1,13 @@
 {
   "eyebrow": "",
   "tagline": "聽故事、讀科普、玩中學",
-  "taglineHighlight": "玩中學",
+  "taglineHighlight": [
+    "聽",
+    "讀",
+    "玩"
+  ],
   "intro": "微觀世界、恐龍海洋、地球宇宙，科學好好聽把包羅萬象的主題變成孩子聽得懂、想再探索的知識旅行。",
+  "showCtas": false,
   "primaryCta": {
     "label": "開始收聽 Podcast",
     "href": "#podcast"

@@ -100,7 +100,7 @@ export default function HeroFeatureCarousel({ cards, autoplaySeconds }: Props) {
     <Carousel
       setApi={setApi}
       opts={{ loop: total > 1 }}
-      aria-label="本週精選"
+      aria-label="精選內容"
       className="w-full rounded-[1.5rem] border border-white/12 bg-card/60 p-3 shadow-[var(--shadow-card)] backdrop-blur-md sm:p-4"
       // 只有滑鼠移入與鍵盤焦點會暫停；觸控點擊不暫停，避免手機上卡在暫停狀態
       onPointerEnter={(e) => e.pointerType === "mouse" && setHovered(true)}
@@ -110,29 +110,6 @@ export default function HeroFeatureCarousel({ cards, autoplaySeconds }: Props) {
         if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setKeyboardFocused(false);
       }}
     >
-      <div className="mb-3 flex items-center justify-between gap-2 px-1">
-        <span className="text-sm font-semibold text-secondary">✦ 本週精選</span>
-        <div className="flex items-center gap-1">
-          {/* 自動輪播時不朗讀每次切換，避免干擾螢幕閱讀器 */}
-          <span
-            className="text-xs font-medium tabular-nums text-white/60"
-            aria-live={autoplayRunning ? "off" : "polite"}
-          >
-            {pad(selected + 1)} / {pad(total)}
-          </span>
-          {autoplayAvailable && (
-            <button
-              type="button"
-              onClick={() => setUserPaused((paused) => !paused)}
-              aria-label={userPaused ? "繼續自動輪播" : "暫停自動輪播"}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full text-white/70 transition hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-            >
-              {userPaused ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
-            </button>
-          )}
-        </div>
-      </div>
-
       <CarouselContent>
         {cards.map((card, index) => {
           const isActive = index === selected;
@@ -174,7 +151,7 @@ export default function HeroFeatureCarousel({ cards, autoplaySeconds }: Props) {
                   <HeroCardLink
                     card={card}
                     position={index + 1}
-                    className="mt-auto inline-flex min-h-11 w-fit items-center gap-1.5 rounded-full border border-accent/45 bg-accent/15 px-4 py-2 text-sm font-semibold text-white transition hover:border-accent hover:bg-accent/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                    className="mt-auto inline-flex min-h-11 w-fit items-center gap-1.5 rounded-full bg-secondary bg-[image:var(--gradient-primary)] px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-[1.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-card sm:text-base"
                   >
                     {card.ctaLabel}
                     {isExternal(card.href) ? (
@@ -209,7 +186,24 @@ export default function HeroFeatureCarousel({ cards, autoplaySeconds }: Props) {
               </button>
             ))}
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            {/* 自動輪播時不朗讀每次切換，避免干擾螢幕閱讀器 */}
+            <span
+              className="px-1 text-xs font-medium tabular-nums text-white/60"
+              aria-live={autoplayRunning ? "off" : "polite"}
+            >
+              {pad(selected + 1)} / {pad(total)}
+            </span>
+            {autoplayAvailable && (
+              <button
+                type="button"
+                onClick={() => setUserPaused((paused) => !paused)}
+                aria-label={userPaused ? "繼續自動輪播" : "暫停自動輪播"}
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full text-white/70 transition hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              >
+                {userPaused ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
+              </button>
+            )}
             <button
               type="button"
               onClick={() => api?.scrollPrev()}

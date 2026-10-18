@@ -30,5 +30,5 @@ export const PLATFORM_STYLES: Record<PodcastPlatform["id"], { Icon: (props: Icon
   apple_podcasts: { Icon: AppleIcon, color: "#7224d8" },
   spotify: { Icon: SpotifyIcon, color: "#1DB954" },
   youtube: { Icon: YouTubeIcon, color: "#FF0000" },
-  kkbox: { Icon: KkboxIcon, color: "#00A5A5" },
+  kkbox: { Icon: KkboxIcon, color: "#00EBEB" },
 };

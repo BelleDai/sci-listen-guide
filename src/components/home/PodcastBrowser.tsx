@@ -66,41 +66,54 @@ export default function PodcastBrowser({ latestEpisodes, guideByGuid }: Props) {
 
   return (
     <div>
-      <form role="search" onSubmit={(e) => e.preventDefault()} className="mb-2">
-        <label htmlFor="podcast-search" className="sr-only">
-          搜尋 Podcast 節目
-        </label>
-        <div className="relative">
-          <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-white/55" aria-hidden="true" />
-          <input
-            id="podcast-search"
-            type="search"
-            value={query}
-            onFocus={loadEpisodes}
-            onChange={(e) => updateQuery(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Escape") updateQuery("");
-            }}
-            placeholder="搜尋節目：恐龍、太陽系、EP.105…"
-            autoComplete="off"
-            aria-describedby="podcast-search-scope"
-            className="h-12 w-full rounded-full border border-white/20 bg-white/[0.07] pl-12 pr-12 text-base text-white placeholder:text-white/45 transition focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/50 [&::-webkit-search-cancel-button]:hidden"
-          />
-          {query && (
-            <button
-              type="button"
-              onClick={() => updateQuery("")}
-              aria-label="清除搜尋"
-              className="absolute right-1.5 top-1/2 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full text-white/70 hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-            >
-              <X className="h-5 w-5" />
-            </button>
+      <div className="mb-5 flex flex-col gap-3 md:flex-row md:items-start md:justify-between md:gap-6">
+        <p className="text-lg font-normal leading-8 text-white/70 md:pt-2">
+          {isSearching ? (
+            <span className="font-semibold text-accent/90">搜尋結果</span>
+          ) : (
+            <>
+              <span className="font-semibold text-accent/90">新故事</span>到站，準備開聽！
+            </>
           )}
+        </p>
+        <div className="w-full md:max-w-sm">
+          <form role="search" onSubmit={(e) => e.preventDefault()} className="mb-2">
+            <label htmlFor="podcast-search" className="sr-only">
+              搜尋 Podcast 節目
+            </label>
+            <div className="relative">
+              <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-white/55" aria-hidden="true" />
+              <input
+                id="podcast-search"
+                type="search"
+                value={query}
+                onFocus={loadEpisodes}
+                onChange={(e) => updateQuery(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Escape") updateQuery("");
+                }}
+                placeholder="搜尋節目：恐龍、太陽系、EP.105…"
+                autoComplete="off"
+                aria-describedby="podcast-search-scope"
+                className="h-12 w-full rounded-full border border-white/20 bg-white/[0.07] pl-12 pr-12 text-base text-white placeholder:text-white/45 transition focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/50 [&::-webkit-search-cancel-button]:hidden"
+              />
+              {query && (
+                <button
+                  type="button"
+                  onClick={() => updateQuery("")}
+                  aria-label="清除搜尋"
+                  className="absolute right-1.5 top-1/2 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full text-white/70 hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              )}
+            </div>
+          </form>
+          <p id="podcast-search-scope" className="px-2 text-xs text-white/55">
+            {scopeNote}
+          </p>
         </div>
-      </form>
-      <p id="podcast-search-scope" className="mb-5 px-2 text-xs text-white/55 sm:text-sm">
-        {scopeNote}
-      </p>
+      </div>
 
       <p className="sr-only" aria-live="polite">
         {statusMessage}

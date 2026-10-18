@@ -148,17 +148,6 @@ const Header = ({ episodes = [], step, total, onJump, navItems }: Props) => {
   const hasStepper = step !== undefined && total !== undefined && onJump !== undefined;
   const hasNav = navItems !== undefined && navItems.length > 0;
 
-  const navLinks = (className: string) =>
-    navItems?.map((item) => (
-      <a
-        key={item.href}
-        href={item.href}
-        className={`whitespace-nowrap rounded-full font-medium text-white/80 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${className}`}
-      >
-        {item.label}
-      </a>
-    ));
-
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-card/70 border-b border-border/60">
       <div className={`${hasNav ? "max-w-5xl" : "max-w-3xl"} mx-auto px-4 py-3 flex items-center justify-between gap-3 relative`}>
@@ -179,10 +168,18 @@ const Header = ({ episodes = [], step, total, onJump, navItems }: Props) => {
           </span>
         </button>
 
-        {/* Center: 首頁區塊導覽（桌機） */}
+        {/* Center: 首頁區塊導覽（只在桌機顯示，手機保持精簡） */}
         {hasNav && (
           <nav aria-label="首頁區塊" className="hidden md:flex items-center gap-1 flex-1 justify-center">
-            {navLinks("px-3 py-1.5 text-sm")}
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="whitespace-nowrap rounded-full px-3 py-1.5 text-sm font-medium text-white/80 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              >
+                {item.label}
+              </a>
+            ))}
           </nav>
         )}
 
@@ -359,16 +356,6 @@ const Header = ({ episodes = [], step, total, onJump, navItems }: Props) => {
           )}
         </div>
       </div>
-
-      {/* 首頁區塊導覽（手機） */}
-      {hasNav && (
-        <nav aria-label="首頁區塊" className="md:hidden border-t border-white/10">
-          {/* 項目較多時可橫向捲動（justify-start 避免左側被裁切） */}
-          <div className="flex items-center justify-between gap-0.5 overflow-x-auto px-2 py-1 [scrollbar-width:none]">
-            {navLinks("px-2 py-2 text-sm")}
-          </div>
-        </nav>
-      )}
     </header>
   );
 };

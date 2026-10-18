@@ -15,7 +15,7 @@ export default function PodcastSection({ latestEpisodes, guideByGuid, platforms 
     <section
       id="podcast"
       aria-labelledby="podcast-heading"
-      className="section-band section-band-purple scroll-mt-28 md:scroll-mt-20 px-4 py-10 sm:py-14"
+      className="section-band section-band-purple scroll-mt-20 px-4 py-10 sm:py-14"
     >
       <div className="mx-auto w-full max-w-5xl">
         <div className="mb-6 max-w-2xl sm:mb-7">
@@ -26,10 +26,10 @@ export default function PodcastSection({ latestEpisodes, guideByGuid, platforms 
           </h2>
         </div>
 
-        <PodcastBrowser latestEpisodes={latestEpisodes} guideByGuid={guideByGuid} />
+        <PodcastPlatformBar platforms={platforms} />
 
-        <div className="mt-8">
-          <PodcastPlatformBar platforms={platforms} />
+        <div className="mt-8 sm:mt-9">
+          <PodcastBrowser latestEpisodes={latestEpisodes} guideByGuid={guideByGuid} />
         </div>
       </div>
     </section>
