@@ -116,6 +116,14 @@ export const trackSolarVideoPlay = (youtubeId: string, videoTitle: string, posit
     video_position: position,
   });
 
+/** Called when user opens a daily guide or game stage from the home learning-resources section */
+export const trackLearningResourceClick = (resourceType: "guide" | "game", resourceId: string, position: number) =>
+  trackEvent("learning_resource_click", {
+    resource_type: resourceType,
+    resource_id: resourceId,
+    resource_position: position,
+  });
+
 /** Called when TTS is triggered anywhere (e.g. SpeakLine, GlossaryCard, Auto-speak) */
 export const trackTTSPlay = (contentType: string, episodeId: string) =>
   trackEvent("tts_play", {

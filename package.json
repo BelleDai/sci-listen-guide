@@ -12,6 +12,8 @@
     "sync-rss": "tsx scripts/sync-podcast-rss.ts",
     "link-existing": "tsx scripts/link-existing-episodes.ts",
     "update-links": "tsx scripts/update-podcast-links.ts",
+    "sync-home": "tsx scripts/sync-home-content.ts",
+    "export-home-csv": "tsx scripts/sync-home-content.ts --export-csv=docs/home-redesign/sheets",
     "deploy:staging": "npm run build && npx firebase-tools hosting:channel:deploy staging",
     "deploy:prod": "npm run build && npx firebase-tools deploy --only hosting"
   },

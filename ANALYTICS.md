@@ -112,9 +112,10 @@ s4 完成               →  episode_completed
 | `hero_card_click` | 點擊 Hero 精選卡片的按鈕 | `hero_card_id`、`hero_card_position`（1 起算） |
 | `interactive_lab_click` | 點擊互動科學探索館的作品卡片 | `lab_id`、`lab_title`、`lab_position`（1 起算） |
 | `solar_video_play` | 點擊 Solar Star 影片播放（此時才載入 YouTube 播放器） | `video_id`（YouTube ID）、`video_title`、`video_position`（1 起算） |
+| `learning_resource_click` | 點擊「更多親子學習資源」的今日伴讀或今日關卡 | `resource_type`（`guide` / `game`）、`resource_id`（伴讀 id 或關卡 id）、`resource_position`（1 起算） |
 
 > 💡 `solar_video_play` 代表「使用者按下播放」，不代表影片實際看完；觀看時長請到 YouTube Studio 查看。
-> 探索館「看全部互動作品」與 Solar Star「到 YouTube 看更多」連結會送出 `outbound_click`（`outbound_source` = `home_explore_section` / `home_solar_section`）。
+> 探索館「看全部互動作品」、Solar Star「到 YouTube 看更多」與首頁 Footer 的外部連結會送出 `outbound_click`（`outbound_source` = `home_explore_section` / `home_solar_section` / `home_footer`）。伴讀頁仍使用原本的 Footer（`outbound_source` = `footer`）。
 
 > ⚠️ `podcast_platform_click` 代表「點擊前往平台」，**不等於**成功追蹤／訂閱。
 

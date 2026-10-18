@@ -1,58 +1,60 @@
-import LatestEpisodesCarousel from "@/components/home/LatestEpisodesCarousel";
 import Header, { type HeaderNavItem } from "@/components/episode/Header";
-import Footer from "@/components/episode/Footer";
-import { GAME_METADATA } from "@/components/games/core/gameMetadata";
+import { getEpisodeGameId, type EpisodeQuizGameId, type StageCategory } from "@/components/games/core/episodeQuizzes";
 import { getAllPublishedEpisodes } from "@/lib/episodes";
 import {
+  getBrandContent,
   getFeaturedLabs,
   getHeroContent,
-  getPodcastPlatforms,
+  getSiteLinks,
   getSolarStarContent,
   resolveHeroCards,
 } from "@/lib/home-content";
 import { sortPodcastEpisodesByDate } from "@/lib/podcast";
 import type { PodcastListItem } from "@/types/podcast-list";
-import Link from "next/link";
-import {
-  BookOpen,
-  GraduationCap,
-  PlayCircle,
-  ShieldCheck,
-  Star,
-  ThumbsUp,
-} from "lucide-react";
 import FloatingDecor from "@/components/home/FloatingDecor";
 import HeroSection from "@/components/home/HeroSection";
 import PodcastSection from "@/components/home/PodcastSection";
 import InteractiveLabsSection from "@/components/home/InteractiveLabsSection";
 import SolarStarSection from "@/components/home/SolarStarSection";
+import LearningResourcesSection, {
+  type ResourceGameGroup,
+  type ResourceGuide,
+} from "@/components/home/LearningResourcesSection";
+import BrandSection from "@/components/home/BrandSection";
+import SiteFooter from "@/components/home/SiteFooter";
 import podcastList from "../../public/podcast-list.json";
+import stageCategories from "../../public/stage_1_categories.json";
 
 const LATEST_PODCAST_COUNT = 5;
+
+const GAME_ORDER: EpisodeQuizGameId[] = ["colorful-balloons", "golden-coins", "treasure-hunter"];
 
 const homeNavItems: HeaderNavItem[] = [
   { label: "Podcast", href: "#podcast" },
   { label: "探索館", href: "#explore" },
   { label: "Solar Star", href: "#solar" },
-  { label: "伴讀", href: "#latest-guides" },
-  { label: "遊戲", href: "#game-intro-section" },
+  { label: "學習資源", href: "#resources" },
   { label: "關於", href: "#about" },
 ];
 
-const gameHighlights = [
-  {
-    gameId: "colorful-balloons" as const,
-    description: "限時戳氣球，越快越刺激，練反應也練判斷力。",
-  },
-  {
-    gameId: "golden-coins" as const,
-    description: "接住正確金幣、避開陷阱，把複習變成收集挑戰。",
-  },
-  {
-    gameId: "treasure-hunter" as const,
-    description: "跟著線索尋寶解題，邊探索邊回想重點。",
-  },
-];
+/** 依遊戲類型分組關卡，供「三種遊戲各一關」每日挑選 */
+function getGameGroups(): ResourceGameGroup[] {
+  const stages = (stageCategories as StageCategory[]).flatMap((category) =>
+    category.episode.map((episode) => ({
+      id: episode.id,
+      name: episode.name,
+      emoji: episode.emoji,
+      category: category.category_name,
+      gameId: getEpisodeGameId(episode.id),
+    }))
+  );
+  return GAME_ORDER.map((gameId) => ({
+    gameId,
+    stages: stages
+      .filter((stage) => stage.gameId === gameId)
+      .map(({ id, name, emoji, category }) => ({ id, name, emoji, category })),
+  })).filter((group) => group.stages.length > 0);
+}
 
 export default async function Home() {
   const episodes = await getAllPublishedEpisodes();
@@ -62,12 +64,11 @@ export default async function Home() {
     tags: ep.Tags || [],
     firstoryGuid: typeof ep.firstoryGuid === "string" ? ep.firstoryGuid : undefined,
   }));
-  // Project to minimal shape so only 3 fields cross the server→client boundary
-  const latestFiveEpisodes = [...episodes]
-    .filter((ep) => typeof ep.pubDate === "string")
-    .sort((a, b) => new Date(b.pubDate as string).getTime() - new Date(a.pubDate as string).getTime())
-    .slice(0, 5)
-    .map(({ id, Title, Cover }) => ({ id, Title, Cover }));
+  // 只傳每日挑選需要的欄位到 client；依 id 排序讓每日隨機結果穩定
+  const resourceGuides: ResourceGuide[] = episodes
+    .filter((ep) => ep.Title && ep.Cover)
+    .map((ep) => ({ id: ep.id, title: ep.Title, cover: ep.Cover }))
+    .sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true }));
   const latestPodcastEpisodes = sortPodcastEpisodesByDate(podcastList.episodes as PodcastListItem[]).slice(
     0,
     LATEST_PODCAST_COUNT
@@ -80,6 +81,7 @@ export default async function Home() {
   const heroCards = resolveHeroCards(heroContent, latestPodcastEpisodes[0]);
   const featuredLabs = getFeaturedLabs();
   const solarStar = getSolarStarContent();
+  const siteLinks = getSiteLinks();
 
   return (
     <>
@@ -93,7 +95,7 @@ export default async function Home() {
         <PodcastSection
           latestEpisodes={latestPodcastEpisodes}
           guideByGuid={guideByGuid}
-          platforms={getPodcastPlatforms()}
+          platforms={siteLinks.podcastPlatforms}
         />
 
         {/* 03｜互動科學探索館 */}
@@ -102,164 +104,13 @@ export default async function Home() {
         {/* 04｜Solar Star */}
         <SolarStarSection {...solarStar} />
 
-        {/* 以下為改版前的區塊，Phase 3 會替換為學習資源與品牌區 */}
-        <section id="latest-guides" className="scroll-mt-28 md:scroll-mt-20 px-4 py-10 sm:py-14">
-          <div className="mx-auto mb-7 max-w-5xl sm:mb-8">
-            <h2 className="flex items-center gap-2 text-2xl font-extrabold text-white sm:text-3xl">
-              <BookOpen className="h-6 w-6 text-secondary" />
-              最新科普伴讀
-            </h2>
-            <p className="mt-3 max-w-2xl text-base font-normal leading-7 text-white/75 sm:text-lg sm:leading-8">
-              每篇都幫孩子抓出重點，親子一起學習，讓故事學得更深。
-            </p>
-          </div>
+        {/* 05｜更多親子學習資源 */}
+        <LearningResourcesSection guides={resourceGuides} gameGroups={getGameGroups()} />
 
-          {latestFiveEpisodes.length > 0 && (
-            <LatestEpisodesCarousel episodes={latestFiveEpisodes} />
-          )}
-        </section>
-
-        <section id="game-intro-section" className="scroll-mt-28 md:scroll-mt-20 border-y border-white/10 bg-black/10 px-4 py-10 shadow-[inset_0_4px_24px_rgba(0,0,0,0.26)] sm:py-14">
-          <div className="mx-auto grid max-w-5xl items-center gap-7 lg:grid-cols-[0.86fr_1.14fr] lg:gap-8">
-            <div>
-              <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-secondary/25 bg-secondary/15 px-3 py-1 text-sm font-semibold text-secondary/90">
-                <Star className="h-4 w-4 fill-current" />
-                邊玩邊學
-              </div>
-              <h2 className="text-2xl font-extrabold leading-tight text-white sm:text-3xl">
-                把科學變成闖關遊戲
-              </h2>
-              <p className="mt-3 text-base font-normal leading-7 text-white/75 sm:mt-4 sm:text-lg sm:leading-8">
-                遊戲基地把每集知識變成小任務。孩子一邊闖關，一邊回想 Podcast 裡的重點。
-              </p>
-              <Link
-                href="/games"
-                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-secondary bg-[image:var(--gradient-primary)] px-6 py-3.5 text-base font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-[1.03] sm:w-auto"
-              >
-                <PlayCircle className="h-5 w-5" />
-                前往遊戲基地
-              </Link>
-            </div>
-
-            <div className="grid gap-3 sm:grid-cols-2 lg:gap-4">
-              {gameHighlights.map((item) => {
-                const meta = GAME_METADATA[item.gameId];
-
-                return (
-                  <div
-                    key={item.gameId}
-                    className="group relative md:min-h-[132px] overflow-hidden rounded-2xl p-4 leading-7 transition duration-200 hover:-translate-y-1 sm:p-5"
-                    style={meta.cardStyle}
-                  >
-                    <div className="absolute -right-7 -top-7 h-24 w-24 rounded-full bg-white/10 blur-2xl transition group-hover:bg-white/15" />
-                    <div className="absolute bottom-3 right-4 text-5xl opacity-10 transition group-hover:scale-110 group-hover:opacity-15" aria-hidden="true">
-                      {meta.emoji}
-                    </div>
-                    <div className="relative flex items-start gap-3">
-                      <span
-                        className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl text-3xl shadow-lg"
-                        style={meta.badgeClassName}
-                        aria-hidden="true"
-                      >
-                        {meta.emoji}
-                      </span>
-                      <span>
-                        <span className="block text-base font-semibold text-white sm:text-lg">{meta.label}</span>
-                        <span className="mt-1 block text-sm font-normal leading-6 text-white/78 sm:text-base sm:leading-7 text-white/75">
-                          {item.description}
-                        </span>
-                      </span>
-                    </div>
-                  </div>
-                );
-              })}
-              <div className="group relative md:min-h-[132px] overflow-hidden rounded-2xl border border-secondary/35 bg-gradient-to-br from-card/95 to-secondary/15 p-4 leading-7 shadow-[0_0_18px_hsl(var(--secondary)/0.18),inset_0_-3px_8px_rgba(0,0,0,0.35)] transition duration-200 hover:-translate-y-1 sm:p-5">
-                <div className="absolute -right-7 -top-7 h-24 w-24 rounded-full bg-secondary/15 blur-2xl transition group-hover:bg-secondary/20" />
-                <div className="absolute bottom-3 right-4 text-5xl opacity-10 transition group-hover:scale-110 group-hover:opacity-15" aria-hidden="true">
-                  🏅
-                </div>
-                <div className="relative flex items-start gap-3">
-                  <span
-                    className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl border border-secondary/50 bg-secondary/20 text-3xl shadow-lg"
-                    aria-hidden="true"
-                  >
-                    🏅
-                  </span>
-                  <span>
-                    <span className="block text-base font-semibold text-white sm:text-lg">徽章與進度</span>
-                    <span className="mt-1 block text-sm font-normal leading-6 text-white/78 sm:text-base sm:leading-7 text-white/75">
-                      完成關卡後，看見自己的成長。
-                    </span>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* =========================================
-            Group 3: Brand Story
-        ========================================= */}
-        <div className="flex flex-col gap-8 py-10 sm:gap-10 sm:py-14">
-          <section id="about" className="mx-auto w-full max-w-5xl scroll-mt-28 px-4 md:scroll-mt-20">
-            <div
-              className="rounded-3xl p-6 sm:p-8 backdrop-blur-xl border border-white/10 shadow-[var(--shadow-card)] relative overflow-hidden"
-              style={{ backgroundColor: "rgba(52, 49, 76, 0.82)" }}
-            >
-              {/* Decorative glow */}
-              <div className="absolute top-0 right-0 w-48 h-48 bg-secondary/20 blur-3xl -mr-10 -mt-10 pointer-events-none" />
-
-              <div className="flex items-center gap-2 mb-3 relative z-10">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent/25 text-accent/90 font-semibold text-xs">
-                  <GraduationCap className="w-4 h-4" />
-                  理工爸爸 × 好奇博士
-                </span>
-              </div>
-
-              <h2 className="relative z-10 mb-4 text-2xl font-extrabold leading-tight text-white sm:text-3xl">
-                理工爸爸給台灣孩子的<br className="sm:hidden" />
-                <span className="text-secondary">科學禮物</span>
-              </h2>
-
-              <p className="relative z-10 mb-5 max-w-3xl text-base font-normal leading-7 text-white/75 sm:text-lg sm:leading-8">
-                主持人擁有 <span className="text-accent font-bold">台大資工博士</span> 背景，每一集都經過
-                <span className="text-accent font-bold"> 嚴謹邏輯把關 </span>
-                ，把艱深的科學知識變成孩子聽得懂、聽了還想再聽的故事。
-              </p>
-
-              <ul className="relative z-10 mb-5 grid grid-cols-1 gap-3 text-base font-normal text-white/75 sm:grid-cols-2">
-                <li className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-secondary" /> 科學知識精準把關</li>
-                <li className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-secondary" /> 親子共學互動設計</li>
-                <li className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-secondary" /> 在地觀點，繁中原創</li>
-                <li className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-secondary" /> 持續上新，每週更新</li>
-              </ul>
-
-              <div className="h-px w-full bg-border/30 my-5 relative z-10" />
-
-              <div className="relative z-10 max-w-3xl space-y-3 text-base font-normal leading-7 text-white/75 sm:text-lg sm:leading-8">
-                <p>創立這個頻道的起點，其實是一個爸爸的小小煩惱：家裡有個熱愛科學、卻總是靜不下來看書的兒子。👦🧪</p>
-                <p>我想給他最棒的科學啟蒙，但市面上的有聲教材，不是良莠不齊，就是充滿了不習慣的口音。身為忙碌的工程師，我採用 AI 技術來解決錄製的時間壓力，但最在乎的始終是「內容的品質」。</p>
-                <p className="font-semibold text-white/90">謝謝所有喜歡這裡的大小朋友，讓我們繼續一起聽科學、探索世界！</p>
-              </div>
-
-              <div className="mt-6 relative z-10">
-                <a
-                  href="https://www.facebook.com/profile.php?id=61577975781160"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-semibold text-base text-white shadow-[var(--shadow-glow)] hover:scale-[1.03] transition-transform"
-                  style={{ backgroundColor: "#1877F2" }}
-                >
-                  <ThumbsUp className="w-5 h-5" />
-                  前往 Facebook 粉絲頁按讚
-                </a>
-              </div>
-            </div>
-          </section>
-        </div>
-
-        <Footer />
+        {/* 06｜品牌形象 */}
+        <BrandSection content={getBrandContent()} />
       </main>
+      <SiteFooter links={siteLinks} />
     </>
   );
 }

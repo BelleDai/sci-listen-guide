@@ -1,20 +1,8 @@
 import Link from "next/link";
 import { Check, Compass, Headphones } from "lucide-react";
 import HeroFeatureCarousel from "@/components/home/HeroFeatureCarousel";
+import HighlightText from "@/components/home/HighlightText";
 import type { HeroCard, HeroContent } from "@/lib/home-content";
-
-function Tagline({ tagline, highlight }: { tagline: string; highlight?: string }) {
-  const index = highlight ? tagline.indexOf(highlight) : -1;
-  if (!highlight || index < 0) return <>{tagline}</>;
-
-  return (
-    <>
-      {tagline.slice(0, index)}
-      <span className="inline-block whitespace-nowrap text-secondary">{highlight}</span>
-      {tagline.slice(index + highlight.length)}
-    </>
-  );
-}
 
 interface Props {
   content: HeroContent;
@@ -36,7 +24,7 @@ export default function HeroSection({ content, cards }: Props) {
             id="hero-heading"
             className="text-4xl font-black leading-[1.15] text-white text-stroke-dark sm:text-5xl lg:text-[3.35rem]"
           >
-            <Tagline tagline={content.tagline} highlight={content.taglineHighlight} />
+            <HighlightText text={content.tagline} highlight={content.taglineHighlight} />
           </h1>
 
           <p className="mx-auto mt-4 max-w-xl text-base font-normal leading-7 text-white/75 sm:text-lg sm:leading-8 lg:mx-0">

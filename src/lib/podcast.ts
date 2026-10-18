@@ -4,6 +4,7 @@ type EpisodePrefix = "EP" | "SP" | "VIP";
 
 const episodeNumberPattern = /\b(EP|SP|VIP)\.?\s*(\d+)\b/i;
 const trailingEpisodeLabelPattern = /\s*[｜|]\s*(?:EP|SP|VIP)\.?\s*\d+\s*$/i;
+const leadingEpisodeLabelPattern = /^\s*(?:EP|SP|VIP)\.?\s*\d+\s*[｜|]\s*/i;
 
 /** 從節目標題解析集數，例如「…｜EP.105」、「…｜VIP.31」→ { prefix: "EP", number: "105" } */
 export function parsePodcastEpisodeNumber(title: string): { prefix: EpisodePrefix; number: string } | undefined {
@@ -18,9 +19,16 @@ export function getPodcastEpisodeLabel(title: string): string | undefined {
   return parsed ? `${parsed.prefix}.${parsed.number}` : undefined;
 }
 
-/** 移除標題結尾的「｜EP.xxx」，集數另外以標籤顯示 */
+/** 移除標題開頭「EP.xxx｜」或結尾「｜EP.xxx」，集數另外以標籤顯示 */
 export function getPodcastDisplayTitle(title: string): string {
-  return title.replace(trailingEpisodeLabelPattern, "").trim() || title;
+  return title.replace(trailingEpisodeLabelPattern, "").replace(leadingEpisodeLabelPattern, "").trim() || title;
+}
+
+/** 伴讀 id 對應的集數標籤："130" → "EP.130"、"s15" → "SP.15" */
+export function getGuideEpisodeLabel(guideId: string): string | undefined {
+  if (/^\d+$/.test(guideId)) return `EP.${guideId}`;
+  const special = guideId.match(/^s(\d+)$/i);
+  return special ? `SP.${special[1]}` : undefined;
 }
 
 function toTaipeiDate(pubDate: string): Date | undefined {

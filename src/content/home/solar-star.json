@@ -12,6 +12,20 @@
       "title": "太陽神出場八軌重力之環",
       "status": "published",
       "sortOrder": 1
+    },
+    {
+      "id": "mercury",
+      "youtubeId": "WnCBiijAyRU",
+      "title": "水星登場",
+      "status": "published",
+      "sortOrder": 2
+    },
+    {
+      "id": "venus",
+      "youtubeId": "nvMsgQK2K3w",
+      "title": "金星登場",
+      "status": "published",
+      "sortOrder": 3
     }
   ]
 }

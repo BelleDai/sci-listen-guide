@@ -62,7 +62,7 @@ export default function InteractiveLabsSection({ labs, moreLink }: Props) {
                 onClick={() => trackInteractiveLabClick(lab.id, lab.title, index + 1)}
                 className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/12 bg-[#1e1c2a]/80 transition hover:-translate-y-1 hover:border-accent/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
-                <div className="relative aspect-[16/9] w-full overflow-hidden bg-gradient-to-br from-card via-[#24304d] to-[#121a2c]">
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-gradient-to-br from-card via-[#24304d] to-[#121a2c]">
                   {lab.coverImage ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img

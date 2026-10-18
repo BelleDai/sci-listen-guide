@@ -24,5 +24,17 @@
       "href": "https://podcast.kkbox.com/tw/channel/KkRvjF8kret9SG5Nbf",
       "featured": false
     }
+  ],
+  "footerLinks": [
+    { "label": "Podcast 節目", "href": "#podcast" },
+    { "label": "互動科學探索館", "href": "https://kidsci.app/lab/" },
+    { "label": "Solar Star", "href": "#solar" },
+    { "label": "科普伴讀", "href": "#resources" },
+    { "label": "遊戲基地", "href": "/games" }
+  ],
+  "social": [
+    { "id": "facebook", "label": "Facebook", "href": "https://www.facebook.com/profile.php?id=61577975781160" },
+    { "id": "youtube", "label": "YouTube", "href": "https://www.youtube.com/@tarohuangtw" },
+    { "id": "email", "label": "Email", "href": "mailto:taro.tw+kidsci@gmail.com" }
   ]
 }
