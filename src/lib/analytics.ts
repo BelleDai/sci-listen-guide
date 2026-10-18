@@ -69,6 +69,70 @@ export const trackOutboundClick = (platform: string, source: string) =>
     outbound_source: source, // e.g. "player_launch" | "home" | "footer"
   });
 
+/**
+ * Called when user clicks a listen link of a specific episode on the home page.
+ * Note: an outbound click is NOT a confirmed listen / follow.
+ */
+export const trackPodcastEpisodeClick = (params: {
+  episodeId: string;
+  episodeTitle: string;
+  platform: string;
+  source: string; // "home_latest" | "home_search"
+}) =>
+  trackEvent("podcast_episode_click", {
+    podcast_episode_id: params.episodeId,
+    podcast_episode_title: params.episodeTitle,
+    podcast_platform: params.platform,
+    click_source: params.source,
+  });
+
+/** Called when user clicks a show-level follow link (Apple Podcasts, Spotify, YouTube, KKBOX) */
+export const trackPodcastPlatformClick = (platform: string, source: string) =>
+  trackEvent("podcast_platform_click", {
+    podcast_platform: platform,
+    click_source: source, // "home_podcast_section"
+  });
+
+/** Called when user clicks a hero featured card on the home page */
+export const trackHeroCardClick = (cardId: string, position: number) =>
+  trackEvent("hero_card_click", {
+    hero_card_id: cardId,
+    hero_card_position: position,
+  });
+
+/** Called when user opens an interactive lab from the home page */
+export const trackInteractiveLabClick = (labId: string, labTitle: string, position: number) =>
+  trackEvent("interactive_lab_click", {
+    lab_id: labId,
+    lab_title: labTitle,
+    lab_position: position,
+  });
+
+/**
+ * Called when a Solar Star video starts: by a click (the YouTube player loads only after it),
+ * or automatically after the previous video ended.
+ */
+export const trackSolarVideoPlay = (
+  youtubeId: string,
+  videoTitle: string,
+  position: number,
+  trigger: "click" | "autoplay_next"
+) =>
+  trackEvent("solar_video_play", {
+    video_id: youtubeId,
+    video_title: videoTitle,
+    video_position: position,
+    play_trigger: trigger,
+  });
+
+/** Called when user opens a daily guide or game stage from the home learning-resources section */
+export const trackLearningResourceClick = (resourceType: "guide" | "game", resourceId: string, position: number) =>
+  trackEvent("learning_resource_click", {
+    resource_type: resourceType,
+    resource_id: resourceId,
+    resource_position: position,
+  });
+
 /** Called when TTS is triggered anywhere (e.g. SpeakLine, GlossaryCard, Auto-speak) */
 export const trackTTSPlay = (contentType: string, episodeId: string) =>
   trackEvent("tts_play", {

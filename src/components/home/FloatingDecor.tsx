@@ -1,10 +1,33 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Microscope, Atom, FlaskConical, Rocket, Orbit, Dna, TestTube, Sparkles, Telescope } from "lucide-react";
+import {
+  Microscope,
+  Atom,
+  FlaskConical,
+  Rocket,
+  Orbit,
+  Dna,
+  TestTube,
+  Sparkles,
+  Telescope,
+  Moon,
+  Star,
+  Satellite,
+} from "lucide-react";
 import { useState, useEffect } from "react";
 
-const ICONS = [Microscope, Atom, FlaskConical, Rocket, Orbit, Dna, TestTube, Sparkles, Telescope];
+const ICON_SETS = {
+  science: [Microscope, Atom, FlaskConical, Rocket, Orbit, Dna, TestTube, Sparkles, Telescope],
+  space: [Rocket, Orbit, Sparkles, Telescope, Moon, Star, Satellite],
+};
+
+interface Props {
+  count?: number;
+  /** page：固定在整頁背景（Hero 一帶最明顯）；section：只畫在所在區塊內，壓在區塊色帶之上、內容之下 */
+  variant?: "page" | "section";
+  iconSet?: keyof typeof ICON_SETS;
+}
 
 interface Item {
   Icon: typeof Microscope;
@@ -21,13 +44,14 @@ interface Item {
 
 const rand = (min: number, max: number) => Math.random() * (max - min) + min;
 
-const FloatingDecor = ({ count = 18 }: { count?: number }) => {
+const FloatingDecor = ({ count = 18, variant = "page", iconSet = "science" }: Props) => {
   const [items, setItems] = useState<Item[]>([]);
 
   useEffect(() => {
+    const icons = ICON_SETS[iconSet];
     setItems(
       Array.from({ length: count }).map((_, i) => ({
-        Icon: ICONS[i % ICONS.length],
+        Icon: icons[i % icons.length],
         top: `${rand(2, 95)}%`,
         left: `${rand(2, 95)}%`,
         size: Math.round(rand(20, 44)),
@@ -39,12 +63,14 @@ const FloatingDecor = ({ count = 18 }: { count?: number }) => {
         opacity: rand(0.25, 0.5),
       }))
     );
-  }, [count]);
+  }, [count, iconSet]);
 
   if (items.length === 0) return null;
 
+  const position = variant === "section" ? "absolute" : "fixed";
+
   return (
-    <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden" aria-hidden>
+    <div className={`pointer-events-none ${position} inset-0 -z-10 overflow-hidden`} aria-hidden>
       {items.map((it, i) => {
         const { Icon } = it;
         return (

@@ -13,6 +13,11 @@ env:
 permissions:
   contents: write
 
+# 與「Sync Home Content」共用，避免兩個流程同時 push / 部署
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false
+
 jobs:
   sync:
     name: Sync Firstory Web → Firebase → Build → Deploy
@@ -63,17 +68,27 @@ jobs:
           GENERATE_JSON_ONLY: "true"
         run: npx tsx scripts/sync-podcast-rss.ts
 
-      # Step 4: Commit regenerated podcast-list.json back to git
+      # Step 3.5: 從 Google Sheets 同步首頁內容（Hero 卡片、互動作品、Solar Star 影片）
+      #           未設定 repo 變數 HOME_CONTENT_SHEET_ID 時略過；
+      #           同步失敗不影響 Podcast 更新與部署，網站沿用上一次的正確內容
+      - name: Sync home content from Google Sheets
+        if: ${{ vars.HOME_CONTENT_SHEET_ID != '' }}
+        continue-on-error: true
+        env:
+          HOME_CONTENT_SHEET_ID: ${{ vars.HOME_CONTENT_SHEET_ID }}
+        run: npm run sync-home
+
+      # Step 4: Commit regenerated podcast-list.json (and synced home content) back to git
       - name: Commit podcast-list.json changes
         run: |
-          if git diff --quiet -- public/podcast-list.json; then
-            echo "podcast-list.json is already up to date."
+          if git diff --quiet -- public/podcast-list.json src/content/home; then
+            echo "podcast-list.json and home content are already up to date."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/podcast-list.json
+          git add public/podcast-list.json src/content/home
           git commit -m "chore: update podcast list"
           git pull --rebase origin ${{ github.ref_name }}
           git push origin HEAD:${{ github.ref_name }}

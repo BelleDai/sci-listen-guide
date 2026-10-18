@@ -1,0 +1,32 @@
+{
+  "eyebrow": "ABOUT US",
+  "title": "科學是一份禮物，好奇心是最棒的開始",
+  "titleHighlight": "好奇心",
+  "image": "/home/brand/kyle-and-son.webp",
+  "imageAlt": "科學好好聽創辦人 Kyle Huang 博士與兒子的插畫角色",
+  "credentials": [
+    {
+      "icon": "graduation",
+      "text": "科學爸爸 Kyle｜台大資工博士創辦"
+    },
+    {
+      "icon": "award",
+      "text": "Apple Podcasts 科學類冠軍"
+    }
+  ],
+  "story": [
+    "創立這個頻道的起點，其實是一個爸爸的小小煩惱：家裡有個熱愛科學、卻總是靜不下來看書的兒子。",
+    "我想給他最棒的科學啟蒙，但市面上的有聲教材，不是良莠不齊，就是充滿了不習慣的口音。身為忙碌的工程師，我採用 AI 技術來解決錄製的時間壓力，但最在乎的始終是「內容的品質」。",
+    "謝謝所有喜歡這裡的大小朋友，讓我們繼續一起聽科學、探索世界！"
+  ],
+  "values": [
+    "科學知識精準把關",
+    "親子共學互動設計",
+    "在地觀點，繁中原創",
+    "持續上新，每週更新"
+  ],
+  "cta": {
+    "label": "前往 Facebook 粉絲頁按讚",
+    "href": "https://www.facebook.com/profile.php?id=61577975781160"
+  }
+}

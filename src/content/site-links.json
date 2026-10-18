@@ -1,0 +1,40 @@
+{
+  "podcastPlatforms": [
+    {
+      "id": "apple_podcasts",
+      "label": "Apple Podcasts",
+      "href": "https://podcasts.apple.com/tw/podcast/%E7%A7%91%E5%AD%B8%E5%A5%BD%E5%A5%BD%E8%81%BD/id1812447277",
+      "featured": true
+    },
+    {
+      "id": "spotify",
+      "label": "Spotify",
+      "href": "https://open.spotify.com/show/1eyISRdcgDTwZqIqrP1qKv",
+      "featured": true
+    },
+    {
+      "id": "youtube",
+      "label": "YouTube",
+      "href": "https://www.youtube.com/playlist?list=PLLMTd7kOjc2Xb4GtG8oRF9amKathXcnEK",
+      "featured": false
+    },
+    {
+      "id": "kkbox",
+      "label": "KKBOX",
+      "href": "https://podcast.kkbox.com/tw/channel/KkRvjF8kret9SG5Nbf",
+      "featured": false
+    }
+  ],
+  "footerLinks": [
+    { "label": "Podcast 節目", "href": "#podcast" },
+    { "label": "互動實驗室", "href": "https://kidsci.app/lab/" },
+    { "label": "Solar Star", "href": "#solar" },
+    { "label": "科普伴讀", "href": "#resources" },
+    { "label": "遊戲基地", "href": "/games" }
+  ],
+  "social": [
+    { "id": "facebook", "label": "Facebook", "href": "https://www.facebook.com/profile.php?id=61577975781160" },
+    { "id": "youtube", "label": "YouTube", "href": "https://www.youtube.com/@tarohuangtw" },
+    { "id": "email", "label": "Email", "href": "mailto:taro.tw+kidsci@gmail.com" }
+  ]
+}
