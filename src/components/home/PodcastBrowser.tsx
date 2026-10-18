@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { Loader2, Search, X } from "lucide-react";
 import PodcastEpisodeCard from "@/components/home/PodcastEpisodeCard";
 import type { PodcastListItem, PodcastListJson } from "@/types/podcast-list";
-import { formatPodcastDate, searchPodcastEpisodes, sortPodcastEpisodesByDate } from "@/lib/podcast";
+import { searchPodcastEpisodes, sortPodcastEpisodesByDate } from "@/lib/podcast";
 
 const PAGE_SIZE = 10;
 
@@ -50,12 +50,6 @@ export default function PodcastBrowser({ latestEpisodes, guideByGuid }: Props) {
 
   const results = useMemo(() => searchPodcastEpisodes(allEpisodes, query), [allEpisodes, query]);
   const isSearching = query.trim() !== "";
-  const earliest = allEpisodes.at(-1);
-
-  const scopeNote =
-    status === "ready" && earliest
-      ? `可搜尋最近 ${allEpisodes.length} 集（${formatPodcastDate(earliest.pubDate, true)} 起）的節目標題與集數`
-      : "可搜尋節目標題與集數，例如：恐龍、太陽系、EP.105、VIP.31";
 
   let statusMessage = "";
   if (isSearching) {
@@ -77,7 +71,7 @@ export default function PodcastBrowser({ latestEpisodes, guideByGuid }: Props) {
           )}
         </p>
         <div className="w-full md:max-w-sm">
-          <form role="search" onSubmit={(e) => e.preventDefault()} className="mb-2">
+          <form role="search" onSubmit={(e) => e.preventDefault()}>
             <label htmlFor="podcast-search" className="sr-only">
               搜尋 Podcast 節目
             </label>
@@ -94,7 +88,6 @@ export default function PodcastBrowser({ latestEpisodes, guideByGuid }: Props) {
                 }}
                 placeholder="搜尋節目：恐龍、太陽系、EP.105…"
                 autoComplete="off"
-                aria-describedby="podcast-search-scope"
                 className="h-12 w-full rounded-full border border-white/20 bg-white/[0.07] pl-12 pr-12 text-base text-white placeholder:text-white/45 transition focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/50 [&::-webkit-search-cancel-button]:hidden"
               />
               {query && (
@@ -109,9 +102,6 @@ export default function PodcastBrowser({ latestEpisodes, guideByGuid }: Props) {
               )}
             </div>
           </form>
-          <p id="podcast-search-scope" className="px-2 text-xs text-white/55">
-            {scopeNote}
-          </p>
         </div>
       </div>
 
