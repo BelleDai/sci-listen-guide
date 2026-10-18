@@ -1,0 +1,17 @@
+{
+  "title": "Solar Star｜太陽系小劇場",
+  "description": "太陽系的角色們有個性、也有笑點，用短短一分鐘看懂宇宙裡的科學。",
+  "moreLink": {
+    "label": "到 YouTube 看更多",
+    "href": "https://www.youtube.com/@tarohuangtw/shorts"
+  },
+  "videos": [
+    {
+      "id": "sun-gravity-ring",
+      "youtubeId": "XeCH146efZQ",
+      "title": "太陽神出場八軌重力之環",
+      "status": "published",
+      "sortOrder": 1
+    }
+  ]
+}

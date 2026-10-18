@@ -363,8 +363,9 @@ const Header = ({ episodes = [], step, total, onJump, navItems }: Props) => {
       {/* 首頁區塊導覽（手機） */}
       {hasNav && (
         <nav aria-label="首頁區塊" className="md:hidden border-t border-white/10">
-          <div className="flex items-center justify-around gap-1 overflow-x-auto px-2 py-1">
-            {navLinks("px-3 py-2 text-sm")}
+          {/* 項目較多時可橫向捲動（justify-start 避免左側被裁切） */}
+          <div className="flex items-center justify-between gap-0.5 overflow-x-auto px-2 py-1 [scrollbar-width:none]">
+            {navLinks("px-2 py-2 text-sm")}
           </div>
         </nav>
       )}

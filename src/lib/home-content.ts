@@ -5,6 +5,8 @@
  */
 import { z } from "zod";
 import heroJson from "@/content/home/hero.json";
+import labsJson from "@/content/home/labs.json";
+import solarStarJson from "@/content/home/solar-star.json";
 import siteLinksJson from "@/content/site-links.json";
 import type { PodcastListItem } from "@/types/podcast-list";
 import { formatPodcastDate, getPodcastDisplayTitle, getPodcastEpisodeLabel } from "@/lib/podcast";
@@ -69,8 +71,55 @@ const siteLinksSchema = z.object({
   podcastPlatforms: z.array(podcastPlatformSchema).min(1),
 });
 
+const externalLinkSchema = z.object({
+  label: z.string().min(1),
+  href: z.url({ protocol: /^https$/ }),
+});
+
+/** 互動作品；欄位與未來 Google Sheets 作品表一致 */
+const labItemSchema = z.object({
+  id: z.string().min(1),
+  title: z.string().min(1),
+  description: z.string().min(1),
+  coverImage: linkSchema.optional(),
+  emoji: z.string().optional(),
+  url: z.url({ protocol: /^https$/ }),
+  status: contentStatusSchema,
+  featured: z.boolean(),
+  sortOrder: z.number(),
+});
+
+const labsContentSchema = z.object({
+  /** 首頁最多顯示幾個精選作品（2–4） */
+  maxFeatured: z.number().int().min(2).max(4),
+  moreLink: externalLinkSchema.optional(),
+  items: z.array(labItemSchema),
+});
+
+const solarVideoSchema = z.object({
+  id: z.string().min(1),
+  youtubeId: z.string().regex(/^[\w-]{11}$/, "youtubeId 需為 11 碼 YouTube 影片 ID"),
+  title: z.string().min(1),
+  description: z.string().min(1).optional(),
+  status: contentStatusSchema,
+  sortOrder: z.number(),
+});
+
+const solarStarContentSchema = z.object({
+  title: z.string().min(1),
+  description: z.string().min(1),
+  moreLink: externalLinkSchema.optional(),
+  videos: z.array(solarVideoSchema),
+});
+
 export type HeroContent = z.infer<typeof heroContentSchema>;
 export type PodcastPlatform = z.infer<typeof podcastPlatformSchema>;
+export type ExternalLink = z.infer<typeof externalLinkSchema>;
+export type LabItem = z.infer<typeof labItemSchema>;
+export type SolarVideo = z.infer<typeof solarVideoSchema>;
+
+/** 主影片 1 支＋可切換 3 支 */
+export const MAX_SOLAR_VIDEOS = 4;
 
 export type HeroCard = {
   id: string;
@@ -102,14 +151,30 @@ export function getPodcastPlatforms(): PodcastPlatform[] {
   return parseContent(siteLinksSchema, siteLinksJson, "src/content/site-links.json").podcastPlatforms;
 }
 
+const byPublishedAndOrder = <T extends { status: string; sortOrder: number }>(items: T[]) =>
+  items.filter((item) => item.status === "published").sort((a, b) => a.sortOrder - b.sortOrder);
+
+/** 首頁精選互動作品：已上架且 featured，依 sortOrder 取前 maxFeatured 個 */
+export function getFeaturedLabs(): { items: LabItem[]; moreLink?: ExternalLink } {
+  const content = parseContent(labsContentSchema, labsJson, "src/content/home/labs.json");
+  return {
+    items: byPublishedAndOrder(content.items.filter((item) => item.featured)).slice(0, content.maxFeatured),
+    moreLink: content.moreLink,
+  };
+}
+
+/** Solar Star 已上架影片，依 sortOrder 取前 4 支 */
+export function getSolarStarContent() {
+  const content = parseContent(solarStarContentSchema, solarStarJson, "src/content/home/solar-star.json");
+  return { ...content, videos: byPublishedAndOrder(content.videos).slice(0, MAX_SOLAR_VIDEOS) };
+}
+
 /**
  * 依 status / sortOrder 篩選排序 Hero 卡片，並把 latest-podcast 卡片填入最新一集資料。
  * 沒有最新集數資料時，該卡片會被略過，避免出現空卡片。
  */
 export function resolveHeroCards(content: HeroContent, latestEpisode?: PodcastListItem): HeroCard[] {
-  return content.cards
-    .filter((card) => card.status === "published")
-    .sort((a, b) => a.sortOrder - b.sortOrder)
+  return byPublishedAndOrder(content.cards)
     .flatMap((card): HeroCard[] => {
       const base = {
         id: card.id,

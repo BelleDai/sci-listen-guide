@@ -3,7 +3,13 @@ import Header, { type HeaderNavItem } from "@/components/episode/Header";
 import Footer from "@/components/episode/Footer";
 import { GAME_METADATA } from "@/components/games/core/gameMetadata";
 import { getAllPublishedEpisodes } from "@/lib/episodes";
-import { getHeroContent, getPodcastPlatforms, resolveHeroCards } from "@/lib/home-content";
+import {
+  getFeaturedLabs,
+  getHeroContent,
+  getPodcastPlatforms,
+  getSolarStarContent,
+  resolveHeroCards,
+} from "@/lib/home-content";
 import { sortPodcastEpisodesByDate } from "@/lib/podcast";
 import type { PodcastListItem } from "@/types/podcast-list";
 import Link from "next/link";
@@ -18,15 +24,19 @@ import {
 import FloatingDecor from "@/components/home/FloatingDecor";
 import HeroSection from "@/components/home/HeroSection";
 import PodcastSection from "@/components/home/PodcastSection";
+import InteractiveLabsSection from "@/components/home/InteractiveLabsSection";
+import SolarStarSection from "@/components/home/SolarStarSection";
 import podcastList from "../../public/podcast-list.json";
 
 const LATEST_PODCAST_COUNT = 5;
 
 const homeNavItems: HeaderNavItem[] = [
   { label: "Podcast", href: "#podcast" },
-  { label: "科普伴讀", href: "#latest-guides" },
-  { label: "遊戲基地", href: "#game-intro-section" },
-  { label: "關於我們", href: "#about" },
+  { label: "探索館", href: "#explore" },
+  { label: "Solar Star", href: "#solar" },
+  { label: "伴讀", href: "#latest-guides" },
+  { label: "遊戲", href: "#game-intro-section" },
+  { label: "關於", href: "#about" },
 ];
 
 const gameHighlights = [
@@ -68,6 +78,8 @@ export default async function Home() {
 
   const heroContent = getHeroContent();
   const heroCards = resolveHeroCards(heroContent, latestPodcastEpisodes[0]);
+  const featuredLabs = getFeaturedLabs();
+  const solarStar = getSolarStarContent();
 
   return (
     <>
@@ -84,7 +96,13 @@ export default async function Home() {
           platforms={getPodcastPlatforms()}
         />
 
-        {/* 以下為改版前的區塊，Phase 2–3 會依序替換為探索館、Solar Star、學習資源與品牌區 */}
+        {/* 03｜互動科學探索館 */}
+        <InteractiveLabsSection labs={featuredLabs.items} moreLink={featuredLabs.moreLink} />
+
+        {/* 04｜Solar Star */}
+        <SolarStarSection {...solarStar} />
+
+        {/* 以下為改版前的區塊，Phase 3 會替換為學習資源與品牌區 */}
         <section id="latest-guides" className="scroll-mt-28 md:scroll-mt-20 px-4 py-10 sm:py-14">
           <div className="mx-auto mb-7 max-w-5xl sm:mb-8">
             <h2 className="flex items-center gap-2 text-2xl font-extrabold text-white sm:text-3xl">

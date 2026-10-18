@@ -100,6 +100,22 @@ export const trackHeroCardClick = (cardId: string, position: number) =>
     hero_card_position: position,
   });
 
+/** Called when user opens an interactive lab from the home page */
+export const trackInteractiveLabClick = (labId: string, labTitle: string, position: number) =>
+  trackEvent("interactive_lab_click", {
+    lab_id: labId,
+    lab_title: labTitle,
+    lab_position: position,
+  });
+
+/** Called when user starts a Solar Star video (the YouTube player loads only after this click) */
+export const trackSolarVideoPlay = (youtubeId: string, videoTitle: string, position: number) =>
+  trackEvent("solar_video_play", {
+    video_id: youtubeId,
+    video_title: videoTitle,
+    video_position: position,
+  });
+
 /** Called when TTS is triggered anywhere (e.g. SpeakLine, GlossaryCard, Auto-speak) */
 export const trackTTSPlay = (contentType: string, episodeId: string) =>
   trackEvent("tts_play", {
