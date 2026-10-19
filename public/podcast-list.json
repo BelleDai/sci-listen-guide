@@ -1,7 +1,27 @@
 {
-  "updatedAt": "2026-10-18T13:23:44.327Z",
-  "count": 206,
+  "updatedAt": "2026-10-19T05:38:02.561Z",
+  "count": 208,
   "episodes": [
+    {
+      "id": "cmvd8d9xg08q101x6ffb5hpw9",
+      "title": "貼地飛行的太空火箭(上)：特斯拉第二代 Roadster 的慣性與抓地力黑科技｜VIP.33",
+      "firstoryLink": "https://open.firstory.fm/story/cmvd8d9xg08q101x6ffb5hpw9",
+      "pubDate": "Sat, 17 Oct 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/smsGSjFTTJ7zLrKOD6fTZ.jpg",
+      "duration": 1168,
+      "spotifyLink": "https://open.spotify.com/episode/2hnihdDz3Gpe3Pg05ybemi",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000796975947"
+    },
+    {
+      "id": "cmvdawg2508xb01vm24vr6bt0",
+      "title": "貼地飛行的太空火箭(下)：特斯拉第二代 Roadster 的推進器、馬赫環與牛頓第三定律｜VIP.34",
+      "firstoryLink": "https://open.firstory.fm/story/cmvdawg2508xb01vm24vr6bt0",
+      "pubDate": "Sat, 17 Oct 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/v5f76IlKKuCIZYuQ8yKeC.jpg",
+      "duration": 1017,
+      "spotifyLink": "https://open.spotify.com/episode/4yU11I2pR3yu1DULKQFRIY",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000796871517"
+    },
     {
       "id": "cmv3sjvnc092t01xnef51enht",
       "title": "非洲牛羚的瘋狂大遷徙與氣候守護神傳奇｜EP.252",
@@ -140,7 +160,7 @@
       "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/U4i7MceJDioNHDcChcvEo.jpg",
       "duration": 920,
       "spotifyLink": "https://open.spotify.com/episode/5vE1dU93WyVAbixkfOn33n",
-      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000790675354"
+      "applePodcastLink": "https://podcasts.apple.com/podcast/id1812447277?i=1000790675354"
     },
     {
       "id": "cmu7xunqf09nx01x913q3h0ch",
