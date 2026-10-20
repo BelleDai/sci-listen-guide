@@ -14,8 +14,8 @@
 ## 現有站與參考資料
 
 - 現有官網：https://xn--5usa33m461dd8g.app/
-- 太陽系探索室：https://tarotw.github.io/kidsci-solar-system/
-- 台北 101 風雨實驗室：https://tarotw.github.io/kidsci-tp-101/
+- 太陽系探索室：https://lab.kidsci.app/solar-system/
+- 台北 101 風雨實驗室：https://lab.kidsci.app/taipei-101/（作品總覽：https://lab.kidsci.app/）
 - `reference/home_wireframe_v2.html`：資訊架構與互動方式參考。
 - `reference/home_hifi_light_reference.html`：組件、內容與比例參考（**其淺色配色已被否決**）。
 - 正式角色好奇博士、科學隊長需從現有 repo 或正式素材取得；不得以新生成的非一致角色取代。
