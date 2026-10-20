@@ -31,10 +31,11 @@
       "id": "tesla-roadster",
       "title": "Roadster 超跑動力實驗室",
       "description": "改裝輪胎、吸地風扇、馬達與電池，看見超跑每個零件背後的科學。",
+      "coverImage": "/home/labs/tesla-roadster.webp",
       "emoji": "🏎️",
-      "url": "https://lab.kidsci.app/tesla-roadster/",
+      "url": "https://lab.kidsci.app/tesla-roaster/",
       "status": "published",
-      "featured": false,
+      "featured": true,
       "sortOrder": 3
     }
   ]

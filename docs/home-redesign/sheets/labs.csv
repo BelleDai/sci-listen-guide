@@ -1,4 +1,4 @@
 id,title,description,coverImage,emoji,url,status,featured,sortOrder
 solar-system,太陽系探索室,邊聽太陽系衝鋒號，邊用 3D 模型探索八大行星、自轉公轉與衛星。,/home/labs/solar-system.webp,🪐,https://lab.kidsci.app/solar-system/,published,true,1
 taipei-101,台北 101 風雨實驗室,親手召喚強風、啟動地震，看 660 噸金色阻尼球如何讓摩天大樓穩穩站著。,/home/labs/taipei-101.webp,🏙️,https://lab.kidsci.app/taipei-101/,published,true,2
-tesla-roadster,Roadster 超跑動力實驗室,改裝輪胎、吸地風扇、馬達與電池，看見超跑每個零件背後的科學。,,🏎️,https://lab.kidsci.app/tesla-roadster/,published,false,3
+tesla-roadster,Roadster 超跑動力實驗室,改裝輪胎、吸地風扇、馬達與電池，看見超跑每個零件背後的科學。,/home/labs/tesla-roadster.webp,🏎️,https://lab.kidsci.app/tesla-roaster/,published,true,3
