@@ -27,7 +27,7 @@
   ],
   "footerLinks": [
     { "label": "Podcast 節目", "href": "#podcast" },
-    { "label": "互動實驗室", "href": "https://kidsci.app/lab/" },
+    { "label": "互動實驗室", "href": "https://lab.kidsci.app/" },
     { "label": "Solar Star", "href": "#solar" },
     { "label": "科普伴讀", "href": "#resources" },
     { "label": "遊戲基地", "href": "/games" }
