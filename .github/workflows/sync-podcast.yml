@@ -21,7 +21,7 @@ concurrency:
 jobs:
   sync:
     name: Sync Firstory Web → Firebase → Build → Deploy
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 60  # 全量爬取最長 60 分鐘
 
     steps:
