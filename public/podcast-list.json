@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-10-22T05:42:57.979Z",
-  "count": 210,
+  "updatedAt": "2026-10-27T09:31:23.114Z",
+  "count": 211,
   "episodes": [
+    {
+      "id": "cmvp8rceo072r01xq87bl78yl",
+      "title": "登月全紀錄：40 萬公里的太空芭蕾與月球上的 382 公斤寶藏｜EP.118",
+      "firstoryLink": "https://open.firstory.fm/story/cmvp8rceo072r01xq87bl78yl",
+      "pubDate": "Sun, 25 Oct 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/9bQnLwb7NzF55DiW36TaH.jpg",
+      "duration": 1236,
+      "spotifyLink": "https://open.spotify.com/episode/3kgxk9Egwj44jZW6OTLKu8",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000798255281"
+    },
     {
       "id": "cmvg2ht3m01h801w48f4iaosm",
       "title": "登月大冒險：阿波羅 11 號、史上最強火箭與人類的一大步｜EP.117",
