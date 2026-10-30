@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-10-29T06:44:35.871Z",
-  "count": 213,
+  "updatedAt": "2026-10-30T00:36:09.352Z",
+  "count": 214,
   "episodes": [
+    {
+      "id": "cmvpaxxoj07dt01t374z64ycx",
+      "title": "狂野草原謎團！斑馬為什麼不能像馬一樣被我們騎？｜EP.253",
+      "firstoryLink": "https://open.firstory.fm/story/cmvpaxxoj07dt01t374z64ycx",
+      "pubDate": "Wed, 28 Oct 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/PMf1af_b5OImDOX6rYM_O.jpg",
+      "duration": 1225,
+      "spotifyLink": "https://open.spotify.com/episode/52c3tQ6m7Hk0K0BfsqfhPX",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000798180196"
+    },
     {
       "id": "cmvp9mni902z501wbdygbe3cl",
       "title": "穿越光年的對話：從哥白尼到哈伯，揭開宇宙的時光膠囊｜EP.119",
