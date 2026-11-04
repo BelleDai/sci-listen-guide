@@ -1,7 +1,27 @@
 {
-  "updatedAt": "2026-11-03T07:30:58.022Z",
-  "count": 217,
+  "updatedAt": "2026-11-04T07:13:12.372Z",
+  "count": 219,
   "episodes": [
+    {
+      "id": "cmw1gl5yd05030109ge951yzi",
+      "title": "上船囉！科學好好聽：好奇號・宇宙大冒險 頻道介紹",
+      "firstoryLink": "https://open.firstory.fm/story/cmw1gl5yd05030109ge951yzi",
+      "pubDate": "Tue, 03 Nov 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/JhUz3UdwaS7QzCly0Uhlk.jpg",
+      "duration": 179,
+      "spotifyLink": "https://open.spotify.com/episode/7jlDbDt4FtCSq4aawAX2IM",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000799726819"
+    },
+    {
+      "id": "cmvw7zbzs07ya01z17ymm26hc",
+      "title": "宇宙透視眼：從W女王到不可見光的彩色秘密｜EP.120",
+      "firstoryLink": "https://open.firstory.fm/story/cmvw7zbzs07ya01z17ymm26hc",
+      "pubDate": "Mon, 02 Nov 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/L8He93KFpFQuuN77toEYD.jpg",
+      "duration": 715,
+      "spotifyLink": "https://open.spotify.com/episode/4LdXvzb3QaMi8Rhco0PPW0",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000799675620"
+    },
     {
       "id": "cmvw7m8f7082501u66eeuergh",
       "title": "特派員企劃｜深海霸主帝王蟹(下)：與死神共舞的白令海捕蟹人｜VIP.36",
