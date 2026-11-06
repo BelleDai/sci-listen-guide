@@ -43,6 +43,8 @@ export const manualHeroCardSchema = z.object({
 /** 自動帶入最新一集 Podcast；title / description / image 可省略 */
 export const latestPodcastHeroCardSchema = manualHeroCardSchema.extend({
   source: z.literal("latest-podcast"),
+  /** 第幾新的一集：1 = 最新、2 = 第二新…；可放多張並用 sortOrder 穿插 */
+  rank: z.number().int().min(1).max(5).default(1),
   title: z.string().min(1).optional(),
   description: z.string().min(1).optional(),
 });

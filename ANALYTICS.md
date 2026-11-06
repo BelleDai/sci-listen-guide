@@ -113,6 +113,9 @@ s4 完成               →  episode_completed
 | `interactive_lab_click` | 點擊互動實驗室的作品卡片 | `lab_id`、`lab_title`、`lab_position`（1 起算） |
 | `solar_video_play` | Solar Star 影片開始播放：使用者點擊（此時才載入 YouTube 播放器），或上一支播完後自動播下一支 | `video_id`（YouTube ID）、`video_title`、`video_position`（1 起算）、`play_trigger`（`click` / `autoplay_next`） |
 | `learning_resource_click` | 點擊「更多親子學習資源」的今日伴讀或今日關卡 | `resource_type`（`guide` / `game`）、`resource_id`（伴讀 id 或關卡 id）、`resource_position`（1 起算） |
+| `universe_click` | 點擊宇宙群島區塊的入口、地圖或某座島 | `universe_target`（島的 id，例如 `dino`；主入口為 `home`）、`click_source`（`home_universe_section`） |
+
+> 💡 首頁連到宇宙群島（play.kidsci.app）的連結都帶有 `utm_source=kidsci_home`、`utm_medium=referral`，`utm_campaign` 區分來源：`universe_section`（宇宙群島區塊）、`hero_card`（Hero 卡片）、`footer`。宇宙群島使用另一個 GA4 資源（`G-TCSFN9XXEL`），要在那邊的「流量開發」報表依 UTM 查看從官網來的訪客。
 
 > 💡 `solar_video_play` 代表「開始播放」，不代表影片實際看完；觀看時長請到 YouTube Studio 查看。`play_trigger = autoplay_next` 表示前一支已完整播完，可用來估算看完的比例。
 > 互動實驗室「看全部互動作品」、Solar Star「到 YouTube 看更多」與首頁 Footer 的外部連結會送出 `outbound_click`（`outbound_source` = `home_explore_section` / `home_solar_section` / `home_footer`）。伴讀頁仍使用原本的 Footer（`outbound_source` = `footer`）。
@@ -243,6 +246,7 @@ GA4 預設不會在報告中顯示你的自訂參數（如 `episode_id`、`platf
 | Lab ID | 事件 | `lab_id` |
 | Video ID | 事件 | `video_id` |
 | Play Trigger | 事件 | `play_trigger` |
+| Universe Target | 事件 | `universe_target` |
 
 > 💡 **重要提醒**：請勿使用 `platform` 或 `source` 作為事件參數名稱，因為它們是 GA4 的系統保留字，會導致數據變成 `(not set)`。
 

@@ -27,6 +27,7 @@
   ],
   "footerLinks": [
     { "label": "Podcast 節目", "href": "#podcast" },
+    { "label": "宇宙群島", "href": "https://play.kidsci.app/?utm_source=kidsci_home&utm_medium=referral&utm_campaign=footer" },
     { "label": "互動實驗室", "href": "https://lab.kidsci.app/" },
     { "label": "Solar Star", "href": "#solar" },
     { "label": "科普伴讀", "href": "#resources" },

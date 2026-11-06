@@ -54,13 +54,15 @@ interface Props {
   cards: HeroCard[];
   /** 自動輪播間隔（秒），0 代表關閉 */
   autoplaySeconds: number;
+  /** 換到另一張卡片時通知外層（Hero 背景跟著換） */
+  onSelectedChange?: (index: number) => void;
 }
 
 /**
  * 精選卡片輪播。自動輪播時：滑鼠移入或鍵盤焦點在輪播內會暫停，
  * 也提供暫停／播放按鈕；系統開啟「減少動態效果」時不自動播放。
  */
-export default function HeroFeatureCarousel({ cards, autoplaySeconds }: Props) {
+export default function HeroFeatureCarousel({ cards, autoplaySeconds, onSelectedChange }: Props) {
   const [api, setApi] = useState<CarouselApi>();
   const [selected, setSelected] = useState(0);
   const [userPaused, setUserPaused] = useState(false);
@@ -72,9 +74,14 @@ export default function HeroFeatureCarousel({ cards, autoplaySeconds }: Props) {
   const autoplayAvailable = autoplaySeconds > 0 && cards.length > 1 && !prefersReducedMotion;
   const autoplayRunning = autoplayAvailable && !userPaused && !interacting;
 
-  const onSelect = useCallback((emblaApi: NonNullable<CarouselApi>) => {
-    setSelected(emblaApi.selectedScrollSnap());
-  }, []);
+  const onSelect = useCallback(
+    (emblaApi: NonNullable<CarouselApi>) => {
+      const index = emblaApi.selectedScrollSnap();
+      setSelected(index);
+      onSelectedChange?.(index);
+    },
+    [onSelectedChange]
+  );
 
   useEffect(() => {
     if (!api) return;

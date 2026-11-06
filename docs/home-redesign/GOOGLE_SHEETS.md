@@ -47,12 +47,13 @@ Google 試算表 ──(每天 09:00 自動／手動觸發)──▶ GitHub Acti
 
 連結欄位可填三種格式：`#區塊`（首頁內的區塊，例如 `#podcast`）、`/站內路徑`（例如 `/games`、`/home/labs/taipei-101.webp`）、或 `https://` 開頭的完整網址。
 
-### `hero_cards`（Hero 右側精選卡片，最多顯示 3 張）
+### `hero_cards`（Hero 右側精選卡片，最多顯示 6 張；切換卡片時 Hero 背景會換成該卡片的圖片）
 
 | 欄位 | 必填 | 說明 |
 |---|---|---|
 | id | ✔ | 唯一代號 |
-| source | | `manual`（手動填寫，預設）或 `latest-podcast`（自動帶入最新一集 Podcast 的標題、封面、日期） |
+| source | | `manual`（手動填寫，預設）或 `latest-podcast`（自動帶入 Podcast 集數的標題、封面、日期） |
+| rank | | 只用於 `latest-podcast`：第幾新的一集（1 = 最新、2 = 第二新…，最多 5）。可放好幾張並用 sortOrder 穿插 |
 | label | ✔ | 圖片左上角的小標籤，例如「互動科學」 |
 | title | ✔* | 卡片標題（`latest-podcast` 可留空，自動帶入） |
 | description | ✔* | 一到兩句說明（`latest-podcast` 可留空） |

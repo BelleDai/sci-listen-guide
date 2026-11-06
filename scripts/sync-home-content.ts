@@ -51,6 +51,7 @@ const TABS: TabConfig[] = [
     columns: {
       id: "string",
       source: "heroSource",
+      rank: "number",
       label: "string",
       title: "string",
       description: "string",

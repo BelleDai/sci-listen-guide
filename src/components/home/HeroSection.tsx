@@ -1,5 +1,9 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { Check, Compass, Headphones } from "lucide-react";
+import FloatingDecor from "@/components/home/FloatingDecor";
 import HeroFeatureCarousel from "@/components/home/HeroFeatureCarousel";
 import HighlightText from "@/components/home/HighlightText";
 import type { HeroCard, HeroContent } from "@/lib/home-content";
@@ -9,9 +13,43 @@ interface Props {
   cards: HeroCard[];
 }
 
-export default function HeroSection({ content, cards }: Props) {
+/** 整個 Hero 的背景：目前這張卡片的圖片淡入，深色漸層確保文字清楚 */
+function HeroBackdrop({ cards, active }: { cards: HeroCard[]; active: number }) {
   return (
-    <section id="top" aria-labelledby="hero-heading" className="scroll-mt-20 px-4 pb-10 pt-7 sm:pb-14 sm:pt-10">
+    <div className="pointer-events-none absolute inset-0 -z-20 overflow-hidden" aria-hidden="true">
+      {cards.map((card, index) =>
+        card.image ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            key={card.id}
+            src={card.image}
+            alt=""
+            decoding="async"
+            loading={index === 0 ? "eager" : "lazy"}
+            className={`absolute inset-0 h-full w-full scale-105 object-cover blur-[2px] transition-opacity duration-1000 ${
+              index === active ? "opacity-50" : "opacity-0"
+            }`}
+          />
+        ) : null
+      )}
+      {/* 手機：上深下淺；桌機：左側文字區較深 */}
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,hsl(var(--background)/0.92)_0%,hsl(var(--background)/0.75)_55%,hsl(var(--background)/0.9)_100%)] lg:bg-[linear-gradient(90deg,hsl(var(--background)/0.95)_0%,hsl(var(--background)/0.8)_45%,hsl(var(--background)/0.45)_100%)]" />
+      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-[hsl(var(--background))]" />
+    </div>
+  );
+}
+
+export default function HeroSection({ content, cards }: Props) {
+  const [activeCard, setActiveCard] = useState(0);
+
+  return (
+    <section
+      id="top"
+      aria-labelledby="hero-heading"
+      className="relative isolate scroll-mt-20 overflow-hidden px-4 pb-10 pt-7 sm:pb-14 sm:pt-10"
+    >
+      <HeroBackdrop cards={cards} active={activeCard} />
+      <FloatingDecor count={12} />
       <div className="mx-auto grid max-w-5xl grid-cols-1 items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] lg:gap-10">
         <div className="min-w-0 text-center lg:text-left">
           {content.eyebrow && (
@@ -68,7 +106,7 @@ export default function HeroSection({ content, cards }: Props) {
         </div>
 
         <div className="mx-auto w-full min-w-0 max-w-md sm:max-w-lg lg:max-w-none">
-          <HeroFeatureCarousel cards={cards} autoplaySeconds={content.autoplaySeconds} />
+          <HeroFeatureCarousel cards={cards} autoplaySeconds={content.autoplaySeconds} onSelectedChange={setActiveCard} />
         </div>
       </div>
     </section>

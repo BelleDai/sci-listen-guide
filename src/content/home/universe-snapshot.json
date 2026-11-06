@@ -1,0 +1,151 @@
+[
+  {
+    "id": "animals",
+    "name": "動物群島",
+    "emoji": "🐾",
+    "islands": [
+      {
+        "id": "rainforest",
+        "name": "雨林島",
+        "emoji": "🌴",
+        "episodes": 14
+      },
+      {
+        "id": "savanna",
+        "name": "莽原島",
+        "emoji": "🦁",
+        "episodes": 13
+      },
+      {
+        "id": "desert",
+        "name": "沙漠島",
+        "emoji": "🌵",
+        "episodes": 7
+      },
+      {
+        "id": "wetland",
+        "name": "淡水濕地島",
+        "emoji": "🐸",
+        "episodes": 5
+      },
+      {
+        "id": "zoo",
+        "name": "動物大觀園島",
+        "emoji": "🐾",
+        "episodes": 18
+      },
+      {
+        "id": "ocean",
+        "name": "深海島",
+        "emoji": "🐋",
+        "episodes": 18
+      },
+      {
+        "id": "sky",
+        "name": "天空冰原島",
+        "emoji": "🕊️",
+        "episodes": 12
+      }
+    ]
+  },
+  {
+    "id": "ancient",
+    "name": "遠古群島",
+    "emoji": "🦴",
+    "islands": [
+      {
+        "id": "dino",
+        "name": "恐龍化石島",
+        "emoji": "🦕",
+        "episodes": 10
+      },
+      {
+        "id": "human",
+        "name": "遠古人類島",
+        "emoji": "🔥",
+        "episodes": 5
+      }
+    ]
+  },
+  {
+    "id": "science",
+    "name": "科學群島",
+    "emoji": "🔬",
+    "islands": [
+      {
+        "id": "atom",
+        "name": "原子實驗島",
+        "emoji": "⚛️",
+        "episodes": 11
+      },
+      {
+        "id": "force",
+        "name": "力與能量島",
+        "emoji": "🏋️",
+        "episodes": 13
+      },
+      {
+        "id": "lightning",
+        "name": "光與電島",
+        "emoji": "⚡",
+        "episodes": 11
+      },
+      {
+        "id": "body",
+        "name": "身體樂園島",
+        "emoji": "🫀",
+        "episodes": 7
+      },
+      {
+        "id": "scientists",
+        "name": "科學家小鎮",
+        "emoji": "🍎",
+        "episodes": 6
+      }
+    ]
+  },
+  {
+    "id": "tech",
+    "name": "科技群島",
+    "emoji": "🚀",
+    "islands": [
+      {
+        "id": "city",
+        "name": "未來城市島",
+        "emoji": "🏙️",
+        "episodes": 10
+      },
+      {
+        "id": "flight",
+        "name": "飛行基地島",
+        "emoji": "✈️",
+        "episodes": 12
+      }
+    ]
+  },
+  {
+    "id": "space",
+    "name": "太空群島",
+    "emoji": "🌌",
+    "islands": [
+      {
+        "id": "moon",
+        "name": "月亮島",
+        "emoji": "🌙",
+        "episodes": 8
+      },
+      {
+        "id": "planets",
+        "name": "行星島",
+        "emoji": "🪐",
+        "episodes": 10
+      },
+      {
+        "id": "stars",
+        "name": "星星天文台島",
+        "emoji": "🔭",
+        "episodes": 9
+      }
+    ]
+  }
+]

@@ -46,7 +46,7 @@ export type HeroCard = {
   ctaLabel: string;
 };
 
-export const MAX_HERO_CARDS = 3;
+export const MAX_HERO_CARDS = 6;
 
 function parseContent<T>(schema: z.ZodType<T>, data: unknown, fileName: string): T {
   const result = schema.safeParse(data);
@@ -91,10 +91,11 @@ export function getSolarStarContent() {
 }
 
 /**
- * 依 status / sortOrder 篩選排序 Hero 卡片，並把 latest-podcast 卡片填入最新一集資料。
- * 沒有最新集數資料時，該卡片會被略過，避免出現空卡片。
+ * 依 status / sortOrder 篩選排序 Hero 卡片，並把 latest-podcast 卡片填入第 rank 新的一集。
+ * 該名次沒有集數時，卡片會被略過，避免出現空卡片。
+ * latestEpisodes 需已依日期由新到舊排序。
  */
-export function resolveHeroCards(content: HeroContent, latestEpisode?: PodcastListItem): HeroCard[] {
+export function resolveHeroCards(content: HeroContent, latestEpisodes: PodcastListItem[]): HeroCard[] {
   return byPublishedAndOrder(content.cards)
     .flatMap((card): HeroCard[] => {
       const base = {
@@ -111,6 +112,7 @@ export function resolveHeroCards(content: HeroContent, latestEpisode?: PodcastLi
         return [{ ...base, title: card.title, description: card.description }];
       }
 
+      const latestEpisode = latestEpisodes[card.rank - 1];
       if (!latestEpisode) return [];
       const episodeLabel = getPodcastEpisodeLabel(latestEpisode.title);
       const date = formatPodcastDate(latestEpisode.pubDate);

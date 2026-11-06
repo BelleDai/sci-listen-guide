@@ -129,7 +129,7 @@ export default function SolarStarSection({ title, description, moreLink, videos 
       aria-labelledby="solar-heading"
       className="section-band section-band-space relative isolate scroll-mt-20 px-4 py-10 sm:py-14"
     >
-      <FloatingDecor variant="section" iconSet="space" count={10} />
+      <FloatingDecor iconSet="space" count={10} />
       <div className="mx-auto w-full max-w-5xl">
         <div className="mb-6 flex flex-col gap-3 sm:mb-7 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl">
