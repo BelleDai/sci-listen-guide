@@ -11,9 +11,10 @@ import {
 } from "@/lib/home-content";
 import { sortPodcastEpisodesByDate } from "@/lib/podcast";
 import type { PodcastListItem } from "@/types/podcast-list";
-import FloatingDecor from "@/components/home/FloatingDecor";
 import HeroSection from "@/components/home/HeroSection";
 import PodcastSection from "@/components/home/PodcastSection";
+import UniverseSection from "@/components/home/UniverseSection";
+import { getUniverseGroups, universeLink } from "@/lib/universe";
 import InteractiveLabsSection from "@/components/home/InteractiveLabsSection";
 import SolarStarSection from "@/components/home/SolarStarSection";
 import LearningResourcesSection, {
@@ -31,6 +32,7 @@ const GAME_ORDER: EpisodeQuizGameId[] = ["colorful-balloons", "golden-coins", "t
 
 const homeNavItems: HeaderNavItem[] = [
   { label: "Podcast", href: "#podcast" },
+  { label: "宇宙群島", href: "#universe" },
   { label: "實驗室", href: "#explore" },
   { label: "Solar Star", href: "#solar" },
   { label: "學習資源", href: "#resources" },
@@ -77,15 +79,19 @@ export default async function Home() {
   );
 
   const heroContent = getHeroContent();
-  const heroCards = resolveHeroCards(heroContent, latestPodcastEpisodes[0]);
+  const heroCards = resolveHeroCards(heroContent, latestPodcastEpisodes);
   const featuredLabs = getFeaturedLabs();
   const solarStar = getSolarStarContent();
   const siteLinks = getSiteLinks();
+  const universeGroups = await getUniverseGroups();
+  const universeLinks = {
+    home: universeLink(),
+    isles: Object.fromEntries(universeGroups.flatMap((g) => g.islands.map((isle) => [isle.id, universeLink(isle.id)]))),
+  };
 
   return (
     <>
       <Header episodes={searchIndex} navItems={homeNavItems} />
-      <FloatingDecor count={20} />
       <main className="text-foreground min-h-screen">
         {/* 01｜Hero */}
         <HeroSection content={heroContent} cards={heroCards} />
@@ -97,16 +103,19 @@ export default async function Home() {
           platforms={siteLinks.podcastPlatforms}
         />
 
-        {/* 03｜互動實驗室 */}
+        {/* 03｜宇宙群島：用地圖看見所有主題 */}
+        <UniverseSection groups={universeGroups} links={universeLinks} />
+
+        {/* 04｜互動實驗室 */}
         <InteractiveLabsSection labs={featuredLabs.items} moreLink={featuredLabs.moreLink} />
 
-        {/* 04｜Solar Star */}
+        {/* 05｜Solar Star */}
         <SolarStarSection {...solarStar} />
 
-        {/* 05｜更多親子學習資源 */}
+        {/* 06｜更多親子學習資源 */}
         <LearningResourcesSection guides={resourceGuides} gameGroups={getGameGroups()} />
 
-        {/* 06｜品牌形象 */}
+        {/* 07｜品牌形象 */}
         <BrandSection content={getBrandContent()} />
       </main>
       <SiteFooter links={siteLinks} />

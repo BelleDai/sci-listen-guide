@@ -1,4 +1,6 @@
-id,source,label,title,description,image,imageAlt,emoji,href,ctaLabel,status,sortOrder
-latest-podcast,latest-podcast,最新上架,,,,,,#podcast,收聽最新一集,published,1
-solar-system-lab,manual,互動實驗室,太陽系探索室,動動手指，一起探索八大行星、自轉公轉與衛星的祕密。,/home/labs/solar-system.webp,太陽系探索室的 3D 太陽系畫面,,https://lab.kidsci.app/solar-system/,開始探索,published,2
-game-base,manual,遊戲基地,把科學變成闖關遊戲,七彩氣球、知識接接樂、尋寶獵人，邊玩邊複習 Podcast 裡的重點。,/hero-science-learning.webp,孩子在科學學習基地中聽 Podcast、閱讀科普伴讀並玩闖關遊戲,,/games,前往遊戲基地,published,3
+id,source,rank,label,title,description,image,imageAlt,emoji,href,ctaLabel,status,sortOrder
+latest-podcast-1,latest-podcast,1,最新上架,,,,,,#podcast,收聽最新一集,published,1
+universe-isles,manual,,宇宙群島,坐火箭去聽故事！,每座浮空島是一個科學主題，每位居民都是一集故事，點一下就能聽。,/home/universe/hero-card.webp,宇宙群島的好好聽島與周圍的動物大觀園島、深海島、天空冰原島,,https://play.kidsci.app/?utm_source=kidsci_home&utm_medium=referral&utm_campaign=hero_card,出發探險,published,2
+latest-podcast-2,latest-podcast,2,新故事,,,,,,#podcast,收聽這一集,published,3
+roadster-lab,manual,,互動實驗室,Roadster 超跑動力實驗室,親手改裝新一代 Roadster 的輪胎、吸地風扇與推進器，看見每個零件背後的科學。,/home/labs/tesla-roadster.webp,Roadster 沿著半圓坡道倒掛爬升的 3D 畫面,,https://lab.kidsci.app/tesla-roaster/,開始探索,published,4
+latest-podcast-3,latest-podcast,3,新故事,,,,,,#podcast,收聽這一集,published,5

@@ -133,6 +133,13 @@ export const trackLearningResourceClick = (resourceType: "guide" | "game", resou
     resource_position: position,
   });
 
+/** Called when user opens 宇宙群島 (play.kidsci.app) from the home page */
+export const trackUniverseClick = (target: string, source: string) =>
+  trackEvent("universe_click", {
+    universe_target: target, // island id, or "home" for the main entry
+    click_source: source, // "home_universe_section" | "home_footer" | ...
+  });
+
 /** Called when TTS is triggered anywhere (e.g. SpeakLine, GlossaryCard, Auto-speak) */
 export const trackTTSPlay = (contentType: string, episodeId: string) =>
   trackEvent("tts_play", {

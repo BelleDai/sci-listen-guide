@@ -22,10 +22,12 @@ const ICON_SETS = {
   space: [Rocket, Orbit, Sparkles, Telescope, Moon, Star, Satellite],
 };
 
+/**
+ * 區塊內的漂浮科學小圖示。所在區塊需有 `relative isolate`：
+ * 圖示會壓在區塊色帶之上、內容之下。
+ */
 interface Props {
   count?: number;
-  /** page：固定在整頁背景（Hero 一帶最明顯）；section：只畫在所在區塊內，壓在區塊色帶之上、內容之下 */
-  variant?: "page" | "section";
   iconSet?: keyof typeof ICON_SETS;
 }
 
@@ -44,7 +46,7 @@ interface Item {
 
 const rand = (min: number, max: number) => Math.random() * (max - min) + min;
 
-const FloatingDecor = ({ count = 18, variant = "page", iconSet = "science" }: Props) => {
+const FloatingDecor = ({ count = 18, iconSet = "science" }: Props) => {
   const [items, setItems] = useState<Item[]>([]);
 
   useEffect(() => {
@@ -67,10 +69,8 @@ const FloatingDecor = ({ count = 18, variant = "page", iconSet = "science" }: Pr
 
   if (items.length === 0) return null;
 
-  const position = variant === "section" ? "absolute" : "fixed";
-
   return (
-    <div className={`pointer-events-none ${position} inset-0 -z-10 overflow-hidden`} aria-hidden>
+    <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden" aria-hidden>
       {items.map((it, i) => {
         const { Icon } = it;
         return (

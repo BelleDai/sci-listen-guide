@@ -61,7 +61,7 @@ export default function LearningResourcesSection({ guides, gameGroups }: Props) 
       aria-labelledby="resources-heading"
       className="section-band section-band-indigo relative isolate scroll-mt-20 px-4 py-10 sm:py-14"
     >
-      <FloatingDecor variant="section" count={10} />
+      <FloatingDecor count={10} />
       <div className="mx-auto w-full max-w-5xl">
         <div className="mb-7 max-w-2xl">
           <p className="mb-2 text-xs font-bold tracking-[0.18em] text-accent/80">KEEP EXPLORING</p>
