@@ -1,7 +1,27 @@
 {
-  "updatedAt": "2026-11-05T07:41:28.714Z",
-  "count": 220,
+  "updatedAt": "2026-11-06T07:36:24.669Z",
+  "count": 222,
   "episodes": [
+    {
+      "id": "cmw3btndy0g0h01u67zdd7caw",
+      "title": "道歉啟事：科學隊長和好奇博士的正音班報告",
+      "firstoryLink": "https://open.firstory.fm/story/cmw3btndy0g0h01u67zdd7caw",
+      "pubDate": "Wed, 04 Nov 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/qJR4azVskUINtxf0Yk3uE.jpg",
+      "duration": 128,
+      "spotifyLink": "https://open.spotify.com/episode/5RTYmk7ZYO4HNrMD1B8VKa",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000800012303"
+    },
+    {
+      "id": "cmw45a3d005mg01yvdcv52ldl",
+      "title": "音效重錄版｜太陽系衝鋒號(上)：勇闖內行星的冰火世界｜EP.105",
+      "firstoryLink": "https://open.firstory.fm/story/cmw45a3d005mg01yvdcv52ldl",
+      "pubDate": "Wed, 04 Nov 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/uSsLgMjztHWyZQxbpfVNj.jpg",
+      "duration": 1073,
+      "spotifyLink": "https://open.spotify.com/episode/4RHX7Yhs70ei47UbORBFrH",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000800122414"
+    },
     {
       "id": "cmvw87vck07uz01xu84b8bcmf",
       "title": "海洋中的絕美刺客：釉彩蠟膜蝦與棘冠海星的生死鬥｜EP.254",
