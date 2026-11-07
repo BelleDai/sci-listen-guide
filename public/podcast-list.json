@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-11-06T09:34:48.674Z",
-  "count": 222,
+  "updatedAt": "2026-11-07T06:50:07.987Z",
+  "count": 223,
   "episodes": [
+    {
+      "id": "cmw4s1ml1000101po9kylccb3",
+      "title": "音效重錄版｜太陽系衝鋒號(下)：氣體巨人的奇幻國度｜EP.106",
+      "firstoryLink": "https://open.firstory.fm/story/cmw4s1ml1000101po9kylccb3",
+      "pubDate": "Thu, 05 Nov 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/uM7K8Di8aHfc0yZ2nqFBT.jpg",
+      "duration": 1130,
+      "spotifyLink": "https://open.spotify.com/episode/33Wxfa4AaroPYm8NRRVhLv",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000800313233"
+    },
     {
       "id": "cmw3btndy0g0h01u67zdd7caw",
       "title": "道歉啟事：科學隊長和好奇博士的正音班報告",
