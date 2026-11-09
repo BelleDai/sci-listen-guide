@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-11-08T06:56:47.633Z",
-  "count": 223,
+  "updatedAt": "2026-11-09T07:35:12.188Z",
+  "count": 224,
   "episodes": [
+    {
+      "id": "cmw6eibn300wa01w25r1c9o5k",
+      "title": "地球小時候是個大火球？揭開地球的成長相簿！｜EP.121",
+      "firstoryLink": "https://open.firstory.fm/story/cmw6eibn300wa01w25r1c9o5k",
+      "pubDate": "Sat, 07 Nov 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/dTYXnX84u8v2Gxf37arHJ.jpg",
+      "duration": 1109,
+      "spotifyLink": "https://open.spotify.com/episode/0ppYsxrkKu7DcwjgMQsivk",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000800628837"
+    },
     {
       "id": "cmw4s1ml1000101po9kylccb3",
       "title": "音效重錄版｜太陽系衝鋒號(下)：氣體巨人的奇幻國度｜EP.106",
