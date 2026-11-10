@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-11-09T07:35:12.188Z",
-  "count": 224,
+  "updatedAt": "2026-11-10T08:00:57.364Z",
+  "count": 225,
   "episodes": [
+    {
+      "id": "cmw6elatp011i01y9ee428gg8",
+      "title": "海洋中的毒堡壘與隱形斗篷：揭開小丑魚與海葵的終極生存密碼｜EP.255",
+      "firstoryLink": "https://open.firstory.fm/story/cmw6elatp011i01y9ee428gg8",
+      "pubDate": "Sun, 08 Nov 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/DzVV-xl9kytjANJ7s_cr9.jpg",
+      "duration": 1278,
+      "spotifyLink": "https://open.spotify.com/episode/1xiTgc3HtAqhHU40fj1kvR",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000800413445"
+    },
     {
       "id": "cmw6eibn300wa01w25r1c9o5k",
       "title": "地球小時候是個大火球？揭開地球的成長相簿！｜EP.121",
