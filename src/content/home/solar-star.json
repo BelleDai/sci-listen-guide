@@ -5,7 +5,7 @@
     "label": "到 YouTube 看更多",
     "href": "https://www.youtube.com/@tarohuangtw/shorts"
   },
-  "maxVideos": 5,
+  "maxVideos": 7,
   "videos": [
     {
       "id": "sun-gravity-ring",
@@ -41,6 +41,20 @@
       "title": "我是阿瑞斯，火星",
       "status": "published",
       "sortOrder": 5
+    },
+    {
+      "id": "jupiter",
+      "youtubeId": "GD_wcRAe1E8",
+      "title": "我是朱比特，木星",
+      "status": "published",
+      "sortOrder": 6
+    },
+    {
+      "id": "saturn",
+      "youtubeId": "ROKM031v-Yo",
+      "title": "我是薩圖娜，土星",
+      "status": "published",
+      "sortOrder": 7
     }
   ]
 }
