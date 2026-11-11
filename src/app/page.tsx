@@ -1,4 +1,6 @@
+import type { Metadata } from "next";
 import Header, { type HeaderNavItem } from "@/components/episode/Header";
+import { DEFAULT_SHARE_IMAGE, SITE_URL } from "@/lib/site";
 import { getEpisodeGameId, type EpisodeQuizGameId, type StageCategory } from "@/components/games/core/episodeQuizzes";
 import { getAllPublishedEpisodes } from "@/lib/episodes";
 import {
@@ -27,6 +29,55 @@ import podcastList from "../../public/podcast-list.json";
 import stageCategories from "../../public/stage_1_categories.json";
 
 const LATEST_PODCAST_COUNT = 5;
+
+// 只在首頁設 canonical；放在 layout 會讓每個伴讀頁都指回首頁
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
+
+/**
+ * 首頁結構化資料：品牌（Organization）、網站（WebSite）與首頁代表圖（primaryImageOfPage），
+ * 讓搜尋引擎知道該用哪張圖代表首頁。
+ */
+function buildStructuredData(sameAs: string[]) {
+  const image = new URL(DEFAULT_SHARE_IMAGE.url, SITE_URL).toString();
+  const organizationId = `${SITE_URL}/#organization`;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": organizationId,
+        name: "科學好好聽",
+        url: `${SITE_URL}/`,
+        logo: new URL("/icon.png", SITE_URL).toString(),
+        image,
+        sameAs,
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        name: "科學好好聽",
+        url: `${SITE_URL}/`,
+        inLanguage: "zh-TW",
+        publisher: { "@id": organizationId },
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${SITE_URL}/#webpage`,
+        url: `${SITE_URL}/`,
+        name: "科學好好聽",
+        isPartOf: { "@id": `${SITE_URL}/#website` },
+        primaryImageOfPage: {
+          "@type": "ImageObject",
+          url: image,
+          width: DEFAULT_SHARE_IMAGE.width,
+          height: DEFAULT_SHARE_IMAGE.height,
+        },
+      },
+    ],
+  };
+}
 
 const GAME_ORDER: EpisodeQuizGameId[] = ["colorful-balloons", "golden-coins", "treasure-hunter"];
 
@@ -83,6 +134,10 @@ export default async function Home() {
   const featuredLabs = getFeaturedLabs();
   const solarStar = getSolarStarContent();
   const siteLinks = getSiteLinks();
+  const structuredData = buildStructuredData([
+    ...siteLinks.podcastPlatforms.map((platform) => platform.href),
+    ...siteLinks.social.filter((item) => item.href.startsWith("https://")).map((item) => item.href),
+  ]);
   const universeGroups = await getUniverseGroups();
   const universeLinks = {
     home: universeLink(),
@@ -91,6 +146,11 @@ export default async function Home() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        // 轉義 < 避免內容提早結束 script 標籤
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}
+      />
       <Header episodes={searchIndex} navItems={homeNavItems} />
       <main className="text-foreground min-h-screen">
         {/* 01｜Hero */}
