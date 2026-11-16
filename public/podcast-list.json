@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-11-15T07:30:06.305Z",
-  "count": 227,
+  "updatedAt": "2026-11-16T07:35:39.852Z",
+  "count": 228,
   "episodes": [
+    {
+      "id": "cmweou6ez008r01rp2trmgic6",
+      "title": "地心探險記！揭開地球洋蔥的秘密｜EP.123",
+      "firstoryLink": "https://open.firstory.fm/story/cmweou6ez008r01rp2trmgic6",
+      "pubDate": "Sat, 14 Nov 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/hdvfpofKlSgJUJzcyXT1c.jpg",
+      "duration": 764,
+      "spotifyLink": "https://open.spotify.com/episode/5UEe6aBYzW406cyXQwhsEk",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000802133983"
+    },
     {
       "id": "cmw6ewk2d019i01w2dk6k8i0u",
       "title": "湛藍的海洋掃地機器人：揭開藍指海星的奇妙生存術｜EP.256",
