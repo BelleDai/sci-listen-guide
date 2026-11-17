@@ -1,14 +1,24 @@
 {
-  "updatedAt": "2026-11-16T07:35:39.852Z",
-  "count": 228,
+  "updatedAt": "2026-11-17T08:48:16.565Z",
+  "count": 229,
   "episodes": [
+    {
+      "id": "cmweoxavk003j01rkbqe41hnv",
+      "title": "特別節目｜一光日的距離：航海家 1 號飛了快五十年，遠到連光都要走一整天！｜SP.64",
+      "firstoryLink": "https://open.firstory.fm/story/cmweoxavk003j01rkbqe41hnv",
+      "pubDate": "Sun, 15 Nov 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/sHcxBrkNHXoslnalHw2-D.jpg",
+      "duration": 864,
+      "spotifyLink": "https://open.spotify.com/episode/4IgbVT03qDrP4cqzwxknb9",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000801686727"
+    },
     {
       "id": "cmweou6ez008r01rp2trmgic6",
       "title": "地心探險記！揭開地球洋蔥的秘密｜EP.123",
       "firstoryLink": "https://open.firstory.fm/story/cmweou6ez008r01rp2trmgic6",
       "pubDate": "Sat, 14 Nov 2026 22:00:00 GMT",
       "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/hdvfpofKlSgJUJzcyXT1c.jpg",
-      "duration": 764,
+      "duration": 741,
       "spotifyLink": "https://open.spotify.com/episode/5UEe6aBYzW406cyXQwhsEk",
       "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000802133983"
     },
