@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-11-17T08:48:16.565Z",
-  "count": 229,
+  "updatedAt": "2026-11-18T08:15:41.565Z",
+  "count": 230,
   "episodes": [
+    {
+      "id": "cmwep0kwo006l01u393q78exx",
+      "title": "地球的超級空氣衣與隱形盾牌｜EP.124",
+      "firstoryLink": "https://open.firstory.fm/story/cmwep0kwo006l01u393q78exx",
+      "pubDate": "Mon, 16 Nov 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/JnLaWqK2s2rMzDTy6Baxl.jpg",
+      "duration": 1141,
+      "spotifyLink": "https://open.spotify.com/episode/1qXP2VxxwvAw4fObP20Kfq",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000802558913"
+    },
     {
       "id": "cmweoxavk003j01rkbqe41hnv",
       "title": "特別節目｜一光日的距離：航海家 1 號飛了快五十年，遠到連光都要走一整天！｜SP.64",
