@@ -1,7 +1,17 @@
 {
-  "updatedAt": "2026-11-22T07:44:58.938Z",
-  "count": 232,
+  "updatedAt": "2026-11-23T08:33:43.990Z",
+  "count": 233,
   "episodes": [
+    {
+      "id": "cmwqhp75w02rl01s3e6nucb31",
+      "title": "用筷子夾住太空船！星艦 Starship 第一次從太空回家被接住｜VIP.37",
+      "firstoryLink": "https://open.firstory.fm/story/cmwqhp75w02rl01s3e6nucb31",
+      "pubDate": "Sat, 21 Nov 2026 22:00:00 GMT",
+      "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/VNnwKuDHDLhkZ_k8p4FuX.jpg",
+      "duration": 812,
+      "spotifyLink": "https://open.spotify.com/episode/4eZNJGS6yrJzUqxSWs5Rxq",
+      "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000803302722"
+    },
     {
       "id": "cmwr9rebh02tj01ti35redbqr",
       "title": "地球偷偷多了一顆月亮！迷你月亮十二月就要說再見｜VIP.39",
@@ -78,7 +88,7 @@
       "firstoryLink": "https://open.firstory.fm/story/cmw6elatp011i01y9ee428gg8",
       "pubDate": "Sun, 08 Nov 2026 22:00:00 GMT",
       "imageUrl": "https://image.firstory-cdn.me/Image/cmdpx4cs200ax01xldg5ta89p/DzVV-xl9kytjANJ7s_cr9.jpg",
-      "duration": 1278,
+      "duration": 1034,
       "spotifyLink": "https://open.spotify.com/episode/1xiTgc3HtAqhHU40fj1kvR",
       "applePodcastLink": "https://podcasts.apple.com/tw/podcast/id1812447277?i=1000800413445"
     },
